@@ -1,0 +1,25 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Results
+{% endblock %}
+
+{% block content %}
+
+You gave {{player.donation}} to Player 2, and kept {{player.keep}}
+{% next_button %}
+{% endblock %}
+
+
+{% block styles %}
+<style>
+.glyphicon-ok{color:green;}
+.glyphicon-remove{color:red;}
+.badge-primary {background-color:blue;}
+
+</style>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
