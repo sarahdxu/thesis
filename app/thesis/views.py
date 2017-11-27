@@ -31,35 +31,98 @@ class Introduction(Page):
 
 
 #This class sends information to the Questions.html page
-class Question(Page):
+class Dictator(Page):
     form_model = models.Player
     #form_fields = ['answer']
-    form_fields = ['donation']
+    form_fields = ['dictator_donation']
 
 
 
     def vars_for_template(self):
         
-        return {'x': 'Your Decision'}
+        return {'x': 'Dictator Game'}
+
+class GeneralizedDictator(Page):
+    form_model = models.Player
+    #form_fields = ['answer']
+    form_fields = ['generalized_dictator_donation']
 
 
+
+    def vars_for_template(self):
+        
+        return {'x': 'Generalized Dictator Game'}
+
+
+class Ultimatum1(Page):
+    form_model = models.Player
+    #form_fields = ['answer']
+    form_fields = ['ultimatum1_donation']
+
+
+
+    def vars_for_template(self):
+        
+        return {'x': 'Ultimatum Game 1'}
+
+class Trust1(Page):
+    form_model = models.Player
+    #form_fields = ['answer']
+    form_fields = ['trust1_donation']
+
+
+
+    def vars_for_template(self):
+        
+        return {'x': 'Trust Game 1'}
+
+
+class PublicGoods(Page):
+    form_model = models.Player
+    form_fields = ['public_donation']
+
+    def vars_for_template(self):
+        return {'x': 'Public Goods Game'}
         
 
 #This class sends information to Results.html
-class Results(Page):
+class DictatorResults(Page):
 
 
     def vars_for_template(self):
-        self.player.keep()
+        self.player.dictator_keep()
         
-        return {'keep': self.player.keep,}
+        return {'keep': self.player.dictator_keep,}
+
+class GeneralizedDictatorResults(Page):
+
+
+    def vars_for_template(self):
+        self.player.generalized_dictator()
+        
+        return {'keep': self.player.generalized_dictator_keep,
+                'give': self.player.generalized_dictator_give,
+                'donate': self.player.generalized_dictator_donation}
+
+
+# class Ultimatum1Results(Page):
+
+#     def vars_for_template(self):
+#         self.player.ultimatum1()
+#         return{'keep': self.player.ultimatum1_keep}
 
 page_sequence = [
     Introduction,
-    Question,
+    Dictator,
+    DictatorResults,
+    GeneralizedDictator,
+    GeneralizedDictatorResults,
+    Ultimatum1,
+    Trust1,
+    PublicGoods,
     # ResultsWaitPage,
     # Information_Earnings,
     # Information_Wage,
-    Results,
+
 
 ]

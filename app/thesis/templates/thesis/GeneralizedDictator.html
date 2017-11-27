@@ -1,0 +1,25 @@
+{% extends "global/Base.html" %}
+
+
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{{x}}
+  
+{% endblock %}
+
+
+{% block content %}
+<p>
+Please decide how much of the {{player.endowment}} you will give the other player. This amount will be multiplied by 2.
+</p>
+
+{% formfield player.generalized_dictator_donation %}
+
+{% next_button %}
+
+
+
+
+{% endblock %}
+

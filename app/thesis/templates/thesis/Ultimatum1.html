@@ -1,0 +1,25 @@
+{% extends "global/Base.html" %}
+
+
+{% load staticfiles otree_tags %}
+
+{% block title %}
+	{{x}}
+  
+{% endblock %}
+
+
+{% block content %}
+<p>
+Please decide how much of the {{player.endowment}} you will give to Player 2. If Player 2 rejects this amount, you will both receive nothing.
+</p>
+
+{% formfield player.ultimatum1_donation %}
+
+{% next_button %}
+
+
+
+
+{% endblock %}
+
