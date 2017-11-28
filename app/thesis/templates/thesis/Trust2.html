@@ -14,19 +14,11 @@
 
 	<table class="table">
 		<tr>
-			<th>Given Amount</th><th>Multiplied Amount<th>Amount Give Back</th>
+			<th>Below are all possible multiplied amounts that Player 1 could give to you. For each amount, please state how much money you would like to send back to Player 1. </th>
 		</tr>
-		{% for choice_number in choice_numbers %}
+		{% for field in form %}
 		<tr>
-
-
-
-			<td> ${{ choice_number }} </td>
-
-			<td> {{ multiplied[choice_number] }} </td>
-			<td><input type="text" name="choice{{ choice_number }}"> </td>
-
-
+			<td>{% formfield field %}</td>
 
 		</tr>
 		{% endfor %}

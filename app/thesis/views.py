@@ -114,7 +114,7 @@ class Ultimatum2(Page):
 
 class Trust2(Page):
     form_model=models.Player
-    form_fields = ['trustchoice{}'.format(i) for i in range(0, Constants.num_rows)]
+    form_fields = ['trustchoice{}'.format(i) for i in range(0, Constants.number_rows)]
 
     
 
@@ -125,6 +125,13 @@ class Trust2(Page):
         return{'x': 'Trust Game 2',
                 'choice_numbers': range(0, Constants.num_rows),
                 'multiplied': hi}
+
+class SRA(Page):
+    form_model = models.Player
+    form_fields = ['choice{}'.format(i) for i in range(0, Constants.n_rows)]
+
+    def vars_for_template(self):
+        return{'x': 'SRA'}
         
 
 #This class sends information to Results.html
@@ -162,8 +169,9 @@ page_sequence = [
     # Ultimatum1,
     # Trust1,
     # PublicGoods,
-    Ultimatum2,
+    # Ultimatum2,
     Trust2,
+    SRA,
 
     # ResultsWaitPage,
     # Information_Earnings,
