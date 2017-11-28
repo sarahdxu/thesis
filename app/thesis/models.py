@@ -22,6 +22,7 @@ class Constants(BaseConstants):
     name_in_url = 'thesis'
     players_per_group = None
     num_rounds=1
+    num_rows=11
     
     endowment = c(10)
     
@@ -56,6 +57,37 @@ class Player(BasePlayer):
     trust1_donation = models.CurrencyField()
     trust1_keep = models.CurrencyField()
     public_donation = models.CurrencyField()
+
+    #strategy method
+    ultchoice0 = models.BooleanField()
+    ultchoice1 = models.BooleanField()
+    ultchoice2 = models.BooleanField()
+    ultchoice3 = models.BooleanField()
+    ultchoice4 = models.BooleanField()
+    ultchoice5 = models.BooleanField()
+    ultchoice6 = models.BooleanField()
+    ultchoice7 = models.BooleanField()
+    ultchoice8 = models.BooleanField()
+    ultchoice9 = models.BooleanField()
+    ultchoice10 = models.BooleanField()
+
+    ult_amount = models.IntegerField()
+
+    trustchoice0 = models.IntegerField()
+    trustchoice1 = models.IntegerField()
+    trustchoice2 = models.IntegerField()
+    trustchoice3 = models.IntegerField()
+    trustchoice4 = models.IntegerField()
+    trustchoice5 = models.IntegerField()
+    trustchoice6 = models.IntegerField()
+    trustchoice7 = models.IntegerField()
+    trustchoice8 = models.IntegerField()
+    trustchoice9 = models.IntegerField()
+    trustchoice10 = models.IntegerField()
+
+
+
+
 
 
 

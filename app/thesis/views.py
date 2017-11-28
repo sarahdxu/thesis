@@ -83,6 +83,48 @@ class PublicGoods(Page):
 
     def vars_for_template(self):
         return {'x': 'Public Goods Game'}
+
+
+class Ultimatum2(Page):
+    form_model = models.Player
+    form_fields = ['ultchoice{}'.format(i) for i in range(0, Constants.num_rows)]
+    #Need to figure out how to make this currency and not just numbers.
+    #In HTML page, I put in $ sign before, but need to be currency - ok for showing purposes right now
+
+    # def before_next_page(self):
+    #     # find normalized payoff
+    #     self.session.vars['ult_amount'] = [self.player.ultchoice0,
+    #                                         self.player.ultchoice1,
+    #                                         self.player.ultchoice2,
+    #                                         self.player.ultchoice3,
+    #                                         self.player.ultchoice4,
+    #                                         self.player.ultchoice5,
+    #                                         self.player.ultchoice6,
+    #                                         self.player.ultchoice7,
+    #                                         self.player.ultchoice8,
+    #                                         self.player.ultchoice9,
+    #                                         self.player.ultchoice10].index(False)
+
+
+    def vars_for_template(self):
+        return {'x': 'Ultimatum Game 2',
+                'choice_numbers': range(0, Constants.num_rows)
+                }
+
+
+class Trust2(Page):
+    form_model=models.Player
+    form_fields = ['trustchoice{}'.format(i) for i in range(0, Constants.num_rows)]
+
+    
+
+    def vars_for_template(self):
+        hi=[]
+        for i in range(0,Constants.num_rows):
+            hi.append(3*i)
+        return{'x': 'Trust Game 2',
+                'choice_numbers': range(0, Constants.num_rows),
+                'multiplied': hi}
         
 
 #This class sends information to Results.html
@@ -112,14 +154,17 @@ class GeneralizedDictatorResults(Page):
 #         return{'keep': self.player.ultimatum1_keep}
 
 page_sequence = [
-    Introduction,
-    Dictator,
-    DictatorResults,
-    GeneralizedDictator,
-    GeneralizedDictatorResults,
-    Ultimatum1,
-    Trust1,
-    PublicGoods,
+    # Introduction,
+    # Dictator,
+    # DictatorResults,
+    # GeneralizedDictator,
+    # GeneralizedDictatorResults,
+    # Ultimatum1,
+    # Trust1,
+    # PublicGoods,
+    Ultimatum2,
+    Trust2,
+
     # ResultsWaitPage,
     # Information_Earnings,
     # Information_Wage,
