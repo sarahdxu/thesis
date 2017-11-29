@@ -161,15 +161,15 @@ class GeneralizedDictatorResults(Page):
 #         return{'keep': self.player.ultimatum1_keep}
 
 page_sequence = [
-    # Introduction,
-    # Dictator,
-    # DictatorResults,
-    # GeneralizedDictator,
-    # GeneralizedDictatorResults,
-    # Ultimatum1,
-    # Trust1,
-    # PublicGoods,
-    # Ultimatum2,
+    Introduction,
+    Dictator,
+    DictatorResults,
+    GeneralizedDictator,
+    GeneralizedDictatorResults,
+    Ultimatum1,
+    Trust1,
+    PublicGoods,
+    Ultimatum2,
     Trust2,
     SRA,
 
