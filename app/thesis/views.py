@@ -20,6 +20,12 @@ class Games_Introduction(Page):
 
     def vars_for_template(self):
         self.player.endowment = Constants.endowment
+        self.player.endowment100 = Constants.endowment100
+        self.player.endowment80 = Constants.endowment80
+        self.player.endowment75=Constants.endowment75
+        self.player.endowment60=Constants.endowment60
+        self.player.endowment40=Constants.endowment40
+
         return {'endowment': self.player.endowment}
 
     def is_displayed(self):
@@ -50,8 +56,7 @@ class Dictator(Page):
 class GeneralizedDictator(Page):
     form_model = models.Player
     #form_fields = ['answer']
-    form_fields = ['generalized_dictator_donation']
-
+    form_fields = ['gendictator{}'.format(i) for i in range(0, Constants.number_rows)]
 
 
     def vars_for_template(self):

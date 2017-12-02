@@ -10,11 +10,18 @@
 
 
 {% block content %}
-<p>
-Please decide how much of the {{player.endowment}} you will give the other player. This amount will be multiplied by 2.
-</p>
 
-{% formfield player.generalized_dictator_donation %}
+
+<table class="table">
+		
+		{% for field in form %}
+		<tr>
+			<td>{% formfield field %}</td>
+
+		</tr>
+		{% endfor %}
+		</table>
+
 
 {% next_button %}
 

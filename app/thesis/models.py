@@ -27,6 +27,12 @@ class Constants(BaseConstants):
     number_rows=11
     
     endowment = c(10)
+    endowment75 = c(75)
+    endowment40=c(40)
+    endowment60=c(60)
+    endowment100=c(100)
+    endowment80=c(80)
+
     
 
 
@@ -49,6 +55,11 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     endowment = models.CurrencyField()
+    endowment80 = models.CurrencyField()
+    endowment100 = models.CurrencyField()
+    endowment60=models.CurrencyField()
+    endowment40=models.CurrencyField()
+    endowment75=models.CurrencyField()
     dictator_donation = models.CurrencyField(min=0, max=10)
     generalized_dictator_donation = models.CurrencyField()
     dictator_keep = models.CurrencyField()
@@ -61,6 +72,19 @@ class Player(BasePlayer):
     public_donation = models.CurrencyField(min=0, max=10)
 
     #strategy method
+    gendictator0 = models.CurrencyField(verbose_name='Divide 75 points: Hold @ $0.10 each, Pass @ $0.20 each. How many points do you want to pass to other player?')
+    gendictator1 = models.CurrencyField(verbose_name='Divide 40 points: Hold @ $0.10 each, Pass @ $0.30 each. How many points do you want to pass to other player?')
+    gendictator2 = models.CurrencyField(verbose_name='Divide 74 points: Hold @ $0.20 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
+    gendictator3 = models.CurrencyField(verbose_name='Divide 60 points: Hold @ $0.10 each, Pass @ $0.20 each. How many points do you want to pass to other player?')
+    gendictator4 = models.CurrencyField(verbose_name='Divide 40 points: Hold @ $0.30 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
+    gendictator5 = models.CurrencyField(verbose_name='Divide 60 points: Hold @ $0.10 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
+    gendictator6 = models.CurrencyField(verbose_name='Divide 100 points: Hold @ $0.10 each, Pass @ $0.20 each. How many points do you want to pass to other player?')
+    gendictator7 = models.CurrencyField(verbose_name='Divide 60 points: Hold @ $0.20 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
+    gendictator8 = models.CurrencyField(verbose_name='Divide 80 points: Hold @ $0.10 each, Pass @ $0.20 each. How many points do you want to pass to other player?')
+    gendictator9 = models.CurrencyField(verbose_name='Divide 40 points: Hold @ $0.40 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
+    gendictator10 = models.CurrencyField(verbose_name='Divide 40 points: Hold @ $0.10 each, Pass @ $0.40 each. How many points do you want to pass to other player?')
+
+
     ultchoice0 = models.BooleanField()
     ultchoice1 = models.BooleanField()
     ultchoice2 = models.BooleanField()
