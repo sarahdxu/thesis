@@ -11,21 +11,26 @@
 
 {% block content %}
 	
+<p> You are <strong>Player 2</strong> (the responder).
+<br><br>Player 1 (the proposer) was endowed with {{player.endowment}}, and can choose to give you a portion. Whatever amount Player 1 donates, you will receive three times that amount. You can also choose to return some of the money back to Player 1.
+<br><br>For each possible amount that Player 1 can give to you, please state how much money you would like to send back to Player 1.
+<br><br>
+</p>
 
 	<table class="table">
-		<tr>
-			<th>Below are all possible multiplied amounts that Player 1 could give to you. For each amount, please state how much money you would like to send back to Player 1. </th>
-		</tr>
+		
 		{% for field in form %}
 		<tr>
 			<td>{% formfield field %}</td>
 
 		</tr>
 		{% endfor %}
+		</table>
 
 
-	</table>
 
+
+	
 {% next_button %}
 
 

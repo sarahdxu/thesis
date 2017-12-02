@@ -1,0 +1,24 @@
+
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+{% load staticfiles %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+<!-- Game prompt -->
+
+
+ <p>
+ You will play seven games. One game will be picked randomly, and you will receive payment for that game. All games are in experiment currency units (ECU). 10 ECU = $1.
+ </p>
+
+    {% next_button %}
+
+{% endblock %}

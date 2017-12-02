@@ -14,7 +14,7 @@ import json
 
 
 
-class Introduction(Page):
+class Games_Introduction(Page):
     # form_fields=['contribution']
     """Description of the game: How to play and returns expected"""
 
@@ -28,6 +28,11 @@ class Introduction(Page):
     # def vars_for_template(self):
     #     x = self.player.contribution
     #     return {'x': x}
+
+class SRA_Introduction(Page):
+
+    def vars_for_template(self):
+        return {'hi': 'hi'}
 
 
 #This class sends information to the Questions.html page
@@ -114,7 +119,7 @@ class Ultimatum2(Page):
 
 class Trust2(Page):
     form_model=models.Player
-    form_fields = ['trustchoice{}'.format(i) for i in range(0, Constants.number_rows)]
+    form_fields = ['trustchoice{}'.format(i) for i in range(1, Constants.number_rows)]
 
     
 
@@ -123,7 +128,7 @@ class Trust2(Page):
         for i in range(0,Constants.num_rows):
             hi.append(3*i)
         return{'x': 'Trust Game 2',
-                'choice_numbers': range(0, Constants.num_rows),
+                'choice_numbers': range(1, Constants.number_rows),
                 'multiplied': hi}
 
 class SRA(Page):
@@ -161,16 +166,17 @@ class GeneralizedDictatorResults(Page):
 #         return{'keep': self.player.ultimatum1_keep}
 
 page_sequence = [
-    Introduction,
+    Games_Introduction,
     Dictator,
-    DictatorResults,
+    # DictatorResults,
     GeneralizedDictator,
-    GeneralizedDictatorResults,
+    # GeneralizedDictatorResults,
     Ultimatum1,
     Trust1,
     PublicGoods,
     Ultimatum2,
     Trust2,
+    SRA_Introduction,
     SRA,
 
     # ResultsWaitPage,

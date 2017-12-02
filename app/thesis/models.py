@@ -24,7 +24,7 @@ class Constants(BaseConstants):
     num_rounds=1
     num_rows=11
     n_rows=20
-    number_rows=10
+    number_rows=11
     
     endowment = c(10)
     
@@ -49,16 +49,16 @@ class Group(BaseGroup):
 class Player(BasePlayer):
 
     endowment = models.CurrencyField()
-    dictator_donation = models.CurrencyField()
+    dictator_donation = models.CurrencyField(min=0, max=10)
     generalized_dictator_donation = models.CurrencyField()
     dictator_keep = models.CurrencyField()
     generalized_dictator_keep = models.CurrencyField()
     generalized_dictator_give = models.CurrencyField()
-    ultimatum1_donation=models.CurrencyField()
+    ultimatum1_donation=models.CurrencyField(min=0, max=10)
     ultimatum1_keep = models.CurrencyField()
-    trust1_donation = models.CurrencyField()
+    trust1_donation = models.CurrencyField(min=0, max=10)
     trust1_keep = models.CurrencyField()
-    public_donation = models.CurrencyField()
+    public_donation = models.CurrencyField(min=0, max=10)
 
     #strategy method
     ultchoice0 = models.BooleanField()
@@ -75,57 +75,211 @@ class Player(BasePlayer):
 
     ult_amount = models.IntegerField()
 
-    trustchoice0 = models.IntegerField(verbose_name='Donated amount: $1 -> Multiplied amount: $3', min=0, max=3)
-    trustchoice1 = models.IntegerField(verbose_name='Donated amount: $2 -> Multiplied amount: $6', min=0, max=6)
-    trustchoice2 = models.IntegerField(verbose_name='Donated amount: $3 -> Multiplied amount: $9', min=0, max=9)
-    trustchoice3 = models.IntegerField(verbose_name='Donated amount: $4 -> Multiplied amount: $12', min=0, max=12)
-    trustchoice4 = models.IntegerField(verbose_name='Donated amount: $5 -> Multiplied amount: $15', min=0, max=15)
-    trustchoice5 = models.IntegerField(verbose_name='Donated amount: $6 -> Multiplied amount: $18', min=0, max=18)
-    trustchoice6 = models.IntegerField(verbose_name='Donated amount: $7 -> Multiplied amount: $21', min=0, max=21)
-    trustchoice7 = models.IntegerField(verbose_name='Donated amount: $8 -> Multiplied amount: $24', min=0, max=24)
-    trustchoice8 = models.IntegerField(verbose_name='Donated amount: $9 -> Multiplied amount: $27', min=0, max=27)
-    trustchoice9 = models.IntegerField(verbose_name='Donated amount: $10 -> Multiplied amount: $30', min=0, max=30)
-    trustchoice10 = models.IntegerField()
+    trustchoice1 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 1 point, i.e. you received 3 points?', min=0, max=3)
+    trustchoice2 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 2 points, i.e. you received 6 points?', min=0, max=6)
+    trustchoice3 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 3 points, i.e. you received 9 points?', min=0, max=9)
+    trustchoice4 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 4 points, i.e. you received 12 points?', min=0, max=12)
+    trustchoice5 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 5 points, i.e. you received 15 points?', min=0, max=15)
+    trustchoice6 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 6 points, i.e. you received 18 points?', min=0, max=18)
+    trustchoice7 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 7 points, i.e. you received 21 points?', min=0, max=21)
+    trustchoice8 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 8 points, i.e. you received 24 points?', min=0, max=24)
+    trustchoice9 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 9 points, i.e. you received 27 points?', min=0, max=27)
+    trustchoice10 = models.IntegerField(verbose_name='How much would you give back to Player 1 if they gave you 10 points, i.e. you received 30 points)?', min=0, max=30)
+    # trustchoice10 = models.IntegerField()
 
-    choice0 = models.BooleanField(verbose_name='I have signed an online petition / shared a cause on social media', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+    choice0 = models.PositiveIntegerField(verbose_name='I have allowed someone to go ahead of me in line',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice1 = models.BooleanField(verbose_name='I have given directions to a stranger', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice1 = models.PositiveIntegerField(verbose_name='I have given directions to a stranger',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice2 = models.BooleanField(verbose_name='I have gone out of my way to meet with someone to help them with a task (e.g. help proofread their paper, listen to their presentation, etc)', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+    choice2 = models.PositiveIntegerField(verbose_name='I have gone out of my way to meet with someone to help them with a task (e.g. help proofread their paper, listen to their presentation, etc)',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice3 = models.BooleanField(verbose_name='I have donated money at the cash register when buying groceries', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice3 = models.PositiveIntegerField(verbose_name='I have donated money at the cash register when buying groceries',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice4 = models.BooleanField(verbose_name='I have given money to a stranger (or an acquaintance I don’t know too well) in need', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice4 = models.PositiveIntegerField(verbose_name='I have given money to a stranger (or an acquaintance I don’t know too well) in need',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice5 = models.BooleanField(verbose_name='I have donated instead of sold my clothes/used items', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice5 = models.PositiveIntegerField(verbose_name='I have donated instead of sold my clothes/used items',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice6 = models.BooleanField(verbose_name='I have donated to a charity', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice6 = models.PositiveIntegerField(verbose_name='I have donated to a charity',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice7 = models.BooleanField(verbose_name='I have donated blood', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice7 = models.PositiveIntegerField(verbose_name='I have donated blood',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice8 = models.BooleanField(verbose_name='I have done volunteer work for a charity/organization', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice8 = models.PositiveIntegerField(verbose_name='I have done volunteer work for a charity/organization',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice9 = models.BooleanField(verbose_name='I have delayed an elevator/held door open for stranger(s)', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice9 = models.PositiveIntegerField(verbose_name='I have delayed an elevator/held door open for stranger(s)',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice10 = models.BooleanField(verbose_name='I have allowed someone to go ahead of me in line', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+    choice10 = models.PositiveIntegerField(verbose_name='I have signed an online petition / shared a cause on social media',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice11 = models.BooleanField(verbose_name='I have lent an acquaintance that I don’t know too well with something of value to me (clothes, tools, etc)', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice11 = models.PositiveIntegerField(verbose_name='I have lent an acquaintance that I don’t know too well with something of value to me (clothes, tools, etc)',
+                                        choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice12 = models.BooleanField(verbose_name='I have pointed out a clerk’s error (at a supermarket, restaurant) in undercharging me', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice12 = models.PositiveIntegerField(verbose_name='I have pointed out a clerk’s error (at a supermarket, restaurant) in undercharging me',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice13 = models.BooleanField(verbose_name='I have let an acquaintance that I don’t know too well stay at my place', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice13 = models.PositiveIntegerField(verbose_name='I have let an acquaintance that I don’t know too well stay at my place',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice14 = models.BooleanField(verbose_name='I have donated money/coins into Salvation army bell-ringers', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+    choice14 = models.PositiveIntegerField(verbose_name='I have donated money/coins into Salvation army bell-ringers',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice15 = models.BooleanField(verbose_name='I have helped a classmate who I did not know that well with a homework assignment when my knowledge was greater than his/hers', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice15 = models.PositiveIntegerField(verbose_name='I have helped a classmate who I did not know that well with a homework assignment when my knowledge was greater than his/hers',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice16 = models.BooleanField(verbose_name='I have offered to give a ride to someone without asking to be paid for it', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice16 = models.PositiveIntegerField(verbose_name='I have offered to give a ride to someone without asking to be paid for it',
+                                        choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice17 = models.BooleanField(verbose_name='I have helped carry a stranger’s belongings (e.g. groceries)', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+
+    choice17 = models.PositiveIntegerField(verbose_name='I have helped carry a stranger’s belongings (e.g. groceries)',
+                                        choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice18 = models.BooleanField(verbose_name='I have offered my seat on a bus/train to a stranger who was standing', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+    choice18 = models.PositiveIntegerField(verbose_name='I have offered my seat on a bus/train to a stranger who was standing',
+                                        choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
-    choice19 = models.BooleanField(verbose_name='I have helped an acquaintance with moving in/ moving out of their dorm/apartment/house', choices=['Never', 'Once', 'More than once', 'Often', 'Very often'],
+    choice19 = models.PositiveIntegerField(verbose_name='I have helped an acquaintance with moving in/ moving out of their dorm/apartment/house',
+                                            choices=[
+                                                [1, 'Never'],
+                                                [2, 'Once'],
+                                                [3, 'More than once'],
+                                                [4, 'Often'],
+                                                [5, 'Very often'],
+                                                ],
                                     widget = widgets.RadioSelect)
 
 
