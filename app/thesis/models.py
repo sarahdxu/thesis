@@ -74,7 +74,7 @@ class Player(BasePlayer):
     #strategy method
     gendictator0 = models.CurrencyField(verbose_name='Divide 75 points: Hold @ $0.10 each, Pass @ $0.20 each. How many points do you want to pass to other player?')
     gendictator1 = models.CurrencyField(verbose_name='Divide 40 points: Hold @ $0.10 each, Pass @ $0.30 each. How many points do you want to pass to other player?')
-    gendictator2 = models.CurrencyField(verbose_name='Divide 74 points: Hold @ $0.20 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
+    gendictator2 = models.CurrencyField(verbose_name='Divide 75 points: Hold @ $0.20 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
     gendictator3 = models.CurrencyField(verbose_name='Divide 60 points: Hold @ $0.10 each, Pass @ $0.20 each. How many points do you want to pass to other player?')
     gendictator4 = models.CurrencyField(verbose_name='Divide 40 points: Hold @ $0.30 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
     gendictator5 = models.CurrencyField(verbose_name='Divide 60 points: Hold @ $0.10 each, Pass @ $0.10 each. How many points do you want to pass to other player?')
@@ -305,6 +305,10 @@ class Player(BasePlayer):
                                                 [5, 'Very often'],
                                                 ],
                                     widget = widgets.RadioSelect)
+
+
+    paypal = models.CharField(verbose_name='PayPal email')
+    email = models.CharField(verbose_name='Wesleyan email')
 
 
 

@@ -14,9 +14,11 @@ import json
 
 
 
-class Games_Introduction(Page):
+class Introduction(Page):
     # form_fields=['contribution']
+    form_model = models.Player
     """Description of the game: How to play and returns expected"""
+    form_fields=['paypal', 'email']
 
     def vars_for_template(self):
         self.player.endowment = Constants.endowment
@@ -171,7 +173,7 @@ class GeneralizedDictatorResults(Page):
 #         return{'keep': self.player.ultimatum1_keep}
 
 page_sequence = [
-    Games_Introduction,
+    Introduction,
     Dictator,
     # DictatorResults,
     GeneralizedDictator,
@@ -181,7 +183,6 @@ page_sequence = [
     PublicGoods,
     Ultimatum2,
     Trust2,
-    SRA_Introduction,
     SRA,
 
     # ResultsWaitPage,
