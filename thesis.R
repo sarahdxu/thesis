@@ -170,7 +170,7 @@ trustlong$y<-as.numeric(trustlong$y)
 trustlong$reciprocity<-0
 i<-1
 j<-10
-while (j<3961)
+while (j<3971)
 {
   temp = trustlong[i:j,]
   model = lm(temp$y~temp$x)
@@ -185,7 +185,7 @@ data <- merge( trustlong,data, by="ID")
 colnames(data)[2]<-"TG2"
 
 #Remove entries where they accept and then reject -- doesn't make sense
-i<-396
+i<-397
 while (i>0){
   j<-41
   k<-42
@@ -203,7 +203,7 @@ while (i>0){
 #UG2 as minimum pass rate player chooses to accept
 i<-1
 data$UG2<-0
-while (i<343){
+while (i<344){
   j<-41
   while (j<52){
     if (data[i,j] == 'Accept' & data[i,68]==0){
@@ -219,24 +219,28 @@ while (i<343){
 
 #General Dictator game
 #pi_s, pi_o, p, m
-data$pgendict1 <- 0.5
-data$pgendict2 <- 1/3
-data$pgendict3 <- 2
-data$pgendict4 <- 0.5
-data$pgendict5 <- 3
-data$pgendict6 <- 1
-data$pgendict7 <- 2
-data$pgendict8 <- 4
-data$pgendict9 <- .25
-data$mgendict1 <- 15
-data$mgendict2 <- 10
-data$mgendict3 <- 15
-data$mgendict4 <- 12
-data$mgendict5 <- 10
-data$mgendict6 <- 15
-data$mgendict7 <- 12
-data$mgendict8 <- 10
-data$mgendict9 <- 10
+
+data$p1 <- 1/2
+data$p2 <- 1/3
+data$p3 <- 2
+data$p4 <- 1/2
+data$p5 <- 3
+data$p6 <- 1
+data$p7 <- 2
+data$p8 <- 4
+data$p9 <- 1/4
+data$m1 <- 15
+data$m2 <- 10
+data$m3 <- 15
+data$m4 <- 12
+data$m5 <- 10
+data$m6 <- 15
+data$m7 <- 12
+data$m8 <- 10
+data$m9 <- 10
+
+
+
 data$gendict1<-as.numeric(data$gendict1)
 data$gendict2<-as.numeric(data$gendict2)
 data$gendict3<-as.numeric(data$gendict3)
@@ -246,27 +250,111 @@ data$gendict6<-as.numeric(data$gendict6)
 data$gendict7<-as.numeric(data$gendict7)
 data$gendict8<-as.numeric(data$gendict8)
 data$gendict9<-as.numeric(data$gendict9)
-data$sgendict1 <- data$mgendict1-data$gendict1
-data$sgendict2 <- data$mgendict2-data$gendict2
-data$sgendict3 <- data$mgendict3-data$gendict3
-data$sgendict4 <- data$mgendict4-data$gendict4
-data$sgendict5 <- data$mgendict5-data$gendict5
-data$sgendict6 <- data$mgendict6-data$gendict6
-data$sgendict7 <- data$mgendict7-data$gendict7
-data$sgendict8 <- data$mgendict8-data$gendict8
-data$sgendict9 <- data$mgendict9-data$gendict9
-data$ogendict1 <- data$gendict1/data$pgendict1
-data$ogendict2 <- data$gendict2/data$pgendict2
-data$ogendict3 <- data$gendict3/data$pgendict3
-data$ogendict4 <- data$gendict4/data$pgendict4
-data$ogendict5 <- data$gendict5/data$pgendict5
-data$ogendict6 <- data$gendict6/data$pgendict6
-data$ogendict7 <- data$gendict7/data$pgendict7
-data$ogendict8 <- data$gendict8/data$pgendict8
-data$ogendict9 <- data$gendict9/data$pgendict9
+
+
+
+
+data$pi_s1 <- data$m1-data$gendict1
+data$pi_s2 <- data$m2-data$gendict2
+data$pi_s3 <- data$m3-data$gendict3
+data$pi_s4 <- data$m4-data$gendict4
+data$pi_s5 <- data$m5-data$gendict5
+data$pi_s6 <- data$m6-data$gendict6
+data$pi_s7 <- data$m7-data$gendict7
+data$pi_s8 <- data$m8-data$gendict8
+data$pi_s9 <- data$m9-data$gendict9
+data$pi_o1 <- data$gendict1/data$p1
+data$pi_o2 <- data$gendict2/data$p2
+data$pi_o3 <- data$gendict3/data$p3
+data$pi_o4 <- data$gendict4/data$p4
+data$pi_o5 <- data$gendict5/data$p5
+data$pi_o6 <- data$gendict6/data$p6
+data$pi_o7 <- data$gendict7/data$p7
+data$pi_o8 <- data$gendict8/data$p8
+data$pi_o9 <- data$gendict9/data$p9
 
 
 data <- data[-c(3:10, 15:19)]
+
+data$Y1 <- data$pi_s1/data$pi_o1
+data$Y2 <- data$pi_s2/data$pi_o2
+data$Y3 <- data$pi_s3/data$pi_o3
+data$Y4 <- data$pi_s4/data$pi_o4
+data$Y5 <- data$pi_s5/data$pi_o5
+data$Y6 <- data$pi_s6/data$pi_o6
+data$Y7 <- data$pi_s7/data$pi_o7
+data$Y8 <- data$pi_s8/data$pi_o8
+data$Y9 <- data$pi_s9/data$pi_o9
+
+data$Y1 <- log(data$Y1)
+data$Y2 <- log(data$Y2)
+data$Y3 <- log(data$Y3)
+data$Y4 <- log(data$Y4)
+data$Y5 <- log(data$Y5)
+data$Y6 <- log(data$Y6)
+data$Y7 <- log(data$Y7)
+data$Y8 <- log(data$Y8)
+data$Y9 <- log(data$Y9)
+
+data$X1 <- log(1/data$p1)
+data$X2 <- log(1/data$p2)
+data$X3 <- log(1/data$p3)
+data$X4 <- log(1/data$p4)
+data$X5 <- log(1/data$p5)
+data$X6 <- log(1/data$p6)
+data$X7 <- log(1/data$p7)
+data$X8 <- log(1/data$p8)
+data$X9 <- log(1/data$p9)
+
+
+gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
+                     "X5", "Y5", "X6", "Y6", "X7", "Y7", "X8","Y8","X9", "Y9")]
+names(gendictlong)<-c("ID", "g1.x", "g1.y", "g2.x", "g2.y", "g3.x", "g3.y", "g4.x", "g4.y", 
+                      "g5.x", "g5.y", "g6.x", "g6.y", "g7.x", "g7.y", "g8.x", "g8.y", 
+                      "g9.x", "g9.y")
+long<- gendictlong %>% 
+  gather(v, value, g1.x:g9.y) %>% 
+  separate(v, c("var", "col")) %>% 
+  arrange(ID) %>% 
+  spread(col, value)
+long<-long[is.na(long$y)==FALSE,]
+long<-long[long$y!=Inf,]
+long<-long[long$y!=-Inf,]
+
+
+
+long$beta0<-0
+long$beta1<-0
+
+for (i in long$ID){
+  temp<-long[long$ID==i,]
+  model <- lm(temp$y~temp$x)
+  long$beta0[long$ID==i]<-model$coefficients[1]
+  long$beta1[long$ID==i]<-model$coefficients[2]
+}
+
+long<-long[,c("ID", "beta0", "beta1")]
+long<-unique(long)
+long$rho<-(1+long$beta1)/long$beta1
+long$alpha<-1/(exp(-(long$beta0)*(long$rho-1))+1)
+
+data1<-merge(long, data, by="ID")
+
+data<-data1[,c("ID", "ResponseId", "rho", "alpha", "UG1", "UG2", "TG1", "TG2", "PGG")]
+
+
+
+#donations dataset
+donations = read.csv("donations.csv", stringsAsFactors=FALSE)
+
+
+donations <- donations[-c(11:18, 20:67)]
+
+data <- merge( data,donations, by="ResponseId")
+
+
+
+
 
 #match players to get winner
 match <- data[,c("ResponseId", 
