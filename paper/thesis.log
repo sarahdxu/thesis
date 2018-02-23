@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  15 DEC 2017 15:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  22 FEB 2018 23:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -220,140 +220,140 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
  [4] [5]
-[6] [7] [8]
-Underfull \hbox (badness 10000) in paragraph at lines 138--140
-
- []
-
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
+[6] [7] [8] [9]
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--145
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Underfull \hbox (badness 10000) in paragraph at lines 170--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 148--149
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 150--152
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 153--155
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 159--162
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 176--178
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 179--180
+Underfull \hbox (badness 10000) in paragraph at lines 180--182
 
  []
 
-[11] [12] [13] [14] [15] [16]
-<images/gendict1.png, id=68, 1334.9875pt x 663.47874pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 203--205
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+[12] [13] [14] [15] [16] [17]
+<images/gendict1.png, id=71, 1334.9875pt x 663.47874pt>
 File: images/gendict1.png Graphic file (type png)
 
 <use images/gendict1.png>
-Package pdftex.def Info: images/gendict1.png used on input line 397.
+Package pdftex.def Info: images/gendict1.png used on input line 424.
 (pdftex.def)             Requested size: 467.25264pt x 232.22102pt.
 
-<images/gendict2.png, id=70, 1334.9875pt x 641.39626pt>
+<images/gendict2.png, id=73, 1334.9875pt x 641.39626pt>
 File: images/gendict2.png Graphic file (type png)
 
 <use images/gendict2.png>
-Package pdftex.def Info: images/gendict2.png used on input line 398.
+Package pdftex.def Info: images/gendict2.png used on input line 425.
 (pdftex.def)             Requested size: 467.25264pt x 224.49205pt.
 
-<images/gendict3.png, id=71, 1334.9875pt x 703.62875pt>
+<images/gendict3.png, id=74, 1334.9875pt x 703.62875pt>
 File: images/gendict3.png Graphic file (type png)
 
 <use images/gendict3.png>
-Package pdftex.def Info: images/gendict3.png used on input line 399.
+Package pdftex.def Info: images/gendict3.png used on input line 426.
 (pdftex.def)             Requested size: 467.25264pt x 246.27374pt.
 
-<images/gendict4.png, id=72, 1334.9875pt x 756.8275pt>
+<images/gendict4.png, id=75, 1334.9875pt x 756.8275pt>
 File: images/gendict4.png Graphic file (type png)
 
 <use images/gendict4.png>
-Package pdftex.def Info: images/gendict4.png used on input line 400.
+Package pdftex.def Info: images/gendict4.png used on input line 427.
 (pdftex.def)             Requested size: 467.25264pt x 264.89359pt.
 
-<images/ultimatum1.png, id=73, 746.79pt x 350.30875pt>
+<images/ultimatum1.png, id=76, 746.79pt x 350.30875pt>
 File: images/ultimatum1.png Graphic file (type png)
 
 <use images/ultimatum1.png>
-Package pdftex.def Info: images/ultimatum1.png used on input line 401.
+Package pdftex.def Info: images/ultimatum1.png used on input line 428.
 (pdftex.def)             Requested size: 261.3804pt x 122.6099pt.
 
-<images/ultimatum2.png, id=74, 765.86125pt x 628.3475pt>
+<images/ultimatum2.png, id=77, 765.86125pt x 628.3475pt>
 File: images/ultimatum2.png Graphic file (type png)
 
 <use images/ultimatum2.png>
-Package pdftex.def Info: images/ultimatum2.png used on input line 402.
+Package pdftex.def Info: images/ultimatum2.png used on input line 429.
 (pdftex.def)             Requested size: 268.05545pt x 219.92491pt.
 
-<images/trust1.png, id=75, 748.7975pt x 304.13625pt>
+<images/trust1.png, id=78, 748.7975pt x 304.13625pt>
 File: images/trust1.png Graphic file (type png)
  <use images/trust1.png>
-Package pdftex.def Info: images/trust1.png used on input line 403.
+Package pdftex.def Info: images/trust1.png used on input line 430.
 (pdftex.def)             Requested size: 262.08305pt x 106.44928pt.
 
-<images/trust2.png, id=76, 764.8575pt x 621.32124pt>
+<images/trust2.png, id=79, 764.8575pt x 621.32124pt>
 File: images/trust2.png Graphic file (type png)
  <use images/trust2.png>
-Package pdftex.def Info: images/trust2.png used on input line 404.
+Package pdftex.def Info: images/trust2.png used on input line 431.
 (pdftex.def)             Requested size: 267.70413pt x 217.4657pt.
 
-<images/public.png, id=77, 752.8125pt x 326.21875pt>
+<images/public.png, id=80, 752.8125pt x 326.21875pt>
 File: images/public.png Graphic file (type png)
  <use images/public.png>
-Package pdftex.def Info: images/public.png used on input line 405.
+Package pdftex.def Info: images/public.png used on input line 432.
 (pdftex.def)             Requested size: 263.48831pt x 114.17827pt.
 
-<images/sra.png, id=78, 883.3pt x 693.59125pt>
+<images/sra.png, id=81, 883.3pt x 693.59125pt>
 File: images/sra.png Graphic file (type png)
  <use images/sra.png>
-Package pdftex.def Info: images/sra.png used on input line 406.
+Package pdftex.def Info: images/sra.png used on input line 433.
 (pdftex.def)             Requested size: 309.15964pt x 242.76057pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--407
+Underfull \hbox (badness 10000) in paragraph at lines 423--434
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 396--407
+Underfull \hbox (badness 10000) in paragraph at lines 423--434
 
  []
 
-[17 <./images/gendict1.png> <./images/gendict2.png>] [18 <./images/gendict3.png
-> <./images/gendict4.png> <./images/ultimatum1.png>] [19 <./images/ultimatum2.p
-ng> <./images/trust1.png> <./images/trust2.png>] [20 <./images/public.png> <./i
+[18 <./images/gendict1.png> <./images/gendict2.png>] [19 <./images/gendict3.png
+> <./images/gendict4.png> <./images/ultimatum1.png>] [20 <./images/ultimatum2.p
+ng> <./images/trust1.png> <./images/trust2.png>] [21 <./images/public.png> <./i
 mages/sra.png>] (./thesis.aux) ) 
 Here is how much of TeX's memory you used:
  2144 strings out of 493014
@@ -362,7 +362,7 @@ Here is how much of TeX's memory you used:
  5661 multiletter control sequences out of 15000+600000
  8241 words of font info for 29 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,8n,23p,2193b,241s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,23p,2193b,233s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/p
@@ -379,10 +379,10 @@ cmsy10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/c
 msy5.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 0.pfb>
-Output written on thesis.pdf (20 pages, 718006 bytes).
+Output written on thesis.pdf (21 pages, 720033 bytes).
 PDF statistics:
- 150 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
+ 153 PDF objects out of 1000 (max. 8388607)
+ 94 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

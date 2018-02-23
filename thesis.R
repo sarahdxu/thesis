@@ -2,7 +2,8 @@ if(!require(reshape2)){
   install.packages("reshape2")
 }
 library(reshape2)
-
+library(tidyr)
+library(dplyr)
 
 setwd("~/Downloads")
 #Import data
@@ -126,9 +127,7 @@ data$public<-as.numeric(data$public)
 data$SRA<-data$SRA1+data$SRA2+data$SRA3+data$SRA4+data$SRA5+data$SRA6+
   data$SRA7+data$SRA8+data$SRA9+data$SRA10
 data$UG1 <- data$ult1/10
-#figure out what to do for ult2
 data$TG1 <- data$trust1/10
-#slopes for TG2
 data$PGG <- data$public/10
 
 
@@ -157,13 +156,13 @@ names(trustdata)<-c("ID","t1.x", "t1.y","t2.x", "t2.y","t3.x", "t3.y",
                     "t8.x", "t8.y","t9.x", "t9.y","t10.x", "t10.y")
 
 #TG2 long format
-library(tidyr)
-library(dplyr)
+
 trustlong<- trustdata %>% 
   gather(v, value, t1.x:t10.y) %>% 
   separate(v, c("var", "col")) %>% 
   arrange(ID) %>% 
   spread(col, value)
+
 #Loop to get slope of each row
 trustlong$x<-as.numeric(trustlong$x)
 trustlong$y<-as.numeric(trustlong$y)
@@ -180,11 +179,13 @@ while (j<3971)
 }
 trustlong<-trustlong[,c("ID", "reciprocity")]
 trustlong<-unique(trustlong)
+
 #merge data and trust data
 data <- merge( trustlong,data, by="ID")
 colnames(data)[2]<-"TG2"
 
 #Remove entries where they accept and then reject -- doesn't make sense
+
 i<-397
 while (i>0){
   j<-41
@@ -216,9 +217,11 @@ while (i<344){
   }
   i<-i+1
 }
+data$UG2<-data$UG2/10
 
 #General Dictator game
 #pi_s, pi_o, p, m
+data <- data[-c(3:10, 15:19)]
 
 data$p1 <- 1/2
 data$p2 <- 1/3
@@ -251,9 +254,6 @@ data$gendict7<-as.numeric(data$gendict7)
 data$gendict8<-as.numeric(data$gendict8)
 data$gendict9<-as.numeric(data$gendict9)
 
-
-
-
 data$pi_s1 <- data$m1-data$gendict1
 data$pi_s2 <- data$m2-data$gendict2
 data$pi_s3 <- data$m3-data$gendict3
@@ -272,9 +272,6 @@ data$pi_o6 <- data$gendict6/data$p6
 data$pi_o7 <- data$gendict7/data$p7
 data$pi_o8 <- data$gendict8/data$p8
 data$pi_o9 <- data$gendict9/data$p9
-
-
-data <- data[-c(3:10, 15:19)]
 
 data$Y1 <- data$pi_s1/data$pi_o1
 data$Y2 <- data$pi_s2/data$pi_o2
@@ -317,6 +314,8 @@ long<- gendictlong %>%
   separate(v, c("var", "col")) %>% 
   arrange(ID) %>% 
   spread(col, value)
+
+summary(long$y)
 long<-long[is.na(long$y)==FALSE,]
 long<-long[long$y!=Inf,]
 long<-long[long$y!=-Inf,]
@@ -335,12 +334,14 @@ for (i in long$ID){
 
 long<-long[,c("ID", "beta0", "beta1")]
 long<-unique(long)
-long$rho<-(1+long$beta1)/long$beta1
-long$alpha<-1/(exp(-(long$beta0)*(long$rho-1))+1)
 
+long<-long[is.na(long$beta1)==FALSE,]
+
+long$rho<-(1+long$beta1)/long$beta1
+long$alpha<-1/(exp(long$beta0*(long$rho-1))+1)
 data1<-merge(long, data, by="ID")
 
-data<-data1[,c("ID", "ResponseId", "rho", "alpha", "UG1", "UG2", "TG1", "TG2", "PGG")]
+data<-data1[,c("ID", "ResponseId", "rho", "alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
 
 
 
