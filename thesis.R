@@ -4,8 +4,12 @@ if(!require(reshape2)){
 library(reshape2)
 library(tidyr)
 library(dplyr)
+if(!require(ggplot2)){
+  install.packages("ggplot2")
+}
+library(ggplot2)
 
-setwd("~/Downloads")
+setwd("~/Desktop/thesis")
 #Import data
 data = read.csv("thesis.csv", stringsAsFactors=FALSE)
 
@@ -343,7 +347,65 @@ data1<-merge(long, data, by="ID")
 
 data<-data1[,c("ID", "ResponseId", "rho", "alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
 
+#####################
+#Univariate Analysis#
+#####################
 
+#SRA
+SRA<-ggplot(data=data, aes(data$SRA))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+#  labs(title="Total SRA Scores") +
+  labs(x="Total Scores", y="Percent") +
+  scale_x_continuous(breaks=seq(20,50,2))
+ggsave("~/Desktop/thesis/output/SRA.pdf", width=11, height=8.5)
+
+#UG1
+UG1<-ggplot(data=data, aes(data$UG1))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="Pass Rate", y="Percent") + 
+  scale_x_continuous(breaks=seq(0,1,0.1))
+ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
+
+
+#UG2
+UG2<-ggplot(data=data, aes(data$UG2))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="Minimum Acceptance", y="Percent")+ylim(c(0,30)) +
+  scale_x_continuous(breaks=seq(0,1,0.1))
+
+ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
+
+
+#TG1
+
+TG1<-ggplot(data=data, aes(data$TG1))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="Pass Rate", y="Percent")+ylim(c(0,30)) +
+  scale_x_continuous(breaks=seq(0,1,0.1))
+
+ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
+
+#PGG
+PGG<-ggplot(data=data, aes(data$PGG))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="Pass Rate", y="Percent")+ylim(c(0,30)) +
+  scale_x_continuous(breaks=seq(0,1,0.1))
+
+ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
+
+
+#TG2 - reciprocity
+TG2<-ggplot(data=data, aes(data$TG2))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="Reciprocity", y="Percent")+ylim(c(0,30)) +
+  scale_x_continuous(breaks=seq(0,1,0.1))
+summary(data$TG2)
+ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
 
 #donations dataset
 donations = read.csv("donations.csv", stringsAsFactors=FALSE)
