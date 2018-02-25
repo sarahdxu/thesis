@@ -4,7 +4,9 @@
 \usepackage[letterpaper, portrait, lmargin=1in, rmargin=1in, tmargin=1in, bmargin=1in]{geometry}
 \usepackage{color}
 \usepackage{setspace}
+\usepackage{pdfpages}
 \doublespacing
+
 
 \title{External Validity of Experimental Social Preference Games}
 \author{Sarah Xu}
@@ -80,18 +82,18 @@ Participants received detailed instructions for each game. All instructions give
 
 \begin{itemize}
 
-\item{Generalized Dictator Game}:  Each participant plays as Player 1. They are asked to make a series of choices on how to divide tickets between themselves and an anonymous, random Player 2. Every ticket that Player 1 earns will be worth 1, 2, 3 or 4 tickets, depending on the choice. Similarly for the earnings of Player 2. The design is based off of Andreoni and Miller (2002).
+\item{Generalized Dictator Game (GDG)}:  Each participant plays as Player 1. They are asked to make a series of choices on how to divide tickets between themselves and an anonymous, random Player 2. Every ticket that Player 1 earns will be worth 1, 2, 3 or 4 tickets, depending on the choice. Similarly for the earnings of Player 2. The design is based off of Andreoni and Miller (2002).
 \item{Ultimatum Game}: 
 	\begin{itemize}
-		\item{Player 1}: Each participant plays as the proposer, and is endowed with 10 tickets. They decide how much of their endowment to send to an anonymous, random Player 2. They are told that Player 2 may or may not reject the allocation. If the allocation is rejected, neither player receives any tickets.
-		\item{Player 2}: Each participant is now the responder. They are given a list from 0 tickets to 10 tickets (in 1-ticketincrements), and are asked whether they accept or reject each listed amount.
+		\item{Player 1 (UG1)}: Each participant plays as the proposer, and is endowed with 10 tickets. They decide how much of their endowment to send to an anonymous, random Player 2. They are told that Player 2 may or may not reject the allocation. If the allocation is rejected, neither player receives any tickets.
+		\item{Player 2 (UG2)}: Each participant is now the responder. They are given a list from 0 tickets to 10 tickets (in 1-ticketincrements), and are asked whether they accept or reject each listed amount.
 	\end{itemize}
 \item{Trust Game}:
 	\begin{itemize}
-		\item{Player 1}: Each participant plays as the proposer, and is endowed with 10 tickets. They decide how much of their endowment to send to an anonymous, random Player 2. The amount sent over is multiplied by three. Player 2 then decides how many tickets to return. 
-		\item{Player 2}: Now each participant is the responder. They receive a list of all ten possible multiplied amounts that Player 1 could have chosen to send. For each amount, they are prompted to enter the number of tickets they would like to return.
+		\item{Player 1 (TG1)}: Each participant plays as the proposer, and is endowed with 10 tickets. They decide how much of their endowment to send to an anonymous, random Player 2. The amount sent over is multiplied by three. Player 2 then decides how many tickets to return. 
+		\item{Player 2 (TG2)}: Now each participant is the responder. They receive a list of all ten possible multiplied amounts that Player 1 could have chosen to send. For each amount, they are prompted to enter the number of tickets they would like to return.
 	\end{itemize}
-\item{Public Goods Game}: Each participant is endowed with 10 tickets and have to decide how much of their endowment to contribute to a group fund with one other anonymous, random participant. The total tickets in the group fund is multiplied by 2 and divided evenly between the two players.
+\item{Public Goods Game (PGG)}: Each participant is endowed with 10 tickets and have to decide how much of their endowment to contribute to a group fund with one other anonymous, random participant. The total tickets in the group fund is multiplied by 2 and divided evenly between the two players.
 
 \end{itemize}
 
@@ -148,17 +150,66 @@ Email invitations were sent in early January 2018, and the deadline for particip
 The results are presented in four distinct sections. I first start by briefly describing the results obtained in the three main elements (social preference games, self-report measure of past social behaviors, and donation behavior. The fourth section will focus on the main research question of the paper: the extent to which the games explain the field behavior.
 
 \subsection{Social Preference Games}
+Since the GDG consists of 9 different sets of endowments and prices of giving, similar to Andreoni and Miller (2002) and Fisman, Kariv, and Markovits (2007) I assume each participant's giving preferences is a member of the constant elasticity of substitution (CES) utility function, written as: \\
+
+\(U_{s} = [\alpha(\pi_{s})^{\rho} + (1-\alpha)(\pi_{o})^{\rho}]^{1/\rho} \) \\
+
+\noindent
+where \(\alpha\) measures the relative weight on the payoff to self (i.e. propensity to share, or equity-mindedness), and \(\rho\) indicates the willingness to trade off payoffs to self and other in response to price changes (i.e. utilitarian preferences, or efficiency-mindedness). Using the Lagrange function maximize utility subject to a budget constraint ( \(p_{s}\pi_{s} + p_{o}\pi_{o}=m\) ), the CES demand function is given by: \\
+ 
+ \(\pi_{s}(p_{s},p_{o},m) = [\frac{g}{(p_{o}/p_{s})^{r}+g}]\frac{m}{p_{s}} \) \\
+ 
+ \noindent
+where \(r=-\rho / (1-\rho) \) and \(g=[\alpha / (1-\alpha)]^{1/(1-\rho)} \). This generates the following individual-level econometric specification for each participant: \\
+ 
+\( \frac{p_{s,i}\pi^{t}_{s,i}}{m^{t}_{i}} = \frac{g_{i}}{(p^{t}_{o,i}/p^{t}_{s,i})^{r_{i}} + g_{i}} + \epsilon^{t}_{i}\) \\
 
 
-\subsection{Self-Report Measures of Past Social Behaviors
+%
+%max \(u(\pi_{s}, \pi{o}) = [\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{1/ \rho }\) such that \(\pi_{s} + p\pi_{o} = m\) \\
+%
+%\(\mathcal{L} = u(\pi_{s}, \pi{o}) = [\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{1/ \rho } + \lambda (m-\pi_{s}-p\pi_{o})\) \\
+%
+%\(\frac{\frac{\partial \mathcal{L}}{\partial \pi_{s}}}{\frac{\partial \mathcal{L}}{\partial \pi_{o}}} = \frac{\frac{1}{\rho}[\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{\frac{1}{\rho} -1}[\alpha\rho\pi_{s}^{\rho-1}]-\lambda}{\frac{1}{\rho}[\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{\frac{1}{\rho} -1}[(1-\alpha)\rho\pi_{o}^{\rho-1}] - p\lambda} = 0 \ \ \longrightarrow \ \ \frac{\alpha\pi_{s}^{\rho-1}}{(1-\alpha)\pi_{o}^{\rho-1}} = \frac{1}{p} \ \ \longrightarrow \ \ \frac{\alpha}{1-\alpha}(\frac{\pi_{s}}{\pi_{o}})^{\rho-1} = \frac{1}{p}\) 
+% \\
+ 
+\noindent
+where i represents each participant, t represents each of the 9 independent decision-problems participant i played in the GDG, and \( \epsilon^{t}_{i} \) is assumed to be distributed normally with mean zero and variance \(\sigma^{2}_{i}\). The estimates \( \hat{g}_{i} \)and \( \hat{r}_{i} \) are generated using non-linear least squares. With the estimates, I am able to retrieve each participant's sharing propensity and efficiency levels.
 
-Figure 2 shows the distribution of total scores obtained by the participants on the SRA Scale. A higher SRA score means the participant is more altruistic. As Figure 2 shows, there was a wide variety in the total SRA scores obtained (scores ranging between 20 and 48). Scores are centered around the center (33) and the shape is symmetric.
+%Taking the natural logarithm on each side of the equation will result in the following regression:  \\
+%
+%\indent
+%\( \ln(\frac{1}{p}) = \ln(\frac{\alpha}{1-\alpha})+(\rho-1)\ln(\frac{\pi_{s}}{\pi_{o}}) \)
+%
+%\noindent
+%\\
+%For each participant, I input their 9 \(\pi_{s}\), \(\pi_{o}\), and \textit{p} combinations into the equation. Running the equation provided estimates for \(\beta_{0}\) and \(\beta_{1}\), which corresponds to estimates for \(\alpha\) and \(\rho\), respectively: \\
+%
+%\(\hat{\beta_{0}} \rightarrow \hat{\alpha}, \ \  \hat{\beta_{1}} \rightarrow \hat{\rho} \) \\
+
+
+Results for TG1, UG1, and PGG are represented by the proposer\rq s pass rates (percentage of the initial endowment passed to the other player or public pool). UG2 is represented by the minimum pass rate that the responder chooses to accept. 
+
+The TG2 asks for the participant\rq s return amount given 10 different offer amounts. For each participant, I regressed their return amount on the offer amount, and retrieved the estimated slope. Therefore the outcome for TG is represented by the participant\rq s reciprocity, or trustworthiness level. Reciprocity levels closer to 1 represent more reciprocal behavior, and lower levels closer to 0 represent selfishness. There may be concern that some participant\rq s may not follow a linear trend. After plotting each participant\rq s return amount in response to the offer amount, I found that with the exception of a few participants, a large majority follow a linear slope.
+
+Figure 2a consists of 4 panels (Panels A, B, C, and D), which shows the distribution of responses in UG1, UG2, TG1, and PGG, respectively. Panel A shows that people give a wide range of contribution amounts in UG1 (from giving 0 tickets to giving their entire endowment, with slightly more emphasis on giving smaller contributions). There is a high 42\% spike at giving half of their endowment to Player 2, which typically interpreted as an anticipation of negative reciprocity in Player 2 if offered an amount smaller than half the given endowment. Correspondingly, Panel B shows the distribution of the minimum offer that Player 2 chooses to accept in UG2. With the exception of 1 participant, everyone accepted an amount less than or equal to half of Player 1's endowment. Surprisingly, most participants accepted an offer amount of 0 or 1 tickets. Panel C shows contributions scattered all across the range from offering 0\% to 100\% of their given endowment in TG1. The highest bars, with each having around 22\% of the participants choosing these contributions, are at giving 50\% of their endowment or giving their entire endowment. Other contributions that have more than 10\% participants are giving 30\% or 40\% of the given endowment. Contributions above 0\% in PGG are generally interpreted as the player\rq s trust in Player 2. Panel D shows that a majority of participants (45\%) send their entire endowment into the public pool. The next most popular choice (20\%) is to send half their endowment to the public pool. Only 4\% of participants sent 0\% into the public pool, which shows that a large majority of participants have cooperative behavior.
+
+Figure 2b, consisting of 3 panels (Panels E, F, and G), displays the the distribution of parameters from responses in GDG (\(\alpha\) and \(\rho\)) and TG2 (reciprocity).
+
+{\color{red} Panel E and Panel F}
+
+Panel G displays the distribution of reciprocity levels from TG2. With the exception of two participants who showed negative reciprocity (perhaps they did not understand the game), everybody else had reciprocity levels between 0 and 1. There is a high spike (27\%) of reciprocity levels around 0.5, a lower spike (14\%) around 0.35, and a small spike (10\%) at 0, which suggests that while people do exhibit reciprocity, levels are on the lower end.
+
+
+\subsection{Self-Report Measures of Past Social Behaviors}
+
+Figure 3 shows the distribution of total scores obtained by the participants on the SRA Scale. A higher SRA score means the participant is more altruistic. As Figure 2 shows, there was a wide variety in the total SRA scores obtained (scores ranging between 20 and 48). Scores are centered around the center (33) and the shape is symmetric.
 
 \subsection{Donations Behavior}
 
+Figure 4 shows the distribution of Wesleyan donations. Panel A shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel B shows the distribution of total donation amounts. Most of the donation amounts are between \$0 and \$50, with more donation amounts below \$25. There are few donations that are above \$100, and there are two large donations that are not shown (\$2,171 and \$16,863). Panel C shows a breakdown on what university function the donations were targeted for.
 
 \subsection{External Validity of Social Preference Games}
-
 
 
 
@@ -172,35 +223,6 @@ donations= \beta_{0} + \beta_{1} GDG_{equity}+ \beta_{2} GDG_{efficiency} + \bet
 \begin{equation}
 donations = \beta_{0} + \beta_{1} SRA
 \end{equation}
-Since the generalized dictator game consists of 11 different sets of endowments and prices of giving, each participant's giving preferences will be represented using the constant elasticity of substitution (CES) utility function, written as: \\
-
-\(u(\pi_{s}, \pi{o}) = [\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{1/ \rho }\) \\
-
-\noindent
-where \(\alpha\) measures the weight on the payoff to self (i.e. propensity to share, or equity-minded) , and \(\rho\) indicates the willingness to trade off payoffs to self and other in response to price changes (i.e. utilitarian preferences, or efficiency-minded). Using the Lagrange function maximize utility subject to a budget constraint: \\
-
-max \(u(\pi_{s}, \pi{o}) = [\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{1/ \rho }\) such that \(\pi_{s} + p\pi_{o} = m\) \\
-
-\(\mathcal{L} = u(\pi_{s}, \pi{o}) = [\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{1/ \rho } + \lambda (m-\pi_{s}-p\pi_{o})\) \\
-
-\(\frac{\frac{\partial \mathcal{L}}{\partial \pi_{s}}}{\frac{\partial \mathcal{L}}{\partial \pi_{o}}} = \frac{\frac{1}{\rho}[\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{\frac{1}{\rho} -1}[\alpha\rho\pi_{s}^{\rho-1}]-\lambda}{\frac{1}{\rho}[\alpha\pi_{s}^{\rho} + (1-\alpha)\pi_{o}^{\rho}]^{\frac{1}{\rho} -1}[(1-\alpha)\rho\pi_{o}^{\rho-1}] - p\lambda} = 0 \ \ \longrightarrow \ \ \frac{\alpha\pi_{s}^{\rho-1}}{(1-\alpha)\pi_{o}^{\rho-1}} = \frac{1}{p} \ \ \longrightarrow \ \ \frac{\alpha}{1-\alpha}(\frac{\pi_{s}}{\pi_{o}})^{\rho-1} = \frac{1}{p}\) 
- \\
- 
-\noindent
-Taking the natural logarithm on each side of the equation will result in the following regression:  \\
-
-\indent
-\( \ln(\frac{1}{p}) = \ln(\frac{\alpha}{1-\alpha})+(\rho-1)\ln(\frac{\pi_{s}}{\pi_{o}}) \)
-
-\noindent
-\\
-For each participant, I will input their 11 \(\pi_{s}\), \(\pi_{o}\), and \textit{p} combinations into the equation. Running the equation will provide estimates for \(\beta_{0}\) and \(\beta_{1}\), which will correspond to estimates for \(\alpha\) and \(\rho\), respectively: \\
-
-\(\hat{\beta_{0}} \rightarrow \hat{\alpha}, \ \  \hat{\beta_{1}} \rightarrow \hat{\rho} \) \\
-
-Therefore in Model (1), \(GDG_{equity}\) is equal to \(\alpha\), the participant's sharing propensity, and \(GDG_{efficiency}\) is equal to \(\rho\), the participant's level of efficiency. 
-
-UG1 represents the proposer\rq s pass rate (percentage of the initial endowment passed to the other player) in the ultimatum game, UG2 represents the minimum pass rate that the responder chooses to accept in the ultimatum game, TG1 represents the proposer\rq s pass rate in the trust game, TG2 measures the responder\rq s reciprocity: I will regress each participant's amount they pass back on the amount that was offered to them, and use the slope as a measure of reciprocity. PGG represents each player\rq s pass rate into the public fund. Lastly, SRA measures each participant\rq s self-report altruism score, which is calculated by summing across the 15 items (where ``Never''=0, ``Once''=1, ``More than once''=2, ``Often''=3, and ``Very often''=4).  
 
 It makes sense that all \(\beta\)s, except for the \(\beta\) for UG2, will be positive. If the participant has a high sharing propensity, i.e. they place a high weight on giving, and a high efficiency level, i.e. they care a lot about total social welfare, then donations should be larger. As the participant\rq s pass rate for the ultimatum and trust game (coefficients for UG1 and TG1) increases, it indicates they have higher levels altruism, inequality aversion, or both, so donations should also increase. If the participant has higher levels of reciprocity, indicated by the coefficient on TG2, then donations should increase - the very nature of giving back to one's university is represented by reciprocity, so there should be a high, positive correlation between TG2 and measured donations. A higher pass rate into the public goods fund indicates higher levels of cooperation and altruism, so the coefficient on PGG should also be positive. Lastly, if the minimum pass rate accepted by the responder in the ultimatum game is high, this indicates that the responder is selfish - they will punish the proposer if the offer is not to their liking. Therefore it makes sense that the coefficient on UG2 is negative. 
 
@@ -276,17 +298,22 @@ Governance and the efficiency of social systems (GESY), CESifo Working Paper No.
 \bibitem{FehrLeibbrandt}
 Fehr, E., and Leibbrandt, A. (2011)
 \textit{A field study on cooperativeness and impatience in the Tragedy of the Commons}.
-Journal of Publicc Economics, 95, 1144-55.
+Journal of Public Economics, 95, 1144-55.
 
 \bibitem{FehrSchmidt}
 Fehr, E., and Schmidt, K. (1999).
 \textit{A theory of fairness, competition, and cooperation}.
 Quarterly Journal of Economics, 114, 173-68.
 
-\bibitem{Fisman}
+\bibitem{Fisman1}
 Fisman, R., Jakiela, P., and Kariv, S. (2014).
 \textit{The distributional preferences of Americans}.
 NBER Working Paper.
+
+\bibitem{Fisman2}
+Fisman, R., Kariv, S., and Markovits, D. (2007).
+\textit{Individual Preferences for Giving}.
+American Economic Review, 97(5): 1858-76.
 
 \bibitem{Franzen}
 Franzen, A., and Pointner, S. (2013)
@@ -442,6 +469,15 @@ Figure 1: Online games and survey questions \\ \\
 \includegraphics[scale=0.35]{sra} \\
 
 
+Figure 2a: Distribution of responses in ultimatum game, trust game, and public goods game \\ \\
+\includegraphics[scale=0.5]{Figure2a.pdf}
+
+Figure 3: Total SRA scores\\ \\
+\includegraphics[scale=0.35]{SRAimg}\\
+
+Figure 4: Donations\\ \\
+\includegraphics[scale=0.35]{donated}\\
+\includegraphics[scale=0.35]{donations}\\
 
 
 	

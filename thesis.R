@@ -8,6 +8,12 @@ if(!require(ggplot2)){
   install.packages("ggplot2")
 }
 library(ggplot2)
+library(gridExtra)
+if(!require(minpack.lm)){
+  install.packages("minpack.lm")
+}
+library(minpack.lm)
+
 
 setwd("~/Desktop/thesis")
 #Import data
@@ -170,6 +176,12 @@ trustlong<- trustdata %>%
 #Loop to get slope of each row
 trustlong$x<-as.numeric(trustlong$x)
 trustlong$y<-as.numeric(trustlong$y)
+
+
+
+#ggplot(data=trustlong, aes(x=as.factor(x), y=y)) + geom_violin()
+ggplot(data=trustlong, aes(x=as.factor(x), y=y)) + geom_point() + facet_wrap(~ID)
+ggsave("~/Desktop/thesis/paper/images/linearity.pdf", width=11, height=8.5)
 trustlong$reciprocity<-0
 i<-1
 j<-10
@@ -224,7 +236,6 @@ while (i<344){
 data$UG2<-data$UG2/10
 
 #General Dictator game
-#pi_s, pi_o, p, m
 data <- data[-c(3:10, 15:19)]
 
 data$p1 <- 1/2
@@ -258,6 +269,11 @@ data$gendict7<-as.numeric(data$gendict7)
 data$gendict8<-as.numeric(data$gendict8)
 data$gendict9<-as.numeric(data$gendict9)
 
+
+
+
+
+
 data$pi_s1 <- data$m1-data$gendict1
 data$pi_s2 <- data$m2-data$gendict2
 data$pi_s3 <- data$m3-data$gendict3
@@ -277,35 +293,57 @@ data$pi_o7 <- data$gendict7/data$p7
 data$pi_o8 <- data$gendict8/data$p8
 data$pi_o9 <- data$gendict9/data$p9
 
-data$Y1 <- data$pi_s1/data$pi_o1
-data$Y2 <- data$pi_s2/data$pi_o2
-data$Y3 <- data$pi_s3/data$pi_o3
-data$Y4 <- data$pi_s4/data$pi_o4
-data$Y5 <- data$pi_s5/data$pi_o5
-data$Y6 <- data$pi_s6/data$pi_o6
-data$Y7 <- data$pi_s7/data$pi_o7
-data$Y8 <- data$pi_s8/data$pi_o8
-data$Y9 <- data$pi_s9/data$pi_o9
+data$Y1<-data$pi_s1/data$m1
+data$Y2<-data$pi_s2/data$m2
+data$Y3<-data$pi_s3/data$m3
+data$Y4<-data$pi_s4/data$m4
+data$Y5<-data$pi_s5/data$m5
+data$Y6<-data$pi_s6/data$m6
+data$Y7<-data$pi_s7/data$m7
+data$Y8<-data$pi_s8/data$m8
+data$Y9<-data$pi_s9/data$m9
 
-data$Y1 <- log(data$Y1)
-data$Y2 <- log(data$Y2)
-data$Y3 <- log(data$Y3)
-data$Y4 <- log(data$Y4)
-data$Y5 <- log(data$Y5)
-data$Y6 <- log(data$Y6)
-data$Y7 <- log(data$Y7)
-data$Y8 <- log(data$Y8)
-data$Y9 <- log(data$Y9)
+data$X1<-data$p1
+data$X2<-data$p2
+data$X3<-data$p3
+data$X4<-data$p4
+data$X5<-data$p5
+data$X6<-data$p6
+data$X7<-data$p7
+data$X8<-data$p8
+data$X9<-data$p9
 
-data$X1 <- log(1/data$p1)
-data$X2 <- log(1/data$p2)
-data$X3 <- log(1/data$p3)
-data$X4 <- log(1/data$p4)
-data$X5 <- log(1/data$p5)
-data$X6 <- log(1/data$p6)
-data$X7 <- log(1/data$p7)
-data$X8 <- log(1/data$p8)
-data$X9 <- log(1/data$p9)
+
+
+# data$Y1 <- data$pi_s1/data$pi_o1
+# data$Y2 <- data$pi_s2/data$pi_o2
+# data$Y3 <- data$pi_s3/data$pi_o3
+# data$Y4 <- data$pi_s4/data$pi_o4
+# data$Y5 <- data$pi_s5/data$pi_o5
+# data$Y6 <- data$pi_s6/data$pi_o6
+# data$Y7 <- data$pi_s7/data$pi_o7
+# data$Y8 <- data$pi_s8/data$pi_o8
+# data$Y9 <- data$pi_s9/data$pi_o9
+# 
+# data$Y1 <- log(data$Y1)
+# data$Y2 <- log(data$Y2)
+# data$Y3 <- log(data$Y3)
+# data$Y4 <- log(data$Y4)
+# data$Y5 <- log(data$Y5)
+# data$Y6 <- log(data$Y6)
+# data$Y7 <- log(data$Y7)
+# data$Y8 <- log(data$Y8)
+# data$Y9 <- log(data$Y9)
+# 
+# data$X1 <- log(1/data$p1)
+# data$X2 <- log(1/data$p2)
+# data$X3 <- log(1/data$p3)
+# data$X4 <- log(1/data$p4)
+# data$X5 <- log(1/data$p5)
+# data$X6 <- log(1/data$p6)
+# data$X7 <- log(1/data$p7)
+# data$X8 <- log(1/data$p8)
+# data$X9 <- log(1/data$p9)
 
 
 gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
@@ -319,22 +357,47 @@ long<- gendictlong %>%
   arrange(ID) %>% 
   spread(col, value)
 
-summary(long$y)
-long<-long[is.na(long$y)==FALSE,]
-long<-long[long$y!=Inf,]
-long<-long[long$y!=-Inf,]
+long<-long[long$y>=0,]
+temp<-long[long$ID==1,]
+model <- nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+             data=temp,
+             control=nls.control(maxiter=200,warnOnly=TRUE),
+             start=list(alpha=0, 
+                        rho=-100))
 
 
 
-long$beta0<-0
-long$beta1<-0
+nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+             data=temp,
+             control=nls.control(maxiter=100, warnOnly=TRUE)),
+             start=c(alpha=0.01, rho=-1))
 
 for (i in long$ID){
   temp<-long[long$ID==i,]
-  model <- lm(temp$y~temp$x)
-  long$beta0[long$ID==i]<-model$coefficients[1]
-  long$beta1[long$ID==i]<-model$coefficients[2]
+  model <- nls(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+               data=temp,
+               control=nls.control(maxiter=100, warnOnly=TRUE),
+               start=c(alpha=0.01, rho=-1))
+  long$alphahat[long$ID==i]<-coef(model)[1]
+  long$rhohat[long$ID==i]<-coef(model)[2]
 }
+summary(long$alpha)
+
+# long1<-long[is.na(long$y)==FALSE,]
+# long<-long[long$y!=Inf,]
+# long<-long[long$y!=-Inf,]
+
+
+
+# long$beta0<-0
+# long$beta1<-0
+# 
+# for (i in long$ID){
+#   temp<-long[long$ID==i,]
+#   model <- lm(temp$y~temp$x)
+#   long$beta0[long$ID==i]<-model$coefficients[1]
+#   long$beta1[long$ID==i]<-model$coefficients[2]
+# }
 
 long<-long[,c("ID", "beta0", "beta1")]
 long<-unique(long)
@@ -357,13 +420,14 @@ SRA<-ggplot(data=data, aes(data$SRA))+
 #  labs(title="Total SRA Scores") +
   labs(x="Total Scores", y="Percent") +
   scale_x_continuous(breaks=seq(20,50,2))
-ggsave("~/Desktop/thesis/output/SRA.pdf", width=11, height=8.5)
+ggsave("~/Desktop/thesis/paper/images/SRAimg.jpg", width=11, height=8.5)
 
 #UG1
 UG1<-ggplot(data=data, aes(data$UG1))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
-  labs(x="Pass Rate", y="Percent") + 
+  ggtitle("Panel A: UG1") +
+  labs(x="Pass Rate", y="Percent") + ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1))
 ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 
@@ -371,8 +435,9 @@ ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 #UG2
 UG2<-ggplot(data=data, aes(data$UG2))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
-  #  labs(title="Total SRA Scores") +
-  labs(x="Minimum Acceptance", y="Percent")+ylim(c(0,30)) +
+  #  labs(title="Total SRA Scores") 
+  ggtitle("Panel B: UG2")+
+  labs(x="Minimum Acceptance", y="Percent")+ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1))
 
 ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
@@ -381,10 +446,11 @@ ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
 #TG1
 
 TG1<-ggplot(data=data, aes(data$TG1))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +ylim(c(0,45))+
   #  labs(title="Total SRA Scores") +
-  labs(x="Pass Rate", y="Percent")+ylim(c(0,30)) +
-  scale_x_continuous(breaks=seq(0,1,0.1))
+  labs(x="Pass Rate", y="Percent")+
+  scale_x_continuous(breaks=seq(0,1,0.1)) +
+  ggtitle("Panel C: TG1")
 
 ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
 
@@ -392,20 +458,27 @@ ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
 PGG<-ggplot(data=data, aes(data$PGG))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
-  labs(x="Pass Rate", y="Percent")+ylim(c(0,30)) +
-  scale_x_continuous(breaks=seq(0,1,0.1))
+  labs(x="Pass Rate", y="Percent")+ylim(c(0,45))+
+  scale_x_continuous(breaks=seq(0,1,0.1)) +
+  ggtitle("Panel D: PGG")
 
 ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
 
+pdf("~/Desktop/thesis/paper/images/Figure2a.pdf",width=11,height=8.5)
+grid.arrange(UG1, UG2, TG1, PGG, nrow=2)
+dev.off()
 
-#TG2 - reciprocity
-TG2<-ggplot(data=data, aes(data$TG2))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
-  #  labs(title="Total SRA Scores") +
-  labs(x="Reciprocity", y="Percent")+ylim(c(0,30)) +
-  scale_x_continuous(breaks=seq(0,1,0.1))
+
+
+prop.table(table(data$TG2))
 summary(data$TG2)
-ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
+#TG2 - reciprocity
+
+TG2<-ggplot(data=data, aes(data$TG2)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+  scale_x_continuous(breaks=seq(-0.5, 1, by=0.1)) +
+  ylim(c(0,30)) + labs(x="Reciprocity", y="Percent")
+ggsave("~/Desktop/thesis/paper/images/TG2.pdf", width=11, height=8.5)
+
 
 #donations dataset
 donations = read.csv("donations.csv", stringsAsFactors=FALSE)
@@ -415,10 +488,25 @@ donations <- donations[-c(11:18, 20:67)]
 
 data <- merge( data,donations, by="ResponseId")
 
+data$donated<-1
+data$donated[data$current_donor_status=="Never"]<-0
+prop.table(table(data$donated))
+donated<-ggplot(data=data, aes(data$donated))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="Donated", y="Percent") + scale_x_continuous(breaks=seq(0,1,1)) + ylim(c(0,80))
+ggsave("~/Desktop/thesis/paper/images/donated.pdf", width=11, height=8.5)
 
 
+data$donations<-as.numeric(data$DNR_GIVING)
+d<-data[data$donation<=625,]
+donations<-ggplot(data=d, aes(d$donation))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10)+
+  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,650,50))+ylim(c(0,60))
+ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
 
-
+e<-data[data$donation>625,]
+prop.table(table(e$donation))
+summary(data$donation)
 #match players to get winner
 match <- data[,c("ResponseId", 
                  "public")]
