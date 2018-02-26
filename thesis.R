@@ -180,8 +180,8 @@ trustlong$y<-as.numeric(trustlong$y)
 
 
 #ggplot(data=trustlong, aes(x=as.factor(x), y=y)) + geom_violin()
-ggplot(data=trustlong, aes(x=as.factor(x), y=y)) + geom_point() + facet_wrap(~ID)
-ggsave("~/Desktop/thesis/paper/images/linearity.pdf", width=11, height=8.5)
+#ggplot(data=trustlong, aes(x=as.factor(x), y=y)) + geom_point() + facet_wrap(~ID)
+#ggsave("~/Desktop/thesis/paper/images/linearity.pdf", width=11, height=8.5)
 trustlong$reciprocity<-0
 i<-1
 j<-10
@@ -358,30 +358,66 @@ long<- gendictlong %>%
   spread(col, value)
 
 long<-long[long$y>=0,]
-temp<-long[long$ID==1,]
-model <- nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+long4<-long[long$ID==42 & long$ID==49 & long$ID==64 & long$ID==65 &
+              long$ID==94 & long$ID==98 & long$ID==121 & long$ID==115 &
+              long$ID==160 & long$ID==172 & long$ID==49 & long$ID==190 &
+              long$ID==216 & long$ID==242 & long$ID==271 & long$ID==282 &
+              long$ID==323 & long$ID==328 & long$ID==333 & long$ID==395,]
+long2<-long[long$ID==84 & long$ID==122 & long$ID==282 & long$ID==369,]
+long3<-long[long$ID==96 & long$ID==113 & long$ID==281,]
+long1<-long[long$ID!=42 & long$ID!=49 & long$ID!=64 & long$ID!=65 &
+              long$ID!=84 & long$ID!=94 & long$ID!=96 & long$ID!=98 & long$ID!=113 &
+              long$ID!=115 & long$ID!=121 & long$ID!=122 & long$ID!=160 &
+              long$ID!=172 & long$ID!=190 & long$ID!=216 & long$ID!=242 &
+              long$ID!=271 & long$ID!=281 & long$ID!=282 & long$ID!=323 &
+              long$ID!=328 & long$ID!=333 & long$ID!=369 & long$ID!=395,]
+
+for (i in long1$ID){
+  temp<-long[long$ID==i,]
+  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
              data=temp,
              control=nls.control(maxiter=200,warnOnly=TRUE),
-             start=list(alpha=0, 
-                        rho=-100))
-
-
-
-nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-             data=temp,
-             control=nls.control(maxiter=100, warnOnly=TRUE)),
-             start=c(alpha=0.01, rho=-1))
-
-for (i in long$ID){
-  temp<-long[long$ID==i,]
-  model <- nls(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-               data=temp,
-               control=nls.control(maxiter=100, warnOnly=TRUE),
-               start=c(alpha=0.01, rho=-1))
-  long$alphahat[long$ID==i]<-coef(model)[1]
-  long$rhohat[long$ID==i]<-coef(model)[2]
+             start=list(alpha=0,rho=-5)))[1]
+  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                      data=temp,
+                                      control=nls.control(maxiter=200,warnOnly=TRUE),
+                                      start=list(alpha=0,rho=-5)))[2]
 }
-summary(long$alpha)
+
+for (i in long2$ID){
+  temp<-long[long$ID==i,]
+  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                        data=temp,
+                                        control=nls.control(maxiter=200,warnOnly=TRUE),
+                                        start=list(alpha=0,rho=-10)))[1]
+  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                      data=temp,
+                                      control=nls.control(maxiter=200,warnOnly=TRUE),
+                                      start=list(alpha=0,rho=-10)))[2]
+}
+for (i in long3$ID){
+  temp<-long[long$ID==i,]
+  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                        data=temp,
+                                        control=nls.control(maxiter=200,warnOnly=TRUE),
+                                        start=list(alpha=0.5,rho=-5)))[1]
+  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                      data=temp,
+                                      control=nls.control(maxiter=200,warnOnly=TRUE),
+                                      start=list(alpha=0.5,rho=-5)))[2]
+}
+for (i in long4$ID){
+  temp<-long[long$ID==i,]
+  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                        data=temp,
+                                        control=nls.control(maxiter=200,warnOnly=TRUE),
+                                        start=list(alpha=0,rho=-0.1)))[1]
+  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                      data=temp,
+                                      control=nls.control(maxiter=200,warnOnly=TRUE),
+                                      start=list(alpha=0,rho=-0.1)))[2]
+}
+
 
 # long1<-long[is.na(long$y)==FALSE,]
 # long<-long[long$y!=Inf,]
