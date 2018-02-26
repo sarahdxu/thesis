@@ -357,14 +357,20 @@ long<- gendictlong %>%
   arrange(ID) %>% 
   spread(col, value)
 
+
+
 long<-long[long$y>=0,]
-long4<-long[long$ID==42 & long$ID==49 & long$ID==64 & long$ID==65 &
-              long$ID==94 & long$ID==98 & long$ID==121 & long$ID==115 &
-              long$ID==160 & long$ID==172 & long$ID==49 & long$ID==190 &
-              long$ID==216 & long$ID==242 & long$ID==271 & long$ID==282 &
-              long$ID==323 & long$ID==328 & long$ID==333 & long$ID==395,]
-long2<-long[long$ID==84 & long$ID==122 & long$ID==282 & long$ID==369,]
-long3<-long[long$ID==96 & long$ID==113 & long$ID==281,]
+
+
+
+long4<-long[long$ID==42 | long$ID==49 | long$ID==94 | 
+              long$ID==160 | long$ID==271 | long$ID==328 | long$ID==333,]
+long5<-long[long$ID==64 | long$ID==65 | long$ID==98 | long$ID==121 | 
+              long$ID==115 | long$ID==172 | long$ID==190 |long$ID==216 |
+              long$ID==242 | long$ID==323 |  long$ID==395,]
+
+long2<-long[long$ID==84 | long$ID==122 | long$ID==282 | long$ID==369,]
+long3<-long[long$ID==96 | long$ID==113 | long$ID==281,]
 long1<-long[long$ID!=42 & long$ID!=49 & long$ID!=64 & long$ID!=65 &
               long$ID!=84 & long$ID!=94 & long$ID!=96 & long$ID!=98 & long$ID!=113 &
               long$ID!=115 & long$ID!=121 & long$ID!=122 & long$ID!=160 &
@@ -418,33 +424,26 @@ for (i in long4$ID){
                                       start=list(alpha=0,rho=-0.1)))[2]
 }
 
+for (i in long5$ID){
+  temp<-long[long$ID==i,]
+  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                        data=temp,
+                                        control=nls.control(maxiter=200,warnOnly=TRUE),
+                                        start=list(alpha=0.5,rho=200)))[1]
+  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
+                                      data=temp,
+                                      control=nls.control(maxiter=200,warnOnly=TRUE),
+                                      start=list(alpha=0.5,rho=200)))[2]
+}
 
-# long1<-long[is.na(long$y)==FALSE,]
-# long<-long[long$y!=Inf,]
-# long<-long[long$y!=-Inf,]
+summary(long$rhohat)
 
-
-
-# long$beta0<-0
-# long$beta1<-0
-# 
-# for (i in long$ID){
-#   temp<-long[long$ID==i,]
-#   model <- lm(temp$y~temp$x)
-#   long$beta0[long$ID==i]<-model$coefficients[1]
-#   long$beta1[long$ID==i]<-model$coefficients[2]
-# }
-
-long<-long[,c("ID", "beta0", "beta1")]
+long<-long[,c("ID", "alphahat", "rhohat")]
 long<-unique(long)
 
-long<-long[is.na(long$beta1)==FALSE,]
-
-long$rho<-(1+long$beta1)/long$beta1
-long$alpha<-1/(exp(long$beta0*(long$rho-1))+1)
 data1<-merge(long, data, by="ID")
 
-data<-data1[,c("ID", "ResponseId", "rho", "alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
+data<-data1[,c("ID", "ResponseId", "alphahat", "rhohat", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
 
 #####################
 #Univariate Analysis#
