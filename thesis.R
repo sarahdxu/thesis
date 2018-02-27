@@ -315,37 +315,6 @@ data$X9<-data$p9
 
 
 
-# data$Y1 <- data$pi_s1/data$pi_o1
-# data$Y2 <- data$pi_s2/data$pi_o2
-# data$Y3 <- data$pi_s3/data$pi_o3
-# data$Y4 <- data$pi_s4/data$pi_o4
-# data$Y5 <- data$pi_s5/data$pi_o5
-# data$Y6 <- data$pi_s6/data$pi_o6
-# data$Y7 <- data$pi_s7/data$pi_o7
-# data$Y8 <- data$pi_s8/data$pi_o8
-# data$Y9 <- data$pi_s9/data$pi_o9
-# 
-# data$Y1 <- log(data$Y1)
-# data$Y2 <- log(data$Y2)
-# data$Y3 <- log(data$Y3)
-# data$Y4 <- log(data$Y4)
-# data$Y5 <- log(data$Y5)
-# data$Y6 <- log(data$Y6)
-# data$Y7 <- log(data$Y7)
-# data$Y8 <- log(data$Y8)
-# data$Y9 <- log(data$Y9)
-# 
-# data$X1 <- log(1/data$p1)
-# data$X2 <- log(1/data$p2)
-# data$X3 <- log(1/data$p3)
-# data$X4 <- log(1/data$p4)
-# data$X5 <- log(1/data$p5)
-# data$X6 <- log(1/data$p6)
-# data$X7 <- log(1/data$p7)
-# data$X8 <- log(1/data$p8)
-# data$X9 <- log(1/data$p9)
-
-
 gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
                      "X5", "Y5", "X6", "Y6", "X7", "Y7", "X8","Y8","X9", "Y9")]
 names(gendictlong)<-c("ID", "g1.x", "g1.y", "g2.x", "g2.y", "g3.x", "g3.y", "g4.x", "g4.y", 
@@ -361,6 +330,38 @@ long<- gendictlong %>%
 
 long<-long[long$y>=0,]
 
+
+temp<-long[long$ID==96,]
+nls(y~A/(x^r+A), data=temp, start=list(A=1, r=1), control=nls.control(warnOnly=TRUE))
+r<-coef(nls(y~A/(x^r+A), data=temp, start=list(A=1, r=1)))[2]
+
+
+long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281,]
+long2<-long[long$ID==96 | long$ID==113 | long$ID==281,]
+for (i in long1$ID){
+  temp<-long[long$ID==i,]
+  long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+                               control = nls.control(warnOnly=TRUE),
+                               start=list(A=1, r=1)))[1]
+  long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+                               control=nls.control(warnOnly=TRUE),
+                               start=list(A=1, r=1)))[2]
+}
+
+for (i in long2$ID){
+  temp<-long[long$ID==i,]
+  long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+                               control = nls.control(warnOnly=TRUE),
+                               start=list(A=5, r=0)))[1]
+  long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+                               control=nls.control(warnOnly=TRUE),
+                               start=list(A=5, r=0)))[2]
+}
+
+long$rho<-long$r/(long$r-1)
+long$alpha<-(long$A^(1-long$rho))/(1+long$A^(1-long$rho))
+
+summary(long$alpha)
 
 
 long4<-long[long$ID==42 | long$ID==49 | long$ID==94 | 
