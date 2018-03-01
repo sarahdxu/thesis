@@ -141,6 +141,7 @@ data$TG1 <- data$trust1/10
 data$PGG <- data$public/10
 
 
+
 #represent TG2
 trustdata <- data[, c("ID", "trust2_1",  "trust2_2", "trust2_3", "trust2_4", "trust2_5", "trust2_6",
                       "trust2_7", "trust2_8", "trust2_9", "trust2_10")]
@@ -155,6 +156,41 @@ trustdata$trust1_7 <- 21
 trustdata$trust1_8 <- 24
 trustdata$trust1_9 <- 27
 trustdata$trust1_10 <- 30
+trustdata$trust2_1<-as.numeric(trustdata$trust2_1)
+trustdata$trust2_2<-as.numeric(trustdata$trust2_2)
+trustdata$trust2_3<-as.numeric(trustdata$trust2_3)
+trustdata$trust2_4<-as.numeric(trustdata$trust2_4)
+trustdata$trust2_5<-as.numeric(trustdata$trust2_5)
+trustdata$trust2_6<-as.numeric(trustdata$trust2_6)
+trustdata$trust2_7<-as.numeric(trustdata$trust2_7)
+trustdata$trust2_8<-as.numeric(trustdata$trust2_8)
+trustdata$trust2_9<-as.numeric(trustdata$trust2_9)
+trustdata$trust2_10<-as.numeric(trustdata$trust2_10)
+
+trustdata$t1<-(trustdata$trust2_1)/(trustdata$trust1_1)
+trustdata$t2<-(trustdata$trust2_2)/(trustdata$trust1_2)
+trustdata$t3<-(trustdata$trust2_3)/(trustdata$trust1_3)
+trustdata$t4<-(trustdata$trust2_4)/(trustdata$trust1_4)
+trustdata$t5<-(trustdata$trust2_5)/(trustdata$trust1_5)
+trustdata$t6<-(trustdata$trust2_6)/(trustdata$trust1_6)
+trustdata$t7<-(trustdata$trust2_7)/(trustdata$trust1_7)
+trustdata$t8<-(trustdata$trust2_8)/(trustdata$trust1_8)
+trustdata$t9<-(trustdata$trust2_9)/(trustdata$trust1_9)
+trustdata$t10<-(trustdata$trust2_10)/(trustdata$trust1_10)
+
+for (i in trustdata$ID){
+  temp<-trustdata[trustdata$ID==i,]
+  trustdata$avgreturn[trustdata$ID==i]<-(temp$t1+temp$t2+temp$t3+temp$t4+
+                temp$t5+temp$t6+temp$t7+
+                temp$t8+temp$t9+temp$t10)/10
+}
+
+
+
+
+trust<-trustdata
+trust<-trust[,c("ID", "avgreturn")]
+
 
 trustdata <- trustdata[,c("ID", "trust1_1", "trust2_1", "trust1_2", "trust2_2", "trust1_3", "trust2_3", 
                           "trust1_4", "trust2_4", "trust1_5", "trust2_5", "trust1_6", "trust2_6", 
@@ -200,13 +236,17 @@ trustlong<-unique(trustlong)
 data <- merge( trustlong,data, by="ID")
 colnames(data)[2]<-"TG2"
 
+#avg repayment rate
+
+data<-merge(trust, data, by="ID")
+
 #Remove entries where they accept and then reject -- doesn't make sense
 
 i<-397
 while (i>0){
-  j<-41
-  k<-42
-  {while (k<52){
+  j<-42
+  k<-43
+  {while (k<53){
     if (data[i, j]=='Accept' & data[i, k] == 'Reject'){
       data<-data[-i,]
     }
@@ -221,22 +261,20 @@ while (i>0){
 i<-1
 data$UG2<-0
 while (i<344){
-  j<-41
-  while (j<52){
-    if (data[i,j] == 'Accept' & data[i,68]==0){
-      data[i,68]<-j-41
-      j<-52
+  j<-42
+  while (j<53){
+    if (data[i,j] == 'Accept' & data[i,69]==0){
+      data[i,69]<-j-42
+      j<-53
     }
     else{j<-j+1}
-    
-    
   }
   i<-i+1
 }
 data$UG2<-data$UG2/10
 
 #General Dictator game
-data <- data[-c(3:10, 15:19)]
+data <- data[-c(4:11, 13:20)]
 
 data$p1 <- 1/2
 data$p2 <- 1/3
@@ -268,8 +306,14 @@ data$gendict6<-as.numeric(data$gendict6)
 data$gendict7<-as.numeric(data$gendict7)
 data$gendict8<-as.numeric(data$gendict8)
 data$gendict9<-as.numeric(data$gendict9)
-
-
+data$gendict6[data$ID==281]<-15
+data$gendict6[data$ID==65]<-15
+data$gendict6[data$ID==96]<-15
+data$gendict6[data$ID==108]<-15
+data$gendict6[data$ID==154]<-15
+data$gendict6[data$ID==358]<-15
+data$gendict6[data$ID==16]<-12
+data$gendict6[data$ID==81]<-13
 
 
 
@@ -313,8 +357,6 @@ data$X7<-data$p7
 data$X8<-data$p8
 data$X9<-data$p9
 
-
-
 gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
                      "X5", "Y5", "X6", "Y6", "X7", "Y7", "X8","Y8","X9", "Y9")]
 names(gendictlong)<-c("ID", "g1.x", "g1.y", "g2.x", "g2.y", "g3.x", "g3.y", "g4.x", "g4.y", 
@@ -326,125 +368,43 @@ long<- gendictlong %>%
   arrange(ID) %>% 
   spread(col, value)
 
-
-
-long<-long[long$y>=0,]
-
-
-temp<-long[long$ID==96,]
-nls(y~A/(x^r+A), data=temp, start=list(A=1, r=1), control=nls.control(warnOnly=TRUE))
-r<-coef(nls(y~A/(x^r+A), data=temp, start=list(A=1, r=1)))[2]
-
-
 long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281,]
 long2<-long[long$ID==96 | long$ID==113 | long$ID==281,]
 for (i in long1$ID){
   temp<-long[long$ID==i,]
-  long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+  long$A[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
                                control = nls.control(warnOnly=TRUE),
-                               start=list(A=1, r=1)))[1]
-  long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+                               start=list(A=1, r=-1)))[1]
+  long$r[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
                                control=nls.control(warnOnly=TRUE),
-                               start=list(A=1, r=1)))[2]
+                               start=list(A=1, r=-1)))[2]
 }
 
 for (i in long2$ID){
   temp<-long[long$ID==i,]
   long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
                                control = nls.control(warnOnly=TRUE),
-                               start=list(A=5, r=0)))[1]
+                               start=list(A=1, r=-10)))[1]
   long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
                                control=nls.control(warnOnly=TRUE),
-                               start=list(A=5, r=0)))[2]
+                               start=list(A=1, r=-10)))[2]
 }
 
 long$rho<-long$r/(long$r-1)
-long$alpha<-(long$A^(1-long$rho))/(1+long$A^(1-long$rho))
+long$num<-(long$A)^(1-(long$rho))
+long$denom<-1+(long$A)^(1-(long$rho))
+long$alpha<-long$num/long$denom
+long$sigma<-1/(long$rho - 1)
+# long$alpha[long$ID==281]<-0
+# long$alpha[long$ID==96]<-0
+# long$alpha[long$ID==113]<-0
 
-summary(long$alpha)
-
-
-long4<-long[long$ID==42 | long$ID==49 | long$ID==94 | 
-              long$ID==160 | long$ID==271 | long$ID==328 | long$ID==333,]
-long5<-long[long$ID==64 | long$ID==65 | long$ID==98 | long$ID==121 | 
-              long$ID==115 | long$ID==172 | long$ID==190 |long$ID==216 |
-              long$ID==242 | long$ID==323 |  long$ID==395,]
-
-long2<-long[long$ID==84 | long$ID==122 | long$ID==282 | long$ID==369,]
-long3<-long[long$ID==96 | long$ID==113 | long$ID==281,]
-long1<-long[long$ID!=42 & long$ID!=49 & long$ID!=64 & long$ID!=65 &
-              long$ID!=84 & long$ID!=94 & long$ID!=96 & long$ID!=98 & long$ID!=113 &
-              long$ID!=115 & long$ID!=121 & long$ID!=122 & long$ID!=160 &
-              long$ID!=172 & long$ID!=190 & long$ID!=216 & long$ID!=242 &
-              long$ID!=271 & long$ID!=281 & long$ID!=282 & long$ID!=323 &
-              long$ID!=328 & long$ID!=333 & long$ID!=369 & long$ID!=395,]
-
-for (i in long1$ID){
-  temp<-long[long$ID==i,]
-  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-             data=temp,
-             control=nls.control(maxiter=200,warnOnly=TRUE),
-             start=list(alpha=0,rho=-5)))[1]
-  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                      data=temp,
-                                      control=nls.control(maxiter=200,warnOnly=TRUE),
-                                      start=list(alpha=0,rho=-5)))[2]
-}
-
-for (i in long2$ID){
-  temp<-long[long$ID==i,]
-  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                        data=temp,
-                                        control=nls.control(maxiter=200,warnOnly=TRUE),
-                                        start=list(alpha=0,rho=-10)))[1]
-  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                      data=temp,
-                                      control=nls.control(maxiter=200,warnOnly=TRUE),
-                                      start=list(alpha=0,rho=-10)))[2]
-}
-for (i in long3$ID){
-  temp<-long[long$ID==i,]
-  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                        data=temp,
-                                        control=nls.control(maxiter=200,warnOnly=TRUE),
-                                        start=list(alpha=0.5,rho=-5)))[1]
-  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                      data=temp,
-                                      control=nls.control(maxiter=200,warnOnly=TRUE),
-                                      start=list(alpha=0.5,rho=-5)))[2]
-}
-for (i in long4$ID){
-  temp<-long[long$ID==i,]
-  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                        data=temp,
-                                        control=nls.control(maxiter=200,warnOnly=TRUE),
-                                        start=list(alpha=0,rho=-0.1)))[1]
-  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                      data=temp,
-                                      control=nls.control(maxiter=200,warnOnly=TRUE),
-                                      start=list(alpha=0,rho=-0.1)))[2]
-}
-
-for (i in long5$ID){
-  temp<-long[long$ID==i,]
-  long$alphahat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                        data=temp,
-                                        control=nls.control(maxiter=200,warnOnly=TRUE),
-                                        start=list(alpha=0.5,rho=200)))[1]
-  long$rhohat[long$ID==i]<-coef(nlsLM(y~((alpha/(1-alpha))^(1/(1-rho)))/((x^(-rho/(1-rho)))+(alpha/(1-alpha))^(1/(1-rho))),
-                                      data=temp,
-                                      control=nls.control(maxiter=200,warnOnly=TRUE),
-                                      start=list(alpha=0.5,rho=200)))[2]
-}
-
-summary(long$rhohat)
-
-long<-long[,c("ID", "alphahat", "rhohat")]
+long<-long[,c("ID", "alpha", "rho", "sigma")]
 long<-unique(long)
 
 data1<-merge(long, data, by="ID")
 
-data<-data1[,c("ID", "ResponseId", "alphahat", "rhohat", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
+data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA")]
 
 #####################
 #Univariate Analysis#
@@ -455,14 +415,14 @@ SRA<-ggplot(data=data, aes(data$SRA))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
 #  labs(title="Total SRA Scores") +
   labs(x="Total Scores", y="Percent") +
-  scale_x_continuous(breaks=seq(20,50,2))
+  scale_x_continuous(breaks=seq(20,50,2)) + ggtitle("Figure 3: Total SRA Scores")
 ggsave("~/Desktop/thesis/paper/images/SRAimg.jpg", width=11, height=8.5)
 
 #UG1
 UG1<-ggplot(data=data, aes(data$UG1))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
-  ggtitle("Panel A: UG1") +
+  ggtitle("Panel C: UG1") +
   labs(x="Pass Rate", y="Percent") + ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1))
 ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
@@ -472,8 +432,8 @@ ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 UG2<-ggplot(data=data, aes(data$UG2))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") 
-  ggtitle("Panel B: UG2")+
-  labs(x="Minimum Acceptance", y="Percent")+ylim(c(0,45))+
+  ggtitle("Panel D: UG2")+
+  labs(x="Minimum Contribution Accepted", y="Percent")+ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1))
 
 ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
@@ -486,7 +446,7 @@ TG1<-ggplot(data=data, aes(data$TG1))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
-  ggtitle("Panel C: TG1")
+  ggtitle("Panel E: TG1")
 
 ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
 
@@ -496,7 +456,7 @@ PGG<-ggplot(data=data, aes(data$PGG))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
-  ggtitle("Panel D: PGG")
+  ggtitle("Panel F: PGG")
 
 ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
 
@@ -512,8 +472,20 @@ summary(data$TG2)
 
 TG2<-ggplot(data=data, aes(data$TG2)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
   scale_x_continuous(breaks=seq(-0.5, 1, by=0.1)) +
-  ylim(c(0,30)) + labs(x="Reciprocity", y="Percent")
+  ylim(c(0,28))+labs(x="Reciprocity", y="Percent") +
+  ggtitle("Panel G: Reciprocity Levels")
 ggsave("~/Desktop/thesis/paper/images/TG2.pdf", width=11, height=8.5)
+
+
+TG<-ggplot(data=data, aes(data$avgreturn)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+  ylim(c(0,28))+labs(x="Repayment Rate", y="Percent") + ggtitle("Panel H: Average Repayment Rate") +
+  scale_x_continuous(breaks=seq(0, 1, by=0.1))
+ggsave("~/Desktop/thesis/paper/images/TG.pdf", width=11, height=8.5)
+pdf("~/Desktop/thesis/paper/images/Figure2c.pdf",width=11,height=8.5)
+grid.arrange(TG2, TG, nrow=1)
+dev.off()
+
+
 
 
 #donations dataset
