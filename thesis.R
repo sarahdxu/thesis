@@ -274,7 +274,7 @@ while (i<344){
 data$UG2<-data$UG2/10
 
 #General Dictator game
-data <- data[-c(4:11, 13:20)]
+data <- data[-c(4:11,13:20)]
 
 data$p1 <- 1/2
 data$p2 <- 1/3
@@ -337,16 +337,24 @@ data$pi_o7 <- data$gendict7/data$p7
 data$pi_o8 <- data$gendict8/data$p8
 data$pi_o9 <- data$gendict9/data$p9
 
-data$Y1<-data$pi_s1/data$m1
-data$Y2<-data$pi_s2/data$m2
-data$Y3<-data$pi_s3/data$m3
-data$Y4<-data$pi_s4/data$m4
-data$Y5<-data$pi_s5/data$m5
-data$Y6<-data$pi_s6/data$m6
-data$Y7<-data$pi_s7/data$m7
-data$Y8<-data$pi_s8/data$m8
-data$Y9<-data$pi_s9/data$m9
-
+# data$Y1<-data$pi_s1/data$m1
+# data$Y2<-data$pi_s2/data$m2
+# data$Y3<-data$pi_s3/data$m3
+# data$Y4<-data$pi_s4/data$m4
+# data$Y5<-data$pi_s5/data$m5
+# data$Y6<-data$pi_s6/data$m6
+# data$Y7<-data$pi_s7/data$m7
+# data$Y8<-data$pi_s8/data$m8
+# data$Y9<-data$pi_s9/data$m9
+data$Y1<-data$pi_s1
+data$Y2<-data$pi_s2
+data$Y3<-data$pi_s3
+data$Y4<-data$pi_s4
+data$Y5<-data$pi_s5
+data$Y6<-data$pi_s6
+data$Y7<-data$pi_s7
+data$Y8<-data$pi_s8
+data$Y9<-data$pi_s9
 data$X1<-data$p1
 data$X2<-data$p2
 data$X3<-data$p3
@@ -357,53 +365,187 @@ data$X7<-data$p7
 data$X8<-data$p8
 data$X9<-data$p9
 
-gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
-                     "X5", "Y5", "X6", "Y6", "X7", "Y7", "X8","Y8","X9", "Y9")]
-names(gendictlong)<-c("ID", "g1.x", "g1.y", "g2.x", "g2.y", "g3.x", "g3.y", "g4.x", "g4.y", 
-                      "g5.x", "g5.y", "g6.x", "g6.y", "g7.x", "g7.y", "g8.x", "g8.y", 
-                      "g9.x", "g9.y")
+# gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
+#                      "X5", "Y5", "X6", "Y6", "X7", "Y7", "X8","Y8","X9", "Y9")]
+# names(gendictlong)<-c("ID", "g1.x", "g1.y", "g2.x", "g2.y", "g3.x", "g3.y", "g4.x", "g4.y", 
+#                       "g5.x", "g5.y", "g6.x", "g6.y", "g7.x", "g7.y", "g8.x", "g8.y", 
+#                       "g9.x", "g9.y")
+# long<- gendictlong %>% 
+#   gather(v, value, g1.x:g9.y) %>% 
+#   separate(v, c("var", "col")) %>% 
+#   arrange(ID) %>% 
+#   spread(col, value)
+
+
+gendictlong<-data[,c("ID", "X1", "Y1", "m1", "X2", "Y2", "m2","X3", "Y3", "m3", "X4", "Y4", "m4",
+                     "X5", "Y5", "m5", "X6", "Y6", "m6", "X7", "Y7", "m7", "X8", "Y8", "m8", "X9", "Y9", "m9")]
+names(gendictlong)<-c("ID", "g1.x", "g1.y","g1.m", "g2.x", "g2.y", "g2.m","g3.x", "g3.y","g3.m",
+                      "g4.x", "g4.y", "g4.m","g5.x", "g5.y","g5.m", "g6.x", "g6.y","g6.m",
+                      "g7.x", "g7.y", "g7.m","g8.x", "g8.y","g8.m", "g9.x", "g9.y","g9.m")
 long<- gendictlong %>% 
-  gather(v, value, g1.x:g9.y) %>% 
+  gather(v, value, g1.x:g9.m) %>% 
   separate(v, c("var", "col")) %>% 
   arrange(ID) %>% 
   spread(col, value)
 
-long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281,]
-long2<-long[long$ID==96 | long$ID==113 | long$ID==281,]
+# temp<-long[long$ID==9,]
+# x<-temp$x
+# y<-temp$y
+# 
+# plot(x,y)
+# lin_mod=lm(y~x)
+# abline(lin_mod)
+# 
+# nonlin_mod=nls(y~A/((x^r)+A),start=list(A=6,r=0))
+# mm<-function(x,A,r) A/((x^r)+A)
+# 
+# mm1<-nls(y~SSlogis(x,A,r))
+# 
+# gendictlong<-data[,c("ID", "X1", "Y1", "m1", "X2", "Y2","m2", "X3", "Y3","m3", "X4", "Y4","m4",
+#                      "X5", "Y5","m5", "X6", "Y6","m6", "X7", "Y7","m7", "X8","Y8","m8", "X9", "Y9", "m9")]
+# names(gendictlong)<-c("ID", "g1.x", "g1.y","g1.m", "g2.x", "g2.y","g2.m", "g3.x", "g3.y","g3.m",
+#                       "g4.x", "g4.y", "g4.m","g5.x", "g5.y","g5.m", "g6.x", "g6.y","g6.m",
+#                       "g7.x", "g7.y","g7.m", "g8.x", "g8.y", "g8.m","g9.x", "g9.y","g9.m")
+# long<- gendictlong %>% 
+#   gather(v, value, g1.x:g9.m) %>% 
+#   separate(v, c("var", "col")) %>% 
+#   arrange(ID) %>% 
+#   spread(col, value)
+# 
+# 
+# install.packages("AER")
+# library(AER)
+# temp<-long[long$ID==3,]
+# predictors=list(A=1, r=1)
+# variables=list(substitute(x))
+# term = function(predLabels, varLabels) {
+#   paste(predLabels[1], "/(1 + exp((", predLabels[2], "-",
+#         varLabels[1], ")/", predLabels[3], "))")
+# }
+# set.seed(23)
+# x<-temp$x
+# y<-temp$y/temp$m
+# plot(x,y)
+# m<-temp$m
+# lin_mod=lm(y~x)
+# 
+# #Plotting the model
+# 
+# plot(x,y)
+# 
+# abline(lin_mod)
+# nonlin_mod=nls(y~m*(A/((x^r)+A)),start=list(A=.5,r=0))
+# plot(x,y)
+# 
+# lines(x,predict(nonlin_mod),col="red")
+# 
+# 
+# 
+# 
+# 
+# 
+# nls(tobit(y~m*(A/((x^r)+A)), data=temp ), data=temp)
+# 
+# nlm(y~m*(A/((x^r)+A)), data=temp, p=c(A=1, r=1), hessian=TRUE)
+# install.packages("micEconCES")
+# library(micEconCES)
+# set.seed(123)
+# cesData<-data.frame(x1=rchisq(200,10), x2=rchisq(200,10))
+# cesData$y<-cesCalc(xNames=c("x1","x2"),data=cesData,
+#                    coef=c(gamma=1,delta=0.6,rho=0.5,nu=1.1))
+# cesData$y<-cesData$y+2.5*rnorm(200)
+# 
+# cesNls<-nls(y~gamma*(delta*x1^(-rho)+(1-delta)*x2^(-rho))^(-phi/rho),
+#             data=cesData,start=c(gamma=0.5,delta=0.5,rho=0.25,phi=1))
+# print(cesNls)
+# 
+# cesLm<-cesEst("y",c("x1","x2"),cesData,vrs=TRUE)
+# summary(cesLm)
+# summary(data$sigma)
+# boxplot(data$sigma)
+# 
+# 
+# for (i in long1$ID){
+#   temp<-long[long$ID==i,]
+#   long$A[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
+#                                control = nls.control(warnOnly=TRUE),
+#                                start=list(A=1, r=-1)))[1]
+#   long$r[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
+#                                control=nls.control(warnOnly=TRUE),
+#                                start=list(A=1, r=-1)))[2]
+# }
+# nls.lm of the minpack.lm package
+# temp<-long[long$ID==34,]
+# nlsLM(y~A/((x^r))+A, data=temp,start=c(A=0,r=0))
+# coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[1]
+# long$f[long$ID==1]<-0
+temp<-long[long$ID==1,]
+# plot(temp$x,temp$y)
+coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=0,r=0)))[2]
+# 
+long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=318,]
+long2<-long[long$ID==96 | long$ID==113 | long$ID==281 | long$ID==318,]
+long$A<-NA
+long$r<-NA
 for (i in long1$ID){
   temp<-long[long$ID==i,]
-  long$A[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
-                               control = nls.control(warnOnly=TRUE),
-                               start=list(A=1, r=-1)))[1]
-  long$r[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
-                               control=nls.control(warnOnly=TRUE),
-                               start=list(A=1, r=-1)))[2]
+  long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
+                                 #control = nls.lm.control(maxiter=75),
+                                 data=temp,start=c(A=0,r=1)))[1]
+  long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
+                                 #control = nls.lm.control(maxiter=75),
+                                 data=temp,start=c(A=0,r=1)))[2]
 }
-
 for (i in long2$ID){
   temp<-long[long$ID==i,]
-  long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
-                               control = nls.control(warnOnly=TRUE),
-                               start=list(A=1, r=-10)))[1]
-  long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
-                               control=nls.control(warnOnly=TRUE),
-                               start=list(A=1, r=-10)))[2]
+  long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[1]
+  long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[2]
 }
 
-long$rho<-long$r/(long$r-1)
-long$num<-(long$A)^(1-(long$rho))
-long$denom<-1+(long$A)^(1-(long$rho))
-long$alpha<-long$num/long$denom
+# for (i in long2$ID){
+#   temp<-long[long$ID==i,]
+#   long$A[long$ID==i]<-coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[1]
+#   long$r[long$ID==i]<-coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[2]
+# }
+
+
+# long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281,]
+# long2<-long[long$ID==96 | long$ID==113 | long$ID==281,]
+# for (i in long1$ID){
+#   temp<-long[long$ID==i,]
+#   long$A[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
+#                                control = nls.control(warnOnly=TRUE),
+#                                start=list(A=1, r=-1)))[1]
+#   long$r[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
+#                                control=nls.control(warnOnly=TRUE),
+#                                start=list(A=1, r=-1)))[2]
+# }
+# 
+# for (i in long2$ID){
+#   temp<-long[long$ID==i,]
+#   long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+#                                control = nls.control(warnOnly=TRUE),
+#                                start=list(A=1, r=-10)))[1]
+#   long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
+#                                control=nls.control(warnOnly=TRUE),
+#                                start=list(A=1, r=-10)))[2]
+# }
+long<-long[,c("ID", "A", "r")]
+long<-unique(long)
+# long<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=358,]
+long$rho<-long$r/(long$r - 1)
+long$alpha<-((long$A)^(1-long$rho))/(1+(long$A)^(1-long$rho))
+summary(long$alpha)
+summary(long$rho)
 long$sigma<-1/(long$rho - 1)
+summary(long$sigma)
 # long$alpha[long$ID==281]<-0
 # long$alpha[long$ID==96]<-0
 # long$alpha[long$ID==113]<-0
 
 long<-long[,c("ID", "alpha", "rho", "sigma")]
-long<-unique(long)
 
 data1<-merge(long, data, by="ID")
-
 data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA")]
 
 #####################
@@ -460,7 +602,7 @@ PGG<-ggplot(data=data, aes(data$PGG))+
 
 ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
 
-pdf("~/Desktop/thesis/paper/images/Figure2a.pdf",width=11,height=8.5)
+pdf("~/Desktop/thesis/paper/images/Figure2b.pdf",width=11,height=8.5)
 grid.arrange(UG1, UG2, TG1, PGG, nrow=2)
 dev.off()
 
@@ -502,19 +644,74 @@ prop.table(table(data$donated))
 donated<-ggplot(data=data, aes(data$donated))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
-  labs(x="Donated", y="Percent") + scale_x_continuous(breaks=seq(0,1,1)) + ylim(c(0,80))
+  labs(x="Donated", y="Percent") + scale_x_continuous(breaks=seq(0,1,1)) + ylim(c(0,80))+
+  ggtitle("Panel I: Donations")
 ggsave("~/Desktop/thesis/paper/images/donated.pdf", width=11, height=8.5)
 
 
 data$donations<-as.numeric(data$DNR_GIVING)
 d<-data[data$donation<=625,]
 donations<-ggplot(data=d, aes(d$donation))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10)+
-  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,650,50))+ylim(c(0,60))
+  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,650,50))+ylim(c(0,60))+
+  ggtitle("Panel J: Average Donation Amount")
 ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
+
+
+pdf("~/Desktop/thesis/paper/images/Figure4.pdf",width=11,height=8.5)
+grid.arrange(donated, donations, nrow=1)
+dev.off()
 
 e<-data[data$donation>625,]
 prop.table(table(e$donation))
 summary(data$donation)
+
+#GDG
+
+alpha<-ggplot(data=data, aes(data$alpha)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+  scale_x_continuous(breaks=seq(0, 1, by=0.1)) +
+  #ylim(c(0,28))+
+  labs(x="Alpha", y="Percent") +
+  ggtitle("Panel A: Alpha")
+ggsave("~/Desktop/thesis/paper/images/alpha.pdf", width=11, height=8.5)
+
+data1<-data[data$rho<=1 & data$rho>=-1,]
+data2<-data[data$rho<(-1),]
+data2$rho1<-(-1.25)
+
+data$rho1[data$rho1>1]<-NA
+data1<-data[data$rho<=1,]
+data1$rho1<-data1$rho
+data1$rho1[data1$rho1<(-1)]<-(-1.25)
+data2<-data[data$rho>1,]
+
+rho<-ggplot(data=data1, aes(x=data1$rho1)) + 
+  geom_histogram(aes(x=data1$rho1, y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+  #geom_histogram(aes(x=data1$rho1[data1$rho1==-1.25], y=100*(..count..)/sum(..count..)),binwidth=0.05)+
+  scale_x_continuous(breaks=seq(-1, 1, by=0.1)) +
+  ylim(c(0,25))+
+  labs(x="Rho", y="Percent") +
+  ggtitle("Panel B: Rho")
+ggsave("~/Desktop/thesis/paper/images/rho.pdf", width=11, height=8.5)
+
+data2<-data[data$rho<=1 & data$rho>=-1,]
+plot(data2$rho, data2$alpha)
+fig<-ggplot(data2, aes(x=rho, y=alpha)) +
+  geom_point(size=2) + labs(x="Rho", y="Alpha") +
+  ggtitle("Panel C: Scatterplot of CES Parameters")
+pdf("~/Desktop/thesis/paper/images/Figure2a.pdf",width=11,height=8.5)
+grid.arrange(alpha, rho, nrow=1)
+dev.off()
+
+temp<-data[data$rho>1,]
+
+summary(data$alpha)
+hist(data$alpha)
+plot(long1$rho, long1$alpha)
+ggplot(data, aes(x=rho, y=alpha))+geom_point()
+summary(data$alpha)
+head(temp)
+summary(data$rho)
+summary(data$alpha)
 #match players to get winner
 match <- data[,c("ResponseId", 
                  "public")]
