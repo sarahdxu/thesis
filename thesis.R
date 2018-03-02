@@ -23,6 +23,7 @@ data = read.csv("thesis.csv", stringsAsFactors=FALSE)
 data=data[data$Finished == "TRUE", ]
 data$ID <- seq.int(nrow(data))
 
+
 #Rename columns
 names(data)[names(data)=='Q4_1'] <- 'gendict1'
 names(data)[names(data)=='Q5_1'] <- 'gendict2'
@@ -274,7 +275,7 @@ while (i<344){
 data$UG2<-data$UG2/10
 
 #General Dictator game
-data <- data[-c(4:11,13:20)]
+data <- data[-c(4:11,13:20,64)]
 
 data$p1 <- 1/2
 data$p2 <- 1/3
@@ -327,15 +328,15 @@ data$pi_s6 <- data$m6-data$gendict6
 data$pi_s7 <- data$m7-data$gendict7
 data$pi_s8 <- data$m8-data$gendict8
 data$pi_s9 <- data$m9-data$gendict9
-data$pi_o1 <- data$gendict1/data$p1
-data$pi_o2 <- data$gendict2/data$p2
-data$pi_o3 <- data$gendict3/data$p3
-data$pi_o4 <- data$gendict4/data$p4
-data$pi_o5 <- data$gendict5/data$p5
-data$pi_o6 <- data$gendict6/data$p6
-data$pi_o7 <- data$gendict7/data$p7
-data$pi_o8 <- data$gendict8/data$p8
-data$pi_o9 <- data$gendict9/data$p9
+# data$pi_o1 <- data$gendict1/data$p1
+# data$pi_o2 <- data$gendict2/data$p2
+# data$pi_o3 <- data$gendict3/data$p3
+# data$pi_o4 <- data$gendict4/data$p4
+# data$pi_o5 <- data$gendict5/data$p5
+# data$pi_o6 <- data$gendict6/data$p6
+# data$pi_o7 <- data$gendict7/data$p7
+# data$pi_o8 <- data$gendict8/data$p8
+# data$pi_o9 <- data$gendict9/data$p9
 
 # data$Y1<-data$pi_s1/data$m1
 # data$Y2<-data$pi_s2/data$m2
@@ -479,22 +480,22 @@ long<- gendictlong %>%
 # nlsLM(y~A/((x^r))+A, data=temp,start=c(A=0,r=0))
 # coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[1]
 # long$f[long$ID==1]<-0
-temp<-long[long$ID==1,]
+#temp<-long[long$ID==128,]
 # plot(temp$x,temp$y)
-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=0,r=0)))[2]
+#coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=0,r=0)))[1]
 # 
 long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=318,]
 long2<-long[long$ID==96 | long$ID==113 | long$ID==281 | long$ID==318,]
-long$A<-NA
-long$r<-NA
+# long$A<-NA
+# long$r<-NA
 for (i in long1$ID){
   temp<-long[long$ID==i,]
   long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
                                  #control = nls.lm.control(maxiter=75),
-                                 data=temp,start=c(A=0,r=1)))[1]
+                                 data=temp,start=c(A=0,r=-1)))[1]
   long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
                                  #control = nls.lm.control(maxiter=75),
-                                 data=temp,start=c(A=0,r=1)))[2]
+                                 data=temp,start=c(A=0,r=-1)))[2]
 }
 for (i in long2$ID){
   temp<-long[long$ID==i,]
@@ -535,10 +536,10 @@ long<-unique(long)
 # long<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=358,]
 long$rho<-long$r/(long$r - 1)
 long$alpha<-((long$A)^(1-long$rho))/(1+(long$A)^(1-long$rho))
-summary(long$alpha)
-summary(long$rho)
+# summary(long$alpha)
+# summary(long$rho)
 long$sigma<-1/(long$rho - 1)
-summary(long$sigma)
+# summary(long$sigma)
 # long$alpha[long$ID==281]<-0
 # long$alpha[long$ID==96]<-0
 # long$alpha[long$ID==113]<-0
@@ -547,6 +548,22 @@ long<-long[,c("ID", "alpha", "rho", "sigma")]
 
 data1<-merge(long, data, by="ID")
 data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA")]
+
+
+
+donations = read.csv("donations.csv", stringsAsFactors=FALSE)
+
+
+donations <- donations[-c(11:18, 20:67)]
+
+data <- merge( data,donations, by="ResponseId")
+data<-data[,c("ID", "ResponseId", "GENDER", "CLASS_YR", "MAJOR", "alpha", "rho",
+              "sigma", "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA", "current_donor_status",
+              "DNR_GIVING", "DNR_TOTAL_YEARS", "first_gift", "last_gift", "last_gift_amount", "last_gift_for")]
+
+
+
+
 
 #####################
 #Univariate Analysis#
@@ -624,19 +641,13 @@ TG<-ggplot(data=data, aes(data$avgreturn)) + geom_histogram(aes(y=100*(..count..
   scale_x_continuous(breaks=seq(0, 1, by=0.1))
 ggsave("~/Desktop/thesis/paper/images/TG.pdf", width=11, height=8.5)
 pdf("~/Desktop/thesis/paper/images/Figure2c.pdf",width=11,height=8.5)
-grid.arrange(TG2, TG, nrow=1)
+grid.arrange(TG2, TG, nrow=2)
 dev.off()
 
 
 
 
 #donations dataset
-donations = read.csv("donations.csv", stringsAsFactors=FALSE)
-
-
-donations <- donations[-c(11:18, 20:67)]
-
-data <- merge( data,donations, by="ResponseId")
 
 data$donated<-1
 data$donated[data$current_donor_status=="Never"]<-0
@@ -650,20 +661,20 @@ ggsave("~/Desktop/thesis/paper/images/donated.pdf", width=11, height=8.5)
 
 
 data$donations<-as.numeric(data$DNR_GIVING)
-d<-data[data$donation<=625,]
+d<-data[data$donation<=200,]
 donations<-ggplot(data=d, aes(d$donation))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10)+
-  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,650,50))+ylim(c(0,60))+
+  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,200,10))+ylim(c(0,60))+
   ggtitle("Panel J: Average Donation Amount")
 ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
 
 
 pdf("~/Desktop/thesis/paper/images/Figure4.pdf",width=11,height=8.5)
-grid.arrange(donated, donations, nrow=1)
+grid.arrange(donated, donations, nrow=2)
 dev.off()
 
-e<-data[data$donation>625,]
-prop.table(table(e$donation))
-summary(data$donation)
+# e<-data[data$donation>625,]
+# prop.table(table(e$donation))
+# summary(data$donation)
 
 #GDG
 
@@ -674,15 +685,12 @@ alpha<-ggplot(data=data, aes(data$alpha)) + geom_histogram(aes(y=100*(..count..)
   ggtitle("Panel A: Alpha")
 ggsave("~/Desktop/thesis/paper/images/alpha.pdf", width=11, height=8.5)
 
-data1<-data[data$rho<=1 & data$rho>=-1,]
-data2<-data[data$rho<(-1),]
-data2$rho1<-(-1.25)
 
-data$rho1[data$rho1>1]<-NA
+#data$rho1[data$rho1>1]<-NA
 data1<-data[data$rho<=1,]
 data1$rho1<-data1$rho
 data1$rho1[data1$rho1<(-1)]<-(-1.25)
-data2<-data[data$rho>1,]
+#data2<-data[data$rho>1,]
 
 rho<-ggplot(data=data1, aes(x=data1$rho1)) + 
   geom_histogram(aes(x=data1$rho1, y=100*(..count..)/sum(..count..)), binwidth=0.05)+
@@ -698,18 +706,23 @@ plot(data2$rho, data2$alpha)
 fig<-ggplot(data2, aes(x=rho, y=alpha)) +
   geom_point(size=2) + labs(x="Rho", y="Alpha") +
   ggtitle("Panel C: Scatterplot of CES Parameters")
+
+# sigma<-ggplot(data=data, aes(x=data$sigma)) + 
+#   geom_histogram(aes(x=data$sigma, y=100*(..count..)/sum(..count..)), binwidth=1)+
+#   #geom_histogram(aes(x=data1$rho1[data1$rho1==-1.25], y=100*(..count..)/sum(..count..)),binwidth=0.05)+
+#   scale_x_continuous(breaks=seq(-1, 1, by=0.1)) +
+#   ylim(c(0,25))+
+#   labs(x="Sigma", y="Percent") +
+#   ggtitle("Panel C: Sigma")
+
 pdf("~/Desktop/thesis/paper/images/Figure2a.pdf",width=11,height=8.5)
-grid.arrange(alpha, rho, nrow=1)
+grid.arrange(alpha, rho, nrow=2)
 dev.off()
 
-temp<-data[data$rho>1,]
+temporary<-data[data$rho>1,]
 
 summary(data$alpha)
 hist(data$alpha)
-plot(long1$rho, long1$alpha)
-ggplot(data, aes(x=rho, y=alpha))+geom_point()
-summary(data$alpha)
-head(temp)
 summary(data$rho)
 summary(data$alpha)
 #match players to get winner
