@@ -484,24 +484,56 @@ long<- gendictlong %>%
 # plot(temp$x,temp$y)
 #coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=0,r=0)))[1]
 # 
-long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=318,]
-long2<-long[long$ID==96 | long$ID==113 | long$ID==281 | long$ID==318,]
-# long$A<-NA
-# long$r<-NA
-for (i in long1$ID){
+
+# temp<-long[long$ID==2,]
+# x<-temp$x
+# y<-temp$y
+# plot(x, y)
+# nonlin_mod<-nls(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=-1), 
+#     algorithm="port",
+#     control=nls.control(warnOnly=TRUE),
+#     upper=c(A=Inf, r=1), lower=c(A=-Inf,r=-Inf))
+# 
+# plot(x,y)
+# lines(x,predict(nonlin_mod),col="red")
+
+
+for (i in long$ID){
   temp<-long[long$ID==i,]
-  long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
-                                 #control = nls.lm.control(maxiter=75),
-                                 data=temp,start=c(A=0,r=-1)))[1]
-  long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
-                                 #control = nls.lm.control(maxiter=75),
-                                 data=temp,start=c(A=0,r=-1)))[2]
+  model<-nls(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=-1), 
+      algorithm="port",
+      control=nls.control(warnOnly=TRUE),
+      upper=c(A=Inf, r=0.9999), lower=c(A=-Inf,r=-Inf))
+  long$A[long$ID==i]<-coef(model)[1]
+  long$r[long$ID==i]<-coef(model)[2]
 }
-for (i in long2$ID){
-  temp<-long[long$ID==i,]
-  long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[1]
-  long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[2]
-}
+# nls(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=1), 
+#     algorithm="port",
+#     upper=c(A=Inf, r=1), lower=c(A=-Inf,r=-Inf))
+# 
+# nlsLM(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=1), upper=c(A=Inf, r=1),
+#       lower=c(A=-Inf, r=-Inf))
+
+
+
+# long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=318,]
+# long2<-long[long$ID==96 | long$ID==113 | long$ID==281 | long$ID==318,]
+# # long$A<-NA
+# # long$r<-NA
+# for (i in long1$ID){
+#   temp<-long[long$ID==i,]
+#   long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
+#                                  #control = nls.lm.control(maxiter=75),
+#                                  data=temp,start=c(A=0,r=-1)))[1]
+#   long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
+#                                  #control = nls.lm.control(maxiter=75),
+#                                  data=temp,start=c(A=0,r=-1)))[2]
+# }
+# for (i in long2$ID){
+#   temp<-long[long$ID==i,]
+#   long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[1]
+#   long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[2]
+# }
 
 # for (i in long2$ID){
 #   temp<-long[long$ID==i,]
@@ -539,6 +571,12 @@ long$alpha<-((long$A)^(1-long$rho))/(1+(long$A)^(1-long$rho))
 # summary(long$alpha)
 # summary(long$rho)
 long$sigma<-1/(long$rho - 1)
+long$alpha[long$ID==96]<-0
+long$alpha[long$ID==113]<-0
+long$alpha[long$ID==281]<-0
+long$alpha[long$ID==13]<-1
+long$alpha[long$ID==87]<-1
+long$alpha[long$ID==362]<-1
 # summary(long$sigma)
 # long$alpha[long$ID==281]<-0
 # long$alpha[long$ID==96]<-0
@@ -687,25 +725,24 @@ ggsave("~/Desktop/thesis/paper/images/alpha.pdf", width=11, height=8.5)
 
 
 #data$rho1[data$rho1>1]<-NA
-data1<-data[data$rho<=1,]
+data1<-data
 data1$rho1<-data1$rho
 data1$rho1[data1$rho1<(-1)]<-(-1.25)
 #data2<-data[data$rho>1,]
 
-rho<-ggplot(data=data1, aes(x=data1$rho1)) + 
-  geom_histogram(aes(x=data1$rho1, y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+rho<-ggplot(data=data1, aes(x=rho1)) + 
+  geom_histogram(aes(x=rho1, y=100*(..count..)/sum(..count..)), binwidth=0.05)+
   #geom_histogram(aes(x=data1$rho1[data1$rho1==-1.25], y=100*(..count..)/sum(..count..)),binwidth=0.05)+
   scale_x_continuous(breaks=seq(-1, 1, by=0.1)) +
-  ylim(c(0,25))+
   labs(x="Rho", y="Percent") +
   ggtitle("Panel B: Rho")
 ggsave("~/Desktop/thesis/paper/images/rho.pdf", width=11, height=8.5)
 
-data2<-data[data$rho<=1 & data$rho>=-1,]
-plot(data2$rho, data2$alpha)
-fig<-ggplot(data2, aes(x=rho, y=alpha)) +
-  geom_point(size=2) + labs(x="Rho", y="Alpha") +
-  ggtitle("Panel C: Scatterplot of CES Parameters")
+# data2<-data[data$rho<=1 & data$rho>=-1,]
+# plot(data2$rho, data2$alpha)
+# fig<-ggplot(data2, aes(x=rho, y=alpha)) +
+#   geom_point(size=2) + labs(x="Rho", y="Alpha") +
+#   ggtitle("Panel C: Scatterplot of CES Parameters")
 
 # sigma<-ggplot(data=data, aes(x=data$sigma)) + 
 #   geom_histogram(aes(x=data$sigma, y=100*(..count..)/sum(..count..)), binwidth=1)+
