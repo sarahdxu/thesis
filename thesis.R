@@ -13,7 +13,12 @@ if(!require(minpack.lm)){
   install.packages("minpack.lm")
 }
 library(minpack.lm)
-
+library(picante)
+if(!require(stargazer)){
+  install.packages("stargazer")
+}
+library(stargazer)
+library(Hmisc)
 
 setwd("~/Desktop/thesis")
 #Import data
@@ -137,6 +142,7 @@ data$public<-as.numeric(data$public)
 
 data$SRA<-data$SRA1+data$SRA2+data$SRA3+data$SRA4+data$SRA5+data$SRA6+
   data$SRA7+data$SRA8+data$SRA9+data$SRA10
+data$SRAmoney<-data$SRA2+data$SRA3+data$SRA4+data$SRA7
 data$UG1 <- data$ult1/10
 data$TG1 <- data$trust1/10
 data$PGG <- data$public/10
@@ -264,8 +270,8 @@ data$UG2<-0
 while (i<344){
   j<-42
   while (j<53){
-    if (data[i,j] == 'Accept' & data[i,69]==0){
-      data[i,69]<-j-42
+    if (data[i,j] == 'Accept' & data[i,70]==0){
+      data[i,70]<-j-42
       j<-53
     }
     else{j<-j+1}
@@ -328,25 +334,7 @@ data$pi_s6 <- data$m6-data$gendict6
 data$pi_s7 <- data$m7-data$gendict7
 data$pi_s8 <- data$m8-data$gendict8
 data$pi_s9 <- data$m9-data$gendict9
-# data$pi_o1 <- data$gendict1/data$p1
-# data$pi_o2 <- data$gendict2/data$p2
-# data$pi_o3 <- data$gendict3/data$p3
-# data$pi_o4 <- data$gendict4/data$p4
-# data$pi_o5 <- data$gendict5/data$p5
-# data$pi_o6 <- data$gendict6/data$p6
-# data$pi_o7 <- data$gendict7/data$p7
-# data$pi_o8 <- data$gendict8/data$p8
-# data$pi_o9 <- data$gendict9/data$p9
 
-# data$Y1<-data$pi_s1/data$m1
-# data$Y2<-data$pi_s2/data$m2
-# data$Y3<-data$pi_s3/data$m3
-# data$Y4<-data$pi_s4/data$m4
-# data$Y5<-data$pi_s5/data$m5
-# data$Y6<-data$pi_s6/data$m6
-# data$Y7<-data$pi_s7/data$m7
-# data$Y8<-data$pi_s8/data$m8
-# data$Y9<-data$pi_s9/data$m9
 data$Y1<-data$pi_s1
 data$Y2<-data$pi_s2
 data$Y3<-data$pi_s3
@@ -366,17 +354,6 @@ data$X7<-data$p7
 data$X8<-data$p8
 data$X9<-data$p9
 
-# gendictlong<-data[,c("ID", "X1", "Y1", "X2", "Y2", "X3", "Y3", "X4", "Y4",
-#                      "X5", "Y5", "X6", "Y6", "X7", "Y7", "X8","Y8","X9", "Y9")]
-# names(gendictlong)<-c("ID", "g1.x", "g1.y", "g2.x", "g2.y", "g3.x", "g3.y", "g4.x", "g4.y", 
-#                       "g5.x", "g5.y", "g6.x", "g6.y", "g7.x", "g7.y", "g8.x", "g8.y", 
-#                       "g9.x", "g9.y")
-# long<- gendictlong %>% 
-#   gather(v, value, g1.x:g9.y) %>% 
-#   separate(v, c("var", "col")) %>% 
-#   arrange(ID) %>% 
-#   spread(col, value)
-
 
 gendictlong<-data[,c("ID", "X1", "Y1", "m1", "X2", "Y2", "m2","X3", "Y3", "m3", "X4", "Y4", "m4",
                      "X5", "Y5", "m5", "X6", "Y6", "m6", "X7", "Y7", "m7", "X8", "Y8", "m8", "X9", "Y9", "m9")]
@@ -389,114 +366,6 @@ long<- gendictlong %>%
   arrange(ID) %>% 
   spread(col, value)
 
-# temp<-long[long$ID==9,]
-# x<-temp$x
-# y<-temp$y
-# 
-# plot(x,y)
-# lin_mod=lm(y~x)
-# abline(lin_mod)
-# 
-# nonlin_mod=nls(y~A/((x^r)+A),start=list(A=6,r=0))
-# mm<-function(x,A,r) A/((x^r)+A)
-# 
-# mm1<-nls(y~SSlogis(x,A,r))
-# 
-# gendictlong<-data[,c("ID", "X1", "Y1", "m1", "X2", "Y2","m2", "X3", "Y3","m3", "X4", "Y4","m4",
-#                      "X5", "Y5","m5", "X6", "Y6","m6", "X7", "Y7","m7", "X8","Y8","m8", "X9", "Y9", "m9")]
-# names(gendictlong)<-c("ID", "g1.x", "g1.y","g1.m", "g2.x", "g2.y","g2.m", "g3.x", "g3.y","g3.m",
-#                       "g4.x", "g4.y", "g4.m","g5.x", "g5.y","g5.m", "g6.x", "g6.y","g6.m",
-#                       "g7.x", "g7.y","g7.m", "g8.x", "g8.y", "g8.m","g9.x", "g9.y","g9.m")
-# long<- gendictlong %>% 
-#   gather(v, value, g1.x:g9.m) %>% 
-#   separate(v, c("var", "col")) %>% 
-#   arrange(ID) %>% 
-#   spread(col, value)
-# 
-# 
-# install.packages("AER")
-# library(AER)
-# temp<-long[long$ID==3,]
-# predictors=list(A=1, r=1)
-# variables=list(substitute(x))
-# term = function(predLabels, varLabels) {
-#   paste(predLabels[1], "/(1 + exp((", predLabels[2], "-",
-#         varLabels[1], ")/", predLabels[3], "))")
-# }
-# set.seed(23)
-# x<-temp$x
-# y<-temp$y/temp$m
-# plot(x,y)
-# m<-temp$m
-# lin_mod=lm(y~x)
-# 
-# #Plotting the model
-# 
-# plot(x,y)
-# 
-# abline(lin_mod)
-# nonlin_mod=nls(y~m*(A/((x^r)+A)),start=list(A=.5,r=0))
-# plot(x,y)
-# 
-# lines(x,predict(nonlin_mod),col="red")
-# 
-# 
-# 
-# 
-# 
-# 
-# nls(tobit(y~m*(A/((x^r)+A)), data=temp ), data=temp)
-# 
-# nlm(y~m*(A/((x^r)+A)), data=temp, p=c(A=1, r=1), hessian=TRUE)
-# install.packages("micEconCES")
-# library(micEconCES)
-# set.seed(123)
-# cesData<-data.frame(x1=rchisq(200,10), x2=rchisq(200,10))
-# cesData$y<-cesCalc(xNames=c("x1","x2"),data=cesData,
-#                    coef=c(gamma=1,delta=0.6,rho=0.5,nu=1.1))
-# cesData$y<-cesData$y+2.5*rnorm(200)
-# 
-# cesNls<-nls(y~gamma*(delta*x1^(-rho)+(1-delta)*x2^(-rho))^(-phi/rho),
-#             data=cesData,start=c(gamma=0.5,delta=0.5,rho=0.25,phi=1))
-# print(cesNls)
-# 
-# cesLm<-cesEst("y",c("x1","x2"),cesData,vrs=TRUE)
-# summary(cesLm)
-# summary(data$sigma)
-# boxplot(data$sigma)
-# 
-# 
-# for (i in long1$ID){
-#   temp<-long[long$ID==i,]
-#   long$A[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
-#                                control = nls.control(warnOnly=TRUE),
-#                                start=list(A=1, r=-1)))[1]
-#   long$r[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
-#                                control=nls.control(warnOnly=TRUE),
-#                                start=list(A=1, r=-1)))[2]
-# }
-# nls.lm of the minpack.lm package
-# temp<-long[long$ID==34,]
-# nlsLM(y~A/((x^r))+A, data=temp,start=c(A=0,r=0))
-# coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[1]
-# long$f[long$ID==1]<-0
-#temp<-long[long$ID==128,]
-# plot(temp$x,temp$y)
-#coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=0,r=0)))[1]
-# 
-
-# temp<-long[long$ID==2,]
-# x<-temp$x
-# y<-temp$y
-# plot(x, y)
-# nonlin_mod<-nls(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=-1), 
-#     algorithm="port",
-#     control=nls.control(warnOnly=TRUE),
-#     upper=c(A=Inf, r=1), lower=c(A=-Inf,r=-Inf))
-# 
-# plot(x,y)
-# lines(x,predict(nonlin_mod),col="red")
-
 
 for (i in long$ID){
   temp<-long[long$ID==i,]
@@ -507,69 +376,11 @@ for (i in long$ID){
   long$A[long$ID==i]<-coef(model)[1]
   long$r[long$ID==i]<-coef(model)[2]
 }
-# nls(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=1), 
-#     algorithm="port",
-#     upper=c(A=Inf, r=1), lower=c(A=-Inf,r=-Inf))
-# 
-# nlsLM(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=1), upper=c(A=Inf, r=1),
-#       lower=c(A=-Inf, r=-Inf))
 
-
-
-# long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=318,]
-# long2<-long[long$ID==96 | long$ID==113 | long$ID==281 | long$ID==318,]
-# # long$A<-NA
-# # long$r<-NA
-# for (i in long1$ID){
-#   temp<-long[long$ID==i,]
-#   long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
-#                                  #control = nls.lm.control(maxiter=75),
-#                                  data=temp,start=c(A=0,r=-1)))[1]
-#   long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)),
-#                                  #control = nls.lm.control(maxiter=75),
-#                                  data=temp,start=c(A=0,r=-1)))[2]
-# }
-# for (i in long2$ID){
-#   temp<-long[long$ID==i,]
-#   long$A[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[1]
-#   long$r[long$ID==i]<-coef(nlsLM(y~m*(A/((x^r)+A)), data=temp,start=c(A=1,r=1)))[2]
-# }
-
-# for (i in long2$ID){
-#   temp<-long[long$ID==i,]
-#   long$A[long$ID==i]<-coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[1]
-#   long$r[long$ID==i]<-coef(nlsLM(y~A/((x^r))+A, data=temp,start=c(A=1,r=1)))[2]
-# }
-
-
-# long1<-long[long$ID!=96 & long$ID!=113 & long$ID!=281,]
-# long2<-long[long$ID==96 | long$ID==113 | long$ID==281,]
-# for (i in long1$ID){
-#   temp<-long[long$ID==i,]
-#   long$A[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
-#                                control = nls.control(warnOnly=TRUE),
-#                                start=list(A=1, r=-1)))[1]
-#   long$r[long$ID==i]<-coef(nls(y~A/((x^r)+A), data=temp, 
-#                                control=nls.control(warnOnly=TRUE),
-#                                start=list(A=1, r=-1)))[2]
-# }
-# 
-# for (i in long2$ID){
-#   temp<-long[long$ID==i,]
-#   long$A[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
-#                                control = nls.control(warnOnly=TRUE),
-#                                start=list(A=1, r=-10)))[1]
-#   long$r[long$ID==i]<-coef(nls(y~A/(x^r+A), data=temp, 
-#                                control=nls.control(warnOnly=TRUE),
-#                                start=list(A=1, r=-10)))[2]
-# }
 long<-long[,c("ID", "A", "r")]
 long<-unique(long)
-# long<-long[long$ID!=96 & long$ID!=113 & long$ID!=281 & long$ID!=358,]
 long$rho<-long$r/(long$r - 1)
 long$alpha<-((long$A)^(1-long$rho))/(1+(long$A)^(1-long$rho))
-# summary(long$alpha)
-# summary(long$rho)
 long$sigma<-1/(long$rho - 1)
 long$alpha[long$ID==96]<-0
 long$alpha[long$ID==113]<-0
@@ -577,15 +388,11 @@ long$alpha[long$ID==281]<-0
 long$alpha[long$ID==13]<-1
 long$alpha[long$ID==87]<-1
 long$alpha[long$ID==362]<-1
-# summary(long$sigma)
-# long$alpha[long$ID==281]<-0
-# long$alpha[long$ID==96]<-0
-# long$alpha[long$ID==113]<-0
 
 long<-long[,c("ID", "alpha", "rho", "sigma")]
 
 data1<-merge(long, data, by="ID")
-data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA")]
+data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA", "SRAmoney")]
 
 
 
@@ -596,7 +403,7 @@ donations <- donations[-c(11:18, 20:67)]
 
 data <- merge( data,donations, by="ResponseId")
 data<-data[,c("ID", "ResponseId", "GENDER", "CLASS_YR", "MAJOR", "alpha", "rho",
-              "sigma", "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA", "current_donor_status",
+              "sigma", "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA","SRAmoney", "current_donor_status",
               "DNR_GIVING", "DNR_TOTAL_YEARS", "first_gift", "last_gift", "last_gift_amount", "last_gift_for")]
 
 
@@ -612,8 +419,20 @@ SRA<-ggplot(data=data, aes(data$SRA))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
 #  labs(title="Total SRA Scores") +
   labs(x="Total Scores", y="Percent") +
-  scale_x_continuous(breaks=seq(20,50,2)) + ggtitle("Figure 3: Total SRA Scores")
+  scale_x_continuous(breaks=seq(20,50,2)) + ggtitle("Panel I: Total SRA Scores")
 ggsave("~/Desktop/thesis/paper/images/SRAimg.jpg", width=11, height=8.5)
+summary(data$SRAmoney)
+SRAmoney<-ggplot(data=data, aes(data$SRAmoney))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  #  labs(title="Total SRA Scores") +
+  labs(x="SRA Money Scores", y="Percent") +ggtitle("Panel J: Total SRA Money Scores")+
+
+ggsave("~/Desktop/thesis/paper/images/SRAmoney.jpg", width=11, height=8.5)
+pdf("~/Desktop/thesis/paper/images/Figure3.pdf",width=11,height=8.5)
+grid.arrange(SRA, SRAmoney, nrow=2)
+dev.off()
+
+
 
 #UG1
 UG1<-ggplot(data=data, aes(data$UG1))+
@@ -694,15 +513,20 @@ donated<-ggplot(data=data, aes(data$donated))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
   labs(x="Donated", y="Percent") + scale_x_continuous(breaks=seq(0,1,1)) + ylim(c(0,80))+
-  ggtitle("Panel I: Donations")
+  ggtitle("Panel K: Donations")
 ggsave("~/Desktop/thesis/paper/images/donated.pdf", width=11, height=8.5)
 
 
 data$donations<-as.numeric(data$DNR_GIVING)
-d<-data[data$donation<=200,]
-donations<-ggplot(data=d, aes(d$donation))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10)+
-  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,200,10))+ylim(c(0,60))+
-  ggtitle("Panel J: Average Donation Amount")
+data$d<-data$donations
+data$d[data$d>100]<-120
+d1<-data[data$donations>100,]
+
+summary(data$donation)
+donations<-ggplot(data=data, aes(data$d))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10)+
+  labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,100,10))+
+  ylim(c(0,60))+
+  ggtitle("Panel L: Average Donation Amount")
 ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
 
 
@@ -756,12 +580,64 @@ pdf("~/Desktop/thesis/paper/images/Figure2a.pdf",width=11,height=8.5)
 grid.arrange(alpha, rho, nrow=2)
 dev.off()
 
-temporary<-data[data$rho>1,]
 
-summary(data$alpha)
-hist(data$alpha)
-summary(data$rho)
-summary(data$alpha)
+#Spearmans p
+dat<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
+library(xtable)
+library(Hmisc)
+
+corstars <-function(x, method=c("pearson", "spearman"), #removeTriangle=c("upper", "lower"),
+                    result=c("none", "html", "latex")){
+  #Compute correlation matrix
+  require(Hmisc)
+  x <- as.matrix(x)
+  correlation_matrix<-rcorr(x, type=method[1])
+  R <- correlation_matrix$r # Matrix of correlation coeficients
+  p <- correlation_matrix$P # Matrix of p-value 
+  
+  ## Define notions for significance levels; spacing is important.
+  #mystars <- ifelse(p < .0001, "****", ifelse(p < .001, "*** ", ifelse(p < .01, "**  ", ifelse(p < .05, "*   ", "    "))))
+  mystars <- ifelse(p < .01, "***", ifelse(p < .05, "**", ifelse(p<.1, "*", " ")))
+  
+  ## trunctuate the correlation matrix to two decimal
+  R <- format(round(cbind(rep(-1.11, ncol(x)), R), 2))[,-1]
+  
+  ## build a new matrix that includes the correlations with their apropriate stars
+  Rnew <- matrix(paste(R, mystars, sep=""), ncol=ncol(x))
+  diag(Rnew) <- paste(diag(R), " ", sep="")
+  rownames(Rnew) <- colnames(x)
+  colnames(Rnew) <- paste(colnames(x), "", sep="")
+  
+#   ## remove upper triangle of correlation matrix
+#   if(removeTriangle[1]=="upper"){
+#     Rnew <- as.matrix(Rnew)
+#     Rnew[upper.tri(Rnew, diag = TRUE)] <- ""
+#     Rnew <- as.data.frame(Rnew)
+#   }
+#   
+#   ## remove lower triangle of correlation matrix
+#   else if(removeTriangle[1]=="lower"){
+#     Rnew <- as.matrix(Rnew)
+#     Rnew[lower.tri(Rnew, diag = TRUE)] <- ""
+#     Rnew <- as.data.frame(Rnew)
+#   }
+#   
+  ## remove last column and return the correlation matrix
+  Rnew<-as.matrix(Rnew)
+  Rnew<-as.data.frame(Rnew)
+  Rnew <- cbind(Rnew[1:length(Rnew)])
+  if (result[1]=="none") return(Rnew)
+  else{
+    if(result[1]=="html") print(xtable(Rnew), type="html")
+    else print(xtable(Rnew), type="latex") 
+  }
+} 
+
+corstars(dat, method="pearson", result="latex")
+
+dat1<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA", "SRAmoney")]
+corstars(dat1, method="pearson", result="latex")
+
 #match players to get winner
 match <- data[,c("ResponseId", 
                  "public")]

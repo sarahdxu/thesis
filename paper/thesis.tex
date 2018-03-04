@@ -6,6 +6,7 @@
 \usepackage{setspace}
 \usepackage{pdfpages}
 \usepackage[toc,page]{appendix}
+\usepackage[flushleft]{threeparttable}
 \doublespacing
 
 
@@ -167,30 +168,26 @@ TG2 asks for the participant\rq s return amount given the 10 possible offer amou
 
 {\color{green}Figure 2c} has 2 panels (Panels G and H) that displays the distribution of reciprocity levels and average repayment rate, respectively, which are derived from participants\rq \ responses in TG2. Panel G shows that, with the exception of two participants who demonstrated negative reciprocity (perhaps they did not understand the game), reciprocity levels are very heterogenous between 0 and 1. There is a spike (27\%) at reciprocity levels around 0.5, and a lower spike (14\%) around 0.35. There is also a small spike (10\%) at 0, which represents those who did not show any reciprocity. Panel H shows a strong peak of repayment rates of around 45\%, with participants showing slightly stronger preference repaying less than half of what was received versus repaying more than half of what was received. These results are in line with typical patterns found in previous literature, which report average repayment rates of nearly 50\% of the transfer.
 
+Table 2 shows the pairwise correlations (Spearman\rq s \(\rho\)) between the different game outcomes. A large majority of the correlations are statistically significant at the 5\% level (12 out of 15). All of the statistically significant negative correlations involve the \(\alpha\) levels from GDG and the behavior in UG2. The negative correlations for \(\alpha\) reflect that participants who are more selfish (\(\alpha \rightarrow 1\)) are more likely to make smaller contributions in the other games, and the negative correlations for UG2 reflect that participants who accept smaller contributions are more likely to make larger contributions in the other game decisions. Otherwise, decisions in UG1, TG1, TG2, and PGG have positive correlations with one another.
+These results show that participants demonstrated consistent behavior in all the games.
 
 \subsection{Self-Reported Measures of Past Social Behaviors}
 
-{\color{green}Figure 3} shows the distribution of total scores obtained by the participants on the SRA Scale. Scores are obtained by summing across each participant\rq s responses for the 10 items (``Never'' = 0, ``Once'' = 1, ``More than once'' = 2, ``Often'' = 3, ``Very often'' = 4). A higher SRA score indicates higher pro-social behavior. There was a wide variety in the total SRA scores obtained, ranging between 20 and 48. Scores are centered around 33 and the shape is symmetric.
+SRA scores are obtained by summing across each participant\rq s responses for the 10 items in the SRA Scale (``Never'' = 0, ``Once'' = 1, ``More than once'' = 2, ``Often'' = 3, ``Very often'' = 4). A higher SRA score indicates higher pro-social behavior. {\color{green}Figure 3} shows the distribution of total scores. There was a wide variety in the total SRA scores obtained, ranging between 20 and 48. Scores are centered around 33 and the shape is symmetric. Panel J displays the distribution of SRA scores including only the items related to money (items 2, 3, 4, and 7). A large majority of the scores are between 9 and 12.
+
+Table 3 contains pairwise correlations (Spearman\rq s \(\rho\)) between the game responses and the SRA scores. I included both total SRA scores (``SRA'') and monetary SRA scores (``SRAmoney''). None of the game results are significantly correlated with total SRA scores, and only two games, TG2 and PGG, are significantly correlated with the monetary SRA scores. Overall, there is a very weak relationship between the social preference games and self-reported measures. 
 
 \subsection{Donations Behavior}
 
-{\color{green}Figure 4} shows the distribution of Wesleyan donations. Panel A shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel B shows the distribution of total donation amounts. Most of the donation amounts are between \$0 and \$50, with more donation amounts below \$25. There are few donations that are above \$100, and there are two large donations that are not shown (\$2,171 and \$16,863). {\color{red} donations below 200 iso that image can look good, but talk about some donations that are above}
+{\color{green}Figure 4} shows the distribution of Wesleyan donations. Panel A shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel B shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who have donated a total amount greater than \$100. All of these donations amounts are between \$100 and \$625, with the exception of two very large donations.
 
 \subsection{External Validity of Social Preference Games}
 After gathering all experimental, survey, and donations data, I ran the following regression model:
+\begin{equation}
+donations=\beta_{0}+\beta_{1}\alpha+\beta_{2}\rho+\beta_{3}UG1+\beta_{4}UG2+\beta_{5}TG1+\beta_{6}reciprocity+\beta_{7}PGG
+\end{equation}
 
 
-%
-%\section{Analysis}
-%
-%After gathering all experimental, survey, and donations data, I will be running two regression models:
-%\begin{equation}
-%donations= \beta_{0} + \beta_{1} GDG_{equity}+ \beta_{2} GDG_{efficiency} + \beta_{3} UG1 + \beta_{4} UG2 + \beta_{5} TG1 + \beta_{6} TG2 + \beta_{7} PGG
-%\end{equation}
-%\begin{equation}
-%donations = \beta_{0} + \beta_{1} SRA
-%\end{equation}
-%
 %It makes sense that all \(\beta\)s, except for the \(\beta\) for UG2, will be positive. If the participant has a high sharing propensity, i.e. they place a high weight on giving, and a high efficiency level, i.e. they care a lot about total social welfare, then donations should be larger. As the participant\rq s pass rate for the ultimatum and trust game (coefficients for UG1 and TG1) increases, it indicates they have higher levels altruism, inequality aversion, or both, so donations should also increase. If the participant has higher levels of reciprocity, indicated by the coefficient on TG2, then donations should increase - the very nature of giving back to one's university is represented by reciprocity, so there should be a high, positive correlation between TG2 and measured donations. A higher pass rate into the public goods fund indicates higher levels of cooperation and altruism, so the coefficient on PGG should also be positive. Lastly, if the minimum pass rate accepted by the responder in the ultimatum game is high, this indicates that the responder is selfish - they will punish the proposer if the offer is not to their liking. Therefore it makes sense that the coefficient on UG2 is negative. 
 %
 %First, I will run each model and examine how well each instrument predicts donations. With Model (1), I want to see which game best predicts donations behavior. For example, if I see that the dictator game and responder ultimatum game is statistically significant but all other games are not statistically significant, then perhaps further research could exclude using the other games when predicting charitable giving. This would certainly save researchers the time cost in programming the games, as well as make the experiment shorter (and therefore more attractive to participants). 
@@ -422,8 +419,63 @@ Economic Letters, 114, 308-311.
 \hline
 15. I have donated money/coins to the Salvation army bell-ringers.\\
 \hline
+\end{tabular} \\ \\ 
+\noindent  Table 2: Pairwise correlations between game results (Spearman\rq s \(\rho\))
+\begin{table}[ht]
+\centering
+\begin{tabular}{rllllll}
+  \hline
+ & alpha &  \ UG1 & \ UG2 & \ TG1 & \ TG2 & \ PGG \\ 
+  \hline
+alpha &   \ 1.00  & -0.28*** & \ 0.04  & -0.26*** & -0.30*** & -0.16*** \\ 
+  UG1 & -0.28*** & \ 1.00  &  \ 0.09  & \ 0.41*** & \ 0.31*** &  \ 0.30*** \\ 
+  UG2 &  \ 0.04  &  \ 0.09  &  1.00  & -0.10* & -0.08  & -0.16*** \\ 
+  TG1 & -0.26*** & \  0.41*** & -0.10* & \ 1.00  & \ 0.45*** &  \ 0.44*** \\ 
+  TG2 & -0.30*** &  \ 0.31*** & -0.08  &  \ 0.45*** & \ 1.00  &  \ 0.21*** \\ 
+  PGG & -0.16*** &  \ 0.30*** & -0.16*** & \  0.44*** & \ 0.21*** &  \ 1.00  \\ 
+   \hline
 \end{tabular}
+\begin{tablenotes}\footnotesize
+\item Notes: 
+\item *, **,  and *** stand for statistical significance at the 10\%, 5\%, and 1\% levels.
+\item Alpha stands for \(\alpha\) levels derived from the generalized dictator game.
+\item UG1 and UG2 stand for Player 1 and Player 2 in ultimatum game, respectively.
+\item TG1 stands for Player 1 in trust game. 
+\item TG2 represents reciprocity levels for Player 2 in trust game.
+\item PGG stands for public goods game.
+\end{tablenotes}
 
+\end{table} \\ \\ 
+
+
+\noindent Table 3: Correlations between game results and SRA scores (Spearman\rq s \(\rho\))
+\begin{table}[ht]
+\centering
+\begin{tabular}{rllllllll}
+  \hline
+ & SRA & SRAmoney \\ 
+  \hline
+alpha  & -0.01  & \ \ -0.04  \\ 
+  UG1  &  \ 0.02  &  \ \ \ 0.07  \\ 
+  UG2 & -0.05  & \ \ -0.05  \\ 
+  TG1 &  \ 0.07  &  \ \ \ 0.08  \\ 
+  TG2  &  \ 0.04  & \ \ \  0.11** \\ 
+  PGG  & \  0.06  &  \ \ \ 0.10* \\ 
+  SRA &  \ 1.00  &  \ \ \ 0.81*** \\ 
+  SRAmoney  &  \ 0.81*** &  \ \ \ 1.00  \\ 
+   \hline
+\end{tabular}
+\begin{tablenotes}\footnotesize
+\item Notes: 
+\item *, **,  and *** stand for statistical significance at the 10\%, 5\%, and 1\% levels.
+\item Alpha stands for \(\alpha\) levels derived from the generalized dictator game.
+\item UG1 and UG2 stand for Player 1 and Player 2 in ultimatum game, respectively.
+\item TG1 stands for Player 1 in trust game. 
+\item TG2 represents reciprocity levels for Player 2 in trust game.
+\item PGG stands for public goods game.
+\item SRA stands for the total Self-Report Altruism score, and SRAmoney for those including only items related to money.
+\end{tablenotes}
+\end{table}
 
 
 
@@ -455,7 +507,7 @@ Economic Letters, 114, 308-311.
 
 
 \noindent Figure 3: Total SRA scores\\ \\
-\includegraphics[scale=0.35]{SRAimg}\\
+\includegraphics[scale=0.35]{Figure3.pdf}\\
 
 \noindent Figure 4: Donations\\ \\
 \includegraphics[scale=0.35]{Figure4.pdf}\\
