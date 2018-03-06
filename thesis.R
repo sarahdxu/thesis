@@ -638,6 +638,32 @@ corstars(dat, method="pearson", result="latex")
 dat1<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA", "SRAmoney")]
 corstars(dat1, method="pearson", result="latex")
 
+
+
+
+# regression
+model1 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG, data=data)
+model2<- lm(donations~SRA, data=data)
+model3<-lm(donations~SRAmoney, data=data)
+model4 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model5 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+
+model6 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG, data=data, family="binomial")
+model7 <- glm(donated ~ SRA, data=data,family="binomial")
+model8 <- glm(donated ~ SRAmoney, data=data,family="binomial")
+model9 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data,family="binomial")
+model10 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data,family="binomial")
+PseudoR2(model1, which="McFadden")
+require(rms)
+
+stargazer(model1, model2, model3, model4, model5, type="latex",
+          dep.var.labels=c("Donations"),
+          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+                             "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
+stargazer(model6, model7, model8, model9, model10,type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+                             "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 #match players to get winner
 match <- data[,c("ResponseId", 
                  "public")]

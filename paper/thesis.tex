@@ -5,12 +5,17 @@
 \usepackage{color}
 \usepackage{setspace}
 \usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+    \usepackage{tabularx}
+\usepackage{adjustbox}
 \usepackage[toc,page]{appendix}
 \usepackage[flushleft]{threeparttable}
+
 \doublespacing
 
 
-\title{External Validity of Experimental Social Preference Games}
+\title{The External Validity of Experimental Social Preference Games}
 \author{Sarah Xu}
 \date{April 2018}
 
@@ -48,9 +53,9 @@ With other studies finding statistically significant, not statistically signific
 
 {\color{red}It is critical to think about why some studies found correlations between lab and field measures and some studies did not, in order to inform the design of my current experiment. An underlying theme for those experiments that found no correlations is higher stakes. Voors et al (2012) note that an important difference between the lab and field experiment are that the stakes are much higher in the field experiment: a month\rq s wage versus a day\rq s wage, and the public good affected the entire village rather than two other players. In Gurven and Winking (2008)\rq s study, there are different stakes between the experimental and field measures. The authors note that ``money is fungible and easier to hide than agricultural produce or meat and is shared differently than other resources''. In addition, stakes are especially higher for food-sharing behavior since food-sharing is heavily ingrained in the culture. Lastly, while playing the experimental games for Hill and Gurven (2004)\rq s study, participants expressed worry that their choices would make the receiver upset. In particular, the tribal group\rq s culture was heavily focused on community, and was well known for extensive food sharing (which was the field measure the authors used). Perhaps the participants didn\rq t want to risk their choices creating any tension in their community, and getting punished with less food sharing and cooperation. For the last two papers, the stakes were a result of high scrutiny and low anonymity since it was easy for community members to find out the choices each subject made. For our design, an important aspect is that participants will play the games in their own time and location to ensure no scrutiny and high anonymity. }
 
-Adopting Galizzi and Navarro-Martinez (2017)'s design, I will recruit Wesleyan University seniors and recent alumni to play various experimental games.  The different social preference games include the generalized dictator game, ultimatum game, trust game, and public goods game. {\color{red}I will further describe each game, as well as their relevance to my field measure, in the next section.}
+Adopting Galizzi and Navarro-Martinez (2017)'s design, I will recruit Wesleyan University seniors and recent alumni to play various experimental games.  The different social preference games include the generalized dictator game, ultimatum game, trust game, and public goods game. I will further describe each game, as well as their relevance to my chosen field measure, in the next section.
 
-A criticism of Galizzi and Navarro-Martinez\rq s design is how the authors executed their field measures: since the setups occur as the participants are exiting their lab session, it is hard to believe that the participants did not connect the encounters to the research lab, especially since they previously answered questions similar to the current event. This may have led to actions that participants would not have done if they were unaware of the scrutiny. Therefore it is better to use a natural, far-removed situation. For my study, I will use Wesleyan University donations as the field measure. {\color{red}Further discussion on my choice of field measure is in the next section.}
+A criticism of Galizzi and Navarro-Martinez\rq s design is how the authors executed their field measures: since the setups occur as the participants are exiting their lab session, it is hard to believe that the participants did not connect the encounters to the research lab, especially since they previously answered questions similar to the current event. This may have led to actions that participants would not have done if they were unaware of the scrutiny. Therefore it is better to use a natural, far-removed situation. For my study, I will use Wesleyan University donations as the field measure. Further discussion on my choice of field measure is in the next section.
 
 Similar to previous lab-field experiments, I will examine whether in-lab social behavior predicts real-life social behavior. In addition, along with playing various experimental games, participants will answer non-incentivized questions regarding their past social behavior. I will use the self-reported measures as an additional layer to evaluate the explanatory ability of the games. By comparing my results with those of past lab-field studies, I can contribute to the discussion on whether experimental games are a useful tool to examine social preferences
 
@@ -61,7 +66,7 @@ The rest of the paper is organized as follows: Section 2 describes the methods u
 
 \section{Methods}
 
-Each participant was presented with two sets of tasks: (i) incentivized social preference games, and (ii) survey questions regarding past social behavior. The field measure used to compare to participants\rq lab results is their Wesleyan University donations. The goal of this design is to evaluate the external validity of experimental social preference games to behaviors in the field. I will also examine whether another tool (self-reported measures) or both tools can better predict social preferences exhibited in real-world situations. 
+Each participant was presented with two sets of tasks: (i) incentivized social preference games, and (ii) survey questions regarding past social behavior. The field measure used to compare to participants\rq \ lab results is their Wesleyan University donations. The goal of this design is to evaluate the external validity of experimental social preference games to behaviors in the field. In addition, I will examine whether another tool (self-reported measures) or both tools can better predict social preferences exhibited in real-world situations. 
  
 Wesleyan University seniors and recent alumni received an invitation email briefly explaining my research and asking for participation in my study (emails were provided by Wesleyan University Relations). The entire study was computerized, programmed and implemented using Qualtrics. Online links to both the experimental games and survey questions were included in the email, so those who chose to take part could complete the study remotely. As mentioned in the previous section, the online structure allows participants to make decisions anonymously and without scrutiny, minimizing the risk for exaggerated behavior. Participants received an overview of the two tasks they would complete, and were informed that upon completion of the study, their major, class year, and Wesleyan donations information would be released to me.
 
@@ -77,7 +82,7 @@ Below are the games each participant played:
 
 \begin{itemize}
 
-\item{Generalized Dictator Game (GDG)}:  Each participant plays as the dictator (Player 1). They are asked to make a series of choices on how to divide tickets between themselves and an anonymous, random Player 2. Every ticket that Player 1 earns will be worth 1, 2, 3 or 4 tickets, depending on the choice. Similarly for the earnings of Player 2. Based off of Andreoni and Miller (2002)'s design, there will be nine rounds with varying prices and endowments.
+\item{Generalized Dictator Game (GDG)}:  Each participant plays as the dictator (Player 1). They are asked to make a series of choices on how to divide tickets between themselves and an anonymous, random Player 2. Every ticket that Player 1 earns will be worth 1, 2, 3 or 4 tickets, depending on the choice. Similarly for the earnings of Player 2. Based off of Andreoni and Miller (2002)'s design, there will be nine rounds (in random order) with varying prices and endowments.
 \item{Ultimatum Game}: 
 	\begin{itemize}
 		\item{Player 1 (UG1)}: Each participant plays as the proposer (Player 1), and is endowed with 10 tickets. They decide how much of their endowment to send to an anonymous, random responder (Player 2). They are told that the responder may or may not reject the allocation. If the allocation is rejected, neither player receives any tickets in this round.
@@ -92,9 +97,9 @@ Below are the games each participant played:
 
 \end{itemize}
 
-The games were played in random order, and images of each game, along with their instructions and examples, are in {\color{green}Figure 1}.
+Appendix A contains all materials from the online study. Figure A1 displays images of each game, along with their instructions and examples.
 
- At the end of the participation deadline (February 2018), all participants were randomly paired, and ticket payoffs were calculated. I will discuss the strategy method in Section 2.1.1, and explain the payment process in further detail in Section 2.1.2. 
+At the end of the participation deadline, all participants were randomly paired, and ticket payoffs were calculated.
 
 \subsubsection{Strategy Method}
 
@@ -108,7 +113,7 @@ Participants were randomly paired, and ticket payoffs were determined for each g
 
 \subsection{Self-reported measures of past social behaviors}
 
-Participants then reported on social behaviors exhibited in the past. The questions are adapted from the Self-Report Altruism (SRA) scale introduced by Rushton, Chrisjohn, and Fekken (1981). The survey is comprised of 10 items, and participants report how frequently they have done each item in the past. Participants rate each statement as either ``Never'', ``Once'', ``More than once'', ``Often'', or ``Cery often''. Examples include: ``I have donated money at the cash register when buying groceries'', ``I have pointed out a clerk\rq s error (at the supermarket, at a restaurant) in undercharging me'', and ``I have donated instead of sold my clothes/used items''. A full list of the 10 items is displayed in Table 1. 
+Participants then reported on social behaviors exhibited in the past. The questions are adapted from the Self-Report Altruism (SRA) scale introduced by Rushton, Chrisjohn, and Fekken (1981). The survey is comprised of 10 items, and participants report how frequently they have done each item in the past. Participants rate each statement as either ``Never'', ``Once'', ``More than once'', ``Often'', or ``Cery often''. Examples include: ``I have donated money at the cash register when buying groceries'', ``I have pointed out a clerk\rq s error (at the supermarket, at a restaurant) in undercharging me'', and ``I have donated instead of sold my clothes/used items''. A full list of the 10 items from the online study is displayed in Figure A2. 
 
 \subsection{Field Measure}
 
@@ -116,28 +121,25 @@ After the participation deadline passed, Wesleyan University Relations provided 
 
 Seniors are solicited around once per semester, during senior events. Recent alumni are typically solicited for donations at the end of November / beginning of December, March, and June. Since my online study was released between solicitation cycles for both seniors and recent alumni, and donations information was provided as of January 2018, donations are independent of my study. 
 
-There are several reasons why I chose to use donations as my field measure. First, many behavioral economics papers exploring the relationship between in-lab and field behavior have used donations (e.g. Falk, Meier, and Zehnder 2011; Benz and Meier 2008; Baran et al 2010). Falk, Meier, and Zehder (2011) say they chose to use donations because ``First, the measure does not rely on self-reported survey responses but on actual decisions. Second, donation decisions are made in private and never made public. Third, students are unaware that their behavior is analyzed in a research study. Fourth, and most importantly, all students at the university have to decide about the donations.''
+There are several reasons why I chose to use donations as my field measure. First, many behavioral economics papers exploring the relationship between in-lab and field behavior have used donations (e.g. Falk, Meier, and Zehnder 2011; Benz and Meier 2008; Baran et al 2010). Falk, Meier, and Zehder (2011) say they chose to use donations because {\color{blue}``First, the measure does not rely on self-reported survey responses but on actual decisions. Second, donation decisions are made in private and never made public. Third, students are unaware that their behavior is analyzed in a research study. Fourth, and most importantly, all students at the university have to decide about the donations.''}
 
-Another reason is that donations may represent various social preference constructs. The most common representation is altruism, but donating can represent other concepts such as reciprocity, cooperation, and trust. In the context of using Wesleyan University donations, donating may represent reciprocity and trustworthiness since seniors/recent alumni may donate as thanks for providing them four years of education and opportunities. Donating may also represent trust since donors are trusting that the University will putting their donations to good use, and cooperation because the University solicits for donations. Finally, donating may symbolize fairness preferences, more specifically inequality aversion: donors are able to target what area their donations can go towards. For example, If the donor targets their donations to Financial Aid, then they are displaying inequality averse preferences.
+Another reason is that donations may represent various social preference constructs. The most common representation is altruism, but donating can represent other concepts such as reciprocity, cooperation, and trust. In the context of using Wesleyan University donations, donating may represent reciprocity and trustworthiness since seniors/recent alumni may donate as thanks for providing them four years of education and opportunities. Donating may also represent trust since donors are trusting that the University will putting their donations to good use, and cooperation because the University solicits for donations. {\color{blue} Donating may also symbolize fairness preferences, more specifically inequality aversion: donors are able to target what area their donations can go towards. For example, if the donor targets their donations to Financial Aid, then they are displaying inequality averse preferences.}
 
 Finally, donations is a more accurate field measure than creating a scenario at the end of the online session. Wesleyan donations is a far-removed situation, and is not directly related to the study. I previously mentioned that Galizzi and Navarro-Martinez (2017)\rq s design is unsatisfactory since their subjects encountered the field experiment shortly after completing the lab experiments, and reasoned that it would not be difficult for participants to link the two situations together. If I were to create a field situation at the end of the lab session, participants may feel compelled to act more pro-socially than they normally are since they know their actions are being scrutinized. In my design, participants\rq \ donations behavior is not affected by their participation in the lab.
 
 \subsubsection{Theoretical Correspondences Between Games and Donations}
 
-All the games I chose for my study tap into different types of pro-social behaviors related to donating (mentioned in Section 2.3). First, the GDG and PGG responses are typically interpreted as altruism preferences. GDG, UG1, UG2, and PGG actions typically indicate fairness preferences. Lastly, TG1 represents participants\rq \ trust levels, and TG2 represents participants\rq trustworthiness and reciprocity. Therefore, each game can be theoretically mapped to donations behavior.
+All the games I chose for my study tap into the different types of pro-social behaviors related to donating discussed in the previous section. First, the GDG and PGG responses are typically interpreted as altruism preferences. GDG, UG1, UG2, and PGG actions typically indicate fairness preferences. Lastly, TG1 represents participants\rq \ trust levels, and TG2 represents participants\rq trustworthiness and reciprocity. Therefore, each game can be theoretically mapped to donations behavior.
 	
 \subsection{Participants and Sessions}
 
-Wesleyan University Relations provided a random sample of 2004 emails (334 emails for each class year from 2013 to 2018), and I sent an invitation email in early January 2018 asking for participation in my study. Participants were informed that the study consisted of several experimental games and non-incentivized survey questions, and participation should take no more than 15 minutes.  The deadline for participation was mid-February 2018. A total of 397 people completed the online study. The participants were volunteers who opened the Qualtrics link, provided consent for me to receive their major, class year, and Wesleyan donations data, and completed both the survey questions and social preference games. At the end of the participation deadline, all participants were randomly paired, ticket payoffs were calculated, and 10 winners were randomly selected. 
-
-{\color{red} Winners were reached out WHEN}
-
+Wesleyan University Relations provided a random sample of 2004 emails (334 emails for each class year from 2013 to 2018), and I sent an invitation email in early January 2018 asking for participation in my study. Participants were informed that the study consisted of several experimental games and non-incentivized survey questions, and participation should take no more than 15 minutes.  The deadline for participation was mid-February 2018. A total of 397 people completed the online study. The participants were volunteers who opened the Qualtrics link, provided consent for me to receive their major, class year, and Wesleyan donations data, and completed both the survey questions and social preference games. At the end of the participation deadline, all participants were randomly paired, ticket payoffs were calculated, and 10 winners were randomly selected. The winners were emailed  in the begging of March 2018 with instructions on how to receive their prizes.
 
 \section{Results}
-The results are presented in four distinct sections. I first start by briefly describing the results obtained in the three main elements (social preference games, self-report measure of past social behaviors, and donations). The fourth section will focus on the main research question of the paper: the extent to which the games explain the field behavior.
+The results are presented in four distinct sections. I first start by briefly describing the results obtained in the three main elements (social preference games, self-report measure of past social behaviors, and donations). The fourth section will focus on the main research question of the paper: the extent to which the games explain the field behavior. Appendix B contains all of the figures, correlation tables, and regression tables from this section.
 
 \subsection{Social Preference Games}
-Since the GDG consists of 9 rounds with varying sets of endowments and prices of giving, like Andreoni and Miller (2002) and Fisman, Kariv, and Markovits (2007), I assume each participant's giving preferences is a member of the constant elasticity of substitution (CES) utility function.  The CES utility function is written as: \\
+Since the GDG consisted of 9 rounds with varying sets of endowments and prices of giving, similar to Andreoni and Miller (2002) and Fisman, Kariv, and Markovits (2007), I assume each participant\rq s giving preferences is a member of the constant elasticity of substitution (CES) utility function.  The CES utility function is written as: \\
 
 \(U_{s} = [\alpha(\pi_{s})^{\rho} + (1-\alpha)(\pi_{o})^{\rho}]^{1/\rho} \) \\
 
@@ -146,7 +148,7 @@ where \(\alpha\) measures the relative weight on the payoff for self, \(\rho\) i
  
 \(\pi_{s}(p,m)=\frac{[\alpha/(1-\alpha)]^{1/(1-\rho)}}{\rho^{-\rho/(\rho-1)}+[\alpha/(1-\alpha)]^{(1/(1-\rho)}}m\) \\
 
-\hspace{13mm} \(= \frac{A}{p^{r}+A}m \) \\
+\hspace{15mm} \(= \frac{A}{p^{r}+A}m \) \\
  
  \noindent
 where \(r=-\rho / (1-\rho) \) and \(A=[\alpha / (1-\alpha)]^{1/(1-\rho)} \). This generates the following individual-level econometric specification for each participant \textit{i}: \\
@@ -154,38 +156,37 @@ where \(r=-\rho / (1-\rho) \) and \(A=[\alpha / (1-\alpha)]^{1/(1-\rho)} \). Thi
 \( \pi^{t}_{s,i} = \frac{A_{i}}{(p^{t}_{i})^{r_{i}} + A_{i}}m^{t}_{i} + \epsilon^{t}_{i}\) \\
  
 \noindent
-where i represents each participant, t represents each independent decision-problems in the GDG, and \( \epsilon^{t}_{i} \) is assumed to be distributed normally with mean zero and variance \(\sigma^{2}_{i}\). For each participant \textit{i}, I used the 9 combinations of \(\pi_{s}\), p, and m and generated the estimates \( \hat{A}_{i} \)and \( \hat{r}_{i} \) using non-linear least squares. I then retrieved each participant's sharing propensity, \( \hat{\alpha_{i}} \), and efficiency level, \( \hat{\rho_{i}}\).
+where \textit{i} represents each participant, \textit{t} represents each independent decision-problems in the GDG, and \( \epsilon^{t}_{i} \) is assumed to be distributed normally with mean zero and variance \(\sigma^{2}_{i}\). For each participant \textit{i}, I used the 9 combinations of \(\pi_{s}\), p, and \textit{m} and generated the estimates \( \hat{A}_{i} \)and \( \hat{r}_{i} \) using non-linear least squares. From the estimates I retrieved each participant\rq s efficiency level, \( \hat{\rho_{i}}\), which then gave me each participant\rq s sharing propensity, \( \hat{\alpha_{i}} \).
 
-Results for TG1, UG1, and PGG are represented by the proposer\rq s pass rates (the percentage of the initial endowment passed to the other player or public pool). UG2 is represented by the minimum pass rate that the responder chooses to accept. 
+Results for TG1, UG1, and PGG are represented by the proposer\rq s pass rates (the percentage of the initial endowment passed to the other player or public pool). UG2 is represented by the minimum pass rate the responder chooses to accept. 
 
 TG2 asks for the participant\rq s return amount given the 10 possible offer amounts from Player 1 in TG1. For each participant, I regressed their return amount on the offer amount, and retrieved the estimated slope. The estimated slope represents the participant\rq s reciprocity, or trustworthiness level. Values closer to 1 represent more reciprocal behavior, and lower levels closer to 0 represent more selfish behavior. There may be concern that some participant\rq s may not follow a linear trend. After plotting each participant\rq s return amount in response to the offer amount, I found that with the exception of a few participants, each participant\rq s data points follow a linear slope.
 
+Figure B1 consists of 2 panels (Panels A and B) that shows the distribution of parameters, \(\alpha\) and \(\rho\), derived from responses in GDG.  The parameter estimates vary dramatically across subjects, implying that preferences for giving are very heterogeneous. Panel A displays a high peak of 21\% at \(\alpha\)=1: a considerable amount of participants displayed extremely selfish preferences. There is a smaller peak of 12\% at \(\alpha\)=0.5, and there are more \(\alpha\) levels above 0.5 than below 0.5. These results show that participants tended to have more selfish preferences. To facilitate presentation of Panel B, participants with very negative \(\rho\) values were combined into the leftmost bar. About 7\% of subjects have perfect substitutes preferences for giving (\(\rho \approx 1\)): these subjects prefer to give their entire endowment to Player 2 when the price of giving is less than one, and keep their entire endowment when the price of giving is greater than one, i.e. efficiency-minded preferences. A little over 20\% of participants demonstrated Leontief preferences (\(\rho\) far below 0), i.e. they prefer splitting the endowment equally, and roughly 15\% of subjects possess Cobb-Douglas preferences (\(\rho \approx 0\)). Many subjects also have intermediate values of \(\rho\): 24\% have preferences for increasing total payoffs (\(0.1 \leq \rho \leq 0.9\)), and almost 20\% have preferences for reducing differences in payoffs between self and others (\(-0.9 \leq \rho \leq 0.9\)).
 
-{\color{green}Figure 2a} consists of 2 panels (Panels A and B) that shows the distribution of parameters, \(\alpha\) and \(\rho\), derived from responses in GDG.  The parameter estimates vary dramatically across subjects, implying that preferences for giving are very heterogeneous. Panel A displays a high peak of 21\% at \(\alpha\)=1: a considerable amount of participants displayed extremely selfish preferences. There is a smaller peak of 12\% at \(\alpha\)=0.5, and there are more \(\alpha\) levels above 0.5 than below 0.5. These results show that participants tended to have more selfish preferences. To facilitate presentation of Panel B, participants with very negative \(\rho\) values were combined into the leftmost bar. About 7\% of subjects have perfect substitutes preferences for giving (\(\rho \approx 1\)): these subjects prefer to give their entire endowment to Player 2 when the price of giving is less than one, and keep their entire endowment when the price of giving is greater than one, i.e. efficiency-minded preferences. A little over 20\% of participants demonstrated Leontief preferences (\(\rho\) far below 0), i.e. they prefer splitting the endowment equally, and roughly 15\% of subjects possess Cobb-Douglas preferences (\(\rho \approx 0\)). Many subjects also have intermediate values of \(\rho\): 24\% have preferences for increasing total payoffs (\(0.1 \leq \rho \leq 0.9\)), and almost 20\% have preferences for reducing differences in payoffs between self and others (\(-0.9 \leq \rho \leq 0.9\)).
 
+Figure B2 consists of 4 panels (Panels C, D, E, and F) which shows the distribution of responses in UG1, UG2, TG1, and PGG, respectively. Panel C reports a high 42\% spike at giving half of their endowment to Player 2, and there is slightly more emphasis on giving contributions lower than half the endowment than contributions higher than half the endowment. These results are in line with the typical patterns in previous literature, which finds that a majority of offers are in the range of 25?50\%. Correspondingly, Panel D shows the distribution of the minimum offers that Player 2 chooses to accept in UG2. With the exception of 1 participant who showed extreme negative reciprocity by only accepting an offer of Player 1's entire endowment, everyone accepted an amount less than or equal to half of Player 1's endowment. Surprisingly, most participants (27\%) accepted an offer amount of 0 tickets. Panel E shows contributions scattered all across the range from offering 0\% to 100\% of their given endowment in TG1 with two spikes, both around 22\%, at giving half the endowment or the entire endowment. Other contributions that have more than 10\% participants are giving 30\% or 40\% of the given endowment. This is also broadly in line with typical findings that report average transfers of roughly 50\% of endowment. Panel F shows that almost half the participants in PGG send their entire endowment into the public pool. The next most popular choice (20\%) is to send half their endowment to the public pool, and only 4\% of participants sent 0\% into the public pool. Again, this broadly matches usual results in literature.
 
-{\color{green}Figure 2b} consists of 4 panels (Panels C, D, E, and F) which shows the distribution of responses in UG1, UG2, TG1, and PGG, respectively. Panel C reports a high 42\% spike at giving half of their endowment to Player 2, and there is slightly more emphasis on giving contributions lower than half the endowment than contributions higher than half the endowment. These results are in line with the typical patterns in previous literature, which finds that a majority of offers are in the range of 25?50\%. Correspondingly, Panel D shows the distribution of the minimum offers that Player 2 chooses to accept in UG2. With the exception of 1 participant who showed extreme negative reciprocity by only accepting an offer of Player 1's entire endowment, everyone accepted an amount less than or equal to half of Player 1's endowment. Surprisingly, most participants (27\%) accepted an offer amount of 0 tickets. Panel E shows contributions scattered all across the range from offering 0\% to 100\% of their given endowment in TG1 with two spikes, both around 22\%, at giving half the endowment or the entire endowment. Other contributions that have more than 10\% participants are giving 30\% or 40\% of the given endowment. This is also broadly in line with typical findings that report average transfers of roughly 50\% of endowment. Panel F shows that almost half the participants in PGG send their entire endowment into the public pool. The next most popular choice (20\%) is to send half their endowment to the public pool, and only 4\% of participants sent 0\% into the public pool. Again, this broadly matches usual results in literature.
+Figure B3 contains 2 panels (Panels G and H) that displays the distribution of reciprocity levels and average repayment rate, respectively, which are derived from participants\rq \ responses in TG2. Panel G shows that, with the exception of two participants who demonstrated negative reciprocity (perhaps they did not understand the game), reciprocity levels are very heterogenous between 0 and 1. There is a spike (27\%) at reciprocity levels around 0.5, and a lower spike (14\%) around 0.35. There is also a small spike (10\%) at 0, which represents those who did not show any reciprocity. Panel H shows a strong peak of repayment rates of around 45\%, with participants showing slightly stronger preference repaying less than half of what was received versus repaying more than half of what was received. These results are in line with typical patterns found in previous literature, which report average repayment rates of nearly 50\% of the transfer.
 
-{\color{green}Figure 2c} has 2 panels (Panels G and H) that displays the distribution of reciprocity levels and average repayment rate, respectively, which are derived from participants\rq \ responses in TG2. Panel G shows that, with the exception of two participants who demonstrated negative reciprocity (perhaps they did not understand the game), reciprocity levels are very heterogenous between 0 and 1. There is a spike (27\%) at reciprocity levels around 0.5, and a lower spike (14\%) around 0.35. There is also a small spike (10\%) at 0, which represents those who did not show any reciprocity. Panel H shows a strong peak of repayment rates of around 45\%, with participants showing slightly stronger preference repaying less than half of what was received versus repaying more than half of what was received. These results are in line with typical patterns found in previous literature, which report average repayment rates of nearly 50\% of the transfer.
-
-Table 2 shows the pairwise correlations (Spearman\rq s \(\rho\)) between the different game outcomes. A large majority of the correlations are statistically significant at the 5\% level (12 out of 15). All of the statistically significant negative correlations involve the \(\alpha\) levels from GDG and the behavior in UG2. The negative correlations for \(\alpha\) reflect that participants who are more selfish (\(\alpha \rightarrow 1\)) are more likely to make smaller contributions in the other games, and the negative correlations for UG2 reflect that participants who accept smaller contributions are more likely to make larger contributions in the other game decisions. Otherwise, decisions in UG1, TG1, TG2, and PGG have positive correlations with one another.
+Table B1 shows the pairwise correlations (Spearman\rq s \(\rho\)) between the different game outcomes. A large majority of the correlations are statistically significant at the 5\% level (12 out of 15). All of the statistically significant negative correlations involve the \(\alpha\) levels from GDG and the behavior in UG2. The negative correlations for \(\alpha\) reflect that participants who are more selfish (\(\alpha \rightarrow 1\)) are more likely to make smaller contributions in the other games, and the negative correlations for UG2 reflect that participants who accept smaller contributions are more likely to make larger contributions in the other game decisions. Otherwise, decisions in UG1, TG1, TG2, and PGG have positive correlations with one another.
 These results show that participants demonstrated consistent behavior in all the games.
 
 \subsection{Self-Reported Measures of Past Social Behaviors}
 
-SRA scores are obtained by summing across each participant\rq s responses for the 10 items in the SRA Scale (``Never'' = 0, ``Once'' = 1, ``More than once'' = 2, ``Often'' = 3, ``Very often'' = 4). A higher SRA score indicates higher pro-social behavior. {\color{green}Figure 3} shows the distribution of total scores. There was a wide variety in the total SRA scores obtained, ranging between 20 and 48. Scores are centered around 33 and the shape is symmetric. Panel J displays the distribution of SRA scores including only the items related to money (items 2, 3, 4, and 7). A large majority of the scores are between 9 and 12.
+SRA scores are obtained by summing across each participant\rq s responses for the 10 items in the SRA Scale (``Never'' = 0, ``Once'' = 1, ``More than once'' = 2, ``Often'' = 3, ``Very often'' = 4). A higher SRA score indicates higher pro-social behavior. Figure B4 shows the distribution of total scores. There was a wide variety in the total SRA scores obtained, ranging between 20 and 48. Scores are centered around 33 and the shape is symmetric. Panel J displays the distribution of SRA scores including only the items related to money (items 2, 3, 4, and 7). A large majority of the scores are between 9 and 12.
 
-Table 3 contains pairwise correlations (Spearman\rq s \(\rho\)) between the game responses and the SRA scores. I included both total SRA scores (``SRA'') and monetary SRA scores (``SRAmoney''). None of the game results are significantly correlated with total SRA scores, and only two games, TG2 and PGG, are significantly correlated with the monetary SRA scores. Overall, there is a very weak relationship between the social preference games and self-reported measures. 
+Table B2 contains pairwise correlations (Spearman\rq s \(\rho\)) between the game responses and the SRA scores. I included both total SRA scores (``SRA'') and monetary SRA scores (``SRAmoney''). None of the game results are significantly correlated with total SRA scores, and only two games, TG2 and PGG, are significantly correlated with the monetary SRA scores. Overall, there is a very weak relationship between the social preference games and self-reported measures. 
 
 \subsection{Donations Behavior}
 
-{\color{green}Figure 4} shows the distribution of Wesleyan donations. Panel A shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel B shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who have donated a total amount greater than \$100. All of these donations amounts are between \$100 and \$625, with the exception of two very large donations.
+Figure B5 shows the distribution of Wesleyan donations. Panel I shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel J shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who have donated a total amount greater than \$100. All of these donations amounts are between \$100 and \$625, with the exception of two very large donations.
 
 \subsection{External Validity of Social Preference Games}
-After gathering all experimental, survey, and donations data, I ran the following regression model:
-\begin{equation}
-donations=\beta_{0}+\beta_{1}\alpha+\beta_{2}\rho+\beta_{3}UG1+\beta_{4}UG2+\beta_{5}TG1+\beta_{6}reciprocity+\beta_{7}PGG
-\end{equation}
+I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented the field measure: the total amount the participant has donated, and (2) whether the participant has donated or not. Table B6 presents five regression analyses, each obtained with Ordinary Least Squares (OLS), that puts together the game results and self-reported measures to show how they predict donation amounts. The first column uses only the game decisions, the second column uses only the total SRA scores, the third column uses only the monetary SRA scores, the fourth column includes both the game decisions and total SRA scores, and the last column includes the game decisions and monetary SRA scores. The models that include only SRA scores (columns 2 and 3) show no predictive power for donations. This is seen by neither the total SRA score nor the monetary SRA score having statistical significance, and the proportions of variance explained by both SRA scores are practically zero. In the models that include the game variables and SRA scores (columns 1, 4, and 5), only the GDG game variable, \(\alpha\), is statistically significant at the 10\% level. This makes sense because although all of the social preference games can be theoretically mapped to donations behavior, \(\alpha\) is the most intuitively related to giving. The proportions of variance explained by the models are low: the models including only the games and both the games and total SRA scores (columns 1 and 4) have a value of 0.10, and the model including both the games and monetary SRA scores (column 5) has a value of 0.11. I then run logistic regressions on the same explanatory variables, but this time using the binary donations representation as the response variable. Table B7 displays the five models with the identical structure as the previous table. This time none of the models' variables have statistical significance.
+Tables B6 and B7 therefore provide evidence that social preference games, even when combined with the self-reported measures, have little to no power to explain donations behavior.
+{\color{red}Pseudo R2?.... MSE???}
+
 
 
 %It makes sense that all \(\beta\)s, except for the \(\beta\) for UG2, will be positive. If the participant has a high sharing propensity, i.e. they place a high weight on giving, and a high efficiency level, i.e. they care a lot about total social welfare, then donations should be larger. As the participant\rq s pass rate for the ultimatum and trust game (coefficients for UG1 and TG1) increases, it indicates they have higher levels altruism, inequality aversion, or both, so donations should also increase. If the participant has higher levels of reciprocity, indicated by the coefficient on TG2, then donations should increase - the very nature of giving back to one's university is represented by reciprocity, so there should be a high, positive correlation between TG2 and measured donations. A higher pass rate into the public goods fund indicates higher levels of cooperation and altruism, so the coefficient on PGG should also be positive. Lastly, if the minimum pass rate accepted by the responder in the ultimatum game is high, this indicates that the responder is selfish - they will punish the proposer if the offer is not to their liking. Therefore it makes sense that the coefficient on UG2 is negative. 
@@ -198,7 +199,7 @@ donations=\beta_{0}+\beta_{1}\alpha+\beta_{2}\rho+\beta_{3}UG1+\beta_{4}UG2+\bet
 %\end{equation}
 %I will examine each model's prediction errors, using mean squared errors (MSE). The MSE measures the average of the squares of the errors - that is, the difference between the estimator and what is estimated. MSE for Models (1), (2), and (3) is computed as: \\
 %
-%\( MSE = \frac{1}{n}\sum_{i=1}^{n}(donations_{i}-\hat{donations}_{i})^{2} \) \\
+\( MSE = \frac{1}{n}\sum_{i=1}^{n}(donations_{i}-\hat{donations}_{i})^{2} \) \\
 %
 %
 %Comparing Model (1) and Model (2)\rq s MSE will reveal whether incentivized experimental games or non-incentivized self-reported measures can better predict field measures on social preferences. Including Model (3) will tell us if, perhaps, having both instruments is better than only including one instrument.
@@ -513,6 +514,113 @@ alpha  & -0.01  & \ \ -0.04  \\
 \includegraphics[scale=0.35]{Figure4.pdf}\\
 
 
+
+
+\begin{table}[!htbp] \centering 
+
+\setlength\tabcolsep{1.5pt}
+  \caption{} 
+  \label{} 
+  \begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{Donations} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ Alpha & $-$300.016$^{*}$ &  &  & $-$299.804$^{*}$ & $-$300.057$^{*}$ \\ 
+  & (177.203) &  &  & (177.485) & (177.438) \\ 
+  & & & & & \\ 
+ UG1 & $-$88.497 &  &  & $-$88.731 & $-$90.442 \\ 
+  & (238.426) &  &  & (238.797) & (238.814) \\ 
+  & & & & & \\ 
+ UG2 & 210.782 &  &  & 210.081 & 213.966 \\ 
+  & (271.250) &  &  & (271.791) & (271.780) \\ 
+  & & & & & \\ 
+ TG1 & $-$6.965 &  &  & $-$6.193 & $-$6.643 \\ 
+  & (201.370) &  &  & (201.897) & (201.640) \\ 
+  & & & & & \\ 
+ Reciprocity & $-$39.186 &  &  & $-$38.936 & $-$45.665 \\ 
+  & (266.795) &  &  & (267.209) & (267.865) \\ 
+  & & & & & \\ 
+ PGG & $-$55.306 &  &  & $-$54.879 & $-$59.438 \\ 
+  & (188.674) &  &  & (189.029) & (189.336) \\ 
+  & & & & & \\ 
+ SRAtotal &  & $-$1.434 &  & $-$0.814 &  \\ 
+  &  & (10.041) &  & (10.118) &  \\ 
+  & & & & & \\ 
+ SRAmoney &  &  & 5.499 &  & 6.575 \\ 
+  &  &  & (19.586) &  & (19.857) \\ 
+  & & & & & \\ 
+ Constant & 305.600 & 139.594 & 30.427 & 332.031 & 238.206 \\ 
+  & (224.793) & (338.445) & (224.177) & (398.414) & (303.459) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 343 & 343 & 343 & 343 & 343 \\ 
+R$^{2}$ & 0.010 & 0.0001 & 0.0002 & 0.010 & 0.011 \\ 
+Adjusted R$^{2}$ & $-$0.007 & $-$0.003 & $-$0.003 & $-$0.010 & $-$0.010 \\ 
+Residual Std. Error & 923.289 (df = 336) & 921.293 (df = 341) & 921.214 (df = 341) & 924.657 (df = 335) & 924.515 (df = 335) \\ 
+F Statistic & 0.591 (df = 6; 336) & 0.020 (df = 1; 341) & 0.079 (df = 1; 341) & 0.506 (df = 7; 335) & 0.521 (df = 7; 335) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{adjustbox}
+\end{table} 
+
+
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+    \begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{Donated} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
+\hline \\[-1.8ex] 
+ Alpha & 0.285 &  &  & 0.276 & 0.283 \\ 
+  & (0.401) &  &  & (0.401) & (0.402) \\ 
+  & & & & & \\ 
+ UG1 & 0.001 &  &  & 0.013 & $-$0.016 \\ 
+  & (0.540) &  &  & (0.542) & (0.543) \\ 
+  & & & & & \\ 
+ UG2 & 0.572 &  &  & 0.599 & 0.608 \\ 
+  & (0.619) &  &  & (0.622) & (0.623) \\ 
+  & & & & & \\ 
+ TG1 & 0.025 &  &  & $-$0.004 & 0.030 \\ 
+  & (0.458) &  &  & (0.460) & (0.460) \\ 
+  & & & & & \\ 
+ Reciprocity & 0.202 &  &  & 0.189 & 0.126 \\ 
+  & (0.605) &  &  & (0.606) & (0.609) \\ 
+  & & & & & \\ 
+ PGG & 0.165 &  &  & 0.147 & 0.119 \\ 
+  & (0.427) &  &  & (0.428) & (0.429) \\ 
+  & & & & & \\ 
+ SRAtotal &  & 0.032 &  & 0.032 &  \\ 
+  &  & (0.023) &  & (0.023) &  \\ 
+  & & & & & \\ 
+ SRAmoney &  &  & 0.071 &  & 0.072 \\ 
+  &  &  & (0.045) &  & (0.046) \\ 
+  & & & & & \\ 
+ Constant & 0.089 & $-$0.475 & $-$0.209 & $-$0.947 & $-$0.645 \\ 
+  & (0.506) & (0.771) & (0.511) & (0.902) & (0.687) \\ 
+  & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 343 & 343 & 343 & 343 & 343 \\ 
+Log Likelihood & $-$223.085 & $-$222.880 & $-$222.580 & $-$222.114 & $-$221.815 \\ 
+Akaike Inf. Crit. & 460.169 & 449.760 & 449.159 & 460.228 & 459.630 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{adjustbox}
+\end{table} 
 
 	
 \end{document}
