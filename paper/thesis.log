@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 MAR 2018 21:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  7 MAR 2018 15:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -418,200 +418,215 @@ tic-i-pant, \OT1/cmr/m/it/12 t \OT1/cmr/m/n/12 rep-re-sents each in-de-pen-dent
  decision-problems
  []
 
-[16] [17] [18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 202--206
+[16] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
-[21] [22] [23] [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 427--439
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+[22] [23] [24] [25] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 404--439
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 404--439
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 444--456
 [][]
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 442.
+(Font)              <5> on input line 459.
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--450
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 389--450
+Underfull \hbox (badness 10000) in paragraph at lines 441--467
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 389--450
+Underfull \hbox (badness 10000) in paragraph at lines 441--467
 
  []
 
-[26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 455--469
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 473--487
 [][]
  []
 
-<images/gendict1.png, id=101, 1334.9875pt x 663.47874pt>
+<images/gendict1.png, id=104, 1334.9875pt x 663.47874pt>
 File: images/gendict1.png Graphic file (type png)
 
 <use images/gendict1.png>
-Package pdftex.def Info: images/gendict1.png used on input line 485.
+Package pdftex.def Info: images/gendict1.png used on input line 503.
 (pdftex.def)             Requested size: 467.25264pt x 232.22102pt.
 
-<images/gendict2.png, id=103, 1334.9875pt x 641.39626pt>
+<images/gendict2.png, id=106, 1334.9875pt x 641.39626pt>
 File: images/gendict2.png Graphic file (type png)
 
 <use images/gendict2.png>
-Package pdftex.def Info: images/gendict2.png used on input line 486.
+Package pdftex.def Info: images/gendict2.png used on input line 504.
 (pdftex.def)             Requested size: 467.25264pt x 224.49205pt.
 
-<images/gendict3.png, id=104, 1334.9875pt x 703.62875pt>
+<images/gendict3.png, id=107, 1334.9875pt x 703.62875pt>
 File: images/gendict3.png Graphic file (type png)
 
 <use images/gendict3.png>
-Package pdftex.def Info: images/gendict3.png used on input line 487.
+Package pdftex.def Info: images/gendict3.png used on input line 505.
 (pdftex.def)             Requested size: 467.25264pt x 246.27374pt.
 
-<images/gendict4.png, id=105, 1334.9875pt x 756.8275pt>
+<images/gendict4.png, id=108, 1334.9875pt x 756.8275pt>
 File: images/gendict4.png Graphic file (type png)
 
 <use images/gendict4.png>
-Package pdftex.def Info: images/gendict4.png used on input line 488.
+Package pdftex.def Info: images/gendict4.png used on input line 506.
 (pdftex.def)             Requested size: 467.25264pt x 264.89359pt.
 
-<images/ultimatum1.png, id=106, 746.79pt x 350.30875pt>
+<images/ultimatum1.png, id=109, 746.79pt x 350.30875pt>
 File: images/ultimatum1.png Graphic file (type png)
 
 <use images/ultimatum1.png>
-Package pdftex.def Info: images/ultimatum1.png used on input line 489.
+Package pdftex.def Info: images/ultimatum1.png used on input line 507.
 (pdftex.def)             Requested size: 261.3804pt x 122.6099pt.
 
-<images/ultimatum2.png, id=107, 765.86125pt x 628.3475pt>
+<images/ultimatum2.png, id=110, 765.86125pt x 628.3475pt>
 File: images/ultimatum2.png Graphic file (type png)
 
 <use images/ultimatum2.png>
-Package pdftex.def Info: images/ultimatum2.png used on input line 490.
+Package pdftex.def Info: images/ultimatum2.png used on input line 508.
 (pdftex.def)             Requested size: 268.05545pt x 219.92491pt.
 
-<images/trust1.png, id=108, 748.7975pt x 304.13625pt>
+<images/trust1.png, id=111, 748.7975pt x 304.13625pt>
 File: images/trust1.png Graphic file (type png)
  <use images/trust1.png>
-Package pdftex.def Info: images/trust1.png used on input line 491.
+Package pdftex.def Info: images/trust1.png used on input line 509.
 (pdftex.def)             Requested size: 262.08305pt x 106.44928pt.
 
-<images/trust2.png, id=109, 764.8575pt x 621.32124pt>
+<images/trust2.png, id=112, 764.8575pt x 621.32124pt>
 File: images/trust2.png Graphic file (type png)
  <use images/trust2.png>
-Package pdftex.def Info: images/trust2.png used on input line 492.
+Package pdftex.def Info: images/trust2.png used on input line 510.
 (pdftex.def)             Requested size: 267.70413pt x 217.4657pt.
 
-<images/public.png, id=110, 752.8125pt x 326.21875pt>
+<images/public.png, id=113, 752.8125pt x 326.21875pt>
 File: images/public.png Graphic file (type png)
  <use images/public.png>
-Package pdftex.def Info: images/public.png used on input line 493.
+Package pdftex.def Info: images/public.png used on input line 511.
 (pdftex.def)             Requested size: 263.48831pt x 114.17827pt.
 
-<images/sra.png, id=111, 883.3pt x 693.59125pt>
+<images/sra.png, id=114, 883.3pt x 693.59125pt>
 File: images/sra.png Graphic file (type png)
  <use images/sra.png>
-Package pdftex.def Info: images/sra.png used on input line 494.
+Package pdftex.def Info: images/sra.png used on input line 512.
 (pdftex.def)             Requested size: 309.15964pt x 242.76057pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--495
+Underfull \hbox (badness 10000) in paragraph at lines 502--513
 
  []
 
 
-Overfull \hbox (51.70013pt too wide) in paragraph at lines 484--495
+Overfull \hbox (51.70013pt too wide) in paragraph at lines 502--513
 [] 
  []
 
 
-Overfull \hbox (51.70013pt too wide) in paragraph at lines 484--495
+Overfull \hbox (51.70013pt too wide) in paragraph at lines 502--513
 [] 
  []
 
 
-Overfull \hbox (51.70013pt too wide) in paragraph at lines 484--495
+Overfull \hbox (51.70013pt too wide) in paragraph at lines 502--513
 [] 
  []
 
 
-Overfull \hbox (51.70013pt too wide) in paragraph at lines 484--495
+Overfull \hbox (51.70013pt too wide) in paragraph at lines 502--513
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--495
+Underfull \hbox (badness 10000) in paragraph at lines 502--513
 
  []
 
-[28] [29 <./images/gendict1.png> <./images/gendict2.png>] [30 <./images/gendict
-3.png> <./images/gendict4.png> <./images/ultimatum1.png>] [31 <./images/ultimat
+[29] [30 <./images/gendict1.png> <./images/gendict2.png>] [31 <./images/gendict
+3.png> <./images/gendict4.png> <./images/ultimatum1.png>] [32 <./images/ultimat
 um2.png> <./images/trust1.png> <./images/trust2.png>]
-<images/Figure2a.pdf, id=135, 794.97pt x 614.295pt>
+<images/Figure2a.pdf, id=138, 794.97pt x 614.295pt>
 File: images/Figure2a.pdf Graphic file (type pdf)
  <use images/Figure2a.pdf>
-Package pdftex.def Info: images/Figure2a.pdf used on input line 498.
+Package pdftex.def Info: images/Figure2a.pdf used on input line 516.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 497--499
+Underfull \hbox (badness 10000) in paragraph at lines 515--517
 
  []
 
-[32 <./images/public.png> <./images/sra.png>]
-<images/Figure2b.pdf, id=141, 794.97pt x 614.295pt>
+[33 <./images/public.png> <./images/sra.png>]
+<images/Figure2b.pdf, id=144, 794.97pt x 614.295pt>
 File: images/Figure2b.pdf Graphic file (type pdf)
  <use images/Figure2b.pdf>
-Package pdftex.def Info: images/Figure2b.pdf used on input line 503.
+Package pdftex.def Info: images/Figure2b.pdf used on input line 521.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 502--504
+Underfull \hbox (badness 10000) in paragraph at lines 520--522
 
  []
 
-<images/Figure2c.pdf, id=142, 794.97pt x 614.295pt>
+<images/Figure2c.pdf, id=145, 794.97pt x 614.295pt>
 File: images/Figure2c.pdf Graphic file (type pdf)
  <use images/Figure2c.pdf>
-Package pdftex.def Info: images/Figure2c.pdf used on input line 506.
+Package pdftex.def Info: images/Figure2c.pdf used on input line 524.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 505--507
+Underfull \hbox (badness 10000) in paragraph at lines 523--525
 
  []
 
-[33 <./images/Figure2a.pdf> <./images/Figure2b.pdf>]
-<images/Figure3.pdf, id=156, 794.97pt x 614.295pt>
+[34 <./images/Figure2a.pdf> <./images/Figure2b.pdf>]
+<images/Figure3.pdf, id=159, 794.97pt x 614.295pt>
 File: images/Figure3.pdf Graphic file (type pdf)
  <use images/Figure3.pdf>
-Package pdftex.def Info: images/Figure3.pdf used on input line 511.
+Package pdftex.def Info: images/Figure3.pdf used on input line 529.
 (pdftex.def)             Requested size: 278.24367pt x 215.00647pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--512
+Underfull \hbox (badness 10000) in paragraph at lines 528--530
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--512
+Underfull \hbox (badness 10000) in paragraph at lines 528--530
 
  []
 
-<images/Figure4.pdf, id=157, 794.97pt x 614.295pt>
+<images/Figure4.pdf, id=160, 794.97pt x 614.295pt>
 File: images/Figure4.pdf Graphic file (type pdf)
  <use images/Figure4.pdf>
-Package pdftex.def Info: images/Figure4.pdf used on input line 514.
+Package pdftex.def Info: images/Figure4.pdf used on input line 532.
 (pdftex.def)             Requested size: 278.24367pt x 215.00647pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--515
+Underfull \hbox (badness 10000) in paragraph at lines 531--533
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 513--515
+Underfull \hbox (badness 10000) in paragraph at lines 531--533
 
  []
 
-[34 <./images/Figure2c.pdf> <./images/Figure3.pdf>] [35 <./images/Figure4.pdf>]
-[36] (./thesis.aux)
+[35 <./images/Figure2c.pdf> <./images/Figure3.pdf>] [36 <./images/Figure4.pdf>]
+[37] (./thesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -619,11 +634,11 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  4048 strings out of 493014
  61853 string characters out of 6133351
- 160581 words of memory out of 5000000
+ 161581 words of memory out of 5000000
  7479 multiletter control sequences out of 15000+600000
  9155 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,35p,2486b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,35p,2486b,296s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -639,10 +654,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (36 pages, 758860 bytes).
+Output written on thesis.pdf (37 pages, 764424 bytes).
 PDF statistics:
- 231 PDF objects out of 1000 (max. 8388607)
- 146 compressed objects within 2 object streams
+ 237 PDF objects out of 1000 (max. 8388607)
+ 151 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

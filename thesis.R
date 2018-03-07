@@ -408,8 +408,13 @@ data<-data[,c("ID", "ResponseId", "GENDER", "CLASS_YR", "MAJOR", "alpha", "rho",
 
 
 
-
-
+data$UG1<-data$UG1*100
+data$UG2<-data$UG2*100
+data$TG1<-data$TG1*100
+data$PGG<-data$PGG*100
+data$TG2<-data$TG2*100
+data$alpha1<-data$alpha*100
+data$avgreturn<-data$avgreturn*100
 #####################
 #Univariate Analysis#
 #####################
@@ -440,7 +445,7 @@ UG1<-ggplot(data=data, aes(data$UG1))+
   #  labs(title="Total SRA Scores") +
   ggtitle("Panel C: UG1") +
   labs(x="Pass Rate", y="Percent") + ylim(c(0,45))+
-  scale_x_continuous(breaks=seq(0,1,0.1))
+  scale_x_continuous(breaks=seq(0,100,10))
 ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 
 
@@ -450,7 +455,7 @@ UG2<-ggplot(data=data, aes(data$UG2))+
   #  labs(title="Total SRA Scores") 
   ggtitle("Panel D: UG2")+
   labs(x="Minimum Contribution Accepted", y="Percent")+ylim(c(0,45))+
-  scale_x_continuous(breaks=seq(0,1,0.1))
+  scale_x_continuous(breaks=seq(0,100,10))
 
 ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
 
@@ -461,7 +466,7 @@ TG1<-ggplot(data=data, aes(data$TG1))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +ylim(c(0,45))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+
-  scale_x_continuous(breaks=seq(0,1,0.1)) +
+  scale_x_continuous(breaks=seq(0,100,10)) +
   ggtitle("Panel E: TG1")
 
 ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
@@ -471,7 +476,7 @@ PGG<-ggplot(data=data, aes(data$PGG))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+ylim(c(0,45))+
-  scale_x_continuous(breaks=seq(0,1,0.1)) +
+  scale_x_continuous(breaks=seq(0,100,10)) +
   ggtitle("Panel F: PGG")
 
 ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
@@ -480,22 +485,20 @@ pdf("~/Desktop/thesis/paper/images/Figure2b.pdf",width=11,height=8.5)
 grid.arrange(UG1, UG2, TG1, PGG, nrow=2)
 dev.off()
 
-
-
-prop.table(table(data$TG2))
-summary(data$TG2)
 #TG2 - reciprocity
 
-TG2<-ggplot(data=data, aes(data$TG2)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
-  scale_x_continuous(breaks=seq(-0.5, 1, by=0.1)) +
-  ylim(c(0,28))+labs(x="Reciprocity", y="Percent") +
-  ggtitle("Panel G: Reciprocity Levels")
+TG2<-ggplot(data=data, aes(data$TG2)) + 
+  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5) +
+  labs(x="Reciprocity", y="Percent") +
+  ggtitle("Panel G: Reciprocity Levels") + 
+  scale_x_continuous(breaks=seq(-50, 100, by=10)) + ylim(c(0,28))
 ggsave("~/Desktop/thesis/paper/images/TG2.pdf", width=11, height=8.5)
 
 
-TG<-ggplot(data=data, aes(data$avgreturn)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+TG<-ggplot(data=data, aes(data$avgreturn)) + 
+  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   ylim(c(0,28))+labs(x="Repayment Rate", y="Percent") + ggtitle("Panel H: Average Repayment Rate") +
-  scale_x_continuous(breaks=seq(0, 1, by=0.1))
+  scale_x_continuous(breaks=seq(0, 100, by=10))
 ggsave("~/Desktop/thesis/paper/images/TG.pdf", width=11, height=8.5)
 pdf("~/Desktop/thesis/paper/images/Figure2c.pdf",width=11,height=8.5)
 grid.arrange(TG2, TG, nrow=2)
@@ -639,22 +642,18 @@ dat1<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA", "SRAmoney")]
 corstars(dat1, method="pearson", result="latex")
 
 
-
-
 # regression
-model1 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG, data=data)
+model1 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG, data=data)
 model2<- lm(donations~SRA, data=data)
 model3<-lm(donations~SRAmoney, data=data)
-model4 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
-model5 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model4 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model5 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
-model6 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG, data=data, family="binomial")
+model6 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG, data=data, family="binomial")
 model7 <- glm(donated ~ SRA, data=data,family="binomial")
 model8 <- glm(donated ~ SRAmoney, data=data,family="binomial")
-model9 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data,family="binomial")
-model10 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data,family="binomial")
-PseudoR2(model1, which="McFadden")
-require(rms)
+model9 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data,family="binomial")
+model10 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data,family="binomial")
 
 stargazer(model1, model2, model3, model4, model5, type="latex",
           dep.var.labels=c("Donations"),
@@ -664,6 +663,24 @@ stargazer(model6, model7, model8, model9, model10,type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
+
+library(pscl)
+install.packages("pscl")
+
+
+mse1 <- mean(model1$residuals^2)
+mse2 <- mean(model2$residuals^2)
+mse3 <- mean(model3$residuals^2)
+mse4 <- mean(model4$residuals^2)
+mse5 <- mean(model5$residuals^2)
+mse6<-mean(model6$residuals^2)
+mse7<-mean(model7$residuals^2)
+mse8<-mean(model8$residuals^2)
+mse9<-mean(model9$residuals^2)
+mse10<-mean(model10$residuals^2)
+
+
+
 #match players to get winner
 match <- data[,c("ResponseId", 
                  "public")]
