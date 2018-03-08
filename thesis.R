@@ -4,6 +4,7 @@ if(!require(reshape2)){
 library(reshape2)
 library(tidyr)
 library(dplyr)
+library(pscl)
 if(!require(ggplot2)){
   install.packages("ggplot2")
 }
@@ -643,30 +644,53 @@ corstars(dat1, method="pearson", result="latex")
 
 
 # regression
-model1 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG, data=data)
-model2<- lm(donations~SRA, data=data)
-model3<-lm(donations~SRAmoney, data=data)
-model4 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
-model5 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model1<-lm(donations~alpha1, data=data)
+model2<-lm(donations~UG1, data=data)
+model3<-lm(donations~UG2, data=data)
+model4<-lm(donations~TG1, data=data)
+model5<-lm(donations~TG2, data=data)
+model6<-lm(donations~PGG, data=data)
+model7<-lm(donations~alpha1+UG1+UG2+TG1+TG2+PGG, data=data)
+model8<- lm(donations~SRA, data=data)
+model9<-lm(donations~SRAmoney, data=data)
+model10 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model11 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
-model6 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG, data=data, family="binomial")
-model7 <- glm(donated ~ SRA, data=data,family="binomial")
-model8 <- glm(donated ~ SRAmoney, data=data,family="binomial")
-model9 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data,family="binomial")
-model10 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data,family="binomial")
 
-stargazer(model1, model2, model3, model4, model5, type="latex",
+stargazer(model1, model2, model3, model4, model5, model6, model7, type="latex",
+          dep.var.labels=c("Donations"),
+          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+                             "Reciprocity", "PGG"))
+stargazer(model8, model9, model10, model11, type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
-stargazer(model6, model7, model8, model9, model10,type="latex",
+
+model12<-glm(donated~alpha1, data=data)
+model13<-glm(donated~UG1, data=data)
+model14<-glm(donated~UG2, data=data)
+model15<-glm(donated~TG1, data=data)
+model16<-glm(donated~TG2, data=data)
+model17<-glm(donated~PGG, data=data)
+model18<-glm(donated~alpha1+UG1+UG2+TG1+TG2+PGG, data=data)
+model19<- glm(donated~SRA, data=data)
+model20<-glm(donated~SRAmoney, data=data)
+model21 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model22 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+
+
+stargazer(model12, model13, model14, model15, model16, model17, model18, type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+                             "Reciprocity", "PGG"))
+stargazer(model19, model20, model21, model22,type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
-library(pscl)
-install.packages("pscl")
 
+
+pR2(model22)
 
 mse1 <- mean(model1$residuals^2)
 mse2 <- mean(model2$residuals^2)
@@ -678,6 +702,18 @@ mse7<-mean(model7$residuals^2)
 mse8<-mean(model8$residuals^2)
 mse9<-mean(model9$residuals^2)
 mse10<-mean(model10$residuals^2)
+mse11<-mean(model11$residuals^2)
+mse12<-mean(model12$residuals^2)
+mse13<-mean(model13$residuals^2)
+mse14<-mean(model14$residuals^2)
+mse15<-mean(model15$residuals^2)
+mse16<-mean(model16$residuals^2)
+mse17<-mean(model17$residuals^2)
+mse18<-mean(model18$residuals^2)
+mse19<-mean(model19$residuals^2)
+mse20<-mean(model20$residuals^2)
+mse21<-mean(model21$residuals^2)
+mse22<-mean(model22$residuals^2)
 
 
 
