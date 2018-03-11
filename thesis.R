@@ -141,7 +141,7 @@ data$ult1<-as.numeric(data$ult1)
 data$trust1<-as.numeric(data$trust1)
 data$public<-as.numeric(data$public)
 
-data$SRA<-data$SRA1+data$SRA2+data$SRA3+data$SRA4+data$SRA5+data$SRA6+
+data$SRAtotal<-data$SRA1+data$SRA2+data$SRA3+data$SRA4+data$SRA5+data$SRA6+
   data$SRA7+data$SRA8+data$SRA9+data$SRA10
 data$SRAmoney<-data$SRA2+data$SRA3+data$SRA4+data$SRA7
 data$UG1 <- data$ult1/10
@@ -393,7 +393,9 @@ long$alpha[long$ID==362]<-1
 long<-long[,c("ID", "alpha", "rho", "sigma")]
 
 data1<-merge(long, data, by="ID")
-data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA", "SRAmoney")]
+data<-data1[,c("ID", "ResponseId", "alpha", "rho", "sigma",  "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG",
+               "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
+               "SRAtotal", "SRAmoney")]
 
 
 
@@ -404,18 +406,20 @@ donations <- donations[-c(11:18, 20:67)]
 
 data <- merge( data,donations, by="ResponseId")
 data<-data[,c("ID", "ResponseId", "GENDER", "CLASS_YR", "MAJOR", "alpha", "rho",
-              "sigma", "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", "SRA","SRAmoney", "current_donor_status",
+              "sigma", "TG2", "avgreturn", "UG1", "UG2", "TG1", "PGG", 
+              "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
+              "SRAtotal","SRAmoney", "current_donor_status",
               "DNR_GIVING", "DNR_TOTAL_YEARS", "first_gift", "last_gift", "last_gift_amount", "last_gift_for")]
 
 
 
-data$UG1<-data$UG1*100
-data$UG2<-data$UG2*100
-data$TG1<-data$TG1*100
-data$PGG<-data$PGG*100
-data$TG2<-data$TG2*100
-data$alpha1<-data$alpha*100
-data$avgreturn<-data$avgreturn*100
+# data$UG1<-data$UG1*100
+# data$UG2<-data$UG2*100
+# data$TG1<-data$TG1*100
+# data$PGG<-data$PGG*100
+# data$TG2<-data$TG2*100
+# data$alpha1<-data$alpha*100
+# data$avgreturn<-data$avgreturn*100
 #####################
 #Univariate Analysis#
 #####################
@@ -446,7 +450,7 @@ UG1<-ggplot(data=data, aes(data$UG1))+
   #  labs(title="Total SRA Scores") +
   ggtitle("Panel C: UG1") +
   labs(x="Pass Rate", y="Percent") + ylim(c(0,45))+
-  scale_x_continuous(breaks=seq(0,100,10))
+  scale_x_continuous(breaks=seq(0,1,0.1))
 ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 
 
@@ -456,7 +460,7 @@ UG2<-ggplot(data=data, aes(data$UG2))+
   #  labs(title="Total SRA Scores") 
   ggtitle("Panel D: UG2")+
   labs(x="Minimum Contribution Accepted", y="Percent")+ylim(c(0,45))+
-  scale_x_continuous(breaks=seq(0,100,10))
+  scale_x_continuous(breaks=seq(0,1,0.1))
 
 ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
 
@@ -467,7 +471,7 @@ TG1<-ggplot(data=data, aes(data$TG1))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +ylim(c(0,45))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+
-  scale_x_continuous(breaks=seq(0,100,10)) +
+  scale_x_continuous(breaks=seq(0,1,0.1)) +
   ggtitle("Panel E: TG1")
 
 ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
@@ -477,7 +481,7 @@ PGG<-ggplot(data=data, aes(data$PGG))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+ylim(c(0,45))+
-  scale_x_continuous(breaks=seq(0,100,10)) +
+  scale_x_continuous(breaks=seq(0,1,0.1)) +
   ggtitle("Panel F: PGG")
 
 ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
@@ -489,17 +493,17 @@ dev.off()
 #TG2 - reciprocity
 
 TG2<-ggplot(data=data, aes(data$TG2)) + 
-  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5) +
+  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=.05) +
   labs(x="Reciprocity", y="Percent") +
   ggtitle("Panel G: Reciprocity Levels") + 
-  scale_x_continuous(breaks=seq(-50, 100, by=10)) + ylim(c(0,28))
+  scale_x_continuous(breaks=seq(-0.5, 1, by=0.1)) + ylim(c(0,28))
 ggsave("~/Desktop/thesis/paper/images/TG2.pdf", width=11, height=8.5)
 
 
 TG<-ggplot(data=data, aes(data$avgreturn)) + 
-  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
   ylim(c(0,28))+labs(x="Repayment Rate", y="Percent") + ggtitle("Panel H: Average Repayment Rate") +
-  scale_x_continuous(breaks=seq(0, 100, by=10))
+  scale_x_continuous(breaks=seq(0, 1, by=0.1))
 ggsave("~/Desktop/thesis/paper/images/TG.pdf", width=11, height=8.5)
 pdf("~/Desktop/thesis/paper/images/Figure2c.pdf",width=11,height=8.5)
 grid.arrange(TG2, TG, nrow=2)
@@ -565,6 +569,7 @@ rho<-ggplot(data=data1, aes(x=rho1)) +
   labs(x="Rho", y="Percent") +
   ggtitle("Panel B: Rho")
 ggsave("~/Desktop/thesis/paper/images/rho.pdf", width=11, height=8.5)
+
 
 # data2<-data[data$rho<=1 & data$rho>=-1,]
 # plot(data2$rho, data2$alpha)
@@ -644,17 +649,17 @@ corstars(dat1, method="pearson", result="latex")
 
 
 # regression
-model1<-lm(donations~alpha1, data=data)
+model1<-lm(donations~alpha, data=data)
 model2<-lm(donations~UG1, data=data)
 model3<-lm(donations~UG2, data=data)
 model4<-lm(donations~TG1, data=data)
 model5<-lm(donations~TG2, data=data)
 model6<-lm(donations~PGG, data=data)
-model7<-lm(donations~alpha1+UG1+UG2+TG1+TG2+PGG, data=data)
+model7<-lm(donations~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
 model8<- lm(donations~SRA, data=data)
 model9<-lm(donations~SRAmoney, data=data)
-model10 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
-model11 <- lm(donations ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model10 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model11 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
 stargazer(model1, model2, model3, model4, model5, model6, model7, type="latex",
@@ -666,17 +671,17 @@ stargazer(model8, model9, model10, model11, type="latex",
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
-model12<-glm(donated~alpha1, data=data)
+model12<-glm(donated~alpha, data=data)
 model13<-glm(donated~UG1, data=data)
 model14<-glm(donated~UG2, data=data)
 model15<-glm(donated~TG1, data=data)
 model16<-glm(donated~TG2, data=data)
 model17<-glm(donated~PGG, data=data)
-model18<-glm(donated~alpha1+UG1+UG2+TG1+TG2+PGG, data=data)
+model18<-glm(donated~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
 model19<- glm(donated~SRA, data=data)
 model20<-glm(donated~SRAmoney, data=data)
-model21 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
-model22 <- glm(donated ~ alpha1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model21 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model22 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
 stargazer(model12, model13, model14, model15, model16, model17, model18, type="latex",
@@ -714,6 +719,187 @@ mse19<-mean(model19$residuals^2)
 mse20<-mean(model20$residuals^2)
 mse21<-mean(model21$residuals^2)
 mse22<-mean(model22$residuals^2)
+
+#Best subset model selection with R
+data1<-data[,c("donations", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+               "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
+               "SRAtotal", "SRAmoney")]
+
+pairs(data1)
+cor(data1)
+library(leaps)
+best.subset<-regsubsets(donations~., data1, nbest=1)
+best.subset.summary<-summary(best.subset)
+best.subset.summary$outmat
+best.subset.by.adjr2<-which.max(best.subset.summary$adjr2)
+best.subset.by.adjr2
+best.subset.by.bic <- which.min(best.subset.summary$bic)
+best.subset.by.bic
+best.subset.by.cp <- which.min(best.subset.summary$cp)
+best.subset.by.cp
+
+#forward selection
+null=lm(donations~1, data=data1)
+full=lm(donations~., data=data1)
+step(null, scope=list(lower=null, upper=full), direction="forward")
+#backwards selection
+step(full, data=data1, direction="backward")
+#stepwise regression
+step(null, scop=list(upper=full), data=data1, direction="both")
+
+#ridge/lasso
+x<-model.matrix(donations~., data1)[,-1]
+y<-data1$donations
+lambda<-10^seq(10,-2,length=100)
+library(glmnet)
+set.seed(489)
+train=sample(1:nrow(x),nrow(x)/2)
+test=(-train)
+ytest=y[test]
+#OLS
+lm<-lm(donations~.,data=data1)
+coef(lm)
+#ridge
+ridge.mod<-glmnet(x,y,alpha=0,lambda=lambda)
+predict(ridge.mod,s=0,exact=T,type='coeffcients')[1:6,]
+
+lm<-lm(donations~.,data=data1,subset=train)
+ridge.mod<-glmnet(x[train,],y[train],alpha=0,lambda=lambda)
+cv.out<-cv.glmnet(x[train,], y[train], alpha=0)
+bestlam<-cv.out$lambda.min
+ridge.pred<-predict(ridge.mod,s=bestlam,newx=x[test,])
+s.pred<-predict(lm,newdata=data1[test,])
+mean((s.pred-ytest)^2)
+mean((ridge.pred-ytest)^2)
+out=glmnet(x[train,],y[train],alpha=0)
+predict(ridge.mod,type="coefficients",s=bestlam)
+
+#lasso
+lasso.mod<-glmnet(x[train,],y[train],alpha=1,lambda=lambda)
+lasso.pred<-predict(lasso.mod,s=bestlam,newx=x[test,])
+mean((lasso.pred-ytest)^2)
+lasso.coef<-predict(lasso.mod,type='coefficients',s=bestlam)
+
+
+
+
+swiss<-data1
+x <- model.matrix(donations~., swiss)[,-1]
+y <- swiss$donations
+lambda <- 10^seq(10, -2, length = 100)
+set.seed(489)
+train = sample(1:nrow(x), nrow(x)/2)
+test = (-train)
+ytest = y[test]
+swisslm <- lm(donations~., data = swiss, subset = train)
+ridge.mod <- glmnet(x[train,], y[train], alpha = 0, lambda = lambda)
+#find the best lambda from our list via cross-validation
+cv.out <- cv.glmnet(x[train,], y[train], alpha = 0)
+bestlam <- cv.out$lambda.min
+
+ridge.pred <- predict(ridge.mod, s = bestlam, newx = x[test,])
+s.pred <- predict(swisslm, newdata = swiss[test,])
+#check MSE
+mean((s.pred-ytest)^2)
+mean((ridge.pred-ytest)^2)
+#a look at the coefficients
+out = glmnet(x[train,],y[train],alpha = 0)
+predict(ridge.mod, type = "coefficients", s = bestlam)[1:6,]
+
+lasso.mod <- glmnet(x[train,], y[train], alpha = 1, lambda = lambda)
+lasso.pred <- predict(lasso.mod, s = bestlam, newx = x[test,])
+mean((lasso.pred-ytest)^2)
+lasso.coef  <- predict(lasso.mod, type = 'coefficients', s = bestlam)[1:6,]
+
+
+library(glmnet)
+'%ni%'<-Negate('%in%')
+data(mtcars)
+x<-model.matrix(mpg~.,data=mtcars)
+x=x[,-1]
+glmnet1<-cv.glmnet(x=x,y=mtcars$mpg,type.measure='mse',nfolds=5,alpha=.5)
+c<-coef(glmnet1,s='lambda.min',exact=TRUE)
+inds<-which(c!=0)
+variables<-row.names(c)[inds]
+variables<-variables[variables %ni% '(Intercept)']
+
+
+
+'%ni%'<-Negate('%in%')
+x<-model.matrix(donations~.,data=data1)
+x=x[,-1]
+glmnet1<-cv.glmnet(x=x,y=data1$donations,type.measure='mse')
+c<-coef(glmnet1,s='lambda.min',exact=TRUE)
+inds<-which(c!=0)
+variables<-row.names(c)[inds]
+variables<-variables[variables %ni% '(Intercept)']
+
+#lasso
+library(lars)
+x<-as.matrix(data1[,2:22])
+y<-as.matrix(data1[,1])
+fit<-lars(x,y,type="lasso")
+summary(fit)
+best_step<-fit$df[which.min(fit$RSS)]
+predictions<-predict(fit,x,s=best_step,type="fit")$fit
+mse<-mean((y-predictions)^2)
+print(mse)
+#ridge
+dge Regression in RR
+
+# load the package
+library(glmnet)
+# load data
+
+x <- as.matrix(data1[,2:22])
+y <- as.matrix(data1[,1])
+# fit model
+fit <- glmnet(x, y, family="gaussian", alpha=0, lambda=0.001)
+# summarize the fit
+summary(fit)
+# make predictions
+predictions <- predict(fit, x, type="link")
+# summarize accuracy
+mse <- mean((y - predictions)^2)
+print(mse)
+
+# load the package
+library(glmnet)
+# load data
+data(longley)
+x <- as.matrix(longley[,1:6])
+y <- as.matrix(longley[,7])
+# fit model
+fit <- glmnet(x, y, family="gaussian", alpha=0, lambda=0.001)
+# summarize the fit
+summary(fit)
+# make predictions
+predictions <- predict(fit, x, type="link")
+# summarize accuracy
+mse <- mean((y - predictions)^2)
+print(mse)
+
+
+#tobit
+install.packages("AER")
+library(AER)
+model<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data, left=0)
+
+stargazer(model, type="latex",
+          dep.var.labels=c("Donations"),
+          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+                             "Reciprocity", "PGG", "SRA"))
+
+censReg(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data, left=0)
+
+
+
+data$d<-data$donations
+data$d[data$d>100]<-100
+boxplot(data$d)
+
+
+
 
 
 
