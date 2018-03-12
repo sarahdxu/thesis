@@ -194,7 +194,16 @@ Table B2 contains pairwise correlations (Spearman\rq s \(\rho\)) between the gam
 Figure B5 shows the distribution of Wesleyan donations. Panel I shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel J shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who have donated a total amount greater than \$100. All of these donations amounts are between \$100 and \$625, with the exception of two very large donations.
 
 \subsection{External Validity of Social Preference Games}
-I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented the field measure: the total amount the participant has donated, and (2) whether the participant has donated or not. Table B6a presents seven regression analyses, each obtained with Ordinary Least Squares (OLS), that shows how the game results predict donation amounts. The first six columns contains each of the game outcomes, and the last column includes all of the games. None of the games are statistically significant on their own. However, when all of the games are used in the regression model, only the \(\alpha\) parameter is statistically significant at the 10\% level. Table B6b contains four regression models, again obtained with OLS. The first two columns shows how each of the SRA results predicts donations, and the last two models shows how both the games and SRA scores predicts donations. Neither the total nor monetary SRA scores show predictive power for donations - neither is statistically significant. When modeled with the game variables, again only \(\alpha\) is statistically significant at the 10\% level. This makes sense because although all of the social preference games can be theoretically mapped to donations behavior, \(\alpha\) is the most intuitively related to giving since it measures how the individual prefers giving to themselves versus someone else. 
+I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented the field measure: the total amount the participant has donated, and (2) whether the participant has donated or not. 
+
+
+
+tobit - censored data because of the distibution of my results.
+
+
+
+
+Table B6a presents eight regression analyses, each obtained with Ordinary Least Squares (OLS), that shows how the game results predict donation amounts. The first six columns contains each of the game outcomes, and the last column includes all of the games. None of the games are statistically significant on their own. However, when all of the games are used in the regression model, only the \(\alpha\) parameter is statistically significant at the 10\% level. Table B6b contains four regression models, again obtained with OLS. The first two columns shows how each of the SRA results predicts donations, and the last two models shows how both the games and SRA scores predicts donations. Neither the total nor monetary SRA scores show predictive power for donations - neither is statistically significant. When modeled with the game variables, again only \(\alpha\) is statistically significant at the 10\% level. This makes sense because although all of the social preference games can be theoretically mapped to donations behavior, \(\alpha\) is the most intuitively related to giving since it measures how the individual prefers giving to themselves versus someone else. 
 
 I then ran logistic regressions on the same explanatory variables, but this time using the binary donations representation as the response variable. Tables B7a and B7b displays the models with the identical structure as the previous table. Table B7a shows that none of the game variables are statistically significant, and Table B7b shows that neither total nor monetary scores are statistically significant, even when used alongside the game outcomes.
 
@@ -531,46 +540,44 @@ alpha  & -0.01  & \ \ -0.04  \\
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
-      \begin{adjustbox}{width=\textwidth}
-\begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
+          \begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{\extracolsep{5pt}}lcccccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{7}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-8} 
-\\[-1.8ex] & \multicolumn{7}{c}{Donations} \\ 
-\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7)\\ 
+ & \multicolumn{8}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-9} 
+\\[-1.8ex] & \multicolumn{8}{c}{Donations} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\ 
 \hline \\[-1.8ex] 
- Alpha & $-$255.669 &  &  &  &  &  & $-$300.016$^{*}$ \\ 
-  & (163.740) &  &  &  &  &  & (177.203) \\ 
-  & & & & & & & \\ 
- UG1 &  & $-$4.586 &  &  &  &  & $-$88.497 \\ 
-  &  & (205.599) &  &  &  &  & (238.426) \\ 
-  & & & & & & & \\ 
- UG2 &  &  & 198.263 &  &  &  & 210.782 \\ 
-  &  &  & (262.655) &  &  &  & (271.250) \\ 
-  & & & & & & & \\ 
- TG1 &  &  &  & $-$7.619 &  &  & $-$6.965 \\ 
-  &  &  &  & (158.603) &  &  & (201.370) \\ 
-  & & & & & & & \\ 
- Reciprocity &  &  &  &  & 20.496 &  & $-$39.186 \\ 
-  &  &  &  &  & (230.480) &  & (266.795) \\ 
-  & & & & & & & \\ 
- PGG &  &  &  &  &  & $-$59.721 & $-$55.306 \\ 
-  &  &  &  &  &  & (165.191) & (188.674) \\ 
-  & & & & & & & \\ 
- Constant & 225.186$^{**}$ & 93.909 & 49.602 & 95.941 & 82.446 & 134.700 & 305.600 \\ 
-  & (98.767) & (106.924) & (74.803) & (99.557) & (116.339) & (128.670) & (224.793) \\ 
-  & & & & & & & \\ 
+ Alpha & 3.31900 &  &  &  &  &  &  & 3.65573 \\ 
+  & (6.70349) &  &  &  &  &  &  & (7.11287) \\ 
+  & & & & & & & & \\ 
+ UG1 &  & 6.86169 &  &  &  &  &  & 7.83777 \\ 
+  &  & (8.37201) &  &  &  &  &  & (9.56989) \\ 
+  & & & & & & & & \\ 
+ UG2 &  &  & 6.02428 &  &  &  &  & 7.15649 \\ 
+  &  &  & (10.70407) &  &  &  &  & (10.87374) \\ 
+  & & & & & & & & \\ 
+ TG1 &  &  &  & 0.40224 &  &  &  & $-$3.11724 \\ 
+  &  &  &  & (6.46432) &  &  &  & (8.06739) \\ 
+  & & & & & & & & \\ 
+ Reciprocity &  &  &  &  & $-$7.78110 &  &  & $-$10.19894 \\ 
+  &  &  &  &  & (9.38165) &  &  & (10.73484) \\ 
+  & & & & & & & & \\ 
+ PGG &  &  &  &  &  & 9.74215 &  & 11.30996 \\ 
+  &  &  &  &  &  & (6.75440) &  & (7.61876) \\ 
+  & & & & & & & & \\ 
+ SRAtotal &  &  &  &  &  &  & 0.70389$^{*}$ & 0.71275$^{*}$ \\ 
+  &  &  &  &  &  &  & (0.40881) & (0.40711) \\ 
+  & & & & & & & & \\ 
+ Constant & 3.54700 $^{***}$ & 3.54579 & 3.54694 & 3.54717 & 3.54602 & 3.54222 & 3.54204 & 3.53262 \\ 
+  & (0.06089) & (0.06088) & (0.06089) & (0.06088) & (0.06089) & (0.06087) & (0.06092) & (0.06094) \\ 
+  & & & & & & & & \\ 
 \hline \\[-1.8ex] 
-Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\ 
-R$^{2}$ & 0.007 & 0.00000 & 0.002 & 0.00001 & 0.00002 & 0.0004 & 0.010 \\ 
-Adjusted R$^{2}$ & 0.004 & $-$0.003 & $-$0.001 & $-$0.003 & $-$0.003 & $-$0.003 & $-$0.007 \\ 
-Residual Std. Error & 918.045 (df = 341) & 921.320 (df = 341) & 920.552 (df = 341) & 921.318 (df = 341) & 921.310 (df = 341) & 921.144 (df = 341) & 923.289 (df = 336) \\ 
-F Statistic & 2.438 (df = 1; 341) & 0.0005 (df = 1; 341) & 0.570 (df = 1; 341) & 0.002 (df = 1; 341) & 0.008 (df = 1; 341) & 0.131 (df = 1; 341) & 0.591 (df = 6; 336) \\ 
-MSE & 837891 & 843881 & 842474 & 843876 & 843862 & 853559 & 835065 \\
+Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{7}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
 \end{adjustbox}
 \end{table} 
@@ -776,5 +783,55 @@ MSE & 0.2287 & 0.2283 & 0.2277 & 0.2273 \\
 \end{tabular} 
 \end{adjustbox}
 \end{table} 
+
+
+
+
+
+
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Donations \\ 
+\hline \\[-1.8ex] 
+ Alpha & $-$272.428 \\ 
+  & (242.727) \\ 
+  & \\ 
+ UG1 & $-$99.964 \\ 
+  & (320.119) \\ 
+  & \\ 
+ UG2 & 414.585 \\ 
+  & (368.817) \\ 
+  & \\ 
+ TG1 & $-$4.916 \\ 
+  & (276.315) \\ 
+  & \\ 
+ Reciprocity & $-$13.040 \\ 
+  & (366.039) \\ 
+  & \\ 
+ PGG & $-$38.684 \\ 
+  & (257.801) \\ 
+  & \\ 
+ SRAtotal & 26.998 \\ 
+  & (26.948) \\ 
+  & \\ 
+ Constant & $-$447.451 \\ 
+  & (418.575) \\ 
+  & \\ 
+\hline \\[-1.8ex] 
+Observations & 343 \\ 
+Log Likelihood & $-$1,938.149 \\ 
+Wald Test & 3.481 (df = 7) \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
 	
 \end{document}

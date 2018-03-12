@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  10 MAR 2018 15:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 MAR 2018 16:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -254,17 +254,7 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 (/usr/local/texlive/2016/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box30
-) (./thesis.aux
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-)
+) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
@@ -279,7 +269,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
- (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen154
@@ -645,21 +636,21 @@ Underfull \hbox (badness 10000) in paragraph at lines 524--526
 
 [35 <./images/Figure2c.pdf> <./images/Figure3.pdf>] [36 <./images/Figure4.pdf>]
 
-LaTeX Warning: Float too large for page by 42.97641pt on input line 778.
+LaTeX Warning: Float too large for page by 42.97641pt on input line 776.
 
 
 Package caption Warning: Unused \captionsetup[subtable] on input line 22.
 See the caption package documentation for explanation.
 
-[37] [38] [39] [40] [41] (./thesis.aux)
+[37] [38] [39] [40] [41] [42] (./thesis.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
  5167 strings out of 493014
  81997 string characters out of 6133351
- 204643 words of memory out of 5000000
+ 204452 words of memory out of 5000000
  8590 multiletter control sequences out of 15000+600000
  9155 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -679,10 +670,10 @@ e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 /2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2
 016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (41 pages, 762173 bytes).
+Output written on thesis.pdf (42 pages, 762702 bytes).
 PDF statistics:
- 249 PDF objects out of 1000 (max. 8388607)
- 159 compressed objects within 2 object streams
+ 252 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

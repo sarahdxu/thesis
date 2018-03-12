@@ -2,23 +2,31 @@ if(!require(reshape2)){
   install.packages("reshape2")
 }
 library(reshape2)
+install.packages("tidyr")
+install.packages("dplyr")
 library(tidyr)
 library(dplyr)
+library(tidyr)
+library(dplyr)
+install.packages("pscl")
 library(pscl)
 if(!require(ggplot2)){
   install.packages("ggplot2")
 }
 library(ggplot2)
+install.packages("gridExtra")
 library(gridExtra)
 if(!require(minpack.lm)){
   install.packages("minpack.lm")
 }
 library(minpack.lm)
+install.packages('picante')
 library(picante)
 if(!require(stargazer)){
   install.packages("stargazer")
 }
 library(stargazer)
+install.packages("Hmisc")
 library(Hmisc)
 
 setwd("~/Desktop/thesis")
@@ -189,8 +197,8 @@ trustdata$t10<-(trustdata$trust2_10)/(trustdata$trust1_10)
 for (i in trustdata$ID){
   temp<-trustdata[trustdata$ID==i,]
   trustdata$avgreturn[trustdata$ID==i]<-(temp$t1+temp$t2+temp$t3+temp$t4+
-                temp$t5+temp$t6+temp$t7+
-                temp$t8+temp$t9+temp$t10)/10
+                                           temp$t5+temp$t6+temp$t7+
+                                           temp$t8+temp$t9+temp$t10)/10
 }
 
 
@@ -371,9 +379,9 @@ long<- gendictlong %>%
 for (i in long$ID){
   temp<-long[long$ID==i,]
   model<-nls(y~m*(A/((x^r)+A)), data=temp, start=c(A=1, r=-1), 
-      algorithm="port",
-      control=nls.control(warnOnly=TRUE),
-      upper=c(A=Inf, r=0.9999), lower=c(A=-Inf,r=-Inf))
+             algorithm="port",
+             control=nls.control(warnOnly=TRUE),
+             upper=c(A=Inf, r=0.9999), lower=c(A=-Inf,r=-Inf))
   long$A[long$ID==i]<-coef(model)[1]
   long$r[long$ID==i]<-coef(model)[2]
 }
@@ -425,9 +433,9 @@ data<-data[,c("ID", "ResponseId", "GENDER", "CLASS_YR", "MAJOR", "alpha", "rho",
 #####################
 
 #SRA
-SRA<-ggplot(data=data, aes(data$SRA))+
+SRA<-ggplot(data=data, aes(data$SRAtotal))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
-#  labs(title="Total SRA Scores") +
+  #  labs(title="Total SRA Scores") +
   labs(x="Total Scores", y="Percent") +
   scale_x_continuous(breaks=seq(20,50,2)) + ggtitle("Panel I: Total SRA Scores")
 ggsave("~/Desktop/thesis/paper/images/SRAimg.jpg", width=11, height=8.5)
@@ -436,8 +444,8 @@ SRAmoney<-ggplot(data=data, aes(data$SRAmoney))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
   labs(x="SRA Money Scores", y="Percent") +ggtitle("Panel J: Total SRA Money Scores")+
-
-ggsave("~/Desktop/thesis/paper/images/SRAmoney.jpg", width=11, height=8.5)
+  
+  ggsave("~/Desktop/thesis/paper/images/SRAmoney.jpg", width=11, height=8.5)
 pdf("~/Desktop/thesis/paper/images/Figure3.pdf",width=11,height=8.5)
 grid.arrange(SRA, SRAmoney, nrow=2)
 dev.off()
@@ -591,7 +599,7 @@ dev.off()
 
 
 #Spearmans p
-dat<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA")]
+dat<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAtotal")]
 library(xtable)
 library(Hmisc)
 
@@ -617,20 +625,20 @@ corstars <-function(x, method=c("pearson", "spearman"), #removeTriangle=c("upper
   rownames(Rnew) <- colnames(x)
   colnames(Rnew) <- paste(colnames(x), "", sep="")
   
-#   ## remove upper triangle of correlation matrix
-#   if(removeTriangle[1]=="upper"){
-#     Rnew <- as.matrix(Rnew)
-#     Rnew[upper.tri(Rnew, diag = TRUE)] <- ""
-#     Rnew <- as.data.frame(Rnew)
-#   }
-#   
-#   ## remove lower triangle of correlation matrix
-#   else if(removeTriangle[1]=="lower"){
-#     Rnew <- as.matrix(Rnew)
-#     Rnew[lower.tri(Rnew, diag = TRUE)] <- ""
-#     Rnew <- as.data.frame(Rnew)
-#   }
-#   
+  #   ## remove upper triangle of correlation matrix
+  #   if(removeTriangle[1]=="upper"){
+  #     Rnew <- as.matrix(Rnew)
+  #     Rnew[upper.tri(Rnew, diag = TRUE)] <- ""
+  #     Rnew <- as.data.frame(Rnew)
+  #   }
+  #   
+  #   ## remove lower triangle of correlation matrix
+  #   else if(removeTriangle[1]=="lower"){
+  #     Rnew <- as.matrix(Rnew)
+  #     Rnew[lower.tri(Rnew, diag = TRUE)] <- ""
+  #     Rnew <- as.data.frame(Rnew)
+  #   }
+  #   
   ## remove last column and return the correlation matrix
   Rnew<-as.matrix(Rnew)
   Rnew<-as.data.frame(Rnew)
@@ -644,7 +652,7 @@ corstars <-function(x, method=c("pearson", "spearman"), #removeTriangle=c("upper
 
 corstars(dat, method="pearson", result="latex")
 
-dat1<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRA", "SRAmoney")]
+dat1<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAtotal", "SRAmoney")]
 corstars(dat1, method="pearson", result="latex")
 
 
@@ -656,16 +664,16 @@ model4<-lm(donations~TG1, data=data)
 model5<-lm(donations~TG2, data=data)
 model6<-lm(donations~PGG, data=data)
 model7<-lm(donations~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
-model8<- lm(donations~SRA, data=data)
+model8<- lm(donations~SRAtotal, data=data)
 model9<-lm(donations~SRAmoney, data=data)
-model10 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model10 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
 model11 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model1, model2, model3, model4, model5, model6, model7, type="latex",
+stargazer(model1, model2, model3, model4, model5, model6, model8, model10, type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG"))
+                             "Reciprocity", "PGG", "SRAtotal"))
 stargazer(model8, model9, model10, model11, type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
@@ -678,9 +686,9 @@ model15<-glm(donated~TG1, data=data)
 model16<-glm(donated~TG2, data=data)
 model17<-glm(donated~PGG, data=data)
 model18<-glm(donated~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
-model19<- glm(donated~SRA, data=data)
+model19<- glm(donated~SRAtotal, data=data)
 model20<-glm(donated~SRAmoney, data=data)
-model21 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data)
+model21 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
 model22 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
@@ -724,11 +732,37 @@ mse22<-mean(model22$residuals^2)
 data1<-data[,c("donations", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
                "SRAtotal", "SRAmoney")]
+data2<-data[,c("donations", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+               "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
+               "SRAtotal", "SRAmoney")]
+data3<-data[,c("donations", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+               "SRAtotal", "SRAmoney")]
+data4<-data[,c("donated", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+               "SRAtotal", "SRAmoney")]
+data5<-data[,c("donated", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+               "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
+               "SRAtotal", "SRAmoney")]
 
 pairs(data1)
 cor(data1)
+install.packages("leaps")
 library(leaps)
-best.subset<-regsubsets(donations~., data1, nbest=1)
+#best subset continuous
+
+m<-vglm(donations~alpha+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney,
+        tobit(Lower=0, Upper=50),data=dat)
+
+best.subset<-regsubsets(donations~., data1)
+best.subset.summary<-summary(best.subset)
+best.subset.summary$outmat
+best.subset.by.adjr2<-which.max(best.subset.summary$adjr2)
+best.subset.by.adjr2
+best.subset.by.bic <- which.min(best.subset.summary$bic)
+best.subset.by.bic
+best.subset.by.cp <- which.min(best.subset.summary$cp)
+best.subset.by.cp
+#best subset binary
+best.subset<-regsubsets(donated~., data5, nbest=1)
 best.subset.summary<-summary(best.subset)
 best.subset.summary$outmat
 best.subset.by.adjr2<-which.max(best.subset.summary$adjr2)
@@ -738,165 +772,208 @@ best.subset.by.bic
 best.subset.by.cp <- which.min(best.subset.summary$cp)
 best.subset.by.cp
 
+
+#continuous forward/backwards/stepwise
 #forward selection
+#null=vglm(donations~1,data=data1,tobit(Lower=0, Upper=50))
+#full=vglm(donations~alpha+rho+sigma+UG1+UG2+TG1+TG2+avgreturn+PGG+
+            #SRA1+SRA2+SRA3+SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10+
+            #SRAtotal+SRAmoney,data=data1,tobit(Lower=0,Upper=50))
 null=lm(donations~1, data=data1)
 full=lm(donations~., data=data1)
 step(null, scope=list(lower=null, upper=full), direction="forward")
 #backwards selection
-step(full, data=data1, direction="backward")
+step(full, data=data2, direction="backward")
 #stepwise regression
-step(null, scop=list(upper=full), data=data1, direction="both")
+step(null, scop=list(upper=full), data=data2, direction="both")
+
+#binary forward/backwards/stepwise
+#forward selection
+null=glm(donated~1, data=data5)
+full=glm(donated~., data=data5)
+step(null, scope=list(lower=null, upper=full), direction="forward")
+#backwards selection
+step(full, data=data5, direction="backward")
+#stepwise regression
+step(null, scope=list(upper=full), data=data5, direction="both")
+
+
+
 
 #ridge/lasso
+install.packages("glmnet")
+library(glmnet)
 x<-model.matrix(donations~., data1)[,-1]
 y<-data1$donations
-lambda<-10^seq(10,-2,length=100)
-library(glmnet)
-set.seed(489)
-train=sample(1:nrow(x),nrow(x)/2)
-test=(-train)
-ytest=y[test]
-#OLS
-lm<-lm(donations~.,data=data1)
-coef(lm)
-#ridge
-ridge.mod<-glmnet(x,y,alpha=0,lambda=lambda)
-predict(ridge.mod,s=0,exact=T,type='coeffcients')[1:6,]
-
-lm<-lm(donations~.,data=data1,subset=train)
-ridge.mod<-glmnet(x[train,],y[train],alpha=0,lambda=lambda)
-cv.out<-cv.glmnet(x[train,], y[train], alpha=0)
-bestlam<-cv.out$lambda.min
-ridge.pred<-predict(ridge.mod,s=bestlam,newx=x[test,])
-s.pred<-predict(lm,newdata=data1[test,])
-mean((s.pred-ytest)^2)
-mean((ridge.pred-ytest)^2)
-out=glmnet(x[train,],y[train],alpha=0)
-predict(ridge.mod,type="coefficients",s=bestlam)
-
-#lasso
-lasso.mod<-glmnet(x[train,],y[train],alpha=1,lambda=lambda)
-lasso.pred<-predict(lasso.mod,s=bestlam,newx=x[test,])
-mean((lasso.pred-ytest)^2)
-lasso.coef<-predict(lasso.mod,type='coefficients',s=bestlam)
+cv.out<-cv.glmnet(x,y,alpha=1,type.measure="mse")
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_min)
+coef(cv.out,s=lambda_1se)
 
 
+x<-model.matrix(donated~.,data4)[,-1]
+y<-data4$donated
+cv.out<-cv.glmnet(x,y,alpha=1,type.measure="mse")
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_min)
+
+glmmod<-glmnet(x,y=as.factor(y),alpha=1,family="binomial")
+plot(glmmod,xvar="lambda")
+cv.glmmod<-cv.glmnet(x,y,alpha=1)
+plot(cv.glmmod)
+best.lambda<-cv.glmmod$lambda.min
+coef(cv.glmmod,best.lambda)
 
 
-swiss<-data1
-x <- model.matrix(donations~., swiss)[,-1]
-y <- swiss$donations
-lambda <- 10^seq(10, -2, length = 100)
-set.seed(489)
-train = sample(1:nrow(x), nrow(x)/2)
-test = (-train)
-ytest = y[test]
-swisslm <- lm(donations~., data = swiss, subset = train)
-ridge.mod <- glmnet(x[train,], y[train], alpha = 0, lambda = lambda)
-#find the best lambda from our list via cross-validation
-cv.out <- cv.glmnet(x[train,], y[train], alpha = 0)
-bestlam <- cv.out$lambda.min
+#k-fold cross validation
 
-ridge.pred <- predict(ridge.mod, s = bestlam, newx = x[test,])
-s.pred <- predict(swisslm, newdata = swiss[test,])
-#check MSE
-mean((s.pred-ytest)^2)
-mean((ridge.pred-ytest)^2)
-#a look at the coefficients
-out = glmnet(x[train,],y[train],alpha = 0)
-predict(ridge.mod, type = "coefficients", s = bestlam)[1:6,]
+yourData<-data[sample(nrow(data)),]
+folds<-cut(seq(1,nrow(yourData)),breaks=5,labels=FALSE)
+result<-list()
+for(i in 1:5){
+  testIndexes<-which(folds==i,arr.ind=TRUE)
+  testData<-yourData[testIndexes,]
+  trainData<-yourData[-testIndexes,]
+  model<-lm(donations~alpha+UG1+UG2+TG1+TG2+PGG+SRAtotal,data=trainData)
+  result[[i]]<-predict(model,testData)
+}
 
-lasso.mod <- glmnet(x[train,], y[train], alpha = 1, lambda = lambda)
-lasso.pred <- predict(lasso.mod, s = bestlam, newx = x[test,])
-mean((lasso.pred-ytest)^2)
-lasso.coef  <- predict(lasso.mod, type = 'coefficients', s = bestlam)[1:6,]
-
-
-library(glmnet)
-'%ni%'<-Negate('%in%')
-data(mtcars)
-x<-model.matrix(mpg~.,data=mtcars)
-x=x[,-1]
-glmnet1<-cv.glmnet(x=x,y=mtcars$mpg,type.measure='mse',nfolds=5,alpha=.5)
-c<-coef(glmnet1,s='lambda.min',exact=TRUE)
-inds<-which(c!=0)
-variables<-row.names(c)[inds]
-variables<-variables[variables %ni% '(Intercept)']
+install.packages("caret")
+library(caret)
+install.packages("klaR")
+library(klaR)
+train_control<-trainControl(method="cv",number=10)
+model<-train(donations~.,data=data3,trControl=train_control)
+summary(model)
 
 
 
-'%ni%'<-Negate('%in%')
-x<-model.matrix(donations~.,data=data1)
-x=x[,-1]
-glmnet1<-cv.glmnet(x=x,y=data1$donations,type.measure='mse')
-c<-coef(glmnet1,s='lambda.min',exact=TRUE)
-inds<-which(c!=0)
-variables<-row.names(c)[inds]
-variables<-variables[variables %ni% '(Intercept)']
+install.packages("RCurl")
+install.packages("prettyR")
+require(RCurl)
+require(prettyR)
 
-#lasso
-library(lars)
-x<-as.matrix(data1[,2:22])
-y<-as.matrix(data1[,1])
-fit<-lars(x,y,type="lasso")
-summary(fit)
-best_step<-fit$df[which.min(fit$RSS)]
-predictions<-predict(fit,x,s=best_step,type="fit")$fit
-mse<-mean((y-predictions)^2)
-print(mse)
-#ridge
-dge Regression in RR
+url <- "https://raw.githubusercontent.com/gastonstat/CreditScoring/master/CleanCreditScoring.csv"
+cs_data <- getURL(url)
+cs_data <- read.csv(textConnection(cs_data))
+describe(cs_data)
 
-# load the package
-library(glmnet)
-# load data
+classes <- cs_data[, "Status"]
+predictors <- cs_data[, -match(c("Status", "Seniority", "Time", "Age", "Expenses", 
+                                 "Income", "Assets", "Debt", "Amount", "Price", "Finrat", "Savings"), colnames(cs_data))]
 
-x <- as.matrix(data1[,2:22])
-y <- as.matrix(data1[,1])
-# fit model
-fit <- glmnet(x, y, family="gaussian", alpha=0, lambda=0.001)
-# summarize the fit
-summary(fit)
-# make predictions
-predictions <- predict(fit, x, type="link")
-# summarize accuracy
-mse <- mean((y - predictions)^2)
-print(mse)
 
-# load the package
-library(glmnet)
-# load data
-data(longley)
-x <- as.matrix(longley[,1:6])
-y <- as.matrix(longley[,7])
-# fit model
-fit <- glmnet(x, y, family="gaussian", alpha=0, lambda=0.001)
-# summarize the fit
-summary(fit)
-# make predictions
-predictions <- predict(fit, x, type="link")
-# summarize accuracy
-mse <- mean((y - predictions)^2)
-print(mse)
+
+
+
+
+
+
+
 
 
 #tobit
 install.packages("AER")
 library(AER)
-model<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data, left=0)
+install.packages("censReg")
+library(censReg)
+modela<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data, left=0)
+modelb<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data, left=0)
 
-stargazer(model, type="latex",
+stargazer(modela, type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG", "SRA"))
+                             "Reciprocity", "PGG", "SRAtotal"))
 
-censReg(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRA, data=data, left=0)
+stargazer(modelb, type="latex",
+          dep.var.labels=c("Donations"),
+          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+                             "Reciprocity", "PGG", "SRAtotal"))
 
 
 
-data$d<-data$donations
-data$d[data$d>100]<-100
-boxplot(data$d)
+censReg(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data, left=0)
+
+install.packages("VGAM")
+library(VGAM)
+dat<-data[,c("donations", "alpha","rho", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAmoney", "SRAtotal")]
+summary(m<-vglm(donations~alpha+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney,
+                tobit(Lower=0, Upper=50),data=dat))
+
+
+
+summary(m<-vglm(donations~alpha,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~UG1,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~UG2,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~TG1,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~TG2,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~PGG,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~SRAtotal,
+                tobit(Lower=0,Upper=50),data=dat))
+summary(m<-vglm(donations~alpha+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal,
+                tobit(Lower=0,Upper=50),data=dat))
+
+
+
+ctable<-coef(summary(m))
+pvals<-2*pt(abs(ctable[,"z value"]),df.residual(m),lower.tail=FALSE)
+cbind(ctable,pvals)
+
+dat$yhat<-fitted(m)[,1]
+dat$rr<-resid(m,type="response")
+dat$rp<-resid(m,type="pearson")[,1]
+
+par(mfcol=c(2,3))
+with(dat, {
+  plot(yhat, rr, main = "Fitted vs Residuals")
+  qqnorm(rr)
+  plot(yhat, rp, main = "Fitted vs Pearson Residuals")
+  qqnorm(rp)
+  plot(donations, rp, main = "Actual vs Pearson Residuals")
+  plot(donations, yhat, main = "Actual vs Fitted")
+})
+
+(r<-with(dat,cor(yhat,donations)))
+r^2
+
+#caret - cross validation - doesn't work
+dat<-data[,c("donated", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+              "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
+                    "SRAtotal", "SRAmoney")]
+classes<-dat[,"donated"]
+predictors<-dat[,c("alpha","UG1", "UG2", "TG1", "TG2", "PGG", "SRAtotal")]
+train_set<-createDataPartition(classes, p=0.8,list=FALSE)
+train_predictors<-predictors[train_set,]
+train_classes<-classes[train_set]
+test_predictors<-predictors[-train_set,]
+test_classes<-classes[-train_set]
+
+cv_splits<-createFolds(classes,k=10,returnTrain=TRUE)
+
+cs_data_train<-dat[train_set,]
+cs_data_test<-dat[-train_set,]
+glmnet_grid <- expand.grid(alpha = c(0,  .1,  .2, .4, .6, .8, 1),
+                           lambda = seq(.01, .2, length = 20))
+glmnet_ctrl <- trainControl(method = "cv", number = 10)
+glmnet_fit <- train(donated ~ ., data = cs_data_train,
+                    method = "glmnet",
+                    preProcess = c("center", "scale"),
+                    tuneGrid = glmnet_grid,
+                    trControl = glmnet_ctrl)
+
+glmnet_fit
+pred_classes <- predict(glmnet_fit, newdata = cs_data_test)
+table(pred_classes)
+pred_probs <- predict(glmnet_fit, newdata = cs_data_test, type = "prob")
+head(pred_probs)
 
 
 
