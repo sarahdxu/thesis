@@ -194,24 +194,25 @@ Table B2 contains pairwise correlations (Spearman\rq s \(\rho\)) between the gam
 Figure B5 shows the distribution of Wesleyan donations. Panel I shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel J shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who have donated a total amount greater than \$100. All of these donations amounts are between \$100 and \$625, with the exception of two very large donations.
 
 \subsection{External Validity of Social Preference Games}
-I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented the field measure: the total amount the participant has donated, and (2) whether the participant has donated or not. 
+I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented the field measure: (1) whether the participant has donated or not, and (2) the total amount the participant has donated. First, Table B6 presents eight logistic regression models. The table presents each of the games and total SRA results on their own, and then includes all of the variables in the last column. None of the games or SRA results are statistically significant on their own. In addition, when both the games and SRA results are used in the regression model, neither of the variables are statistically significant.
+
+I then regressed the same explanatory variables on the continuous donations representation as the response variable, using two-limit tobit maximum likelihood to estimate the coefficients. As seen in Figure B5, most donation amounts were fairly small, so I set the restriction that 0 < donations < 50. Table B7 presents the eight models, and shows that only the total SRA scores are statistically significant at the 10\% level.
+
+{\color{green}It is also useful to look at the \(R^{2}\) values, which measures the proportions of variance explained by the regressors. As seen in Tables B6a and B6b, all of the models have very low values: the models including only the SRA scores or only one game result have values that are practically zero, and the models that include all of the games, or both the games and SRA scores, have \(R^{2}\) values around 0.10. For the logistic regressions, I calculated each models\rq \ McFadden\rq s pseudo \(R_{2}\) values. Once again, I found that the proportions of variance explained by the regression models are very close to zero. Tables B6 and B7 therefore provide evidence that social preference games, even when combined with the self-reported measures, have little to no power to explain donations behavior.}
+
+Overall, Tables B6 and B7 provide evidence that social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. While this may be a bit discouraging, however, this raises another interesting question: if University Relations wanted to predict which seniors or recent alumni will donate, which tools would be the best for predicting this question? This questions shifts us to now look at predictive modeling. To do so, I performed subset selection on each of my models. Since subset selection chooses which variables are best for predicting the response variable, I included more explanatory variables. I added the GDG parameter \(\rho\), the TG2 average return outcome, and replaced the total SRA score with each of the ten individual SRA questions. 
+
+I first performed best subsets regression for the model using the binary donations representation. Using the lowest Mallows' Cp value to determine the best variables, four of the SRA items were chosen. Table B8 displays the logistic regression model with the chosen variables. {\color{blue}All variables statistically significant.} I then performed best subsets regression for the model including the continuous donations representation. Again using Mallows\rq \ Cp, only the \(\rho\) parameter was chosen. Table B9 reports the tobit regression that includes only \(\rho\). {\color{blue} Not statistically significant}
+
+Lasso - talk abou tit briefly - what is it? why? predictive modeling - logistic regression - SRA3 and SRA4
+continuous regression - none of variables were selected - all were shrunk
+
+summary - predictive modeling: to predict whether ppl will donate, SRA questions are better. None of the variables collected - games or sra quesitons - were good for predicting hte amount people will donate.
 
 
-
-tobit - censored data because of the distibution of my results.
-
-
-
-
-Table B6a presents eight regression analyses, each obtained with Ordinary Least Squares (OLS), that shows how the game results predict donation amounts. The first six columns contains each of the game outcomes, and the last column includes all of the games. None of the games are statistically significant on their own. However, when all of the games are used in the regression model, only the \(\alpha\) parameter is statistically significant at the 10\% level. Table B6b contains four regression models, again obtained with OLS. The first two columns shows how each of the SRA results predicts donations, and the last two models shows how both the games and SRA scores predicts donations. Neither the total nor monetary SRA scores show predictive power for donations - neither is statistically significant. When modeled with the game variables, again only \(\alpha\) is statistically significant at the 10\% level. This makes sense because although all of the social preference games can be theoretically mapped to donations behavior, \(\alpha\) is the most intuitively related to giving since it measures how the individual prefers giving to themselves versus someone else. 
-
-I then ran logistic regressions on the same explanatory variables, but this time using the binary donations representation as the response variable. Tables B7a and B7b displays the models with the identical structure as the previous table. Table B7a shows that none of the game variables are statistically significant, and Table B7b shows that neither total nor monetary scores are statistically significant, even when used alongside the game outcomes.
-
-It is also useful to look at the \(R^{2}\) values, which measures the proportions of variance explained by the regressors. As seen in Tables B6a and B6b, all of the models have very low values: the models including only the SRA scores or only one game result have values that are practically zero, and the models that include all of the games, or both the games and SRA scores, have \(R^{2}\) values around 0.10. For the logistic regressions, I calculated each models\rq \ McFadden\rq s pseudo \(R_{2}\) values. Once again, I found that the proportions of variance explained by the regression models are very close to zero. Tables B6 and B7 therefore provide evidence that social preference games, even when combined with the self-reported measures, have little to no power to explain donations behavior.
-
-Another question of interest is whether social preference games, self-reported measures, or both tools are better at predicting the field measures. For each model, I estimated their prediction errors, using mean squared errors (MSE). The bottom row of Tables B6 and B7 report each models\rq s MSE values. For the continuous donations variable, the lowest MSE corresponds to the model that includes both the game outcomes and monetary SRA scores. For the binary donations variable, again the lowest MSE belongs to the model with both game variables and monetary SRA scores. However, the difference between the lowest and highest MSE values for both the binary and continuous response variables is very small.
-
-Overall, Tables B6 and B7 show that, with the exception of \(\alpha\) at the 10\% level, none of the social preference games, even when combined with the SRA results, are statistically significant. The proportions of variance explained by each model are pretty low, with some that are practically zero. In addition, there is only a small difference in MSE scores between the models. All of these results provide evidence that social preference games have little to no power to explain the field behavior, and there does not seem to be a better tool - games, self-reported measures, or both - for predicting donations.
+%{\color{red}Another question of interest is whether social preference games, self-reported measures, or both tools are better at predicting the field measures. For each model, I estimated their prediction errors, using mean squared errors (MSE). The bottom row of Tables B6 and B7 report each models\rq s MSE values. For the continuous donations variable, the lowest MSE corresponds to the model that includes both the game outcomes and monetary SRA scores. For the binary donations variable, again the lowest MSE belongs to the model with both game variables and monetary SRA scores. However, the difference between the lowest and highest MSE values for both the binary and continuous response variables is very small.
+%
+%Overall, Tables B6 and B7 show that, with the exception of \(\alpha\) at the 10\% level, none of the social preference games, even when combined with the SRA results, are statistically significant. The proportions of variance explained by each model are pretty low, with some that are practically zero. In addition, there is only a small difference in MSE scores between the models. All of these results provide evidence that social preference games have little to no power to explain the field behavior, and there does not seem to be a better tool - games, self-reported measures, or both - for predicting donations.}
 
 
 \section{Importance and Benefits}
@@ -540,6 +541,60 @@ alpha  & -0.01  & \ \ -0.04  \\
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
+            \begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{\extracolsep{5pt}}lcccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{8}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-9} 
+\\[-1.8ex] & \multicolumn{8}{c}{Donated} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\ 
+\hline \\[-1.8ex] 
+ Alpha & 0.052 &  &  &  &  &  &  & 0.064 \\ 
+  & (0.086) &  &  &  &  &  &  & (0.093) \\ 
+  & & & & & & & & \\ 
+ UG1 &  & 0.016 &  &  &  &  &  & 0.002 \\ 
+  &  & (0.107) &  &  &  &  &  & (0.125) \\ 
+  & & & & & & & & \\ 
+ UG2 &  &  & 0.120 &  &  &  &  & 0.136 \\ 
+  &  &  & (0.137) &  &  &  &  & (0.142) \\ 
+  & & & & & & & & \\ 
+ TG1 &  &  &  & 0.011 &  &  &  & $-$0.001 \\ 
+  &  &  &  & (0.083) &  &  &  & (0.105) \\ 
+  & & & & & & & & \\ 
+ Reciprocity &  &  &  &  & 0.025 &  &  & 0.045 \\ 
+  &  &  &  &  & (0.120) &  &  & (0.140) \\ 
+  & & & & & & & & \\ 
+ PGG &  &  &  &  &  & 0.024 &  & 0.034 \\ 
+  &  &  &  &  &  & (0.086) &  & (0.099) \\ 
+  & & & & & & & & \\ 
+ SRAtotal &  &  &  &  &  &  & 0.007 & 0.007 \\ 
+  &  &  &  &  &  &  & (0.005) & (0.005) \\ 
+  & & & & & & & & \\ 
+ Constant & 0.614$^{***}$ & 0.634$^{***}$ & 0.616$^{***}$ & 0.635$^{***}$ & 0.630$^{***}$ & 0.624$^{***}$ & 0.400$^{**}$ & 0.291 \\ 
+  & (0.052) & (0.056) & (0.039) & (0.052) & (0.061) & (0.067) & (0.176) & (0.208) \\ 
+  & & & & & & & & \\ 
+\hline \\[-1.8ex] 
+Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\ 
+Log Likelihood & $-$235.468 & $-$235.640 & $-$235.264 & $-$235.642 & $-$235.629 & $-$235.611 & $-$234.689 & $-$233.916 \\ 
+Akaike Inf. Crit. & 474.937 & 475.280 & 474.528 & 475.284 & 475.258 & 475.222 & 473.378 & 483.831 \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{adjustbox}
+\end{table} 
+
+
+
+
+
+
+
+
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
           \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{@{\extracolsep{5pt}}lcccccccc} 
 \\[-1.8ex]\hline 
@@ -585,59 +640,39 @@ Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\
 
 
 
-
-
 \begin{table}[!htbp] \centering 
   \caption{} 
   \label{} 
-        \begin{adjustbox}{width=\textwidth}
-\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
+\begin{tabular}{@{\extracolsep{5pt}}lc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-5} 
-\\[-1.8ex] & \multicolumn{4}{c}{Donations} \\ 
-\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
+ & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-2} 
+\\[-1.8ex] & Donated \\ 
 \hline \\[-1.8ex] 
- Alpha &  &  & $-$299.804$^{*}$ & $-$300.057$^{*}$ \\ 
-  &  &  & (177.485) & (177.438) \\ 
-  & & & & \\ 
- UG1 &  &  & $-$88.731 & $-$90.442 \\ 
-  &  &  & (238.797) & (238.814) \\ 
-  & & & & \\ 
- UG2 &  &  & 210.081 & 213.966 \\ 
-  &  &  & (271.791) & (271.780) \\ 
-  & & & & \\ 
- TG1 &  &  & $-$6.193 & $-$6.643 \\ 
-  &  &  & (201.897) & (201.640) \\ 
-  & & & & \\ 
- Reciprocity &  &  & $-$38.936 & $-$45.665 \\ 
-  &  &  & (267.209) & (267.865) \\ 
-  & & & & \\ 
- PGG &  &  & $-$54.879 & $-$59.438 \\ 
-  &  &  & (189.029) & (189.336) \\ 
-  & & & & \\ 
- SRAtotal & $-$1.434 &  & $-$0.814 &  \\ 
-  & (10.041) &  & (10.118) &  \\ 
-  & & & & \\ 
- SRAmoney &  & 5.499 &  & 6.575 \\ 
-  &  & (19.586) &  & (19.857) \\ 
-  & & & & \\ 
- Constant & 139.594 & 30.427 & 332.031 & 238.206 \\ 
-  & (338.445) & (224.177) & (398.414) & (303.459) \\ 
-  & & & & \\ 
+ SRA3 & $-$0.096$^{***}$ \\ 
+  & (0.028) \\ 
+  & \\ 
+ SRA4 & 0.123$^{***}$ \\ 
+  & (0.030) \\ 
+  & \\ 
+ SRA8 & 0.075$^{**}$ \\ 
+  & (0.034) \\ 
+  & \\ 
+ SRA10 & $-$0.052$^{**}$ \\ 
+  & (0.025) \\ 
+  & \\ 
+ Constant & 0.386$^{**}$ \\ 
+  & (0.155) \\ 
+  & \\ 
 \hline \\[-1.8ex] 
-Observations & 343 & 343 & 343 & 343 \\ 
-R$^{2}$ & 0.0001 & 0.0002 & 0.010 & 0.011 \\ 
-Adjusted R$^{2}$ & $-$0.003 & $-$0.003 & $-$0.010 & $-$0.010 \\ 
-Residual Std. Error & 921.293 (df = 341) & 921.214 (df = 341) & 924.657 (df = 335) & 924.515 (df = 335) \\ 
-F Statistic & 0.020 (df = 1; 341) & 0.079 (df = 1; 341) & 0.506 (df = 7; 335) & 0.521 (df = 7; 335) \\ 
-MSE & 843832 & 843687 & 835048 & 834791 \\
+Observations & 343 \\ 
+Log Likelihood & $-$220.385 \\ 
+Akaike Inf. Crit. & 450.770 \\ 
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
-\end{adjustbox}
 \end{table} 
 
 
@@ -651,140 +686,19 @@ MSE & 843832 & 843687 & 835048 & 834791 \\
 \cline{2-2} 
 \\[-1.8ex] & Donations \\ 
 \hline \\[-1.8ex] 
- Alpha & $-$275.190 \\ 
-  & (242.810) \\ 
+ Rho & $-$0.0004592 \\ 
+  & (0.0005748) \\ 
   & \\ 
- UG1 & $-$89.197 \\ 
-  & (320.313) \\ 
-  & \\ 
- UG2 & 409.911 \\ 
-  & (369.072) \\ 
-  & \\ 
- TG1 & $-$15.524 \\ 
-  & (276.902) \\ 
-  & \\ 
- Reciprocity & 10.432 \\ 
-  & (365.257) \\ 
-  & \\ 
- PGG & $-$24.279 \\ 
-  & (257.373) \\ 
-  & \\ 
- SRA & 7.807 \\ 
-  & (13.801) \\ 
-  & \\ 
- Constant & $-$423.729 \\ 
-  & (550.014) \\ 
+ Constant & 3.5453$^{***}$ \\ 
+  & (0.06086) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & 343 \\ 
-Log Likelihood & $-$1,938.492 \\ 
-Wald Test & 2.795 (df = 7) \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
 \end{table} 
-
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
-          \begin{adjustbox}{width=\textwidth}
-\begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{7}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-8} 
-\\[-1.8ex] & \multicolumn{7}{c}{Donated} \\ 
-\\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7)\\ 
-\hline \\[-1.8ex] 
- Alpha & 0.052 &  &  &  &  &  & 0.065 \\ 
-  & (0.086) &  &  &  &  &  & (0.093) \\ 
-  & & & & & & & \\ 
- UG1 &  & 0.016 &  &  &  &  & $-$0.0002 \\ 
-  &  & (0.107) &  &  &  &  & (0.125) \\ 
-  & & & & & & & \\ 
- UG2 &  &  & 0.120 &  &  &  & 0.130 \\ 
-  &  &  & (0.137) &  &  &  & (0.142) \\ 
-  & & & & & & & \\ 
- TG1 &  &  &  & 0.011 &  &  & 0.006 \\ 
-  &  &  &  & (0.083) &  &  & (0.105) \\ 
-  & & & & & & & \\ 
- Reciprocity &  &  &  &  & 0.025 &  & 0.047 \\ 
-  &  &  &  &  & (0.120) &  & (0.140) \\ 
-  & & & & & & & \\ 
- PGG &  &  &  &  &  & 0.024 & 0.038 \\ 
-  &  &  &  &  &  & (0.086) & (0.099) \\ 
-  & & & & & & & \\ 
- Constant & 0.614$^{***}$ & 0.634$^{***}$ & 0.616$^{***}$ & 0.635$^{***}$ & 0.630$^{***}$ & 0.624$^{***}$ & 0.528$^{***}$ \\ 
-  & (0.052) & (0.056) & (0.039) & (0.052) & (0.061) & (0.067) & (0.118) \\ 
-  & & & & & & & \\ 
-\hline \\[-1.8ex] 
-Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\ 
-Log Likelihood & $-$235.468 & $-$235.640 & $-$235.264 & $-$235.642 & $-$235.629 & $-$235.611 & $-$234.892 \\ 
-Akaike Inf. Crit. & 474.937 & 475.280 & 474.528 & 475.284 & 475.258 & 475.222 & 483.784 \\ 
-Pseudo-R$^{2}$ & 0.00078 & 0.00005 & 0.0016 & 0.00004 & 0.0010 & 0.00017 & 0.00324 \\
-MSE & 0.2298 & 0.2300 & 0.2295 & 0.2300 & 0.2300 & 0.2300 & 0.2290 \\
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{7}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular}
-\end{adjustbox}  
-\end{table}
-
-
-\begin{table}[!htbp] \centering 
-  \caption{} 
-  \label{} 
-            \begin{adjustbox}{width=\textwidth}
-\begin{tabular}{@{\extracolsep{5pt}}lcccc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{4}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-5} 
-\\[-1.8ex] & \multicolumn{4}{c}{Donated} \\ 
-\\[-1.8ex] & (1) & (2) & (3) & (4)\\ 
-\hline \\[-1.8ex] 
- Alpha &  &  & 0.064 & 0.065 \\ 
-  &  &  & (0.093) & (0.093) \\ 
-  & & & & \\ 
- UG1 &  &  & 0.002 & $-$0.005 \\ 
-  &  &  & (0.125) & (0.125) \\ 
-  & & & & \\ 
- UG2 &  &  & 0.136 & 0.138 \\ 
-  &  &  & (0.142) & (0.142) \\ 
-  & & & & \\ 
- TG1 &  &  & $-$0.001 & 0.006 \\ 
-  &  &  & (0.105) & (0.105) \\ 
-  & & & & \\ 
- Reciprocity &  &  & 0.045 & 0.031 \\ 
-  &  &  & (0.140) & (0.140) \\ 
-  & & & & \\ 
- PGG &  &  & 0.034 & 0.028 \\ 
-  &  &  & (0.099) & (0.099) \\ 
-  & & & & \\ 
- SRAtotal & 0.007 &  & 0.007 &  \\ 
-  & (0.005) &  & (0.005) &  \\ 
-  & & & & \\ 
- SRAmoney &  & 0.016 &  & 0.016 \\ 
-  &  & (0.010) &  & (0.010) \\ 
-  & & & & \\ 
- Constant & 0.400$^{**}$ & 0.461$^{***}$ & 0.291 & 0.360$^{**}$ \\ 
-  & (0.176) & (0.117) & (0.208) & (0.158) \\ 
-  & & & & \\ 
-\hline \\[-1.8ex] 
-Observations & 343 & 343 & 343 & 343 \\ 
-Log Likelihood & $-$234.689 & $-$234.392 & $-$233.916 & $-$233.620 \\ 
-Akaike Inf. Crit. & 473.378 & 472.785 & 483.831 & 483.239 \\ 
-Pseudo-R$^{2}$ & 0.0041 & 0.00536 & 0.00740 & 0.00866 \\
-MSE & 0.2287 & 0.2283 & 0.2277 & 0.2273 \\
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{4}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{adjustbox}
-\end{table} 
-
-
 
 
 
@@ -798,40 +712,28 @@ MSE & 0.2287 & 0.2283 & 0.2277 & 0.2273 \\
 \hline \\[-1.8ex] 
  & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
 \cline{2-2} 
-\\[-1.8ex] & Donations \\ 
+\\[-1.8ex] & Donated \\ 
 \hline \\[-1.8ex] 
- Alpha & $-$272.428 \\ 
-  & (242.727) \\ 
+ SRA3 & $-$0.094$^{***}$ \\ 
+  & (0.029) \\ 
   & \\ 
- UG1 & $-$99.964 \\ 
-  & (320.119) \\ 
+ SRA4 & 0.129$^{***}$ \\ 
+  & (0.030) \\ 
   & \\ 
- UG2 & 414.585 \\ 
-  & (368.817) \\ 
-  & \\ 
- TG1 & $-$4.916 \\ 
-  & (276.315) \\ 
-  & \\ 
- Reciprocity & $-$13.040 \\ 
-  & (366.039) \\ 
-  & \\ 
- PGG & $-$38.684 \\ 
-  & (257.801) \\ 
-  & \\ 
- SRAtotal & 26.998 \\ 
-  & (26.948) \\ 
-  & \\ 
- Constant & $-$447.451 \\ 
-  & (418.575) \\ 
+ Constant & 0.497$^{***}$ \\ 
+  & (0.118) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & 343 \\ 
-Log Likelihood & $-$1,938.149 \\ 
-Wald Test & 3.481 (df = 7) \\ 
+Log Likelihood & $-$223.831 \\ 
+Akaike Inf. Crit. & 453.661 \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
-\end{table}
-	
+\end{table} 
+
+
+
+
 \end{document}

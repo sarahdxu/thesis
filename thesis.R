@@ -692,10 +692,10 @@ model21 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=da
 model22 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model12, model13, model14, model15, model16, model17, model18, type="latex",
+stargazer(model12, model13, model14, model15, model16, model17, model19,model21, type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG"))
+                             "Reciprocity", "PGG","SRAtotal"))
 stargazer(model19, model20, model21, model22,type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
@@ -703,7 +703,7 @@ stargazer(model19, model20, model21, model22,type="latex",
 
 
 
-pR2(model22)
+pR2(model21)
 
 mse1 <- mean(model1$residuals^2)
 mse2 <- mean(model2$residuals^2)
@@ -742,6 +742,135 @@ data4<-data[,c("donated", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
 data5<-data[,c("donated", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
                "SRAtotal", "SRAmoney")]
+#continuous
+regsubsets.out<-regsubsets(donations~alpha+rho+UG1+UG2+TG1+TG2+avgreturn+PGG+
+                             SRA1+SRA2+SRA3+SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10,#+
+                             #SRAtotal+SRAmoney, 
+                           data=data,
+                           nbest=1,
+                           nvmax=NULL,
+                           force.in=NULL, force.out=NULL,
+                           method="exhaustive")
+summary.out<-summary(regsubsets.out)
+as.data.frame(summary.out$outmat)
+plot(regsubsets.out,scale="adjr2",main="Adjusted R2")
+which.max(summary.out$adjr2)
+summary.out$which[6,]
+best.model<-lm(donations~rho+SRA3+SRA4+SRA5+SRA6+SRA10,data=data)
+best.model<-vglm(donations~rho+SRA3+SRA4+SRA5+SRA6+SRA10,data=data,
+                 tobit(Lower=0,Upper=50))
+summary(best.model)
+
+stargazer(best.model,type="latex",
+          dep.var.labels=c("Donations"),
+          covariate.labels=c("Rho", "SRA3", "SRA4", "SRA5", 
+                             "SRA6", "SRA10"))
+
+
+
+summary(best.model)
+
+#logistic
+install.packages("bestglm")
+library(bestglm)
+lbw.for.logistic<-within(data5, {
+  y<-donated
+  sigma<-NULL
+  donated<-NULL
+  SRAtotal<-NULL
+  SRAmoney<-NULL
+#   SRA1<-NULL
+#   SRA2<-NULL
+#   SRA3<-NULL
+#   SRA4<-NULL
+#   SRA5<-NULL
+#   SRA6<-NULL
+#   SRA7<-NULL
+#   SRA8<-NULL
+#   SRA9<-NULL
+#   SRA10<-NULL
+})
+res.bestglm<-
+  bestglm(Xy=lbw.for.logistic,
+          family=gaussian,
+          IC="AIC",
+          method="exhaustive")
+res.bestglm$BestModels
+
+best.model.log<-glm(donated~SRA3+SRA4+SRA8+SRA10,data=data)
+summary(best.model.log)
+
+best.subset<-regsubsets(y~.,lbw.for.logistic)
+best.subset.summary<-summary(best.subset)
+best.subset.summary$outmat
+best.subset.by.cp<-which.min(best.subset.summary$cp)
+best.subset.by.cp
+
+
+stargazer(best.model.log, type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("SRA3", "SRA4", "SRA8", "SRA10"))
+pR2(best.model.log)
+
+
+
+lbw.for.glm<-within(data1, {
+  y<-donations
+  sigma<-NULL
+  donations<-NULL
+  SRAtotal<-NULL
+  SRAmoney<-NULL
+  #   SRA1<-NULL
+  #   SRA2<-NULL
+  #   SRA3<-NULL
+  #   SRA4<-NULL
+  #   SRA5<-NULL
+  #   SRA6<-NULL
+  #   SRA7<-NULL
+  #   SRA8<-NULL
+  #   SRA9<-NULL
+  #   SRA10<-NULL
+})
+res.best.glm<-
+  bestglm(Xy=lbw.for.glm,
+          family=gaussian,
+          IC="AIC",
+          method="exhaustive")
+res.best.glm$BestModels
+best.model.lm<-vglm(donations~rho,data=data, tobit(Lower=0,Upper=50))
+summary(best.model.lm)
+m<-lm(donations~rho,data=data)
+stargazer(m, type="latex",
+          dep.var.labels=c("Donations"),
+          covariate.labels=c("Rho"))
+
+summary(best.model.log)
+
+
+best.subset<-regsubsets(y~.,lbw.for.glm)
+best.subset.summary<-summary(best.subset)
+best.subset.summary$outmat
+best.subset.by.cp<-which.min(best.subset.summary$cp)
+best.subset.by.cp
+
+
+
+# install.packages("glmulti")
+# library(glmulti)
+# install.packages("rJava")
+# library(rJava)
+# glmulti.lm.out<-glmulti(donations~alpha+rho+UG1+UG2+TG1+TG2+avgreturn+PGG+
+#           SRA1+SRA2+SRA3+SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10+
+#           SRAtotal+SRAmoney,data=data,
+#         level=1,
+#         method="h",
+#         crit="aic",
+#         confsetsize=5,
+#         plotty=F,report=F,
+#         fitfunction="lm")
+
+
+
 
 pairs(data1)
 cor(data1)
@@ -797,8 +926,33 @@ step(full, data=data5, direction="backward")
 #stepwise regression
 step(null, scope=list(upper=full), data=data5, direction="both")
 
+dat<-data[,c("donated", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1", "SRA2",
+             "SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10")]
+null=glm(donated~1, data=dat)
+null
+full=glm(donated~., data=dat)
+full
+step(null,scope=list(upper=full),data=dat,
+     direction="both")
+
+dat<-data[,c("donations", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1", "SRA2",
+             "SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10")]
+null=lm(donations~1, data=dat)
+null
+full=vglm(donations~alpha+rho+UG1+UG2+TG1+TG2+avgreturn+PGG+
+          SRA1+SRA2+SRA3+SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10,
+        data=dat, tobit(Lower=0, Upper=50))
+full=lm(donations~.,data=dat)
+full
+step(null,scope=list(upper=full),data=dat,
+     direction="both")
 
 
+summary(vglm(donations~rho,data=data,
+     tobit(Lower=0,Upper=50)))
+summary(censReg(donations~rho, data=dat, left=0, right=50))
 
 #ridge/lasso
 install.packages("glmnet")
@@ -810,6 +964,64 @@ lambda_min<-cv.out$lambda.min
 lambda_1se<-cv.out$lambda.1se
 coef(cv.out,s=lambda_min)
 coef(cv.out,s=lambda_1se)
+
+
+
+dat<-data[,c("donated", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1", "SRA2",
+             "SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10")]
+
+xfactors<-model.matrix(donated~alpha+rho+UG1+UG2+
+                        TG2+TG2+avgreturn+PGG+SRA1+SRA2+SRA3+
+                        SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10, 
+                      data=dat)[,-1]
+y<-dat$donated
+x<-as.matrix(xfactors)
+cv.out<-cv.glmnet(xfactors,y,alpha=1, family="binomial", type.measure="mse")
+plot(cv.out)
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_1se)
+coef(cv.out,s=lambda_min)
+
+lasso<-glm(donated~SRA3+SRA4, data=data)
+
+stargazer(lasso, type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("SRA3", "SRA4"))
+
+
+
+dat<-data[,c("donations", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1", "SRA2",
+             "SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10")]
+
+xfactors<-model.matrix(donations~alpha+rho+UG1+UG2+
+                         TG2+TG2+avgreturn+PGG+SRA1+SRA2+SRA3+
+                         SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10, 
+                       data=dat)[,-1]
+y<-dat$donations
+x<-as.matrix(xfactors)
+cv.out<-cv.glmnet(x,y,alpha=1, family="gaussian",type.measure="mse")
+plot(cv.out)
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_1se)
+coef(cv.out,s=lambda_min)
+
+install.packages("lars")
+library(lars)
+lasso<-lars(x,y,type="lasso")
+summary(lasso)
+
+
+plot(glmmod,xvar="lambda")
+glmmod
+cv.glmmod<-cv.glmnet(x,y,alpha=1)
+plot(cv.glmmod)
+(best.lambda<-cv.glmmod$lambda.min)
+
+
 
 
 x<-model.matrix(donated~.,data4)[,-1]
@@ -879,7 +1091,7 @@ install.packages("AER")
 library(AER)
 install.packages("censReg")
 library(censReg)
-modela<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data, left=0)
+modela<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data, left=0, right=50)
 modelb<-tobit(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data, left=0)
 
 stargazer(modela, type="latex",
@@ -894,13 +1106,13 @@ stargazer(modelb, type="latex",
 
 
 
-censReg(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data, left=0)
+censReg(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data, left=0, right=50)
 
 install.packages("VGAM")
 library(VGAM)
-dat<-data[,c("donations", "alpha","rho", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAmoney", "SRAtotal")]
-summary(m<-vglm(donations~alpha+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney,
-                tobit(Lower=0, Upper=50),data=dat))
+dat<-data[,c("donations", "donated", "alpha","rho", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAmoney", "SRAtotal")]
+summary(m<-vglm(donations~alpha+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal,
+                tobit(Lower=0, Upper=100),data=dat))
 
 
 
@@ -920,6 +1132,11 @@ summary(m<-vglm(donations~SRAtotal,
                 tobit(Lower=0,Upper=50),data=dat))
 summary(m<-vglm(donations~alpha+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal,
                 tobit(Lower=0,Upper=50),data=dat))
+
+
+
+m0<-update(m,.~1)
+1-as.vector(logLik(m)/logLik(m0))
 
 
 
