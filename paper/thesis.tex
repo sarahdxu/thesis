@@ -198,11 +198,14 @@ I now turn to the main question of whether the game decisions explain the field 
 
 I then regressed the same explanatory variables on the continuous donations representation as the response variable, using two-limit tobit maximum likelihood to estimate the coefficients. As seen in Figure B5, most donation amounts were fairly small, so I set the restriction that 0 < donations < 50. Table B7 presents the eight models, and shows that only the total SRA scores are statistically significant at the 10\% level.
 
-{\color{green}It is also useful to look at the \(R^{2}\) values, which measures the proportions of variance explained by the regressors. As seen in Tables B6a and B6b, all of the models have very low values: the models including only the SRA scores or only one game result have values that are practically zero, and the models that include all of the games, or both the games and SRA scores, have \(R^{2}\) values around 0.10. For the logistic regressions, I calculated each models\rq \ McFadden\rq s pseudo \(R_{2}\) values. Once again, I found that the proportions of variance explained by the regression models are very close to zero. Tables B6 and B7 therefore provide evidence that social preference games, even when combined with the self-reported measures, have little to no power to explain donations behavior.}
+It is also useful to look at the R$^{2}$ values, which measures the proportions of variance explained by the regressors. For both the logistic and tobit regressions, I calculated each models\rq \ McFadden\rq s pseudo-R$^{2}$ values, shown at the bottom of each table. Table B6 shows all of the models have very low values, with the highest belonging to the model that includes both the games and total SRA score. Table B7 reports pseudo-R$^{2}$ values that are slightly higher than those of the logistic models, but still very low. Again, the highest value belongs to the model that includes both the games and total SRA score. 
 
-Overall, Tables B6 and B7 provide evidence that social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. While this may be a bit discouraging, however, this raises another interesting question: if University Relations wanted to predict which seniors or recent alumni will donate, which tools would be the best for predicting this question? This questions shifts us to now look at predictive modeling. To do so, I performed subset selection on each of my models. Since subset selection chooses which variables are best for predicting the response variable, I included more explanatory variables. I added the GDG parameter \(\rho\), the TG2 average return outcome, and replaced the total SRA score with each of the ten individual SRA questions. 
+Tables B6 and B7 provide evidence that the social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. However, this may be because the right combination of variables are not included in the models. I performed best subset selection, using Mallow\rq s Cp to determine the best variables, on both regression models. Since best subset selection fits all possible models to find the best candidate, I included more explanatory variables. I added the GDG parameter \(\rho\), the TG2 average return outcome, and replaced the total SRA score with each of the ten individual SRA questions. I first performed best subsets regression for the logistic model, and four of the SRA items were chosen (items three, four, eight, and ten) . Table B8 displays the logistic regression model with those chosen variables. All four of the SRA items are statistically significant at the 5\% level. McFadden\rq s pseudo-R$^{2}$ value is displayed at the bottom of the table. The value reported is higher than the logistic models from Table B6, although it is still not very high. I then ran best subsets regression for the tobit model, and only the \(\rho\) parameter was selected. Table B9 contains the tobit regression that includes only \(\rho\). However, the variable is still not statistically significant, and the psuedo-R$^{2}$ value is not better than the models in Table B7.
 
-I first performed best subsets regression for the model using the binary donations representation. Using the lowest Mallows' Cp value to determine the best variables, four of the SRA items were chosen. Table B8 displays the logistic regression model with the chosen variables. {\color{blue}All variables statistically significant.} I then performed best subsets regression for the model including the continuous donations representation. Again using Mallows\rq \ Cp, only the \(\rho\) parameter was chosen. Table B9 reports the tobit regression that includes only \(\rho\). {\color{blue} Not statistically significant}
+Overall, Tables B8 and B9 show that a few of the SRA items are a slightly better tool than both social preference games and total SRA score to explain whether people donate or not, and \(\rho\) was chosen as the best variable to explain the amount people decide to donate, respectively. However, each models\rq \ chosen variables explains little to none of the variability of donations behavior. While these results may be discouraging regarding the external validity of social preference games, it leads us to another interesting question: if the experimental games - alongside the self-reported measures - do a poor job explaining donations behavior, can they be a useful tool to predict donations behavior? If Wesleyan University wanted to predict which seniors or recent alumni will donate, or the amount donated, then perhaps using social preference games and/or SRA measures can help them target who to solicit donations from.
+
+Least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. 
+
 
 Lasso - talk abou tit briefly - what is it? why? predictive modeling - logistic regression - SRA3 and SRA4
 continuous regression - none of variables were selected - all were shrunk
@@ -578,6 +581,7 @@ alpha  & -0.01  & \ \ -0.04  \\
 Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\ 
 Log Likelihood & $-$235.468 & $-$235.640 & $-$235.264 & $-$235.642 & $-$235.629 & $-$235.611 & $-$234.689 & $-$233.916 \\ 
 Akaike Inf. Crit. & 474.937 & 475.280 & 474.528 & 475.284 & 475.258 & 475.222 & 473.378 & 483.831 \\ 
+Pseudo-R$^{2}$ & 0.000778 & 0.000048 & 0.001649 & 0.000039 & 0.000095 & 0.000172 & 0.00410 & 0.007396 \\
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -604,32 +608,33 @@ Akaike Inf. Crit. & 474.937 & 475.280 & 474.528 & 475.284 & 475.258 & 475.222 & 
 \\[-1.8ex] & \multicolumn{8}{c}{Donations} \\ 
 \\[-1.8ex] & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8)\\ 
 \hline \\[-1.8ex] 
- Alpha & 3.31900 &  &  &  &  &  &  & 3.65573 \\ 
-  & (6.70349) &  &  &  &  &  &  & (7.11287) \\ 
+ Alpha & 3.31900 &  &  &  &  &  &  & 3.65579 \\ 
+  & (6.74063) &  &  &  &  &  &  & (7.12276) \\ 
   & & & & & & & & \\ 
- UG1 &  & 6.86169 &  &  &  &  &  & 7.83777 \\ 
-  &  & (8.37201) &  &  &  &  &  & (9.56989) \\ 
+ UG1 &  & 6.86161 &  &  &  &  &  & 7.83768 \\ 
+  &  & (8.35099) &  &  &  &  &  & (9.46080) \\ 
   & & & & & & & & \\ 
- UG2 &  &  & 6.02428 &  &  &  &  & 7.15649 \\ 
-  &  &  & (10.70407) &  &  &  &  & (10.87374) \\ 
+ UG2 &  &  & 6.02451 &  &  &  &  & 7.15663 \\ 
+  &  &  & (10.74423) &  &  &  &  & (10.91164) \\ 
   & & & & & & & & \\ 
- TG1 &  &  &  & 0.40224 &  &  &  & $-$3.11724 \\ 
-  &  &  &  & (6.46432) &  &  &  & (8.06739) \\ 
+ TG1 &  &  &  & 0.40224 &  &  &  & $-$3.11720 \\ 
+  &  &  &  & (6.48083) &  &  &  & (8.11155) \\ 
   & & & & & & & & \\ 
- Reciprocity &  &  &  &  & $-$7.78110 &  &  & $-$10.19894 \\ 
-  &  &  &  &  & (9.38165) &  &  & (10.73484) \\ 
+ Reciprocity &  &  &  &  & $-$7.78095 &  &  & $-$10.19879 \\ 
+  &  &  &  &  & (9.33936) &  &  & (10.64798) \\ 
   & & & & & & & & \\ 
- PGG &  &  &  &  &  & 9.74215 &  & 11.30996 \\ 
-  &  &  &  &  &  & (6.75440) &  & (7.61876) \\ 
+ PGG &  &  &  &  &  & 9.74202 &  & 11.30993 \\ 
+  &  &  &  &  &  & (6.73445) &  & (7.57870) \\ 
   & & & & & & & & \\ 
- SRAtotal &  &  &  &  &  &  & 0.70389$^{*}$ & 0.71275$^{*}$ \\ 
-  &  &  &  &  &  &  & (0.40881) & (0.40711) \\ 
+ SRAtotal &  &  &  &  &  &  & 0.70389$^{*}$ & 0.71276$^{*}$ \\ 
+  &  &  &  &  &  &  & (0.40552) & (0.40407) \\ 
   & & & & & & & & \\ 
- Constant & 3.54700 $^{***}$ & 3.54579 & 3.54694 & 3.54717 & 3.54602 & 3.54222 & 3.54204 & 3.53262 \\ 
-  & (0.06089) & (0.06088) & (0.06089) & (0.06088) & (0.06089) & (0.06087) & (0.06092) & (0.06094) \\ 
+ Constant & 7.12277 $^{*}$ & 5.71272 & 7.56796$^{**}$ & 8.63908$^{**}$ & 12.43205$^{***}$ & 1.89668 & $-$14.61146 & $-$23.64445 \\ 
+  & (4.10025) & (4.37273) & (0.06089) & (4.09095) & (4.73771) & (5.27791) & (13.73187) & (16.08117) \\ 
   & & & & & & & & \\ 
 \hline \\[-1.8ex] 
 Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\ 
+Pseudo-R$^{2}$ & 0.000124 & 0.000346 & 0.000161 & 0.000002 & 0.000356 & 0.001073 & 0.001548 & 0.004026 \\
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{8}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -669,6 +674,7 @@ Observations & 343 & 343 & 343 & 343 & 343 & 343 & 343 & 343 \\
 Observations & 343 \\ 
 Log Likelihood & $-$220.385 \\ 
 Akaike Inf. Crit. & 450.770 \\ 
+Psuedo-R$^{2}$ & 0.06506 \\
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
@@ -689,11 +695,12 @@ Akaike Inf. Crit. & 450.770 \\
  Rho & $-$0.0004592 \\ 
   & (0.0005748) \\ 
   & \\ 
- Constant & 3.5453$^{***}$ \\ 
-  & (0.06086) \\ 
+ Constant & 8.21167$^{***}$ \\ 
+  & (2.22776) \\ 
   & \\ 
 \hline \\[-1.8ex] 
 Observations & 343 \\ 
+Psuedo-R$^{2}$ & 0.000325 \\
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 

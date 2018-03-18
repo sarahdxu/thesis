@@ -674,6 +674,21 @@ stargazer(model1, model2, model3, model4, model5, model6, model8, model10, type=
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal"))
+
+
+m<-vglm(donations~alpha, data=data, tobit(Lower=0, Upper=50))
+summary(m)
+
+t<-tobit(donations ~ alpha, data=data, left=0, right=50)
+library(AER)
+mse<-mean(t$df.residual^2)
+summary(t)
+fm <- t
+
+fm0 <- update(fm, . ~ 1)
+
+1 - as.vector(logLik(fm)/logLik(fm0))
+
 stargazer(model8, model9, model10, model11, type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
@@ -799,6 +814,8 @@ res.bestglm$BestModels
 
 best.model.log<-glm(donated~SRA3+SRA4+SRA8+SRA10,data=data)
 summary(best.model.log)
+library(pscl)
+pR2(best.model.log)
 
 best.subset<-regsubsets(y~.,lbw.for.logistic)
 best.subset.summary<-summary(best.subset)
@@ -838,6 +855,21 @@ res.best.glm<-
           method="exhaustive")
 res.best.glm$BestModels
 best.model.lm<-vglm(donations~rho,data=data, tobit(Lower=0,Upper=50))
+summary(censReg(donations~rho, data=data, left=0, right=50))
+
+t<-tobit(donations~rho,data=data,left=0,right=50)
+summary(t)
+fm <- t
+
+fm0 <- update(fm, . ~ 1)
+
+1 - as.vector(logLik(fm)/logLik(fm0))
+
+
+
+library(VGAM)
+library(censReg)
+
 summary(best.model.lm)
 m<-lm(donations~rho,data=data)
 stargazer(m, type="latex",
@@ -846,7 +878,7 @@ stargazer(m, type="latex",
 
 summary(best.model.log)
 
-
+library(leaps)
 best.subset<-regsubsets(y~.,lbw.for.glm)
 best.subset.summary<-summary(best.subset)
 best.subset.summary$outmat
