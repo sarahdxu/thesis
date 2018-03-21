@@ -670,16 +670,19 @@ model10 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=d
 model11 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model1, model2, model3, model4, model5, model6, model8, model10, type="latex",
+stargazer(model1, model2, model3, model4, model5, model6, model8,model9, model10, model11,type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG", "SRAtotal"))
+                             "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
 
-m<-vglm(donations~alpha, data=data, tobit(Lower=0, Upper=50))
+m<-vglm(donations~alpha, data=data, tobit(lower=0, upper=50))
 summary(m)
 
+t<-censReg(donations ~ alpha+UG1+UG2+TG1+TG2+PGG+SRAmoney, data=data, left=0, right=50)
+summary(t)
 t<-tobit(donations ~ alpha, data=data, left=0, right=50)
+install.packages("AER")
 library(AER)
 mse<-mean(t$df.residual^2)
 summary(t)
@@ -707,10 +710,10 @@ model21 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=da
 model22 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model12, model13, model14, model15, model16, model17, model19,model21, type="latex",
+stargazer(model12, model13, model14, model15, model16, model17, model19,model20,model21,model22, type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG","SRAtotal"))
+                             "Reciprocity", "PGG","SRAtotal", "SRAmoney"))
 stargazer(model19, model20, model21, model22,type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
@@ -718,7 +721,7 @@ stargazer(model19, model20, model21, model22,type="latex",
 
 
 
-pR2(model21)
+pR2(model22)
 
 mse1 <- mean(model1$residuals^2)
 mse2 <- mean(model2$residuals^2)
@@ -1002,19 +1005,118 @@ coef(cv.out,s=lambda_1se)
 dat<-data[,c("donated", "alpha", "rho", "UG1", "UG2",
              "TG1", "TG2", "avgreturn", "PGG", "SRA1", "SRA2",
              "SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10")]
-
+dat$donated<-as.factor(dat$donated)
 xfactors<-model.matrix(donated~alpha+rho+UG1+UG2+
                         TG2+TG2+avgreturn+PGG+SRA1+SRA2+SRA3+
                         SRA4+SRA5+SRA6+SRA7+SRA8+SRA9+SRA10, 
                       data=dat)[,-1]
-y<-dat$donated
 x<-as.matrix(xfactors)
-cv.out<-cv.glmnet(xfactors,y,alpha=1, family="binomial", type.measure="mse")
-plot(cv.out)
+x<-model.matrix(donated~., data=dat)
+y<-dat$donated
+cv.out<-cv.glmnet(x,y,alpha=1, family="binomial", type.measure="mse")
+#plot(cv.out)
 lambda_min<-cv.out$lambda.min
 lambda_1se<-cv.out$lambda.1se
 coef(cv.out,s=lambda_1se)
 coef(cv.out,s=lambda_min)
+
+m<-glm(donated~alpha+UG1+UG2+TG1+TG2+PGG+SRAtotal,
+       data=data)
+stargazer(m, type="latex")
+dat<-data[,c("donated", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1", "SRA2",
+             "SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10")]
+dat$donated<-as.factor(dat$donated)
+dat[,"train"]<-ifelse(runif(nrow(dat))<0.8,1,0)
+trainset<-dat[dat$train==1,]
+testset<-dat[dat$train==0,]
+trainColNum<-grep("train",names(trainset))
+trainset<-trainset[,-trainColNum]
+testset<-testset[,-trainColNum]
+typeColNum<-grep("donated",names(dat))
+glm_model<-glm(donated~.,data=trainset,family=binomial)
+summary(glm_model)
+glm_prob<-predict.glm(glm_model,testset[,-typeColNum],type="response")
+#contrasts(dat$donated)
+glm_predict<-rep("neg",nrow(testset))
+glm_predict[glm_prob<.5]<-"pos"
+table(pred=glm_predict,true=testset$donated)
+mean(glm_predict==testset$donated)
+
+
+
+x<-model.matrix(donated~.,trainset)
+y<-trainset$donated
+cv.out<-cv.glmnet(x,y,alpha=1,family="binomial",
+                  type.measure="mse")
+#plot(cv.out)
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_1se)
+coef(cv.out,s=lambda_min)
+
+set<-data[,c("donated", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1",
+             "SRA2", "SRA3", "SRA4", "SRA5", "SRA6", 
+             "SRA7", "SRA8", "SRA9", "SRA10")]
+x<-model.matrix(donated~.,set)
+y<-set$donated
+cv.out<-cv.glmnet(x,y,alpha=1,family="binomial",
+                  type.measure="mse")
+#plot(cv.out)
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_1se)
+coef(cv.out,s=lambda_min)
+install.packages('lars')
+library(lars)
+install.packages('covTest')
+library(covTest)
+x<-model.matrix(donated~.,set)[,-1]
+y<-set$donated
+cv.out<-cv.glmnet(x,y,alpha=1,family="binomial",
+                  type.measure="mse")
+#plot(cv.out)
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_1se)
+coef(cv.out,s=lambda_min)
+m<-lars(x,y,type="lasso")
+covTest(m,x,y)
+summary(m)
+summary.lars(m)
+
+set<-data[,c("donations", "alpha", "rho", "UG1", "UG2",
+             "TG1", "TG2", "avgreturn", "PGG", "SRA1",
+             "SRA2", "SRA3", "SRA4", "SRA5", "SRA6", 
+             "SRA7", "SRA8", "SRA9", "SRA10")]
+x<-model.matrix(donations~.,set)
+y<-set$donations
+cv.out<-cv.glmnet(x,y,alpha=1,family="gaussian",
+                  type.measure="mse")
+#plot(cv.out)
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_1se)
+coef(cv.out,s=lambda_min)
+
+
+
+
+#get test data
+x_test <- model.matrix(donated~.,testset)
+#predict class, type=”class”
+lasso_prob <- predict(cv.out,newx = x_test,s=lambda_min,type="response")
+#translate probabilities to predictions
+lasso_predict <- rep("neg",nrow(testset))
+lasso_predict[lasso_prob>.5] <- "pos"
+#confusion matrix
+table(pred=lasso_predict,true=testset$donated)
+mean(lasso_predict==testset$donated)
+
+
+
+
 
 lasso<-glm(donated~SRA3+SRA4, data=data)
 
@@ -1035,7 +1137,7 @@ xfactors<-model.matrix(donations~alpha+rho+UG1+UG2+
 y<-dat$donations
 x<-as.matrix(xfactors)
 cv.out<-cv.glmnet(x,y,alpha=1, family="gaussian",type.measure="mse")
-plot(cv.out)
+#plot(cv.out)
 lambda_min<-cv.out$lambda.min
 lambda_1se<-cv.out$lambda.1se
 coef(cv.out,s=lambda_1se)
