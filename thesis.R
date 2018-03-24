@@ -749,7 +749,7 @@ mse22<-mean(model22$residuals^2)
 #Best subset model selection with R
 data1<-data[,c("donations", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
-               "SRAtotal", "SRAmoney")]
+               "SRAtotal", "SRAmoney")]g
 data2<-data[,c("donations", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
                "SRAtotal", "SRAmoney")]
