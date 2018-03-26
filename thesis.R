@@ -657,31 +657,41 @@ corstars(dat1, method="pearson", result="latex")
 
 
 # regression
+
+data$donations1<-data$donations
+data$donations<-log(data$donations)
+data$donations[data$donations==-Inf]<-NA
+summary(data$donations)
+hist(data$donations)
+hist(data$donations1)
 model1<-lm(donations~alpha, data=data)
-model2<-lm(donations~UG1, data=data)
-model3<-lm(donations~UG2, data=data)
-model4<-lm(donations~TG1, data=data)
-model5<-lm(donations~TG2, data=data)
-model6<-lm(donations~PGG, data=data)
-model7<-lm(donations~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
-model8<- lm(donations~SRAtotal, data=data)
-model9<-lm(donations~SRAmoney, data=data)
-model10 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
-model11 <- lm(donations ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model2<-lm(donations~rho, data=data)
+model3<-lm(donations~UG1, data=data)
+model4<-lm(donations~UG2, data=data)
+model5<-lm(donations~TG1, data=data)
+model6<-lm(donations~TG2, data=data)
+model7<-lm(donations~PGG, data=data)
+model8<-lm(donations~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
+model9<- lm(donations~SRAtotal, data=data)
+model10<-lm(donations~SRAmoney, data=data)
+model11 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
+model12 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model1, model2, model3, model4, model5, model6, model8,model9, model10, model11,type="latex",
+stargazer(model1, model2, model3, model4, model5, model6,model7,model9, model10, model11,model12,type="latex",
           dep.var.labels=c("Donations"),
-          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+          covariate.labels=c("Alpha", "Rho","UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
 
 m<-vglm(donations~alpha, data=data, tobit(lower=0, upper=50))
 summary(m)
 
-t<-censReg(donations ~ alpha+UG1+UG2+TG1+TG2+PGG+SRAmoney, data=data, left=0, right=50)
+t<-censReg(donations ~ alpha+rho+UG1+UG2+TG1+TG2+PGG+SRAmoney, data=data, right=log(60))
+t<-censReg(donations ~ SRAtotal, data=data, right=log(100))
+
 summary(t)
-t<-tobit(donations ~ alpha, data=data, left=0, right=50)
+t<-tobit(donations ~ rho, data=data, left=0, right=50)
 install.packages("AER")
 library(AER)
 mse<-mean(t$df.residual^2)
@@ -698,21 +708,22 @@ stargazer(model8, model9, model10, model11, type="latex",
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
 model12<-glm(donated~alpha, data=data)
-model13<-glm(donated~UG1, data=data)
-model14<-glm(donated~UG2, data=data)
-model15<-glm(donated~TG1, data=data)
-model16<-glm(donated~TG2, data=data)
-model17<-glm(donated~PGG, data=data)
-model18<-glm(donated~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
-model19<- glm(donated~SRAtotal, data=data)
-model20<-glm(donated~SRAmoney, data=data)
-model21 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
-model22 <- glm(donated ~ alpha + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model13<-glm(donated~rho,data=data)
+model14<-glm(donated~UG1, data=data)
+model15<-glm(donated~UG2, data=data)
+model16<-glm(donated~TG1, data=data)
+model17<-glm(donated~TG2, data=data)
+model18<-glm(donated~PGG, data=data)
+model19<-glm(donated~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
+model20<- glm(donated~SRAtotal, data=data)
+model21<-glm(donated~SRAmoney, data=data)
+model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
+model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model12, model13, model14, model15, model16, model17, model19,model20,model21,model22, type="latex",
+stargazer(model12, model13, model14, model15, model16, model17,model18,model20,model21,model22,model23, type="latex",
           dep.var.labels=c("Donated"),
-          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
+          covariate.labels=c("Alpha", "Rho","UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG","SRAtotal", "SRAmoney"))
 stargazer(model19, model20, model21, model22,type="latex",
           dep.var.labels=c("Donated"),
