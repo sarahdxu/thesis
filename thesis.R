@@ -1248,7 +1248,16 @@ model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, dat
 pR2(model22)
 model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
 pR2(model23)
-mean((test$donated - predict.lm(model22, test)) ^ 2)
+
+stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
+                             "Trust2", "Cooperation","SRAtotal", "SRAmoney"))
+library(stargazer)
+
+
+
+mean((test$donated - predict.lm(model23, test)) ^ 2)
 #model with only SRAmoney is best
 
 
@@ -1295,12 +1304,22 @@ res.bestglm$BestModels
 
 best.model.log1<-glm(donated~alpha+SRA3+SRA4,data=train)
 best.model.log2<-glm(donated~alpha+UG2+SRA3+SRA4,data=train)
-best.model.log3<-glm(donated~alpha+avgreturn+UG2+SRA3+SRA4,data=train)
+best.model.log3<-glm(donated~alpha+UG2+avgreturn+SRA3+SRA4,data=train)
 best.model.log4<-glm(donated~alpha+SRA3+SRA4+SRA10,data=train)
 best.model.log5<-glm(donated~UG2+SRA3+SRA4,data=train)
 
+stargazer(best.model.log3, best.model.log2, best.model.log5, best.model.log4, best.model.log1,type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("Alpha",
+                             "Ultimatum2",
+                             "Avg Return",
+                             "SRA3", "SRA4", "SR10"))
+
+
+
+
 summary(best.model.log)
-mean((test$donated - predict.lm(best.model.log4, test)) ^ 2)
+mean((test$donated - predict.lm(best.model.log1, test)) ^ 2)
 #model 4: alpha plus SRA items
 
 library(glmnet)
@@ -1352,6 +1371,14 @@ yhat<-predict(cv.out,s=lambda_min,newx=xtest)
 mse<-mean((ytest-yhat)^2)
 #0.3904766
 
+m1<-lm(donated~alpha+UG2+SRA3+SRA4, data=data)
+
+stargazer(m1,type="latex",
+          dep.var.labels=c("Donated"),
+          covariate.labels=c("Alpha",
+                             "Ultimatum2",
+                             "SRA3", "SRA4"))
+
 m<-lars(x,y,type="lasso")
 covTest(m,x,y)
 
@@ -1364,30 +1391,34 @@ test<-data[data$split==1,]
 
 model12<-lm(donations~alpha, data=train)
 pR2(model12)
-model13<-glm(donations~rho,data=train)
+model13<-lm(donations~rho,data=train)
 pR2(model13)
-model14<-glm(donations~UG1, data=train)
+model14<-lm(donations~UG1, data=train)
 pR2(model14)
-model15<-glm(donations~UG2, data=train)
+model15<-lm(donations~UG2, data=train)
 pR2(model15)
-model16<-glm(donations~TG1, data=train)
+model16<-lm(donations~TG1, data=train)
 pR2(model16)
-model17<-glm(donations~TG2, data=train)
+model17<-lm(donations~TG2, data=train)
 pR2(model17)
-model18<-glm(donations~PGG, data=train)
+model18<-lm(donations~PGG, data=train)
 pR2(model18)
-model19<-glm(donations~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=train)
+model19<-lm(donations~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=train)
 pR2(model19)
-model20<- glm(donations~SRAtotal, data=train)
+model20<- lm(donations~SRAtotal, data=train)
 pR2(model20)
-model21<-glm(donations~SRAmoney, data=train)
+model21<-lm(donations~SRAmoney, data=train)
 pR2(model21)
-model22 <- glm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=train)
+model22 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=train)
 pR2(model22)
-model23 <- glm(donations ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
+model23 <- lm(donations ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
 pR2(model23)
 mean((test$donated - predict.lm(model23, test)) ^ 2)
 #model with all games + SRAmoney is best: 7.055587
+stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
+          dep.var.labels=c("Log(Donations)"),
+          covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
+                             "Trust2", "Cooperation","SRAtotal", "SRAmoney"))
 
 
 library(bestglm)
@@ -1438,8 +1469,17 @@ best.model.lm3<-lm(donations~TG2+UG1+SRA3+SRA4+SRA5+SRA6+SRA10,data=train)
 best.model.lm4<-lm(donations~TG2+UG1+TG1+SRA3+SRA4+SRA5+SRA6,data=train)
 best.model.lm5<-lm(donations~rho+TG2+UG1+SRA3+SRA4+SRA5+SRA6,data=train)
 
+
+stargazer(best.model.lm5, best.model.lm4,best.model.lm2,best.model.lm1,best.model.lm3, type="latex",
+          dep.var.labels=c("Log(Donations)")),
+          covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
+                             "Trust2", "Cooperation","SRAtotal", "SRAmoney"))
+
+
+
+
 summary(best.model.log)
-mean((test$donated - predict.lm(best.model.lm5, test)) ^ 2)
+mean((test$donated - predict.lm(best.model.lm3, test)) ^ 2)
 
 library(glmnet)
 x<-model.matrix(y~.,lbw.for.lm)[,-1]
@@ -1489,6 +1529,12 @@ xtest<-model.matrix(y~.,lbw.for.lm1)[,-1]
 ytest<-lbw.for.lm1$y
 yhat<-predict(cv.out,s=lambda_min,newx=xtest)
 mse<-mean((ytest-yhat)^2)
+
+
+stargazer(lm(donations~SRA4+SRA6, data=data), type="latex",
+          dep.var.labels=c("Log(Donations)"),
+          covariate.labels=c("SRA4", "SRA6"))
+
 
 
 m<-lars(x,y,type="lasso")
