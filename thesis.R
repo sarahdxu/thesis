@@ -671,14 +671,14 @@ model4<-lm(donations~UG2, data=data)
 model5<-lm(donations~TG1, data=data)
 model6<-lm(donations~TG2, data=data)
 model7<-lm(donations~PGG, data=data)
-model8<-lm(donations~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
+model8<-lm(donations~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=data)
 model9<- lm(donations~SRAtotal, data=data)
 model10<-lm(donations~SRAmoney, data=data)
 model11 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
 model12 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
 
-stargazer(model1, model2, model3, model4, model5, model6,model7,model9, model10, model11,model12,type="latex",
+stargazer(model1, model2, model3, model4, model5, model6,model7,model8,model9, model10, model11,model12,type="latex",
           dep.var.labels=c("Donations"),
           covariate.labels=c("Alpha", "Rho","UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
@@ -687,11 +687,15 @@ stargazer(model1, model2, model3, model4, model5, model6,model7,model9, model10,
 m<-vglm(donations~alpha, data=data, tobit(lower=0, upper=50))
 summary(m)
 
-t<-censReg(donations ~ alpha+rho+UG1+UG2+TG1+TG2+PGG+SRAmoney, data=data, right=log(60))
-t<-censReg(donations ~ SRAtotal, data=data, right=log(100))
+t<-censReg(donations1 ~ alpha+rho+UG1+UG2+TG1+TG2+PGG, data=data, left=0,right=50)
+
+#t<-censReg(donations1 ~ SRAmoney, data=data, right=50)
 
 summary(t)
 t<-tobit(donations ~ rho, data=data, left=0, right=50)
+
+
+
 install.packages("AER")
 library(AER)
 mse<-mean(t$df.residual^2)
@@ -708,20 +712,33 @@ stargazer(model8, model9, model10, model11, type="latex",
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
 model12<-glm(donated~alpha, data=data)
+pR2(model12)
 model13<-glm(donated~rho,data=data)
+pR2(model13)
 model14<-glm(donated~UG1, data=data)
+pR2(model14)
 model15<-glm(donated~UG2, data=data)
+pR2(model15)
 model16<-glm(donated~TG1, data=data)
+pR2(model16)
 model17<-glm(donated~TG2, data=data)
+pR2(model17)
 model18<-glm(donated~PGG, data=data)
-model19<-glm(donated~alpha+UG1+UG2+TG1+TG2+PGG, data=data)
+pR2(model18)
+model19<-glm(donated~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=data)
+pR2(model19)
 model20<- glm(donated~SRAtotal, data=data)
+pR2(model20)
 model21<-glm(donated~SRAmoney, data=data)
+pR2(model21)
 model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
+pR2(model22)
 model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+pR2(model23)
 
+summary(model19)
 
-stargazer(model12, model13, model14, model15, model16, model17,model18,model20,model21,model22,model23, type="latex",
+stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "Rho","UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG","SRAtotal", "SRAmoney"))
@@ -760,7 +777,7 @@ mse22<-mean(model22$residuals^2)
 #Best subset model selection with R
 data1<-data[,c("donations", "alpha","rho", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
-               "SRAtotal", "SRAmoney")]g
+               "SRAtotal", "SRAmoney")]
 data2<-data[,c("donations", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
                "SRAtotal", "SRAmoney")]
@@ -862,14 +879,27 @@ lbw.for.glm<-within(data1, {
   #   SRA9<-NULL
   #   SRA10<-NULL
 })
+summary(lbw.for.glm$y)
+lbw.for.glm<-na.omit(lbw.for.glm)
+
 res.best.glm<-
   bestglm(Xy=lbw.for.glm,
           family=gaussian,
           IC="AIC",
           method="exhaustive")
+summary(lbw.for.glm$y)
 res.best.glm$BestModels
 best.model.lm<-vglm(donations~rho,data=data, tobit(Lower=0,Upper=50))
+
 summary(censReg(donations~rho, data=data, left=0, right=50))
+
+best.model.lm<-lm(donations~UG1+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
+stargazer(best.model.lm, type="latex",
+          dep.var.labels=c("Log(Donations)"),
+          covariate.labels=c("UG1", "TG2", "SRA3", "SRA4", "SRA5", "SRA6"))
+
+
+
 
 t<-tobit(donations~rho,data=data,left=0,right=50)
 summary(t)
@@ -1097,6 +1127,7 @@ covTest(m,x,y)
 summary(m)
 summary.lars(m)
 
+
 set<-data[,c("donations", "alpha", "rho", "UG1", "UG2",
              "TG1", "TG2", "avgreturn", "PGG", "SRA1",
              "SRA2", "SRA3", "SRA4", "SRA5", "SRA6", 
@@ -1182,6 +1213,292 @@ cv.glmmod<-cv.glmnet(x,y,alpha=1)
 plot(cv.glmmod)
 best.lambda<-cv.glmmod$lambda.min
 coef(cv.glmmod,best.lambda)
+
+
+
+
+
+#train/test - logistic
+data$split<-0
+data$split[data$CLASS_YR=='2018']<-1
+train<-data[data$split==0,]
+test<-data[data$split==1,]
+
+model12<-glm(donated~alpha, data=train)
+pR2(model12)
+model13<-glm(donated~rho,data=train)
+pR2(model13)
+model14<-glm(donated~UG1, data=train)
+pR2(model14)
+model15<-glm(donated~UG2, data=train)
+pR2(model15)
+model16<-glm(donated~TG1, data=train)
+pR2(model16)
+model17<-glm(donated~TG2, data=train)
+pR2(model17)
+model18<-glm(donated~PGG, data=train)
+pR2(model18)
+model19<-glm(donated~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=train)
+pR2(model19)
+model20<- glm(donated~SRAtotal, data=train)
+pR2(model20)
+model21<-glm(donated~SRAmoney, data=train)
+pR2(model21)
+model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=train)
+pR2(model22)
+model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
+pR2(model23)
+mean((test$donated - predict.lm(model22, test)) ^ 2)
+#model with only SRAmoney is best
+
+
+library(bestglm)
+lbw.for.logistic<-within(train, {
+  y<-donated
+  ID<-NULL
+  ResponseId<-NULL
+  GENDER<-NULL
+  CLASS_YR<-NULL
+  MAJOR<-NULL
+  current_donor_status<-NULL
+  DNR_GIVING<-NULL
+  DNR_TOTAL_YEARS<-NULL
+  first_gift<-NULL
+  last_gift<-NULL
+  last_gift_amount<-NULL
+  last_gift_for<-NULL
+  donations<-NULL
+  d<-NULL
+  donations1<-NULL
+  split<-NULL
+  sigma<-NULL
+  donated<-NULL
+  SRAtotal<-NULL
+  SRAmoney<-NULL
+  #   SRA1<-NULL
+  #   SRA2<-NULL
+  #   SRA3<-NULL
+  #   SRA4<-NULL
+  #   SRA5<-NULL
+  #   SRA6<-NULL
+  #   SRA7<-NULL
+  #   SRA8<-NULL
+  #   SRA9<-NULL
+  #   SRA10<-NULL
+})
+res.bestglm<-
+  bestglm(Xy=lbw.for.logistic,
+          family=gaussian,
+          IC="AIC",
+          method="exhaustive")
+res.bestglm$BestModels
+
+best.model.log1<-glm(donated~alpha+SRA3+SRA4,data=train)
+best.model.log2<-glm(donated~alpha+UG2+SRA3+SRA4,data=train)
+best.model.log3<-glm(donated~alpha+avgreturn+UG2+SRA3+SRA4,data=train)
+best.model.log4<-glm(donated~alpha+SRA3+SRA4+SRA10,data=train)
+best.model.log5<-glm(donated~UG2+SRA3+SRA4,data=train)
+
+summary(best.model.log)
+mean((test$donated - predict.lm(best.model.log4, test)) ^ 2)
+#model 4: alpha plus SRA items
+
+library(glmnet)
+x<-model.matrix(y~.,lbw.for.logistic)[,-1]
+y<-lbw.for.logistic$y
+cv.out<-cv.glmnet(x,y,alpha=1,type.measure="mse")
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_min)
+coef(cv.out,s=lambda_1se)
+
+
+lbw.for.logistic1<-within(test, {
+  y<-donated
+  ID<-NULL
+  ResponseId<-NULL
+  GENDER<-NULL
+  CLASS_YR<-NULL
+  MAJOR<-NULL
+  current_donor_status<-NULL
+  DNR_GIVING<-NULL
+  DNR_TOTAL_YEARS<-NULL
+  first_gift<-NULL
+  last_gift<-NULL
+  last_gift_amount<-NULL
+  last_gift_for<-NULL
+  donations<-NULL
+  d<-NULL
+  donations1<-NULL
+  split<-NULL
+  sigma<-NULL
+  donated<-NULL
+  SRAtotal<-NULL
+  SRAmoney<-NULL
+  #   SRA1<-NULL
+  #   SRA2<-NULL
+  #   SRA3<-NULL
+  #   SRA4<-NULL
+  #   SRA5<-NULL
+  #   SRA6<-NULL
+  #   SRA7<-NULL
+  #   SRA8<-NULL
+  #   SRA9<-NULL
+  #   SRA10<-NULL
+})
+xtest<-model.matrix(y~.,lbw.for.logistic1)[,-1]
+ytest<-test$donated
+yhat<-predict(cv.out,s=lambda_min,newx=xtest)
+mse<-mean((ytest-yhat)^2)
+#0.3904766
+
+m<-lars(x,y,type="lasso")
+covTest(m,x,y)
+
+
+#train/test - linear
+data$split<-0
+data$split[data$CLASS_YR=='2018']<-1
+train<-data[data$split==0,]
+test<-data[data$split==1,]
+
+model12<-lm(donations~alpha, data=train)
+pR2(model12)
+model13<-glm(donations~rho,data=train)
+pR2(model13)
+model14<-glm(donations~UG1, data=train)
+pR2(model14)
+model15<-glm(donations~UG2, data=train)
+pR2(model15)
+model16<-glm(donations~TG1, data=train)
+pR2(model16)
+model17<-glm(donations~TG2, data=train)
+pR2(model17)
+model18<-glm(donations~PGG, data=train)
+pR2(model18)
+model19<-glm(donations~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=train)
+pR2(model19)
+model20<- glm(donations~SRAtotal, data=train)
+pR2(model20)
+model21<-glm(donations~SRAmoney, data=train)
+pR2(model21)
+model22 <- glm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=train)
+pR2(model22)
+model23 <- glm(donations ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
+pR2(model23)
+mean((test$donated - predict.lm(model23, test)) ^ 2)
+#model with all games + SRAmoney is best: 7.055587
+
+
+library(bestglm)
+lbw.for.lm<-within(train, {
+  y<-donations
+  ID<-NULL
+  ResponseId<-NULL
+  GENDER<-NULL
+  CLASS_YR<-NULL
+  MAJOR<-NULL
+  current_donor_status<-NULL
+  DNR_GIVING<-NULL
+  DNR_TOTAL_YEARS<-NULL
+  first_gift<-NULL
+  last_gift<-NULL
+  last_gift_amount<-NULL
+  last_gift_for<-NULL
+  donations<-NULL
+  d<-NULL
+  donations1<-NULL
+  split<-NULL
+  sigma<-NULL
+  donated<-NULL
+  SRAtotal<-NULL
+  SRAmoney<-NULL
+  #   SRA1<-NULL
+  #   SRA2<-NULL
+  #   SRA3<-NULL
+  #   SRA4<-NULL
+  #   SRA5<-NULL
+  #   SRA6<-NULL
+  #   SRA7<-NULL
+  #   SRA8<-NULL
+  #   SRA9<-NULL
+  #   SRA10<-NULL
+})
+lbw.for.lm<-na.omit(lbw.for.lm)
+res.bestglm<-
+  bestglm(Xy=lbw.for.lm,
+          family=gaussian,
+          IC="AIC",
+          method="exhaustive")
+res.bestglm$BestModels
+
+best.model.lm1<-lm(donations~TG2+UG1+SRA3+SRA4+SRA5+SRA6,data=train)
+best.model.lm2<-lm(donations~TG2+UG1+UG2+SRA3+SRA4+SRA5+SRA6,data=train)
+best.model.lm3<-lm(donations~TG2+UG1+SRA3+SRA4+SRA5+SRA6+SRA10,data=train)
+best.model.lm4<-lm(donations~TG2+UG1+TG1+SRA3+SRA4+SRA5+SRA6,data=train)
+best.model.lm5<-lm(donations~rho+TG2+UG1+SRA3+SRA4+SRA5+SRA6,data=train)
+
+summary(best.model.log)
+mean((test$donated - predict.lm(best.model.lm5, test)) ^ 2)
+
+library(glmnet)
+x<-model.matrix(y~.,lbw.for.lm)[,-1]
+y<-lbw.for.lm$y
+cv.out<-cv.glmnet(x,y,alpha=1,type.measure="mse")
+lambda_min<-cv.out$lambda.min
+lambda_1se<-cv.out$lambda.1se
+coef(cv.out,s=lambda_min)
+#coef(cv.out,s=lambda_1se)
+
+
+lbw.for.lm1<-within(test, {
+  y<-donations
+  ID<-NULL
+  ResponseId<-NULL
+  GENDER<-NULL
+  CLASS_YR<-NULL
+  MAJOR<-NULL
+  current_donor_status<-NULL
+  DNR_GIVING<-NULL
+  DNR_TOTAL_YEARS<-NULL
+  first_gift<-NULL
+  last_gift<-NULL
+  last_gift_amount<-NULL
+  last_gift_for<-NULL
+  donations<-NULL
+  d<-NULL
+  donations1<-NULL
+  split<-NULL
+  sigma<-NULL
+  donated<-NULL
+  SRAtotal<-NULL
+  SRAmoney<-NULL
+  #   SRA1<-NULL
+  #   SRA2<-NULL
+  #   SRA3<-NULL
+  #   SRA4<-NULL
+  #   SRA5<-NULL
+  #   SRA6<-NULL
+  #   SRA7<-NULL
+  #   SRA8<-NULL
+  #   SRA9<-NULL
+  #   SRA10<-NULL
+})
+lbw.for.lm1<-na.omit(lbw.for.lm1)
+xtest<-model.matrix(y~.,lbw.for.lm1)[,-1]
+ytest<-lbw.for.lm1$y
+yhat<-predict(cv.out,s=lambda_min,newx=xtest)
+mse<-mean((ytest-yhat)^2)
+
+
+m<-lars(x,y,type="lasso")
+covTest(m,x,y)
+
+
+
+
+
+
 
 
 #k-fold cross validation
