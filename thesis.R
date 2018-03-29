@@ -443,7 +443,7 @@ summary(data$SRAmoney)
 SRAmoney<-ggplot(data=data, aes(data$SRAmoney))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
-  labs(x="SRA Money Scores", y="Percent") +ggtitle("Panel J: Total SRA Money Scores")+
+  labs(x="SRA Money Scores", y="Percent") +ggtitle("Panel J: Monetary SRA Scores")+
   
   ggsave("~/Desktop/thesis/paper/images/SRAmoney.jpg", width=11, height=8.5)
 pdf("~/Desktop/thesis/paper/images/Figure3.pdf",width=11,height=8.5)
@@ -456,7 +456,7 @@ dev.off()
 UG1<-ggplot(data=data, aes(data$UG1))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") +
-  ggtitle("Panel C: UG1") +
+  ggtitle("Panel C: Ultimatum Game Proposers") +
   labs(x="Pass Rate", y="Percent") + ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1))
 ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
@@ -466,7 +466,7 @@ ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 UG2<-ggplot(data=data, aes(data$UG2))+
   geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
   #  labs(title="Total SRA Scores") 
-  ggtitle("Panel D: UG2")+
+  ggtitle("Panel D: Ultimatum Game Responders")+
   labs(x="Minimum Contribution Accepted", y="Percent")+ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1))
 
@@ -480,7 +480,7 @@ TG1<-ggplot(data=data, aes(data$TG1))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
-  ggtitle("Panel E: TG1")
+  ggtitle("Panel E: Trust Game Proposers")
 
 ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
 
@@ -490,7 +490,7 @@ PGG<-ggplot(data=data, aes(data$PGG))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
-  ggtitle("Panel F: PGG")
+  ggtitle("Panel F: Public Goods Game")
 
 ggsave("~/Desktop/thesis/output/PGG.pdf", width=11, height=8.5)
 
