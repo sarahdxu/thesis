@@ -1,0 +1,242 @@
+\begin{thebibliography}{37}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Andreoni and Miller(2002)]{andreoni_miller_2002}
+J.~Andreoni and J.~Miller.
+\newblock Giving according to {GARP}: An experimental test of the consistency
+  of preferences for altruism.
+\newblock \emph{Econometrica}, 70\penalty0 (2):\penalty0 737--753, 2002.
+
+\bibitem[Arrow et~al.(1961)Arrow, Chenery, Minhas, and Solow]{arrow_1961}
+K.~Arrow, H.~Chenery, B.~Minhas, and R.~Solow.
+\newblock Capital-labor substitution and economic efficiency.
+\newblock \emph{The Review of Economics and Statistics}, 43\penalty0
+  (3):\penalty0 225--250, 1961.
+
+\bibitem[Baran et~al.(2010)Baran, Sapienza, and Zingales]{baran_2010}
+N.~Baran, P.~Sapienza, and L.~Zingales.
+\newblock Can we infer social preferences from the lab? {Evidence} from the
+  trust game.
+\newblock \emph{NBER Working Paper}, 15654, 2010.
+
+\bibitem[Benz and Meier(2006)]{benz_meier_2006}
+M.~Benz and S.~Meier.
+\newblock Do people behave in experiments as in the field? {Evidence} from
+  donations.
+\newblock \emph{SSRN Electronic Journal}, 2006.
+
+\bibitem[Berg et~al.(1995)Berg, Dickhaut, and McCabe]{berg_1995}
+J.~Berg, J.~Dickhaut, and K.~McCabe.
+\newblock Trust, reciprocity, and social history.
+\newblock \emph{Games and Economic Behavior}, 1995.
+
+\bibitem[Burnham et~al.(2000)Burnham, McCabe, and
+  Smith]{burnham_mccabe_smith_2000}
+T.~Burnham, K.~McCabe, and V.~Smith.
+\newblock Friend-or-foe intentionality priming in an extensive form trust game.
+\newblock \emph{Journal of Economic Behavior and Organization}, 43\penalty0
+  (1):\penalty0 57--73, 2000.
+
+\bibitem[Carpenter et~al.(2005)Carpenter, Verhoogen, and
+  Burks]{carpenter_verhoogen_burks_2005}
+J.~Carpenter, E.~Verhoogen, and S.~Burks.
+\newblock The effect of stakes in distribution experiments.
+\newblock \emph{Economics Letters}, 86\penalty0 (3):\penalty0 393--398, 2005.
+
+\bibitem[Charness and Rabin(2002)]{charness_rabin_2002}
+G.~Charness and M.~Rabin.
+\newblock Understanding social preferences with simple tests.
+\newblock \emph{The Quarterly Journal of Economics}, 117\penalty0 (3):\penalty0
+  817--869, Jan 2002.
+
+\bibitem[Cherry et~al.(2002)Cherry, Frykblom, and
+  Shogren]{cherry_frykblom_shogren_2002}
+T.~Cherry, P.~Frykblom, and J.~Shogren.
+\newblock Hardnose the dictator.
+\newblock \emph{American Economic Review}, 92\penalty0 (4):\penalty0
+  1218--1221, 2002.
+
+\bibitem[Englmaier and Gebhardt(2011)]{englmaier_gebhardt_2011}
+F.~Englmaier and G.~Gebhardt.
+\newblock Free-riding in the lab and in the field.
+\newblock \emph{SSRN Electronic Journal}, 2011.
+
+\bibitem[Falk et~al.(2013)Falk, Meier, and Zehnder]{falk_2013}
+A.~Falk, S.~Meier, and C.~Zehnder.
+\newblock Do lab experiments misrepresent social preferences? {The} case of
+  self-selected student samples.
+\newblock \emph{Journal of the European Economic Association}, 11\penalty0
+  (4):\penalty0 839--852, 2013.
+
+\bibitem[Fehr and Leibbrandt(2011)]{fehr_leibbrandt_2011}
+E.~Fehr and A.~Leibbrandt.
+\newblock A field study on cooperativeness and impatience in the tragedy of the
+  commons.
+\newblock \emph{Journal of Public Economics}, 95\penalty0 (9-10):\penalty0
+  1144--1155, 2011.
+
+\bibitem[Fehr and Schmidt(1999)]{fehr_schmidt_1999}
+E.~Fehr and K.~Schmidt.
+\newblock A theory of fairness, competition, and cooperation.
+\newblock \emph{Quarterly Journal of Economics}, 114\penalty0 (3):\penalty0
+  817--868, 1999.
+
+\bibitem[Fisman et~al.(2007)Fisman, Kariv, and
+  Markovits]{fisman_kariv_markovits_2007}
+R.~Fisman, S.~Kariv, and D.~Markovits.
+\newblock Individual preferences for giving.
+\newblock \emph{American Economic Review}, 97\penalty0 (5):\penalty0
+  1858--1876, 2007.
+
+\bibitem[Fisman et~al.(2014)Fisman, Jakiela, and
+  Kariv]{fisman_jakiela_kariv_2014}
+R.~Fisman, P.~Jakiela, and S.~Kariv.
+\newblock The distributional preferences of {Americans}.
+\newblock 2014.
+
+\bibitem[Forsythe et~al.(1994)Forsythe, Horowitz, Savin, and
+  Sefton]{forsythe_1994}
+R.~Forsythe, J.~Horowitz, N.~Savin, and M.~Sefton.
+\newblock Fairness in simple bargaining experiments.
+\newblock \emph{Games and Economic Behavior}, 6\penalty0 (3):\penalty0
+  347--369, 1994.
+
+\bibitem[Franzen and Pointner(2012)]{franzen_pointner_2012}
+A.~Franzen and S.~Pointner.
+\newblock The external validity of giving in the dictator game.
+\newblock \emph{Experimental Economics}, 16\penalty0 (2):\penalty0 155--169,
+  2012.
+
+\bibitem[Galizzi and Navarro-Martinez(2017)]{galizzi_navarro-martinez_2017}
+M.~Galizzi and D.~Navarro-Martinez.
+\newblock On the external validity of social preference games: A systematic
+  lab-field study.
+\newblock \emph{Management Science}, 2017.
+
+\bibitem[Gneezy et~al.(2004)Gneezy, Haruvy, and Yafe]{gneezy_2004}
+U.~Gneezy, E.~Haruvy, and H.~Yafe.
+\newblock The inefficiency of splitting the bill: A lesson in institutional
+  design.
+\newblock \emph{The Economic Journal}, 114\penalty0 (495):\penalty0 265--280,
+  2004.
+
+\bibitem[Goeschl et~al.(2015)Goeschl, Kettner, Lohse, and
+  Schwieren]{goeschl_2015}
+T.~Goeschl, S.~Kettner, J.~Lohse, and C.~Schwieren.
+\newblock What do we learn from public good games about voluntary climate
+  action? {Evidence} from an artefactual field experiment.
+\newblock \emph{SSRN Electronic Journal}, 2015.
+
+\bibitem[Gurven and Winking(2008)]{gurven_winking_2008}
+M.~Gurven and J.~Winking.
+\newblock Collective action in action: {Prosocial} behavior in and out of the
+  laboratory.
+\newblock \emph{American Anthropologist}, 110\penalty0 (2):\penalty0 179--190,
+  2008.
+
+\bibitem[Hermann et~al.(2008)Hermann, Thoni, and
+  Gachter]{hermann_thoni_gachter_2008}
+B.~Hermann, C.~Thoni, and S.~Gachter.
+\newblock Anti-social punishment across societies.
+\newblock \emph{Science}, 319:\penalty0 1362--1367, 2008.
+
+\bibitem[Hill and Gurven(2004)]{hill_gurven_2004}
+K.~Hill and M.~Gurven.
+\newblock Economic experiments to examine fairness and cooperation among the
+  {Ache} {Indians} of {Paraguay}.
+\newblock \emph{Foundations of Human Sociality}, pages 382--412, 2004.
+
+\bibitem[Hoffman et~al.(1994)Hoffman, Mccabe, Shachat, and Smith]{hoffman_1994}
+E.~Hoffman, K.~Mccabe, K.~Shachat, and V.~Smith.
+\newblock Preferences, property rights, and anonymity in bargaining games.
+\newblock \emph{Games and Economic Behavior}, 7\penalty0 (3):\penalty0
+  346--380, 1994.
+
+\bibitem[Karlan(2005)]{karlan_2005}
+D.~Karlan.
+\newblock Using experimental economics to measure social capital and predict
+  financial decisions.
+\newblock \emph{American Economic Review}, 95\penalty0 (5):\penalty0
+  1688--1699, 2005.
+
+\bibitem[Kyung et~al.(2010)Kyung, Ghosh, and Casella]{kyung_2010}
+M.~Kyung, M.~Ghosh, and G.~Casella.
+\newblock Penalized regression, standard errors and bayesian lassos.
+\newblock \emph{Bayesian Analysis}, 5\penalty0 (2):\penalty0 369--412, 2010.
+
+\bibitem[Levitt and List(2007)]{levitt_list_2007}
+S.~Levitt and J.~List.
+\newblock What do laboratory experiments measuring social preferences reveal
+  about the real world?
+\newblock \emph{Journal of Economic Perspectives}, 21\penalty0 (2):\penalty0
+  153--174, 2007.
+
+\bibitem[List(2006)]{list_2006}
+J.~List.
+\newblock The behavioralist meets the market: Measuring social preferences and
+  reputation effects in actual transactions.
+\newblock \emph{Journal of Political Economy}, 114\penalty0 (51):\penalty0
+  1--37, 2006.
+
+\bibitem[Lockhart et~al.(2014)Lockhart, Taylor, Tibshirani, and
+  Tibshirani]{lockhart_2014}
+J.~Lockhart, J.~Taylor, R.J. Tibshirani, and R.~Tibshirani.
+\newblock A significance test for the lasso.
+\newblock \emph{Annals of Statistics}, 42\penalty0 (2):\penalty0 413--468,
+  2014.
+
+\bibitem[Mallows(1973)]{mallows_1973}
+C.~Mallows.
+\newblock Some comments on cp.
+\newblock \emph{Technometrics}, 15\penalty0 (4):\penalty0 661--675, 1973.
+
+\bibitem[Parco et~al.(2002)Parco, Rapoport, and
+  Stein]{parco_rapoport_stein_2002}
+J.~Parco, A.~Rapoport, and W.~Stein.
+\newblock Effects of financial incentives on the breakdown of mutual trust.
+\newblock \emph{Psychological Science}, 13\penalty0 (3):\penalty0 292--297,
+  2002.
+
+\bibitem[Rabin(1993)]{rabin_1993}
+M.~Rabin.
+\newblock Incorporating fairness into game theory and economics: Comment.
+\newblock \emph{American Economic Review}, 83:\penalty0 1281--1302, 1993.
+
+\bibitem[Ross and Ward(1996)]{ross_ward_1996}
+L~Ross and A.~Ward.
+\newblock Naive realism in everyday life: Implications for social conflict and
+  misunderstanding.
+\newblock \emph{Values and Knowledge}, pages 103--135, 1996.
+
+\bibitem[Rushton et~al.(1981)Rushton, Chrisjohn, and
+  Fekken]{rushton_chrisjohn_fekken_1981}
+J.~Rushton, R.~Chrisjohn, and G.~Fekken.
+\newblock The altruistic personality and the self-report altruism scale.
+\newblock \emph{Personality and Individual Differences}, 2:\penalty0 293--302,
+  1981.
+
+\bibitem[Slonim and Roth(1998)]{slonim_roth_1998}
+R.~Slonim and A.~Roth.
+\newblock Learning in high stakes ultimatum games: An experiment in the slovak
+  republic.
+\newblock \emph{Econometrica}, 66\penalty0 (3):\penalty0 569--596, 1998.
+
+\bibitem[Tibshirani(1996)]{tibshirani_1996}
+R.~Tibshirani.
+\newblock Regression shrinkage and selection via the lasso.
+\newblock \emph{Journal of the Royal Statistical Society. Series B
+  (Methodological)}, 58\penalty0 (1):\penalty0 267--288, 1996.
+
+\bibitem[Voors et~al.(2012)Voors, Turley, Kontoleon, Bulte, and
+  List]{voors_2012}
+M.~Voors, T.~Turley, A.~Kontoleon, E.~Bulte, and J.~List.
+\newblock Exploring whether behavior in context-free experiments is predictive
+  of behavior in the field: Evidence from lab and field experiments in rural
+  {Sierra} {Leone}.
+\newblock \emph{Economics Letters}, 114\penalty0 (3):\penalty0 308--311, 2012.
+
+\end{thebibliography}

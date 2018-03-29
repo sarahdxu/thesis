@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
 \graphicspath{ {images/} }
 \usepackage[letterpaper, portrait, lmargin=1.5in, rmargin=1.25in, tmargin=1in, bmargin=1in]{geometry}
 \usepackage{color}
@@ -7,6 +9,8 @@
 \usepackage{pdfpages}
 \usepackage{booktabs}
 \usepackage{dcolumn}
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
 \newcounter{mysubtable}
 \usepackage{amsmath}
 \usepackage{caption}
@@ -31,12 +35,12 @@
 
     \usepackage{tabularx}
 \usepackage{adjustbox}
-\usepackage{subcaption}
-\DeclareCaptionSubType*[Alph]{table}
-\DeclareCaptionLabelFormat{mystyle}{Table~\bothIfFirst{#1}{ }#2}
-\captionsetup[subtable]{labelformat=mystyle}
+%\usepackage{subcaption}
+%\DeclareCaptionSubType*[Alph]{table}
+%\DeclareCaptionLabelFormat{mystyle}{Table~\bothIfFirst{#1}{ }#2}
+%\captionsetup[subtable]{labelformat=mystyle}
 \usepackage[toc,page]{appendix}
-\usepackage[flushleft]{threeparttable}
+%\usepackage[flushleft]{threeparttable}
 
 
 \doublespacing
@@ -52,12 +56,15 @@
 
 
 \begin{abstract}
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+   We present a lab-field experiment designed to systematically assess the external validity of social preferences elicited in a variety of experimental games. We do this by comparing behavior in the different games with several behaviors elicited in the field and with self-reported behaviors exhibited in the past, using the same sample of participants. Our results show that the experimental social preference games do a poor job explaining both social behaviors in the field and social behaviors from the past. We also include a systematic review and meta-analysis of previous literature on the external validity of social preference games.
+
 \end{abstract}
 
 \section{Introduction}
 
-The standard economic model assumes individuals\rq \ actions are motivated purely by self-interest. However, from simple observation it is clear that people actually care about the well-being of others: people volunteer, people donate to causes, and social programs exist. If someone is not solely motivated by material self-interest but also cares about the well-being of others, we say that the person has social preferences. The last few decades have seen a strong increase of interest in this topic, with numerous research studies providing evidence of social preferences. Many papers have identified various aspects of social preferences such as altruism, social welfare, inequality aversion, and reciprocity (e.g., Charness and Rabin 2000; Fehr and Schmidt 1999; Andreoni and Miller 2002; Rabin 1993; Fisman, Jakiela, and Kariv 2014). 
+The standard economic model assumes individuals\rq \ actions are motivated purely by self-interest. However, from simple observation it is clear that people actually care about the well-being of others: people volunteer, people donate to causes, and social programs exist. If someone is not solely motivated by material self-interest but also cares about the well-being of others, we say that the person has social preferences. The last few decades have seen a strong increase of interest in this topic, with numerous research studies providing evidence of social preferences. Many papers have identified various aspects of social preferences such as altruism, social welfare, inequality aversion, and reciprocity (e.g., \cite{charness_rabin_2002}; \cite{fehr_schmidt_1999}; \cite{andreoni_miller_2002}; \cite{rabin_1993}; \cite{fisman_jakiela_kariv_2014}). 
+%Charness and Rabin 2000; Fehr and Schmidt 1999; Andreoni and Miller 2002; Rabin 1993; Fisman, Jakiela, and Kariv 2014). 
  
 When studying social preferences, a common approach is to conduct experiments in a laboratory setting. Participants play experimental games, where they receive monetary incentives aligned with the payoffs of the games. Researchers are able to control and influence prices, information, and actions available to the participants, which allows researchers to rigorously target different aspects of social behavior. Below are common games used to study social preferences: 
 
@@ -68,27 +75,27 @@ When studying social preferences, a common approach is to conduct experiments in
 \item{Trust Game}: Two-player game where the first player (the proposer) receives an endowment and proposes how to divide the endowment between themselves and the second mover. The offered amount is multiplied by a factor, and the second player (the responder) decides how much of the multiplied endowment to return to the proposer. 
 \item{Public Goods Game}: N-player game where each player receives the same sum of money and simultaneously decides how much to put into a public fund. The total amount in the public fund is multiplied by a factor, and divided evenly amongst the players. \end{itemize}
 
-A big question is the external validity of these social preference games since there are numerous factors that can lead to differences in behaviors in a lab setting versus real-world setting. There are previous papers that explore this question, comparing subjects\rq \ lab behavior  to the same subjects\rq \ real-world behavior. Galizzi and Navarro-Martinez (2017) summarize that about 40\% of reported lab-field correlations and regressions found statistically significant association between lab and field behaviors\footnote{see Galizzi and Navarro-Martinez (2017) for their full systematic review and meta-analysis of literature on within-subjects lab-field studies}. Therefore there is room for further exploration. Similar to previous lab-field experiments, I examined whether in-lab social behavior predicts real-life social behavior. Adopting the experimental design in the study by Galizzi and Navarro-Martinez, I recruited Wesleyan University seniors and recent alumni to play various experimental games: the generalized dictator game, ultimatum game, trust game, and public goods game. I also had participants answer self-reported questions regarding their social behavior as an additional layer to evaluate the predictive ability of the games, and I used donations to Wesleyan University as the field measure.
+A big question is the external validity of these social preference games since there are numerous factors that can lead to differences in behaviors in a lab setting versus real-world setting. There are previous papers that explore this question, comparing subjects\rq \ lab behavior  to the same subjects\rq \ real-world behavior. \cite{galizzi_navarro-martinez_2017} summarized that about 40\% of reported lab-field correlations and regressions found statistically significant association between lab and field behaviors\footnote{see Galizzi and Navarro-Martinez for their full systematic review and meta-analysis of literature on within-subjects lab-field studies}. Therefore there is room for further exploration. Similar to previous lab-field experiments, I examined whether in-lab social behavior predicts real-life social behavior. Adopting the experimental design in the study by Galizzi and Navarro-Martinez, I recruited Wesleyan University seniors and recent alumni to play various experimental games: the generalized dictator game, ultimatum game, trust game, and public goods game. I also had participants answer self-reported questions regarding their social behavior as an additional layer to evaluate the predictive ability of the games, and I used donations to Wesleyan University as the field measure.
 
- {\color{red} BRIEF OVERVIEW OF RESULTS .. IS IT IN LINE WITH GALIZZI/NAVARRO PAPER? THEY FOUND POOR JOB. }
+ {\color{red} Our results show that the social preference games do a poor job in explaining both the field behaviors and the self-reports. In a nutshell, none of the behaviors elicited in the field or reported from the past were explained to a significant extent by behavior in the experimental games. We do not claim that this single study can establish any firm or final conclusions about the complex issue of the external validity of social preferences games. We do believe, however, that our results (together with our systematic review and meta-analysis) seriously question the external validity of social preference games and they call for more, and more systematic, research on this important issue. }
 
 
 
 \section{Literature Review}
 
-There are many papers that study social preferences using experimental games. For example, Forsythe (1994) recruited undergraduate students from the University of Iowa, where they played single dictator and ultimatum games against anonymous opponents. The authors found that, contrary to the subgame perfect Nash equilibrium that both proposers and responders would not send any money, most players in fact gave away proportions of the endowment given to them. Bert et al (1995) recruited undergraduate students from the University of Minnesota to participate in trust games. 94\% of the proposers sent money, and over one-third of the responders returned an amount greater than what was given to them, showing evidence of trust and reciprocity. Hermann, Thoni, and Gachter (2008) conducted public goods experiments across 16 participant pools, and found that that opportunities for punishment led to varying cooperation levels. These papers are only a few examples from an abundance of literature (with many papers using social preference games not mentioned above), making it clear that these games has become one of the building blocks of experimental and behavioral economics. 
+There are many papers that study social preferences using experimental games. For example, \cite{forsythe_1994} recruited undergraduate students from the University of Iowa, where they played single dictator and ultimatum games against anonymous opponents. The authors found that, contrary to the subgame perfect Nash equilibrium that both proposers and responders would not send any money, most players in fact gave away proportions of the endowment given to them. \cite{berg_1995} recruited undergraduate students from the University of Minnesota to participate in trust games. 94\% of the proposers sent money, and over one-third of the responders returned an amount greater than what was given to them, showing evidence of trust and reciprocity. \cite{hermann_thoni_gachter_2008} conducted public goods experiments across 16 participant pools, and found that that opportunities for punishment led to varying cooperation levels. These papers are only a few examples from an abundance of literature (with many papers using social preference games not mentioned above), making it clear that these games has become one of the building blocks of experimental and behavioral economics. 
  
-However, laboratory experiments have a disadvantage: they are abstract and remote from realistic situations. Therefore, an important question is the extent to which the experimental games approach to social preferences can be generalized to real world situations. Human behavior may be influenced by a variety of factors that differ between practical and laboratory settings. One issue is that in a laboratory setting, the subject's actions are under the scrutiny of the researcher. Hoffman et al (1994) found that almost 50\% of their subjects donated at least \$3 (out of a \$10 pie) when playing the dictator game. However, when the authors implemented a ``double-blind'' treatment where both the experimenter and other subjects could not observe the dictator\rq s actions, they found that only 16\% of subjects gave at least \$3. There are other papers that also find that subjects are more prosocial in the lab than they are in the field (e.g., List, 2006; Gneezy et al., 2004). Individuals are also influenced heavily on the framing of the situation. For example, in a two-person trust game, Burnham, McCabe, and Smith (2000) switched between calling the responder "partner" and "opponent", and found a significant difference in trust and trustworthy behavior. Similarly, Ross and Ward (1996) found that simply calling a prisoner's dilemma game either a ``community'' or ``Wall Street'' game wildly varied each treatment group\rq s rates of defection. Studies also find evidence that varying the level of stakes may lead to significantly different behaviors. For example, Carpenter, Verhoogen, and Burks (2005) find that increasing the stakes from \$10 to \$100 decreased the median offer in the dictator game from 40\% to 20\%. Slonim and Roth (1998) and Parco, Rapoport, and Stein (2002) also find that higher stakes leads to significantly different results than with lower stakes. Interestingly, however, Cherry, Frykblom, and Shogren (2002) find no differences in offers when increasing the stakes from \$10 to \$40. Of course, scrutiny, context, and stakes are only a few factors that can lead to deviations in behavior\footnote{see Levitt and List (2007) for a full discussion of factors, with supporting literature, that can lead to deviations in behavior between laboratory and field settings.}.
+However, laboratory experiments have a disadvantage: they are abstract and remote from realistic situations. Therefore, an important question is the extent to which the experimental games approach to social preferences can be generalized to real world situations. Human behavior may be influenced by a variety of factors that differ between practical and laboratory settings. One issue is that in a laboratory setting, the subject's actions are under the scrutiny of the researcher. \cite{hoffman_1994} found that almost 50\% of their subjects donated at least \$3 (out of a \$10 pie) when playing the dictator game. However, when the authors implemented a ``double-blind'' treatment where both the experimenter and other subjects could not observe the dictator\rq s actions, they found that only 16\% of subjects gave at least \$3. There are other papers that also find that subjects are more prosocial in the lab than they are in the field (e.g., \cite{list_2006}; \cite{gneezy_2004}). Individuals are also influenced heavily on the framing of the situation. For example, in a two-person trust game, \cite{burnham_mccabe_smith_2000} switched between calling the responder ``partner'' and ``opponent'', and found a significant difference in trust and trustworthy behavior. Similarly, \cite{ross_ward_1996} found that simply calling a prisoner's dilemma game either a ``community'' or ``Wall Street'' game wildly varied each treatment group\rq s rates of defection. Studies also find evidence that varying the level of stakes may lead to significantly different behaviors. For example, \cite{carpenter_verhoogen_burks_2005} discovered that increasing the stakes from \$10 to \$100 decreased the median offer in the dictator game from 40\% to 20\%. \cite{slonim_roth_1998} and \cite{parco_rapoport_stein_2002} also found that higher stakes leads to significantly different results than with lower stakes. Interestingly, however, \cite{cherry_frykblom_shogren_2002} found no differences in offers when increasing the stakes from \$10 to \$40. Of course, scrutiny, context, and stakes are only a few factors that can lead to deviations in behavior\footnote{see \cite{levitt_list_2007} for a full discussion of factors, with supporting literature, that can lead to deviations in behavior between laboratory and field settings.}.
  
-The fact that varying factors such as scrutiny, context, and stakes can yield significant differences in behavior calls into question the external validity of using experimental games in a laboratory setting to study social preferences. There are a few studies that have examined how subjects\rq \ behavior in a lab setting is compared to the same subjects\rq  \ behavior in a real world situation, and found that in-lab behavior does predict field behavior. Baran et al (2010) compared MBA alumni donations to their university with their reciprocity behavior when playing the trust game. The authors find that responder behavior predicted university donations. Franzen and Pointner (2013) compared behaviors from university students participating in standard dictator games to their actions when receiving a misdirected letter containing money, and found that subjects who showed prosocial behavior in the lab returned the misdirected letters more often than subjects who were selfish in the lab. Englmaier and Gebhardt (2010) conducted field experiments where they compared university students\rq \ free riding behavior at the library with free riding behavior in a public goods game, and found statistically significant correlation between field and lab measures. There are also some studies that used non-student subjects: Fehr and Leibbrandt (2011) conducted public goods games with Brazilian fishermen, and found that fishermen who are more cooperative in the games were also less likely to exploit the communal fishing grounds. Karlan (2005) compared Peru inhabitants\rq \ trust game behavior to their micro loans repayment behavior, and found correlation between behaviors in the lab game and in the field. 
+The fact that varying factors such as scrutiny, context, and stakes can yield significant differences in behavior calls into question the external validity of using experimental games in a laboratory setting to study social preferences. There are a few studies that have examined how subjects\rq \ behavior in a lab setting is compared to the same subjects\rq  \ behavior in a real world situation, and found that in-lab behavior does predict field behavior. \cite{baran_2010} compared MBA alumni donations to their university with their reciprocity behavior when playing the trust game. The authors find that responder behavior predicted university donations. \cite{franzen_pointner_2012} compared behaviors from university students participating in standard dictator games to their actions when receiving a misdirected letter containing money, and found that subjects who showed prosocial behavior in the lab returned the misdirected letters more often than subjects who were selfish in the lab. \cite{englmaier_gebhardt_2011} conducted field experiments where they compared university students\rq \ free riding behavior at the library with free riding behavior in a public goods game, and found statistically significant correlation between field and lab measures. There are also some studies that used non-student subjects: \cite{fehr_leibbrandt_2011} conducted public goods games with Brazilian fishermen, and found that fishermen who are more cooperative in the games were also less likely to exploit the communal fishing grounds. \cite{karlan_2005} compared Peru inhabitants\rq \ trust game behavior to their micro loans repayment behavior, and found correlation between behaviors in the lab game and in the field. 
 
-On the other hand, there are a number of papers that find lab behavior has no predictive power for field behavior. Goeschl et al (2015) examined university students\rq \ behavior in two different tasks: a public goods game and their contributions to a task about reducing CO2 emissions. The authors find that behavior in both tasks is uncorrelated. Hill and Gurven (2004) carried out ultimatum and public goods games on Paraguay Ache Indians. They compared the behaviors to observed food production and sharing patterns to individuals outside the nuclear family and found no significant relationships to lab behavior. Gurven and Winking (2008) recruited Tsimane forager-horticulturalists in Bolivia, and compared behavior when playing dictator and ultimatum games to their food-sharing behavior. The authors find no relation between the two measures. Voors et al (2012) studied farmers in Sierra Leone, and compared their behavior in a public goods game to their behavior when asked to contribute to a real community public good. They find no meaningful correlation in behavior between the lab and field measures. 
+On the other hand, there are a number of papers that find lab behavior has no predictive power for field behavior. \cite{goeschl_2015} examined university students\rq \ behavior in two different tasks: a public goods game and their contributions to a task about reducing CO2 emissions. The authors found that behavior in both tasks is uncorrelated. \cite{hill_gurven_2004} carried out ultimatum and public goods games on Paraguay Ache Indians. They compared the behaviors to observed food production and sharing patterns to individuals outside the nuclear family and found no significant relationships to lab behavior. \cite{gurven_winking_2008} recruited Tsimane forager-horticulturalists in Bolivia, and compared behavior when playing dictator and ultimatum games to their food-sharing behavior. The authors concluded no relation between the two measures. \cite{voors_2012} studied farmers in Sierra Leone, and compared their behavior in a public goods game to their behavior when asked to contribute to a real community public good. They found no meaningful correlation in behavior between the lab and field measures. 
 
 With other studies finding statistically significant, not statistically significant, and mixed results, the currently accumulated evidence is ambiguous. It is clear that evidence for the external validity of experimental games is weak, justifying that further research is needed. Galizzi and Navarro-Martinez note, however, that the previous studies compare only one social preference game to one specific field measure. The abstract and context-free nature of the games makes it difficult to theoretically map the game to the field measure, and so it is crucial to have a more systematic approach. The authors proceed to carry out their own study where participants answered questions about social behaviors exhibited in the past, played various social preference games, and encountered naturalistic field situations. The field situations included a research assistant asking for help carrying boxes down the stairs, asking to use the participant\rq s phone to make a brief phone call, asking for donations to a children\rq s charity, asking for donations to an environmental charity, or asking for donations to the lab\rq s research fund.  The authors\rq \ overarching conclusion is that behavior when playing the experimental games does a poor job predicting both the survey questions and the field behaviors. They do mention, however, that more systematic studies are needed to draw a definite conclusion.
 
-It is critical to think about why some studies found correlations between lab and field measures and some studies did not, in order to inform the design of my current experiment. {\color{red}While playing the experimental games for Hill and Gurven\rq s study}, participants expressed worry that their choices would make the receiver upset. In particular, the tribal group\rq s culture was heavily focused on community, and was well known for extensive food sharing (which was the field measure the authors used). Perhaps the participants didn\rq t want to risk their choices creating any tension in their community, and getting punished with less food sharing and cooperation. For the last two papers, the stakes were a result of high scrutiny and low anonymity since it was easy for community members to find out the choices each subject made. For my design, an important aspect is that participants will play the games in their own time and location to ensure no scrutiny and high anonymity.  I further describe each game, as well as their relevance to the chosen field measure, in the next section.
+It is critical to think about why some studies found correlations between lab and field measures and some studies did not, in order to inform the design of my current experiment. While playing the experimental games for the study by Hill and Gurven, participants expressed worry that their choices would make the receiver upset. In particular, the tribal group\rq s culture was heavily focused on community, and was well known for extensive food sharing (which was the field measure the authors used). Perhaps the participants didn\rq t want to risk their choices creating any tension in their community, and getting punished with less food sharing and cooperation. For the last two papers, the stakes were a result of high scrutiny and low anonymity since it was easy for community members to find out the choices each subject made. For my design, an important aspect is that participants will play the games in their own time and location to ensure no scrutiny and high anonymity.  I further describe each game, as well as their relevance to the chosen field measure, in the next section.
 
-A criticism of Galizzi and Navarro-Martinez\rq s design, however, is how the authors executed their field measures: since the setups occur as the participants are exiting their lab session, it is hard to believe that the participants did not connect the encounters to the research lab, especially since they previously answered questions similar to the current event. This may have led to actions that participants would not have done if they were unaware of the scrutiny. This is called the experimenter demand effect, which is a common problem in experimental design: if participants know their actions are being scrutinized, they may change their behavior towards what constitutes appropriate behavior. Therefore it is better to use a natural, far-removed situation, which is why I used donations to Wesleyan University as the field measure. Further discussion on my choice of field measure is in the next section.
+A criticism of the experimental design by Galizzi and Navarro-Martinez, however, is how the authors executed their field measures: since the setups occur as the participants are exiting their lab session, it is hard to believe that the participants did not connect the encounters to the research lab, especially since they previously answered questions similar to the current event. This may have led to actions that participants would not have done if they were unaware of the scrutiny. This is called the experimenter demand effect, which is a common problem in experimental design: if participants know their actions are being scrutinized, they may change their behavior towards what constitutes appropriate behavior. Therefore it is better to use a natural, far-removed situation, which is why I used donations to Wesleyan University as the field measure. Further discussion on my choice of field measure is in the next section.
 
 \section{Methods}
 
@@ -108,8 +115,7 @@ Below are the games each participant played, along with an example for each game
 
 \begin{itemize}
 
-\item{Generalized Dictator Game}:  Each participant, playing as the dictator, played nine different rounds of the generalized dictator game. In each round, participants were given different endowments and prices of giving, and were asked how they would like to divide the endowment with an anonymous, random Player 2. Therefore the budget constraint is given by \(\pi_{s} + p\pi_{o} = \textit{m}\), where \(\pi_{s}\) is how many tickets were kept, \(\pi_{o}\) is how many tickets were given, p is the relative price of giving, and \textit{m} is the endowment. The endowment in each round was either 10, 12, or 15. Every ticket the participant kept was worth either 1, 2, 3, or 4 tickets (hold price), and every ticket given to Player 2 was also worth either 1, 2, 3, or 4 tickets (pass price). Below are the nine sets of endowments and prices of giving used in the study:
-
+\item{Generalized Dictator Game\footnote{design is based off of Andreoni and Miller}}:  Each participant, playing as the dictator, played nine different rounds of the generalized dictator game. In each round, participants were given different endowments and prices of giving, and were asked how they would like to divide the endowment with an anonymous, random Player 2. Therefore the budget constraint is given by \(\pi_{s} + p\pi_{o} = \textit{m}\), where \(\pi_{s}\) is how many tickets were kept, \(\pi_{o}\) is how many tickets were given, p is the relative price of giving, and \textit{m} is the endowment. The endowment in each round was either 10, 12, or 15. Every ticket the participant kept was worth either 1, 2, 3, or 4 tickets (hold price), and every ticket given to Player 2 was also worth either 1, 2, 3, or 4 tickets (pass price). Below are the nine sets of endowments and prices of giving used in the study:
 \begin{center}
 \begin{tabular}{ c c c c c }
 \hline \hline
@@ -124,7 +130,7 @@ Below are the games each participant played, along with an example for each game
 7 & 12 & 2 & 1 & 2 \\  
 8 & 10 & 4 & 1 & 4 \\  
 9 & 10 & 1 & 4 & \(\frac{1}{4}\)  \\  
-\hline \hline
+\hline \hline \\
 \end{tabular}
 \end{center}
 
@@ -143,9 +149,9 @@ Participants were given the endowment and hold/pass price for each round, and an
 		\item{Player 1}: Each participant was endowed with 10 tickets. They were prompted to decide how much of their endowment to send to an anonymous, random responder (Player 2) so that \(\pi_{s} + \pi_{o} = 10\). The participants were told that the amount sent over would be multiplied by 3, i.e. Player 2 would receive 3\(\pi_{o}\), and that Player 2 would then decide how many tickets, r \(\leq 3\pi_{o}\), they would like to return. Overall, Player 1 received \(\pi_{s}\)+r tickets and Player 2 received 3\(\pi_{o}\) - r tickets.
 		\subitem \underline{\textit{Example:}} If the participant chooses to send 5 tickets, then Player 2 will receive 15 tickets (5 * 3 = 15). Player 2 will then decide how many tickets to return. If Player 2 chooses to 3 tickets, then overall Player 1 will earn 8 tickets (5 + 3 = 8) and Player 2 will earn 12 tickets (15 - 3 = 12).
 		\item{Player 2}: Each participant was informed that the proposer (Player 1) received an endowment of 10 tickets. They were then given a list of all ten possible multiplied amounts that Player 1 could have chosen to send, ranging from 3 tickets to 30 tickets in 3-ticket increments. For each possible offered amount, the participants were prompted to enter the number of tickets they would like to return back to the proposer. They were given clear instructions that their input could not exceed what was given to them. For example, if Player 1 gave them a multiplied amount of 15 tickets, then the maximum number of tickets the participant could return is 15 tickets.
-		\subitem \underline{\textit{Example:}} Suppose the participant\rq s return scheme is as below:
+		\subitem \underline{\textit{Example:}} Suppose the participant\rq s return scheme is as below: \\
 		
-		\begin{center}
+\begin{center}
 \begin{tabular}{ c c }
 \hline \hline
  Possible Offer Amounts (Multiplied) & Tickets Returned \\ 
@@ -180,7 +186,7 @@ and the second player receives:
 
 \end{itemize}
 
-Appendix A contains all materials - images of each game, along with their respective instructions and examples - from the online study.
+Appendix C contains all materials, images of each game along with their respective instructions and examples, from the online study.
 
 \subsubsection{Strategy Method}
 
@@ -194,7 +200,7 @@ Participants were randomly paired, and ticket payoffs were determined for each g
 
 \subsection{Self-reported measures of past social behaviors}
 
-Participants then reported on social behaviors exhibited in the past. The questions are adapted from the Self-Report Altruism (SRA) scale introduced by Rushton, Chrisjohn, and Fekken (1981). The survey is comprised of 10 items, and participants report how frequently they have done each item in the past. Participants rate each statement as either ``Never'', ``Once'', ``More than once'', ``Often'', or ``Very often''. Examples include: ``I have donated money at the cash register when buying groceries'', ``I have pointed out a clerk\rq s error (at the supermarket, at a restaurant) in undercharging me'', and ``I have donated instead of sold my clothes/used items''. A full list of the 10 items from the online study is displayed in Appendix B. 
+Participants then reported on social behaviors exhibited in the past. The questions are adapted from the Self-Report Altruism (SRA) scale introduced by \cite{rushton_chrisjohn_fekken_1981}. The survey is comprised of 10 items, and participants report how frequently they have done each item in the past. Participants rate each statement as either ``Never'', ``Once'', ``More than once'', ``Often'', or ``Very often''. Examples include: ``I have donated money at the cash register when buying groceries'', ``I have pointed out a clerk\rq s error (at the supermarket, at a restaurant) in undercharging me'', and ``I have donated instead of sold my clothes/used items''. A full list of the 10 items from the online study is displayed in Appendix D. 
 
 \subsection{Field Measure}
 
@@ -202,9 +208,9 @@ After the participation deadline passed, Wesleyan University Relations provided 
 
 Seniors are solicited around once per semester, during senior events. Recent alumni are typically solicited for donations at the end of November / beginning of December, March, and June. Since my online study was released between solicitation cycles for both seniors and recent alumni, and donations information was provided as of January 2018, participants\rq \ donations behavior is not influenced by the experimenter demand effect. 
 
-There are several reasons why I chose to use donations as my field measure. Many behavioral economics papers exploring the relationship between in-lab and field behavior have used donations\footnote{see, e.g., Falk, Meier, and Zehnder (2011); Benz and Meier (2008); Baran et al (2010).}. Falk, Meier, and Zehder (2011) justify that donations is an accurate field measure because they do not rely on self-reported responses but on actual decisions. Furthermore, donations are made in private and never made public, and students/alumni are unaware that their actions would be analyzed in a research study. The lack of scrutiny therefore indicates donations should reflect the donors\rq \ genuine altruism. The authors then point out the most important reason for their decision to use donations: all students and alumni are solicited, so everybody has to make the decision about donating.
+There are several reasons why I chose to use donations as my field measure. Many behavioral economics papers exploring the relationship between in-lab and field behavior have used donations\footnote{see, e.g., Falk, Meier, and Zehnder; \cite{benz_meier_2006}; Baran et al.}. \cite{falk_2013} justified that donations are an accurate field measure because they do not rely on self-reported responses but on actual decisions. Furthermore, donations are made in private and never made public, and students/alumni are unaware that their actions would be analyzed in a research study. The lack of scrutiny therefore indicates donations should reflect the donors\rq \ genuine altruism. The authors then point out the most important reason for their decision to use donations: all students and alumni are solicited, so everybody has to make the decision about donating.
 
-Donations are a more accurate field measure than creating a scenario at the end of the online session. Donations to Wesleyan University are a far-removed situation, and are not directly related to the study. I previously mentioned that Galizzi and Navarro-Martinez (2017)\rq s design is unsatisfactory since their participants were subject to the experimenter demand effect: because participants encountered the field experiments shortly after completing the lab experiments, it would not be difficult for participants to link the two situations together. Therefore, participants could have acted more pro-socially than they would usually under normal circumstances. In my design, participants\rq \ donations are not affected by their participation in the lab.
+In addition, donations are a more accurate field measure than creating a scenario at the end of the online session. Donations to Wesleyan University are a far-removed situation, and are not directly related to the study. I previously mentioned that the experimental design by Galizzi and Navarro-Martinez is unsatisfactory since their participants were subject to the experimenter demand effect: because participants encountered the field experiments shortly after completing the lab experiments, it would not be difficult for participants to link the two situations together. Therefore, participants could have acted more pro-socially than they would usually under normal circumstances. In my design, participants\rq \ donations are not affected by their participation in the lab.
 
 \subsubsection{Theoretical Correspondences Between Games and Donations}
 
@@ -224,10 +230,10 @@ Lastly, players\rq \ behaviors in the public goods game can also be explained by
 Wesleyan University Relations provided a random sample of 2,004 emails (334 emails for each class year from 2013 to 2018), and I sent an invitation email in early January 2018 asking for participation in my study. Participants were informed that the study consisted of several experimental games and non-incentivized survey questions, and participation should take no more than 15 minutes.  The deadline for participation was mid-February 2018. A total of 397 people completed the online study. The participants were volunteers who opened the Qualtrics link, provided consent for me to receive their major, class year, and Wesleyan donations data, and completed both the survey questions and social preference games. At the end of the participation deadline, all participants were randomly paired, ticket payoffs were calculated, and 10 winners were randomly selected. The winners were emailed  in the begging of March 2018 with instructions on how to receive their prizes.
 
 \section{Results}
-The results are presented in four distinct sections. I first start by briefly describing the results obtained in the three main elements (social preference games, self-report measure of past social behaviors, and donations). The fourth section will focus on the main research question of the paper: the extent to which the games explain the field behavior. Appendix C contains the variables definition table, and Appendix D contains all of the figures, correlation tables, and regression tables from this section.
+The results are presented in four distinct sections. I first start by briefly describing the results obtained in the three main elements (social preference games, self-report measure of past social behaviors, and donations). The fourth section will focus on the main research question of the paper: the extent to which the games explain the field behavior. Appendix B contains the variables definition table, and Appendix A contains all of the figures, correlation tables, and regression tables from this section.
 
 \subsection{Social Preference Games}
-Since the generalized dictator game consisted of 9 rounds with varying sets of endowments and prices of giving, similar to Andreoni and Miller (2002) and Fisman, Kariv, and Markovits (2007), I assume each participant\rq s giving preferences is a member of the constant elasticity of substitution (CES) utility function.  The CES utility function is written as:\\
+Since the generalized dictator game consisted of 9 rounds with varying sets of endowments and prices of giving, similar to Andreoni and Miller and \cite{fisman_kariv_markovits_2007}, I assume each participant\rq s giving preferences is a member of the constant elasticity of substitution (CES) utility function.  The CES utility function is written as:\\
 
 
 \(U_{s} = [\alpha(\pi_{s})^{\rho} + (1-\alpha)(\pi_{o})^{\rho}]^{1/\rho}\) \\
@@ -235,7 +241,7 @@ Since the generalized dictator game consisted of 9 rounds with varying sets of e
 
 The first parameter, \(\alpha\), measures the relative weight on the payoff for self. Holding \(\rho\) constant, when \(\alpha\)=1, \(U_{s} = \pi_{s}\), i.e. the individual\rq s utility depends only on the amount they keep for themselves. When \(\alpha\)=0, \(U_{s} = \pi_{o}\), i.e. the individual\rq s utility depends only on the amount the other person receives. Therefore as \(\alpha\) approaches 1, the individual exhibits selfish preferences, and as \(\alpha\) approaches 0, the individual exhibits selfless preferences.
 
-The second parameter, \(\rho\), indicates the willingness to trade off payoffs to themselves and the other person in response to price changes. Holding \(\alpha\) constant, \(U_{s} = \alpha\pi_{s} + (1-\alpha)\pi_{o}\) when \(\rho\)=1,  i.e. the individual\rq s utility depends on the sum of the players\rq \ payoffs. This means the individual exhibits perfect substitutes preferences for giving: they will prefer to give their entire endowment to the other player when the price of giving is cheap (p $<$ 1), and they will prefer to keep their entire endowment when the price of giving is expensive (p $>$ 1). These preferences are also called efficiency-minded preferences. As \(\rho \rightarrow -\infty\), \(U_{s} = min(\alpha\pi_{s}, (1-\alpha)\pi_{o})\). That is, the individual\rq s utility equals the minimum payoff between both places, meaning the individual exhibits inequality-averse preferences. These preferences are called Leontief preferences: the individual prefers to split the endowment equally. Lastly, when \(\rho\) = 0, \(U_{s} = A\pi_{s}^{\alpha}\pi_{o}^{1-\alpha}\). In this case, the individual has Cobb-Douglas preferences.\footnote{See Arrow et al (1961) on how Leontief preferences and Cobb-Douglas preferences are derived from the CES production function.}
+The second parameter, \(\rho\), indicates the willingness to trade off payoffs to themselves and the other person in response to price changes. Holding \(\alpha\) constant, \(U_{s} = \alpha\pi_{s} + (1-\alpha)\pi_{o}\) when \(\rho\)=1,  i.e. the individual\rq s utility depends on the sum of the players\rq \ payoffs. This means the individual exhibits perfect substitutes preferences for giving: they will prefer to give their entire endowment to the other player when the price of giving is cheap (p $<$ 1), and they will prefer to keep their entire endowment when the price of giving is expensive (p $>$ 1). These preferences are also called efficiency-minded preferences. As \(\rho \rightarrow -\infty\), \(U_{s} = min(\alpha\pi_{s}, (1-\alpha)\pi_{o})\). That is, the individual\rq s utility equals the minimum payoff between both places, meaning the individual exhibits inequality-averse preferences. These preferences are called Leontief preferences: the individual prefers to split the endowment equally. Lastly, when \(\rho\) = 0, \(U_{s} = A\pi_{s}^{\alpha}\pi_{o}^{1-\alpha}\). In this case, the individual has Cobb-Douglas preferences.\footnote{See \cite{arrow_1961} on how Leontief preferences and Cobb-Douglas preferences are derived from the CES production function.}
 
 Maximizing utility subject to the budget constraint ( \(p_{s}\pi_{s} + p_{o}\pi_{o}=m\) ) yields the CES demand function given by: \\
  
@@ -277,12 +283,12 @@ Table 2 contains pairwise correlations (Spearman\rq s \(\rho\)) between the game
 
 \subsection{Donations Behavior}
 
-Figure 5 shows the distribution of Wesleyan donations. Panel I shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel J shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who have donated a total amount greater than \$100. All of these donations amounts are between \$100 and \$625, with the exception of two very large donations.
+Figure 5 shows the distribution of Wesleyan donations. Panel I shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel J shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who each donated a total amount greater than \$100. All of these larger donations amounts are between \$100 and \$625, with the exception of two very large donations.
 
 \subsection{External Validity of Social Preference Games}
-I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented the field measure: (1) whether the participant has donated or not, and (2) the total amount the participant has donated. I included the \(\alpha\) and \(\rho\) parameters from the generalized dictator game, proposers\rq \ pass rates in the ultimatum and trust games (``ultimatum1'' and ``trust1''), responders\rq \ minimum accepted pass rates from the ultimatum game (``ultimatum2''), responders\rq \ reciprocity levels from the trust game (``trust2''), and players\rq \ pass rates in the public goods game (``cooperation'') as the explanatory game variables. I also included both the total and monetary SRA results (``SRAtotal'' and ``SRAmoney'') as the explanatory self-report variables. Appendix B contains the table of variable definitions. 
+I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented donations behavior: (1) whether the participant has ever donated or not, and (2) the total amount the participant has donated. I included the \(\alpha\) and \(\rho\) parameters from the generalized dictator game, proposers\rq \ pass rates in the ultimatum and trust games (``ultimatum1'' and ``trust1''), responders\rq \ minimum accepted pass rates from the ultimatum game (``ultimatum2''), responders\rq \ reciprocity levels from the trust game (``trust2''), and players\rq \ pass rates in the public goods game (``cooperation'') as the explanatory game variables. I also included total and monetary SRA scores (``SRAtotal'' and ``SRAmoney'') as the explanatory self-reported variables. Appendix B contains the table of variable definitions. 
 
-First, Table 3 presents twelve logistic regression models using the binary donations representation as the response variable. The first seven columns present each of the game outcomes on their own, and the eighth column includes all of the game outcomes. The ninth and tenth columns contain SRAtotal and SRAmoney results on their own, and the last two columns include all of the game outcomes along with the total and monetary SRA scores, respectively. None of the games or SRA results are statistically significant on their own. When both the games and SRA results are used in the regression model, still none of the variables are statistically significant. 
+Table 3 presents twelve logistic regression models using the binary donations representation as the response variable. The first seven columns present each of the game outcomes on their own, and the eighth column includes all of the game variables. The ninth and tenth columns contain SRAtotal and SRAmoney scores on their own, and the last two columns include all of the game outcomes along with the total and monetary SRA scores, respectively. None of the games or SRA results are statistically significant on their own. When both the games and SRA results are used in the regression model, still none of the variables are statistically significant. 
 
 %I then regressed the same explanatory variables on the amount donated. As shown in Figure 5, most donations amounts were fairly small. I therefore used two-limit tobit maximum likelihood, setting the restriction that 0 $\leq$ donations $\leq$ 50.  Table 4 presents the twelve tobit models, presented in the same format as Table 3. The total SRA score is statistically significant at the 10\% level and the monetary SRA score is statistically significant at the 5\% level. Otherwise, none of the social preference games results are statistically significant.
 I then used ordinary least squares (OLS) to regress the same explanatory variables on the log of the amount donated. Table 4 presents the twelve linear regression models, presented in the same format as Table 3. Similar to the logistic regression models, none of the game outcomes or SRA scores are statistically significant.
@@ -292,249 +298,265 @@ I then used ordinary least squares (OLS) to regress the same explanatory variabl
 %where \(L_{c}\) denotes the maximized likelihood for the current fitted model, and \(L_{null}\) denotes the maximized likelihood the model with no predictors.
 %}. The values are shown at the bottom of Table 3. The highest value belongs to the model that includes both the games and monetary SRA score. Interestingly, the pseudo-R$^{2}$ value for the model with all of the game variables is lower than the pseudo-R$^{2}$ values for the models that include only the SRA scores. The pseudo-R$^{2}$ values for the tobit regression models are displayed at the bottom of Table 4. The values are very low, and again, the highest value belongs to the model that includes both the games and monetary SRA score. The pseudo-R$^{2}$ value for the model with all of the game variables is higher than the pseudo-R$^{2}$ value for the model that includes only the total SRA score, but is close to the pseudo-R$^{2}$ value for the model that includes only the monetary SRA score. Altogether, these results tell us that self-reported measures are a better tool than even using multiple social preference games when explaining whether people donate or not, multiple social preference games and money-related self-reported measures perform similarly when explaining how much people donate, but the best tool overall is to use both social preference games and self-reported measures. However, all of the R$^{2}$ values are very low - practically zero - so even the ``best'' model explains little to none of the variability of donations behavior.
 
-It is also useful to look at the R$^{2}$ statistic, which measures the proportions of variance explained by the regressors. For the logistic regressions, I calculated each model\rq s McFadden\rq s pseudo-R$^{2}$ values\footnote{
+It is also useful to look at the R$^{2}$ statistic, which measures the proportion of variance explained by the regressors. For the logistic regressions, I calculated each model\rq s McFadden\rq s pseudo-R$^{2}$ values\footnote{
 \(R^{2}_{McFadden} = 1 - \frac{log(L_{c})}{log(L_{null})}\)
 where \(L_{c}\) denotes the maximized likelihood for the current fitted model, and \(L_{null}\) denotes the maximized likelihood the model with no predictors.
-} which are displayed at the bottom of the table. The highest value belongs to the model that includes all of the game outcomes and monetary SRA score. Interestingly, the pseudo-R$^{2}$ value for the model with all of the game variables is lower than the pseudo-R$^{2}$ values for the models that include only the SRA scores. This suggests that self-reported measures are a better tool than even using multiple social preference games. The R$^{2}$ values for the linear regression models are displayed at the bottom of Table 4. The values are very low, and again, the highest value belongs to the model that includes both the games and monetary SRA score. In contrast to the logistic regression models, the pseudo-R$^{2}$ value for the model with all of the game variables is larger than the pseudo-R$^{2}$ values for the models that includes only the total and monetary SRA scores. Altogether, these results tell us that self-reported measures are a better tool than even using multiple social preference games when explaining whether people donate or not, multiple social preference games are a better tool than using self-reported measures when explaining how much people donate, but the best tool overall is to use both social preference games and self-reported measures. However, all of the R$^{2}$ values are very low - practically zero - so even the ``best'' model explains little to none of the variability of donations behavior.
+} which are displayed at the bottom of the table. The highest value belongs to the model that includes all of the game outcomes and monetary SRA score (model 12). Interestingly, the pseudo-R$^{2}$ value for the model with all of the game variables is lower than the pseudo-R$^{2}$ values for the models that include only the SRA scores. This suggests that self-reported measures explain the field behavior better than even using multiple social preference games. 
 
-Tables 3 and 4 therefore provide evidence that the social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. However, this may be because the right combination of variables are not included in the models. I performed best subset selection on both the logistic and linear regression models\footnote{Best subset selection identifies all of the possible regression models derived from all of the possible combinations of the candidate predictors, and determines the model that does the best at meeting some well-defined criteria. In this case, the criteria I used is Mallows\rq \ \(C_{p}\)-statistic, which assesses assess fits when models with different numbers of parameters are being compared.  See Mallows (1973).}. Since best subset selection fits all possible models to find the best candidate, I included more explanatory variables: I added the responders\rq \ average return outcome from the trust game, and replaced SRAtotal and SRAmoney with each of the ten individual SRA questions. I first performed best subsets regression for the logistic model, and four of the SRA items were chosen (items three, four, eight, and ten). Table 5 displays the logistic regression model with those chosen variables. All of the chosen SRA items are statistically significant at the 5\% level. The pseudo-R$^{2}$ value of the model is a lot better than the previous logistic models in Table 3 (almost 8 times larger than the highest value), although it is still pretty low. 
+The R$^{2}$ values for the linear regression models are displayed at the bottom of Table 4. The values are very low, and again, the highest value belongs to the model that includes both the games and monetary SRA score (model 12). In contrast to the logistic regression models, the R$^{2}$ value for the model with all of the game variables is larger than the R$^{2}$ values for the models that includes only the total and monetary SRA scores. 
+
+Altogether, these results tell us that self-reported measures are a better tool than even using multiple social preference games when explaining whether people donate or not, and using multiple social preference games is a better than using self-reported measures when explaining how much people donate. The best tool overall, though, is to use both social preference games and self-reported measures. However, all of the R$^{2}$ values are very low - practically zero - so even the ``best'' model explains very little of the variability of donations behavior.
+
+Tables 3 and 4 therefore provide evidence that the social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. However, this may be because the right combination of variables are not included in the models. I performed best subset selection on both the logistic and linear regression models\footnote{Best subset selection identifies all of the possible regression models derived from all of the possible combinations of the candidate predictors, and determines the model that does the best at meeting some well-defined criteria. In this case, the criteria I used is Mallows\rq \ \(C_{p}\)-statistic, which assesses assess fits when models with different numbers of parameters are being compared.  See \cite{mallows_1973}.}. Since best subset selection fits all possible models to find the best candidate, I included more explanatory variables: I added the responders\rq \ average return outcome from the trust game, and replaced SRAtotal and SRAmoney with each of the ten individual SRA items. I first performed best subset selection for the logistic model, and the chosen model included four of the SRA items were chosen (items 3, 4, 8, and 10). Table 5 displays the best subset logistic regression model. All of the chosen SRA items are statistically significant at the 5\% level. The pseudo-R$^{2}$ value of the model is a lot better than the previous logistic models in Table 3 (almost 8 times larger than the highest value), although it is still pretty low. 
 
 %I then ran best subset selection for the tobit model, and only the \(\rho\) parameter from GDG was selected. Table 6 contains the tobit regression that includes only \(\rho\). However, the variable is not statistically significant, and the psuedo-R$^{2}$ value is not better than the previous tobit models in Table 4. 
-Best subset selection on the linear model selected ultimatum1, trust2, and four of the SRA items (items three, four, five, and six). Table 6 displays the linear regression model with those chosen variables. The third and sixth SRA items are statistically significant at the 10\% level, and the rest of the variables are statistically significant at the 5\% level. The R$^{2}$ statistic is significantly larger than the values in Table 4, although the model still explains only about 15\% of the variability in donations behavior.
+Best subset selection on the linear model selected the model that included ultimatum1, trust2, and four of the SRA items (items 3, 4, 5, and 6). Table 6 displays the best subset linear regression model. The third and sixth SRA items are statistically significant at the 10\% level, and the rest of the variables are statistically significant at the 5\% level. The R$^{2}$ statistic is significantly larger than the values in Table 4, but the model still explains only about 15\% of the variability in donations behavior.
 
 %Overall, a few of the SRA items are a slightly better tool than both social preference games and total/monetary SRA scores to explain whether people donate or not, and \(\rho\) was chosen as the best variable to explain the amount people donate. However, the R$^{2}$ values show that each models\rq \ chosen variables still explain little to none of the variability of donations behavior. In addition, some of the game variables in the models have signs that are not expected. First, it makes sense that \(\alpha\) should be negative since higher levels of alpha indicate more selfish behavior. Ultimatum1, trust1, and cooperation should have positive relationships with donations since higher pass rates signal more pro-social preferences. Ultimatum2 is expected to have a negative relationship with donations since higher minimum accepted pass rates signal higher negative reciprocity, and trust2 should have a positive relationship with donations. However, in the logistic model, \(\alpha\), ultimatum1, and ultimatum2 have opposite signs than expected, and in the tobit model, \(\alpha\), ultimatum2, trust1, and trust2 have opposite signs than expected. While these poor results may be discouraging regarding the external validity of social preference games, it is still very interesting as it suggests the social preference games may not generalize field behavior as much as they are expected to.
 
-Overall, a few of the SRA items are a slightly better tool than both social preference games and total/monetary SRA scores to explain whether people donate or not, and a couple of the games (ultimatum and trust games) along with a few of the SRA items were chosen as the best variable to explain the amount people decide to donate. However, each models\rq \ chosen variables still explain only a little of the variability of donations behavior. In addition, some of the game variables in the models have signs that are not expected. First, it makes sense that \(\alpha\) should be negative since higher levels of alpha indicate more selfish behavior. Ultimatum1, trust1, and cooperation should have positive relationships with donations since higher pass rates signal more pro-social preferences. Ultimatum2 is expected to have a negative relationship with donations since higher minimum accepted pass rates signal higher negative reciprocity, and trust2 should have a positive relationship with donations. However, in the logistic model, \(\alpha\), ultimatum1, and ultimatum2 have opposite signs than expected, and in the linear model, \(\alpha\), trust1, and trust2 have opposite signs than expected. While these poor results may be discouraging regarding the external validity of social preference games, it is still very interesting as it suggests the social preference games may not generalize field behavior as much as they are expected to.
+Overall, a few of the SRA items are a slightly better tool than both social preference games and total/monetary SRA scores to explain whether people donate or not, and a couple of the games (ultimatum and trust games) along with a few of the SRA items were chosen as the best variable to explain the amount people decide to donate. However, each models\rq \ chosen variables still explain only a little of the variability of donations behavior. In addition, some of the game variables in the models have signs that are not expected. First, it makes sense that \(\alpha\) should be negative since higher levels of alpha indicate more selfish behavior. Ultimatum1, trust1, and cooperation should have positive relationships with donations since higher pass rates signal more pro-social preferences. Ultimatum2 is expected to have a negative relationship with donations since higher minimum accepted pass rates signal higher negative reciprocity, and trust2 should have a positive relationship with donations. However, in the logistic models, \(\alpha\), ultimatum1, and ultimatum2 have opposite signs than expected, and in the linear models, \(\alpha\), trust1, and trust2 have opposite signs than expected. Both of these negative results suggest that the external validity of social preference games is pretty weak.
 
-These results also switch us to another interesting topic: although the experimental games and self-reported measures do a poor job explaining donations behavior, perhaps they can still be a useful tool to predict donations behavior. That is, if Wesleyan University wanted to predict donations from upcoming class years, perhaps using social preference games and/or self-reported measures can help them predict donations behavior.
+These results also switch us to another interesting topic: although the experimental games and self-reported measures do a poor job explaining donations behavior, perhaps they can still be a useful tool to predict donations behavior. That is, if Wesleyan University wanted to predict donations from upcoming class years, perhaps using social preference games and/or self-reported measures from older class years can help them predict donations behavior.
 
-In predictive modeling, a common approach is to split the data into a training set and testing set. The training set is used to build and train the model. Once the model is ready, the model will be tested on the testing set to determine its accuracy and how well it performs. I used the data from recent alumni participants to create the training set, and used the data from current seniors to create the testing set. Similar as before, I estimated models for both the binary and continuous representations of donations behavior. The models I estimated include: the logistic/tobit regression model, the best-subset logistic/tobit regression model, and the least absolute shrinkage and selection operator (lasso) model\footnote{The least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
+In predictive modeling, a common approach is to split the data into a training set and testing set. The training set is used to build and train the model. Once the model is ready, the model is tested on the testing set to determine its accuracy and performance. I used the data from the recent alumni participants to create the training set, and used the data from the current seniors to create the testing set. Similar as before, I estimated models for both the binary and continuous representations of donations behavior. The models I estimated include: the logistic/linear regression model, the best-subset logistic/linear regression model, and the least absolute shrinkage and selection operator (lasso) model\footnote{The least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
 \( \beta^{lasso}=\mathop\mathrm{argmin}\limits_{\beta} \{ \frac{1}{2} \sum_{i=1}^{N} (y_{i} - \beta_{0} - \sum_{j=1}^{p}x_{ij}\beta _{j})^{2}+\lambda\sum_{j=1}^{p}|\beta _{j}|\} \) \\ \\
-where \(\lambda\) is a free parameter set to minimize the out of sample error. Certain coefficients are truncated to be set to zero to effectively choose a simpler model that does not include those coefficients. In other words, lasso regression works like a feature selector that picks out the most important coefficients, i.e. those that are most predictive (and have the lowest p-values). See Tibshirani (1996) for a full introduction on the lasso method.}. To compare how well the models perform, I tested each of the models on the testing set and looked at the mean-squared prediction error (MSPE)\footnote{\(MSPE = E[(g(x_{i}) - \hat{g}(x_{i}))^{2}]\), i.e. the expected value of the squared difference between the fitted values implied by the predictive model \(\hat{g}\) and the values of the (unobservable) model g}, where the smallest MSPE value indicates the best predictive model.
+where \(\lambda\) is a free parameter set to minimize the out of sample error. Certain coefficients are truncated to be set to zero to effectively choose a simpler model that does not include those coefficients. In other words, lasso regression works like a feature selector that picks out the most important coefficients, i.e. those that are most predictive (and have the lowest p-values). See \cite{tibshirani_1996} for a full introduction on the lasso method.}. To compare how well the models performed, I tested each of the models on the testing set and looked at the mean-squared prediction error (MSPE)\footnote{\(MSPE = E[(g(x_{i}) - \hat{g}(x_{i}))^{2}]\), i.e. the expected value of the squared difference between the fitted values implied by the predictive model \(\hat{g}\) and the values of the (unobservable) model g}, where the smallest MSPE value indicates the best predictive model.
 
-First I estimated logistic regression models on the training set. Using the same layout as Table 3, Table 7 reports each of the models. Each of the estimated models were then tested on the testing set, and the bottom row reports the MSPE from each of the models. The lowest MSPE value belongs to the model that includes only the monetary SRA score. Next I performed best subset selection. Table 8 reports the best five models that were chosen, and again, the MSPE values are displayed at the bottom. The model that includes \(\alpha\) and a few of the SRA items has the lowest MSPE. Lastly I used the lasso method, and all of the variables except for \(\alpha\), ultimatum2, and two of the SRA items were shrunk to zero. Table 9 shows the lasso penalized logistic model\footnote{statistical significance tests were based off of Lockhart et al (2014)\rq s proposed significance test for the lasso. See Kyung et al (2010) and Tibshirani (1996) for a full discussion on standard errors for lasso predictions.} and its corresponding MSPE value.
+First I estimated logistic regression models on the training set. Table 7 reports each of the models. Each of the estimated models were then tested on the testing set, and the bottom row reports the corresponding MSPE values. The lowest MSPE belongs to the model that includes only the monetary SRA score. Next I performed best subset selection. Table 8 reports the best five models that were chosen, and again, the MSPE values are displayed at the bottom. The model that includes \(\alpha\) and a few of the SRA items (items 3, 4, and 10) has the lowest MSPE. Lastly I used the lasso method, and all of the variables except for \(\alpha\), ultimatum2, and two of the SRA items (items were shrunk to zero. Table 9 shows the lasso penalized logistic model\footnote{statistical significance tests were based off of the proposed significance test for the lasso by \cite{lockhart_2014}. See \cite{kyung_2010} and Tibshirani for a full discussion on standard errors for lasso predictions.} and its corresponding MSPE value.
 
-I repeated the same steps for the linear models using the log of donation amounts. Table 10 reports the linear regression models, where the lowest MSPE corresponds to the model that includes all of the game variable and monetary SRA score. I ran best subset selection, and Table 11 reports the top five models where the lowest MSPE belongs to the model that contains trust2, ultimatum1, and four of the SRA items. Finally, the lasso method truncated most of the variables to zero, leaving out two SRA items. Table 12 shows the lasso penalized linear model with its MSPE value.
+I repeated the same steps for the linear models using the log of donation amounts. Table 10 reports the linear regression models, where the lowest MSPE corresponds to the model that includes all of the game variable and monetary SRA score. I ran best subset selection, and Table 11 reports the top five models where the lowest MSPE belongs to the model that contains trust2, ultimatum1, and four of the SRA items (items 3, 4, 5, 6, and 10) . Finally, the lasso method truncated most of the variables to zero, leaving out two SRA items (items 4 and 6). Table 12 shows the lasso penalized linear model with its MSPE value.
 
-first binary donations representation: logistic. best subset logistic. lasso. run the models on testing set. table compares MSE.
-
-regular (only SRAmoney): 0.3981838
-best subset (alpha plus some SRA items): 0.3843522
-lasso (alpha, UG2, SRA3 and 4): 0.3904766
+Below are tables that report each predictive model\rq s MSPE values:
 
 
-linear (log donations)
-regular (all games plus SRAmoney): 7.055587
-best subset (tg2 ug1 plus sra3-6 10): 6.361367
-lasso : 2.726031, 2.48797
+\begin{center}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{ c | c | c }
+\hline \hline
+Logistic model & Best subset logistic model & Lasso penalized logistic model \\ 
+\hline
+\small donated = \(\alpha\) + \(\rho\) + ultimatum1 +  ultimatum2 + & donated = \(\alpha\) + SRA3 + SRA4 + SRA10 & donated = \(\alpha\) + ultimatum2 + SRA3 + SRA4 \\
+\small trust1+ trust2 + cooperation + SRAmoney & & \\
+ \hline
+ 0.39818 & 0.38435 & 0.39048 \\  
+ \hline \hline
+\end{tabular}
+\end{adjustbox}
+\end{center}
+ 
+ 
+ 
+\begin{center}
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{ c | c | c }
+\hline \hline
+Linear model & Best subset linear model & Lasso penalized linear model \\
+\hline
+log(donations) = \(\alpha\) + \(\rho\) + ultimatum1 +  ultimatum2 + & log(donations) = trust2 + ultimatum1 + SRA3 + & log(donations) = SRA4 + SRA6 \\
+\small trust1+ trust2 + cooperation + SRAmoney & SRA4 + SRA5 + SRA6 + SRA10 & \\
+\hline
+7.05559 & 6.36137 & 2.72603 \\
+\hline \hline
+\end{tabular}
+\end{adjustbox}
+\end{center}
 
-next continuous: tobit/linear, best subset tobit/linear, lasso. run the models on testing set. table compares MSEl
+The first table shows that the best subset model containing \(\alpha\) from the generalized dictator game and three SRA items is the most accurate model for predicting whether people will donate or not. Something to note, however, is that the difference between the MSPE values is very small: whether all of the social preference games are used or only a couple are used, the prediction performances are similar.
 
-
-
-
-
-
-
-
-
-
-
-
-I first used the lasso method on the logistic model, and all of the variables except for two of the SRA items were shrunk to zero. Table 7 reports the lasso penalized logistic model, where both SRA coefficients are statistically significant at the 5\% level\footnote{statistical significance tests were based off of Lockhart et al (2014)\rq s proposed significance test for the lasso. See Kyung et al (2010) and Tibshirani (1996) for a full discussion on standard errors for lasso predictions.}. I then used the lasso method on the continuous donations model, and found that all of the variables were truncated to zero. In summary, self-report measures were chosen to be better for predicting whether people will donate or not, and neither games nor self-report measures were good tools for predicting donation amounts.
-
-
+The second table shows that the lasso penalized model containing the two SRA items is the best-performing model for predicting donation amounts.
 
 \section{Discussion and Conclusion}
 
-Thoughts:
-negative result is still very interesting as it suggests the social preference games may not generalize as much as we might hope
+Currently, the accumulated literature exploring the external validity of social preference games have mixed results. My thesis provides a systematic approach to this topic where I elicited decisions in four experimental social preference games along with self-reported social behaviors performed in the past. Most importantly, I used a natural field measure that is far-removed from my study.
 
-self-report measures seem to be pretty much the same usefulness (if not better) than experimental games - chosen as in best subset selection, and chosen in lasso regression.
+The overarching conclusion is that the social preference games do a poor job explaining the field behavior. In fact, the self-reported measures explain donations behavior similarly to the games. These poor results are still very interesting, however, because it suggests that social preference games may not generalize as much as it is anticipated to. {\color{red} In behavioral economics courses, social preference games are thought to at least generally indicate individuals\rq pro-social behavior. With the results from my research, however, this doesn\rq t seem to be the case.}  It is particularly striking that they do not seem to explain to any significant extent any of the behaviors observed in the field
 
-the self-report measures that were chosen were money-related. (But I only had 10 SRA items)
-predict whther ppl donate or not, but not how much ppl will donate.
+Self-reported measures being a better tool than experimental games was also shown when I moved on to predictive modeling. For both the logistic and linear case, yes some game parameters were selected. But in all of the predictive models, there were reoccurring SRA items appearing. For the logistic model, the best predictive model did have a parameter from the generalized dictator game, but there were three SRA items (3, 4, and 10) alongside it. And for the linear model, the best predictive model included 4 and 6.
 
+Altogether, self-reported measures perform just as well (if not better) than social preference games in both explaining and predicting donations behavior. 
 Potential policy implication with findings from a research perspective. Experimental games are costly - not only is it expensive paying participants for attending the lab session and providing money aligned with the payoffs of the games (especially if more show up than expected), but it also takes a lot of time to program the experimental games. If experimental games do not better predict field measures, then perhaps eliminate experimental games and instead using survey questions is better for funding and logistical purposes. 
 
-however this is just the beginning of a systematic approach to uncovering the external validity of experimental social preference games. what can further research do?
+however this is just the beginning of a systematic approach to uncovering the external validity of experimental social preference games (so far, seems to be only Galizzi and Navarro-Martinez, and mysef). what can further research do?
 population - other than university students (self-selected??)
 use more far-removed, naturalistic field measures - i only 1 field behavior - may be difficult since alumni donations are recorded but other forms of charitable giving are not really
 
 potentially spark interest into future studies into the external validity of other behavioral economics topics where lab experiments are also commonly used. For example, using experiments to study risk preferences and time preferences is common, so it will be interesting to see whether in-lab behavior is correlated to field measures, and perhaps adopting a systematic approach (comparing a variety of lab experiments to various field measures) can prove to be beneficial.
 
+\newpage
+\bibliography{mybibliography}
+%\bibliographystyle{apalike}
 
- \newpage
-\begin{thebibliography}{9}
-
-\bibitem{AndreoniMiller}
-Andreoni, J., and Miller, J.H. (2002).
-\textit{Giving according to GARP: An experimental test of the consistency of preferences for altruism}.
-Econometrica, 70, 737-53.
-
-\bibitem{Baran}
-Baran, N.M., Sapienza, P., and Zingales, L. (2010).
-\textit{Can we infer social preferences from the lab? Evidence from the trust game}.
-NBER Working Paper 15654.
-
-\bibitem{Benz}
-Benz, M., and Meier, S. (2006).
-\textit{Do people behave in experiments as in the field? Evidence from donations}.
-Experimental Economics, 11, 268-81.
-
-\bibitem{Berg}
-Berg, J., Dickhaut, J.W., and McCabe, K.A. (1995).
-\textit{Trust, reciprocity, and social history}.
-Games and Economic Behavior, 90, 166-93.
-
-\bibitem{Burnham}
-Burnham, T., McCabe, K., Smith, V. (2000).
-\textit{Friend-or-foe intentionality priming in an extensive form trust game}.
-Journal of Economic Behavior \& Organization, 43, 57-73.
-
-\bibitem{Carpenter}
-Carpenter, J.P., Verhoogen, E., and Burks, S. (2005).
-\textit{The effect of stakes in distribution experiments}.
-Economics Letters, 86, 393-98.
-
-\bibitem{CharnessRabin}
-Charness, G., and Rabin, M. (2002).
-\textit{Understanding social preferences with simple tests}.
-Quarterly Journal of Economics, 117, 817-69.
-
-\bibitem{Cherry}
-Cherry, T., Fykblom, P., and Shogren, J. (2002).
-\textit{Hardnose the Dictator}.
-American Economic Review, 92(4): 1218-21.
-
-\bibitem{Englmaier}
-Englmaier, F., and Gebhardt, G. (2010)
-\textit{Free-riding in the lab and in the field}.
-CESifo Working Paper No. 3612.
-
-\bibitem{FehrLeibbrandt}
-Fehr, E., and Leibbrandt, A. (2011)
-\textit{A field study on cooperativeness and impatience in the Tragedy of the Commons}.
-Journal of Public Economics, 95, 1144-55.
-
-\bibitem{FehrSchmidt}
-Fehr, E., and Schmidt, K. (1999).
-\textit{A theory of fairness, competition, and cooperation}.
-Quarterly Journal of Economics, 114, 173-68.
-
-\bibitem{Fisman1}
-Fisman, R., Jakiela, P., and Kariv, S. (2014).
-\textit{The distributional preferences of Americans}.
-NBER Working Paper.
-
-\bibitem{Fisman2}
-Fisman, R., Kariv, S., and Markovits, D. (2007).
-\textit{Individual Preferences for Giving}.
-American Economic Review, 97(5): 1858-76.
-
-\bibitem{Franzen}
-Franzen, A., and Pointner, S. (2013)
-\textit{The external validity of giving in the dictator game: A field experiment using the misdirected letter technique}.
-Experimental Economics, 16, 155-69.
-
-\bibitem{Galizzi}
-Galizzi, M., and Navarro-Martinez, D. (2017).
-\textit{On the external validity of social preference games: a systematic lab-field study}.
-Management Science.
-
-\bibitem{Gintis}
-Gintis, H. (2000).
-\textit{Strong reciprocity and human sociality}.
-Journal of Theoretical Biology, 206, 169-79.
-
-\bibitem{Gneezy}
-Gneezy, U., Haruvy, E., and Yafe, H. (2004).
-\textit{The inefficiency of splitting the bill: A lesson in institutional design}.
-The Economic Journal, 114(495), 265-80.
-
-\bibitem{Goeschl}
-Goeschl, T., Kettner, S.E., Lohse, J., and Schwieren, C. (2015)
-\textit{What do we learn from public good games about voluntary climate action? Evidence from an artefactual field experiment}.
-University of Heidelberg, Department of Economics Discussion Paper 595.
-
-\bibitem{GurvenWinking}
-Gurven, M., Winking, J. (2008).
-\textit{Collective action in action: prosocial behavior in and out of the laboratory}.
-American Anthropologist, 110(2), 179-190. 
-
-
-\bibitem{Henrich}
-Henrich, J., et al. (2005).
-\textit{``Economic Man'' in Cross-Cultural Perspective: Ethnography and Experiments from 15 Small-Scale Societies}.
-Behavioral and Brain Sciences. 28(6): 795?815.
-
-\bibitem{Hermann}
-Hermann, B., Thoni, C., and Gachter, S. (2008).
-\textit{Anti-social punishment across societies}.
-Science, 319, 1362-67.
-
-\bibitem{HillGurven}
-Hill, K., and Gurven, M. (2004)
-\textit{Economic experiments to examine fairness and cooperation among the Ache Indians of Paraguay}.
-In J. Henrich, R. Boyd, S. Bowles, C. Camerer, E. Fehr, and H. Gintis (Eds.),
-Foundations of Human Sociality: Economic Experiments and Ethnographic Evidence from Fifteen Small-Scale Societies. Oxford University Press.
-
-\bibitem{Hoffman}
-Hoffman, E., McCabe, K., Shachat, K., and Smith, V. (1994).
-\textit{Preferences, property rights, and anonymity in bargaining games}.
-Games and Economic Behavior, 7(3): 346-80.
-
-\bibitem{Karlan}
-Karlan, D.S. (2005).
-\textit{Using experimental economics to measure social capital and predict financial decisions}.
-American Economic Review, 95, 1688-99.
-
-\bibitem{Levitt}
-Levitt, S., and List, J. (2007)
-\textit{What do laboratory experiments measuring social preferences reveal about the real world?}.
-Journal of Economic Perspectives, 21(2), 153-74.
-
-
-\bibitem{List}
-List, John. 2006.
-\textit{The behavioralist meets the market: measuring social preferences and reputation effects in actual transactions}.
-Journal of Political Economy, 114(51), 1-37.
-
-
-\bibitem{Parco}
-Parco, J., Rapoport, A., and Stein, W. (2002).
-\textit{Effects of financial incentives on the breakdown of mutual trust}.
-Psychological Science.
-
-\bibitem{Rabin}
-Rabin, M. (1993).
-\textit{Incorporating fairness into game theory and economics}.
-The American Economic Review, 83, 1281-1302.
-
-\bibitem{Ross}
-Ross, L., and Ward, A. (1996).
-\textit{Naive realism in everyday life: Implications for social conflict and misunderstanding}.
-Values and Knowledge, 103-35.
-
-\bibitem{Rushton}
-Rushton, J.P., Chrisjohn, R.D., and Fekken, G.C. (1981).
-\textit{The altruistic personality and the self-report altruism scale}.
-Personality and Individual Differences, 2, 293-302.
-
-\bibitem{Slonim}
-Slonim, R., and Roth, A. (1998).
-\textit{Learning in high stakes ultimatum games: An experiment in the Slovak Republic}.
-Econometrica, 66, 569-96.
-
-
-\bibitem{Voors}
-Voors, M., Turley, T., Kontoleon, A., Bulte, E., and List, J.A. (2012).
-\textit{Exploring whether behavior in context-free experiments is predictive of behavior in the field: Evidence from lab and field experiments in rural Sierra Leone}.
-Economic Letters, 114, 308-311.
-
-
-\end{thebibliography}
-
+% \newpage
+%\begin{thebibliography}{9}
+%
+%\bibitem{AndreoniMiller}
+%Andreoni, J., and Miller, J.H. (2002).
+%\textit{Giving according to GARP: An experimental test of the consistency of preferences for altruism}.
+%Econometrica, 70, 737-53.
+%
+%\bibitem{Baran}
+%Baran, N.M., Sapienza, P., and Zingales, L. (2010).
+%\textit{Can we infer social preferences from the lab? Evidence from the trust game}.
+%NBER Working Paper 15654.
+%
+%\bibitem{Benz}
+%Benz, M., and Meier, S. (2006).
+%\textit{Do people behave in experiments as in the field? Evidence from donations}.
+%Experimental Economics, 11, 268-81.
+%
+%\bibitem{Berg}
+%Berg, J., Dickhaut, J.W., and McCabe, K.A. (1995).
+%\textit{Trust, reciprocity, and social history}.
+%Games and Economic Behavior, 90, 166-93.
+%
+%\bibitem{Burnham}
+%Burnham, T., McCabe, K., Smith, V. (2000).
+%\textit{Friend-or-foe intentionality priming in an extensive form trust game}.
+%Journal of Economic Behavior \& Organization, 43, 57-73.
+%
+%\bibitem{Carpenter}
+%Carpenter, J.P., Verhoogen, E., and Burks, S. (2005).
+%\textit{The effect of stakes in distribution experiments}.
+%Economics Letters, 86, 393-98.
+%
+%\bibitem{CharnessRabin}
+%Charness, G., and Rabin, M. (2002).
+%\textit{Understanding social preferences with simple tests}.
+%Quarterly Journal of Economics, 117, 817-69.
+%
+%\bibitem{Cherry}
+%Cherry, T., Fykblom, P., and Shogren, J. (2002).
+%\textit{Hardnose the Dictator}.
+%American Economic Review, 92(4): 1218-21.
+%
+%\bibitem{Englmaier}
+%Englmaier, F., and Gebhardt, G. (2010)
+%\textit{Free-riding in the lab and in the field}.
+%CESifo Working Paper No. 3612.
+%
+%\bibitem{FehrLeibbrandt}
+%Fehr, E., and Leibbrandt, A. (2011)
+%\textit{A field study on cooperativeness and impatience in the Tragedy of the Commons}.
+%Journal of Public Economics, 95, 1144-55.
+%
+%\bibitem{FehrSchmidt}
+%Fehr, E., and Schmidt, K. (1999).
+%\textit{A theory of fairness, competition, and cooperation}.
+%Quarterly Journal of Economics, 114, 173-68.
+%
+%\bibitem{Fisman1}
+%Fisman, R., Jakiela, P., and Kariv, S. (2014).
+%\textit{The distributional preferences of Americans}.
+%NBER Working Paper.
+%
+%\bibitem{Fisman2}
+%Fisman, R., Kariv, S., and Markovits, D. (2007).
+%\textit{Individual Preferences for Giving}.
+%American Economic Review, 97(5): 1858-76.
+%
+%\bibitem{Franzen}
+%Franzen, A., and Pointner, S. (2013)
+%\textit{The external validity of giving in the dictator game: A field experiment using the misdirected letter technique}.
+%Experimental Economics, 16, 155-69.
+%
+%\bibitem{Galizzi}
+%Galizzi, M., and Navarro-Martinez, D. (2017).
+%\textit{On the external validity of social preference games: a systematic lab-field study}.
+%Management Science.
+%
+%\bibitem{Gintis}
+%Gintis, H. (2000).
+%\textit{Strong reciprocity and human sociality}.
+%Journal of Theoretical Biology, 206, 169-79.
+%
+%\bibitem{Gneezy}
+%Gneezy, U., Haruvy, E., and Yafe, H. (2004).
+%\textit{The inefficiency of splitting the bill: A lesson in institutional design}.
+%The Economic Journal, 114(495), 265-80.
+%
+%\bibitem{Goeschl}
+%Goeschl, T., Kettner, S.E., Lohse, J., and Schwieren, C. (2015)
+%\textit{What do we learn from public good games about voluntary climate action? Evidence from an artefactual field experiment}.
+%University of Heidelberg, Department of Economics Discussion Paper 595.
+%
+%\bibitem{GurvenWinking}
+%Gurven, M., Winking, J. (2008).
+%\textit{Collective action in action: prosocial behavior in and out of the laboratory}.
+%American Anthropologist, 110(2), 179-190. 
+%
+%
+%\bibitem{Henrich}
+%Henrich, J., et al. (2005).
+%\textit{``Economic Man'' in Cross-Cultural Perspective: Ethnography and Experiments from 15 Small-Scale Societies}.
+%Behavioral and Brain Sciences. 28(6): 795?815.
+%
+%\bibitem{Hermann}
+%Hermann, B., Thoni, C., and Gachter, S. (2008).
+%\textit{Anti-social punishment across societies}.
+%Science, 319, 1362-67.
+%
+%\bibitem{HillGurven}
+%Hill, K., and Gurven, M. (2004)
+%\textit{Economic experiments to examine fairness and cooperation among the Ache Indians of Paraguay}.
+%In J. Henrich, R. Boyd, S. Bowles, C. Camerer, E. Fehr, and H. Gintis (Eds.),
+%Foundations of Human Sociality: Economic Experiments and Ethnographic Evidence from Fifteen Small-Scale Societies. Oxford University Press.
+%
+%\bibitem{Hoffman}
+%Hoffman, E., McCabe, K., Shachat, K., and Smith, V. (1994).
+%\textit{Preferences, property rights, and anonymity in bargaining games}.
+%Games and Economic Behavior, 7(3): 346-80.
+%
+%\bibitem{Karlan}
+%Karlan, D.S. (2005).
+%\textit{Using experimental economics to measure social capital and predict financial decisions}.
+%American Economic Review, 95, 1688-99.
+%
+%\bibitem{Levitt}
+%Levitt, S., and List, J. (2007)
+%\textit{What do laboratory experiments measuring social preferences reveal about the real world?}.
+%Journal of Economic Perspectives, 21(2), 153-74.
+%
+%
+%\bibitem{List}
+%List, John. 2006.
+%\textit{The behavioralist meets the market: measuring social preferences and reputation effects in actual transactions}.
+%Journal of Political Economy, 114(51), 1-37.
+%
+%
+%\bibitem{Parco}
+%Parco, J., Rapoport, A., and Stein, W. (2002).
+%\textit{Effects of financial incentives on the breakdown of mutual trust}.
+%Psychological Science.
+%
+%\bibitem{Rabin}
+%Rabin, M. (1993).
+%\textit{Incorporating fairness into game theory and economics}.
+%The American Economic Review, 83, 1281-1302.
+%
+%\bibitem{Ross}
+%Ross, L., and Ward, A. (1996).
+%\textit{Naive realism in everyday life: Implications for social conflict and misunderstanding}.
+%Values and Knowledge, 103-35.
+%
+%\bibitem{Rushton}
+%Rushton, J.P., Chrisjohn, R.D., and Fekken, G.C. (1981).
+%\textit{The altruistic personality and the self-report altruism scale}.
+%Personality and Individual Differences, 2, 293-302.
+%
+%\bibitem{Slonim}
+%Slonim, R., and Roth, A. (1998).
+%\textit{Learning in high stakes ultimatum games: An experiment in the Slovak Republic}.
+%Econometrica, 66, 569-96.
+%
+%
+%\bibitem{Voors}
+%Voors, M., Turley, T., Kontoleon, A., Bulte, E., and List, J.A. (2012).
+%\textit{Exploring whether behavior in context-free experiments is predictive of behavior in the field: Evidence from lab and field experiments in rural Sierra Leone}.
+%Economic Letters, 114, 308-311.
+%
+%
+%\end{thebibliography}
+%
 \newpage
 
 \appendix
@@ -1111,7 +1133,7 @@ MSPE & 0.39048 \\
 
 
 \begin{table}[!htbp] \centering 
-  \caption{Linear regression models} 
+  \caption{Linear predictive models} 
   \label{} 
   \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{@{\extracolsep{5pt}}lcccccccccccc} 
@@ -1170,7 +1192,7 @@ MSPE & 7.57299 & 7.46333 & 7.45320 & 7.60122 & 7.61780 & 7.60167 & 7.42111 & 7.3
 
 
 \begin{table}[!htbp] \centering 
-  \caption{} 
+  \caption{Best subset linear predictive models} 
   \label{} 
     \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{@{\extracolsep{5pt}}lccccc} 
@@ -1239,7 +1261,7 @@ MSPE & 6.47741 & 6.59637 & 6.63566 & 6.53115 & 6.36137 \\
 \cline{2-2} 
 \\[-1.8ex] & Log(Donations) \\ 
 \hline \\[-1.8ex] 
- SRA4 & 0.27328$^{***} \\ 
+ SRA4 & 0.27328$^{***}$ \\ 
   & \\ 
  SRA6 & 0.00879 \\  
   & \\ 
