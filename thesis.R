@@ -922,10 +922,15 @@ res.bestglm<-
           method="exhaustive")
 res.bestglm$BestModels
 
-best.model.log<-glm(donated~SRA3+SRA4+SRA8+SRA10,data=data)
+best.model.log1<-glm(donated~SRA3+SRA4+SRA8+SRA10,data=data)
+best.model.log2<-glm(donated~SRA3+SRA4+SRA7+SRA8+SRA10,data=data)
+best.model.log3<-glm(donated~alpha+SRA3+SRA4+SRA8+SRA10,data=data)
+best.model.log4<-glm(donated~alpha+SRA3+SRA4+SRA7+SRA8+SRA10,data=data)
+best.model.log5<-glm(donated~UG2+SRA3+SRA4+SRA8+SRA10,data=data)
+
 summary(best.model.log)
 library(pscl)
-pR2(best.model.log)
+pR2(best.model.log5)
 
 best.subset<-regsubsets(y~.,lbw.for.logistic)
 best.subset.summary<-summary(best.subset)
@@ -934,10 +939,11 @@ best.subset.by.cp<-which.min(best.subset.summary$cp)
 best.subset.by.cp
 
 
-stargazer(best.model.log, type="latex",
+stargazer(best.model.log3, best.model.log4, best.model.log5, best.model.log1,
+          best.model.log2, type="latex",
           dep.var.labels=c("Donated"),
-          covariate.labels=c("SRA3", "SRA4", "SRA8", "SRA10"))
-pR2(best.model.log)
+          covariate.labels=c("alpha", "UG2", "SRA3", "SRA4", "SRA8", "SRA10"))
+pR2(best.model.log2)
 
 
 
@@ -968,14 +974,20 @@ res.best.glm<-
           method="exhaustive")
 summary(lbw.for.glm$y)
 res.best.glm$BestModels
-best.model.lm<-vglm(donations~rho,data=data, tobit(Lower=0,Upper=50))
+best.model.lm1<-vglm(donations~rho,data=data, tobit(Lower=0,Upper=50))
 
 summary(censReg(donations~rho, data=data, left=0, right=50))
 
-best.model.lm<-lm(donations~UG1+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
-stargazer(best.model.lm, type="latex",
+best.model.lm1<-lm(donations~UG1+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
+best.model.lm2<-lm(donations~UG1+UG2+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
+best.model.lm3<-lm(donations~UG1+TG2+SRA1+SRA3+SRA4+SRA5+SRA6, data=data)
+best.model.lm4<-lm(donations~UG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6, data=data)
+best.model.lm5<-lm(donations~UG1+TG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6, data=data)
+
+stargazer(best.model.lm2, best.model.lm4, best.model.lm5, best.model.lm1,
+          best.model.lm3,type="latex",
           dep.var.labels=c("Log(Donations)"),
-          covariate.labels=c("UG1", "TG2", "SRA3", "SRA4", "SRA5", "SRA6"))
+          covariate.labels=c("UG1","UG2", "TG1", "TG2","PGG", "SRA1", "SRA3", "SRA4", "SRA5", "SRA6"))
 
 
 
@@ -1299,7 +1311,8 @@ coef(cv.glmmod,best.lambda)
 
 #train/test - logistic
 data$split<-0
-data$split[data$CLASS_YR=='2018']<-1
+data$split[data$CLASS_YR=='2017']<-1
+data$split[data$CLASS_YR=='2018']<-5
 train<-data[data$split==0,]
 test<-data[data$split==1,]
 
@@ -1327,7 +1340,7 @@ model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, dat
 pR2(model22)
 model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
 pR2(model23)
-
+library(stargazer)
 stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
@@ -1363,6 +1376,8 @@ lbw.for.logistic<-within(train, {
   donated<-NULL
   SRAtotal<-NULL
   SRAmoney<-NULL
+  donations2<-NULL
+  donatoins2<-NULL
   #   SRA1<-NULL
   #   SRA2<-NULL
   #   SRA3<-NULL
@@ -1381,24 +1396,24 @@ res.bestglm<-
           method="exhaustive")
 res.bestglm$BestModels
 
-best.model.log1<-glm(donated~alpha+SRA3+SRA4,data=train)
-best.model.log2<-glm(donated~alpha+UG2+SRA3+SRA4,data=train)
-best.model.log3<-glm(donated~alpha+UG2+avgreturn+SRA3+SRA4,data=train)
-best.model.log4<-glm(donated~alpha+SRA3+SRA4+SRA10,data=train)
-best.model.log5<-glm(donated~UG2+SRA3+SRA4,data=train)
+best.model.log1<-glm(donated~alpha+UG2+SRA3+SRA4,data=train)
+best.model.log2<-glm(donated~alpha+SRA3+SRA4,data=train)
+best.model.log3<-glm(donated~alpha+avgreturn+UG2+SRA3+SRA4,data=train)
+best.model.log4<-glm(donated~alpha+avgreturn+SRA3+SRA4,data=train)
+best.model.log5<-glm(donated~alpha+UG2+SRA3+SRA4+SRA10,data=train)
 
-stargazer(best.model.log3, best.model.log2, best.model.log5, best.model.log4, best.model.log1,type="latex",
+stargazer(best.model.log3, best.model.log4, best.model.log5, best.model.log1, best.model.log2,type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha",
+                             "Average Return",
                              "Ultimatum2",
-                             "Avg Return",
                              "SRA3", "SRA4", "SR10"))
 
 
 
 
 summary(best.model.log)
-mean((test$donated - predict.lm(best.model.log1, test)) ^ 2)
+mean((test$donated - predict.lm(best.model.log2, test)) ^ 2)
 #model 4: alpha plus SRA items
 
 library(glmnet)
@@ -1433,6 +1448,8 @@ lbw.for.logistic1<-within(test, {
   donated<-NULL
   SRAtotal<-NULL
   SRAmoney<-NULL
+  donations2<-NULL
+  donatoins2<-NULL
   #   SRA1<-NULL
   #   SRA2<-NULL
   #   SRA3<-NULL
@@ -1457,16 +1474,18 @@ stargazer(m1,type="latex",
           covariate.labels=c("Alpha",
                              "Ultimatum2",
                              "SRA3", "SRA4"))
-
+library(lars)
 m<-lars(x,y,type="lasso")
 covTest(m,x,y)
 
-
+library(covTest)
 #train/test - linear
 data$split<-0
-data$split[data$CLASS_YR=='2018']<-1
+data$split[data$CLASS_YR=='2017']<-1
+data$split[data$CLASS_YR=='2018']<-5
 train<-data[data$split==0,]
 test<-data[data$split==1,]
+
 
 model12<-lm(donations~alpha, data=train)
 pR2(model12)
@@ -1492,7 +1511,7 @@ model22 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, da
 pR2(model22)
 model23 <- lm(donations ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
 pR2(model23)
-mean((test$donated - predict.lm(model23, test)) ^ 2)
+mean((test$donated - predict.lm(model21, test)) ^ 2)
 #model with all games + SRAmoney is best: 7.055587
 stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
           dep.var.labels=c("Log(Donations)"),
@@ -1523,6 +1542,8 @@ lbw.for.lm<-within(train, {
   donated<-NULL
   SRAtotal<-NULL
   SRAmoney<-NULL
+donations2<-NULL
+donatoins2<-NULL
   #   SRA1<-NULL
   #   SRA2<-NULL
   #   SRA3<-NULL
@@ -1542,23 +1563,23 @@ res.bestglm<-
           method="exhaustive")
 res.bestglm$BestModels
 
-best.model.lm1<-lm(donations~TG2+UG1+SRA3+SRA4+SRA5+SRA6,data=train)
-best.model.lm2<-lm(donations~TG2+UG1+UG2+SRA3+SRA4+SRA5+SRA6,data=train)
-best.model.lm3<-lm(donations~TG2+UG1+SRA3+SRA4+SRA5+SRA6+SRA10,data=train)
-best.model.lm4<-lm(donations~TG2+UG1+TG1+SRA3+SRA4+SRA5+SRA6,data=train)
-best.model.lm5<-lm(donations~rho+TG2+UG1+SRA3+SRA4+SRA5+SRA6,data=train)
+best.model.lm1<-lm(donations~rho+TG2+PGG+SRA4+SRA5+SRA6,data=train)
+best.model.lm2<-lm(donations~rho+TG2+UG1+PGG+SRA4+SRA5+SRA6,data=train)
+best.model.lm3<-lm(donations~rho+TG2+PGG+SRA1+SRA4+SRA5+SRA6,data=train)
+best.model.lm4<-lm(donations~rho+TG2+PGG+SRA2+SRA4+SRA5+SRA6,data=train)
+best.model.lm5<-lm(donations~rho+TG2+UG1+PGG+SRA1+SRA4+SRA5+SRA6,data=train)
 
 
-stargazer(best.model.lm5, best.model.lm4,best.model.lm2,best.model.lm1,best.model.lm3, type="latex",
-          dep.var.labels=c("Log(Donations)")),
-          covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
-                             "Trust2", "Cooperation","SRAtotal", "SRAmoney"))
+stargazer(best.model.lm5, best.model.lm2,best.model.lm3,best.model.lm4,best.model.lm1, type="latex",
+          dep.var.labels=c("Log(Donations)"),
+          covariate.labels=c("Rho","Trust2", "Ultimatum1", "PGG",
+                             "SRA1", "SRA2", "SRA4", "SRA5", "SRA6"))
 
 
 
 
 summary(best.model.log)
-mean((test$donated - predict.lm(best.model.lm3, test)) ^ 2)
+mean((test$donated - predict.lm(best.model.lm1, test)) ^ 2)
 
 library(glmnet)
 x<-model.matrix(y~.,lbw.for.lm)[,-1]
@@ -1568,7 +1589,11 @@ lambda_min<-cv.out$lambda.min
 lambda_1se<-cv.out$lambda.1se
 coef(cv.out,s=lambda_min)
 #coef(cv.out,s=lambda_1se)
-
+mood<-lm(y~rho+avgreturn+PGG+SRA4+SRA5+SRA6, data=lbw.for.lm)
+stargazer(mood, type="latex",
+          dep.var.labels=c("Log(Donations)")),
+          covariate.labels=c("Rho","Trust2", "Ultimatum1", 
+                             "SRA1", "SRA2", "SRA4", "SRA5", "SRA6"))
 
 lbw.for.lm1<-within(test, {
   y<-donations
@@ -1592,6 +1617,8 @@ lbw.for.lm1<-within(test, {
   donated<-NULL
   SRAtotal<-NULL
   SRAmoney<-NULL
+  donations2<-NULL
+  donatoins2<-NULL
   #   SRA1<-NULL
   #   SRA2<-NULL
   #   SRA3<-NULL

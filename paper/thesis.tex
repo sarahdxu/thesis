@@ -10,6 +10,7 @@
 \usepackage{booktabs}
 \usepackage{dcolumn}
 \usepackage[round]{natbib}
+
 \bibliographystyle{unsrtnat}
 \newcounter{mysubtable}
 \usepackage{amsmath}
@@ -56,10 +57,13 @@
 
 
 \begin{abstract}
-
-The external validity of social preference games is a growing topic of interest. Many papers have conducted within-subjects experiments, comparing in-lab decisions to real-world decisions. However, the current accumulated evidence is mixed. This research provides a systematic approach: I compared behavior in various social preference games and self-reported measures regarding past social behavior to a natural, far-removed field measure. My results show social preference games do an unsatisfactory job explaining the field behavior. Furthermore, self-reported measures perform just as well, if not better, than the games.
-
+\begin{singlespace}
+The external validity of experimental games is a growing topic of interest. This topic is important because researchers commonly use such games to study individuals\rq \ social preferences. Many papers have conducted within-subjects experiments, comparing subjects\rq \ in-lab decisions to their real-world decisions. However, the current accumulated evidence yield mixed conclusions: some papers found statistically significant lab-field correlations, while other papers did not. This research provides a systematic approach to exploring this matter: I compared behavior in various social preference games and self-reported measures regarding past social behavior to a natural, far-removed field measure. My results show social preference games do a poor job explaining the field behavior. Furthermore, self-reported measures perform just as well, if not better, than the games in both explaining and predicting the field measure.
+\end{singlespace}
 \end{abstract}
+
+
+\tableofcontents
 
 \section{Introduction}
 
@@ -284,6 +288,8 @@ Table 2 contains pairwise correlations (Spearman\rq s \(\rho\)) between the game
 Figure 5 shows the distribution of Wesleyan donations. Panel I shows that 64\% of the participants have donated to Wesleyan University before, and 36\% have not. Panel J shows the distribution of total donation amounts below \$100, with donations above \$100 aggregated into the rightmost bar. Most of the donation amounts are below \$20 (about 36\%). There are 30 participants who each donated a total amount greater than \$100. All of these larger donations amounts are between \$100 and \$625, with the exception of two very large donations.
 
 \subsection{External Validity of Social Preference Games}
+
+\subsubsection{Do the Games Explain Donations Behavior?}
 I now turn to the main question of whether the game decisions explain the field behavior. There are two ways that I represented donations behavior: (1) whether the participant has ever donated or not, and (2) the total amount the participant has donated. I included the \(\alpha\) and \(\rho\) parameters from the generalized dictator game, proposers\rq \ pass rates in the ultimatum and trust games (``ultimatum1'' and ``trust1''), responders\rq \ minimum accepted pass rates from the ultimatum game (``ultimatum2''), responders\rq \ reciprocity levels from the trust game (``trust2''), and players\rq \ pass rates in the public goods game (``cooperation'') as the explanatory game variables. I also included total and monetary SRA scores (``SRAtotal'' and ``SRAmoney'') as the explanatory self-reported variables. Appendix B contains the table of variable definitions. 
 
 Table 3 presents twelve logistic regression models using the binary donations representation as the response variable. The first seven columns present each of the game outcomes on their own, and the eighth column includes all of the game variables. The ninth and tenth columns contain SRAtotal and SRAmoney scores on their own, and the last two columns include all of the game outcomes along with the total and monetary SRA scores, respectively. None of the games or SRA results are statistically significant on their own. When both the games and SRA results are used in the regression model, still none of the variables are statistically significant. 
@@ -296,27 +302,29 @@ I then used ordinary least squares (OLS) to regress the same explanatory variabl
 %where \(L_{c}\) denotes the maximized likelihood for the current fitted model, and \(L_{null}\) denotes the maximized likelihood the model with no predictors.
 %}. The values are shown at the bottom of Table 3. The highest value belongs to the model that includes both the games and monetary SRA score. Interestingly, the pseudo-R$^{2}$ value for the model with all of the game variables is lower than the pseudo-R$^{2}$ values for the models that include only the SRA scores. The pseudo-R$^{2}$ values for the tobit regression models are displayed at the bottom of Table 4. The values are very low, and again, the highest value belongs to the model that includes both the games and monetary SRA score. The pseudo-R$^{2}$ value for the model with all of the game variables is higher than the pseudo-R$^{2}$ value for the model that includes only the total SRA score, but is close to the pseudo-R$^{2}$ value for the model that includes only the monetary SRA score. Altogether, these results tell us that self-reported measures are a better tool than even using multiple social preference games when explaining whether people donate or not, multiple social preference games and money-related self-reported measures perform similarly when explaining how much people donate, but the best tool overall is to use both social preference games and self-reported measures. However, all of the R$^{2}$ values are very low - practically zero - so even the ``best'' model explains little to none of the variability of donations behavior.
 
-It is also useful to look at the R$^{2}$ statistic, which measures the proportion of variance explained by the regressors. For the logistic regressions, I calculated each model\rq s McFadden\rq s pseudo-R$^{2}$ values\footnote{
+It is also useful to look at the R$^{2}$ statistic, which measures the proportion of variance explained by the regressors. For the logistic regressions, I calculated each model\rq s McFadden\rq s pseudo-R$^{2}$ values which are displayed at the bottom of the table\footnote{
 \(R^{2}_{McFadden} = 1 - \frac{log(L_{c})}{log(L_{null})}\)
 where \(L_{c}\) denotes the maximized likelihood for the current fitted model, and \(L_{null}\) denotes the maximized likelihood the model with no predictors.
-} which are displayed at the bottom of the table. The highest value belongs to the model that includes all of the game outcomes and monetary SRA score (model 12). Interestingly, the pseudo-R$^{2}$ value for the model with all of the game variables is lower than the pseudo-R$^{2}$ values for the models that include only the SRA scores. This suggests that self-reported measures explain the field behavior better than even using multiple social preference games. 
+}. The highest value belongs to the model that includes all of the game outcomes and monetary SRA score. Interestingly, the pseudo-R$^{2}$ value for the model with all of the game variables is lower than the pseudo-R$^{2}$ values for the models that include only the SRA scores. This suggests that self-reported measures explain the field behavior better than even using multiple social preference games. 
 
-The R$^{2}$ values for the linear regression models are displayed at the bottom of Table 4. The values are very low, and again, the highest value belongs to the model that includes both the games and monetary SRA score (model 12). In contrast to the logistic regression models, the R$^{2}$ value for the model with all of the game variables is larger than the R$^{2}$ values for the models that includes only the total and monetary SRA scores. 
+The R$^{2}$ values for the linear regression models are displayed at the bottom of Table 4. The values are very low, and again, the highest value belongs to the model that includes both the games and monetary SRA score. In contrast to the logistic regression models, this time the R$^{2}$ value for the model with all of the game variables is larger than the R$^{2}$ values for the models that includes only the total and monetary SRA scores. 
 
-Altogether, these results tell us that self-reported measures are a better tool than even using multiple social preference games when explaining whether people donate or not, and using multiple social preference games is a better than using self-reported measures when explaining how much people donate. The best tool overall, though, is to use both social preference games and self-reported measures. However, all of the R$^{2}$ values are very low - practically zero - so even the ``best'' model explains very little of the variability of donations behavior.
+Altogether, these results tell us that self-reported measures are a better tool than even using multiple social preference games when explaining whether people donate or not, and using multiple social preference games is better than using self-reported measures when explaining how much people donate. The best tool overall, though, is to use both social preference games and self-reported measures. Nevertheless, all of the models\rq \ R$^{2}$ values are very low -- practically zero -- so even the ``best'' model explains very little of the variability of donations behavior.
 
-Tables 3 and 4 therefore provide evidence that the social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. However, this may be because the right combination of variables are not included in the models. I performed best subset selection on both the logistic and linear regression models\footnote{Best subset selection identifies all of the possible regression models derived from all of the possible combinations of the candidate predictors, and determines the model that does the best at meeting some well-defined criteria. In this case, the criteria I used is Mallows\rq \ \(C_{p}\)-statistic, which assesses assess fits when models with different numbers of parameters are being compared.  See \cite{mallows_1973}.}. Since best subset selection fits all possible models to find the best candidate, I included more explanatory variables: I added the responders\rq \ average return outcome from the trust game, and replaced SRAtotal and SRAmoney with each of the ten individual SRA items. I first performed best subset selection for the logistic model, and the chosen model included four of the SRA items were chosen (items 3, 4, 8, and 10). Table 5 displays the best subset logistic regression model. All of the chosen SRA items are statistically significant at the 5\% level. The pseudo-R$^{2}$ value of the model is a lot better than the previous logistic models in Table 3 (almost 8 times larger than the highest value), although it is still pretty low. 
+Tables 3 and 4 therefore provide evidence that the social preference games, even when combined with self-reported measures, have little to no power to explain donations behavior. However, this may be because the right combination of variables are not included in the models. I performed best subset selection on both the logistic and linear regression models\footnote{Best subset selection identifies all of the possible regression models derived from all of the possible combinations of the candidate predictors, and determines the model that does the best at meeting some well-defined criteria. In this case, the criteria I used is Mallows\rq \ \(C_{p}\)-statistic, which assesses assess fits when models with different numbers of parameters are being compared.  See \cite{mallows_1973}.}. Since best subset selection fits all possible models to find the best candidate, I included more explanatory variables: I added the responders\rq \ average return outcome from the trust game (``average return''), and replaced SRAtotal and SRAmoney with each of the ten individual SRA items (``SRA1'' - ``SRA10''). I first performed best subset selection for the logistic model, where Table 5 displays the five best subset logistic regression models. Notably four SRA items (items 3, 4, 8, and 10) appear in all five of the models, where they are statistically significant at the 5\% level. Each model\rq s pseudo-R$^{2}$ values are considerably larger than the previous logistic models in Table 3 (almost 8 times larger, with the highest value belonging to the model that includes \(\alpha\) and five SRA items (items 3, 4, 7, 8, and 10). However, the R$^{2}$ value is still pretty close to zero.
 
 %I then ran best subset selection for the tobit model, and only the \(\rho\) parameter from GDG was selected. Table 6 contains the tobit regression that includes only \(\rho\). However, the variable is not statistically significant, and the psuedo-R$^{2}$ value is not better than the previous tobit models in Table 4. 
-Best subset selection on the linear model selected the model that included ultimatum1, trust2, and four of the SRA items (items 3, 4, 5, and 6). Table 6 displays the best subset linear regression model. The third and sixth SRA items are statistically significant at the 10\% level, and the rest of the variables are statistically significant at the 5\% level. The R$^{2}$ statistic is significantly larger than the values in Table 4, but the model still explains only about 15\% of the variability in donations behavior.
+Table 6 reports the five best subset linear regression models. Two game variables (ultimatum1 and trust2) as well as four SRA items (items 3, 4, 5, and 6) appear regularly in all of the models. Ultimatum1 and trust2 are both statistically significant at the 5\% level, SRA items 3 and 6 are statistically significant at the 10\% level, and SRA items 4 and 5 are statistically significant at the 1\% level. Again, all of the the R$^{2}$ statistics are significantly larger than the values in Table 4. The highest R$^{2}$ value belongs to the model that contains the mentioned variables along with cooperation and trust1, but the model still explains only about 17\% of the variability in donations behavior.
 
 %Overall, a few of the SRA items are a slightly better tool than both social preference games and total/monetary SRA scores to explain whether people donate or not, and \(\rho\) was chosen as the best variable to explain the amount people donate. However, the R$^{2}$ values show that each models\rq \ chosen variables still explain little to none of the variability of donations behavior. In addition, some of the game variables in the models have signs that are not expected. First, it makes sense that \(\alpha\) should be negative since higher levels of alpha indicate more selfish behavior. Ultimatum1, trust1, and cooperation should have positive relationships with donations since higher pass rates signal more pro-social preferences. Ultimatum2 is expected to have a negative relationship with donations since higher minimum accepted pass rates signal higher negative reciprocity, and trust2 should have a positive relationship with donations. However, in the logistic model, \(\alpha\), ultimatum1, and ultimatum2 have opposite signs than expected, and in the tobit model, \(\alpha\), ultimatum2, trust1, and trust2 have opposite signs than expected. While these poor results may be discouraging regarding the external validity of social preference games, it is still very interesting as it suggests the social preference games may not generalize field behavior as much as they are expected to.
 
-Overall, a few of the SRA items are a slightly better tool than both social preference games and total/monetary SRA scores to explain whether people donate or not, and a couple of the games (ultimatum and trust games) along with a few of the SRA items were chosen as the best variable to explain the amount people decide to donate. However, each models\rq \ chosen variables still explain only a little of the variability of donations behavior. In addition, some of the game variables in the models have signs that are not expected. First, it makes sense that \(\alpha\) should be negative since higher levels of alpha indicate more selfish behavior. Ultimatum1, trust1, and cooperation should have positive relationships with donations since higher pass rates signal more pro-social preferences. Ultimatum2 is expected to have a negative relationship with donations since higher minimum accepted pass rates signal higher negative reciprocity, and trust2 should have a positive relationship with donations. However, in the logistic models, \(\alpha\), ultimatum1, and ultimatum2 have opposite signs than expected, and in the linear models, \(\alpha\), trust1, and trust2 have opposite signs than expected. Both of these negative results suggest that the external validity of social preference games is pretty weak.
+Overall, self-reported measures seem to perform just as well as social preference games in explaining the field measure. This is seen in Table 5 and 6 where the same SRA items consistently appear in each of the models. However, each of the estimated models\rq \ still explain only a little of the variability of donations behavior. Moreover, some of the game variables in the models as seen in Tables 3-6 have signs that are not expected. First, it makes sense that \(\alpha\) should be negative since higher levels of alpha indicate more selfish behavior. Ultimatum1, trust1, and cooperation should have positive relationships with donations since higher pass rates signal more pro-social preferences. Ultimatum2 is expected to have a negative relationship with donations since higher minimum accepted pass rates signal higher negative reciprocity, and trust2 should have a positive relationship with donations. However, in the logistic models, \(\alpha\), ultimatum1, and ultimatum2 have opposite signs than expected, and in the linear models, \(\alpha\), trust1, and trust2 have opposite signs than expected. Therefore both the extremely low R$^{2}$ values and unexpected direction of game coefficients suggest that the external validity of social preference games is pretty weak.
 
-These results also switch us to another interesting topic: although the experimental games and self-reported measures do a poor job explaining donations behavior, perhaps they can still be a useful tool to predict donations behavior. That is, if Wesleyan University wanted to predict donations from incoming alumni, perhaps using social preference games and/or self-reported measures from older alumni can help them predict donations behavior.
+\subsubsection{Do the Games Predict Donations Behavior?}
 
-In predictive modeling, a common approach is to split the data into a training set and testing set. The training set is used to build and train the model. Once the model is ready, the model is tested on the testing set to determine its accuracy and performance. I used the data from the older alumni participants (those who graduated in 2013, 2014, 2015, and 2016) to create the training set, and used the data from the most recent alumni (those who graduated in 2017) to create the testing set. Similar as before, I estimated models for both the binary and continuous representations of donations behavior. The models I estimated include: the logistic/linear regression model, the best-subset logistic/linear regression model, and the least absolute shrinkage and selection operator (lasso) model\footnote{The least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
+The poor results from the previous section lead to another interesting topic: perhaps the social preference games and self-reported measures can still be a useful tool to predict donations behavior. That is, if Wesleyan University wanted to predict donations from incoming alumni, they can possibly use social preference games and/or self-reported measures from older alumni to help anticipate donations behavior.
+
+In predictive modeling, a common approach is to split the data into a training set and testing set. The training set is used to build and train the model. Once the model is ready, the model is tested on the testing set to determine its accuracy and performance. I used the data from the older alumni participants (those who graduated in 2013, 2014, 2015, and 2016) to create the training set, and used the data from the most recent alumni (those who graduated in 2017) to create the testing set\footnote{I decided not to use current seniors as the testing setWhy not use current seniors.}. Similar as before, I estimated models for both the binary and continuous representations of donations behavior. The models I estimated include: the logistic/linear regression model, the best-subset logistic/linear regression model, and the least absolute shrinkage and selection operator (lasso) model\footnote{The least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
 \( \beta^{lasso}=\mathop\mathrm{argmin}\limits_{\beta} \{ \frac{1}{2} \sum_{i=1}^{N} (y_{i} - \beta_{0} - \sum_{j=1}^{p}x_{ij}\beta _{j})^{2}+\lambda\sum_{j=1}^{p}|\beta _{j}|\} \) \\ \\
 where \(\lambda\) is a free parameter set to minimize the out of sample error. Certain coefficients are truncated to be set to zero to effectively choose a simpler model that does not include those coefficients. In other words, lasso regression works like a feature selector that picks out the most important coefficients, i.e. those that are most predictive (and have the lowest p-values). See \cite{tibshirani_1996} for a full introduction on the lasso method.}. To compare how well the models performed, I tested each of the models on the testing set and looked at the mean-squared prediction error (MSPE)\footnote{\(MSPE = E[(g(x_{i}) - \hat{g}(x_{i}))^{2}]\), i.e. the expected value of the squared difference between the fitted values implied by the predictive model \(\hat{g}\) and the values of the (unobservable) model g}, where the smallest MSPE value indicates the best predictive model.
 
@@ -891,38 +899,48 @@ F Statistic & 0.044 & 1.149  & 1.155 & 0.210  & 0.331 & 1.907 & 2.749$^{*}$ & 1.
 
 
 \begin{table}[!htbp] \centering 
-  \caption{Best-subset logistic regression} 
+  \caption{Best-subset logistic regressions} 
   \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Donated \\ 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{Donated} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
 \hline \\[-1.8ex] 
- SRA3 & $-$0.096$^{***}$ \\ 
-  & (0.028) \\ 
-  & \\ 
- SRA4 & 0.123$^{***}$ \\ 
-  & (0.030) \\ 
-  & \\ 
- SRA8 & 0.075$^{**}$ \\ 
-  & (0.034) \\ 
-  & \\ 
- SRA10 & $-$0.052$^{**}$ \\ 
-  & (0.025) \\ 
-  & \\ 
- Constant & 0.386$^{**}$ \\ 
-  & (0.155) \\ 
-  & \\ 
+ Alpha & 0.090 & 0.097 &  &  &  \\ 
+  & (0.083) & (0.083) &  &  &  \\ 
+  & & & & & \\ 
+ Ultimatum2 &  &  & 0.128 &  &  \\ 
+  &  &  & (0.133) &  &  \\ 
+  & & & & & \\ 
+ SRA3 & $-$0.097$^{***}$ & $-$0.101$^{***}$ & $-$0.094$^{***}$ & $-$0.096$^{***}$ & $-$0.100$^{***}$ \\ 
+  & (0.028) & (0.029) & (0.028) & (0.028) & (0.029) \\ 
+  & & & & & \\ 
+ SRA4 & 0.124$^{***}$ & 0.120$^{***}$ & 0.123$^{***}$ & 0.123$^{***}$ & 0.119$^{***}$ \\ 
+  & (0.030) & (0.030) & (0.030) & (0.030) & (0.030) \\ 
+  & & & & & \\ 
+ SRA7 &  & 0.028 &  &  & 0.026 \\ 
+  &  & (0.021) &  &  & (0.021) \\ 
+  & & & & & \\ 
+ SRA8 & 0.077$^{**}$ & 0.075$^{**}$ & 0.077$^{**}$ & 0.075$^{**}$ & 0.073$^{**}$ \\ 
+  & (0.034) & (0.034) & (0.034) & (0.034) & (0.034) \\ 
+  & & & & & \\ 
+ SRA10 & $-$0.055$^{**}$ & $-$0.058$^{**}$ & $-$0.053$^{**}$ & $-$0.052$^{**}$ & $-$0.055$^{**}$ \\ 
+  & (0.025) & (0.025) & (0.025) & (0.025) & (0.025) \\ 
+  & & & & & \\ 
+ Constant & 0.340$^{**}$ & 0.316$^{*}$ & 0.349$^{**}$ & 0.386$^{**}$ & 0.367$^{**}$ \\ 
+  & (0.161) & (0.161) & (0.160) & (0.155) & (0.156) \\ 
+  & & & & & \\ 
 \hline \\[-1.8ex] 
-Observations & 343 \\ 
-Log Likelihood & $-$220.385 \\ 
-Akaike Inf. Crit. & 450.770 \\ 
-Psuedo-R$^{2}$ & 0.06506 \\
+Observations & 343 & 343 & 343 & 343 & 343 \\ 
+Log Likelihood & $-$219.787 & $-$218.865 & $-$219.909 & $-$220.385 & $-$219.562 \\ 
+Akaike Inf. Crit. & 451.574 & 451.731 & 451.817 & 450.770 & 451.124 \\ 
+Psuedo-R$^{2}$ & 0.06761 & 0.07154 & 0.06709 & 0.06506 & 0.06857 \\
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
 \end{table} 
 
@@ -953,46 +971,63 @@ Psuedo-R$^{2}$ & 0.06506 \\
 %\end{table} 
 
 \begin{table}[!htbp] \centering 
-  \caption{Best-subset linear regresion} 
+  \caption{Best-subset linear regressions} 
   \label{} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
+  \begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
 \\[-1.8ex]\hline 
 \hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Log(Donations) \\ 
+ & \multicolumn{5}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-6} 
+\\[-1.8ex] & \multicolumn{5}{c}{Log(Donations)} \\ 
+\\[-1.8ex] & (1) & (2) & (3) & (4) & (5)\\ 
 \hline \\[-1.8ex] 
- UG1 & 0.960$^{**}$ \\ 
-  & (0.446) \\ 
-  & \\ 
- TG2 & $-$1.387$^{***}$ \\ 
-  & (0.511) \\ 
-  & \\ 
- SRA3 & $-$0.220$^{*}$ \\ 
-  & (0.122) \\ 
-  & \\ 
- SRA4 & 0.744$^{***}$ \\ 
-  & (0.142) \\ 
-  & \\ 
- SRA5 & $-$0.414$^{***}$ \\ 
-  & (0.131) \\ 
-  & \\ 
- SRA6 & 0.254$^{*}$ \\ 
-  & (0.147) \\ 
-  & \\ 
- Constant & 1.592$^{*}$ \\ 
-  & (0.838) \\ 
-  & \\ 
+ Ultimatum1 & 1.035$^{**}$ & 0.831$^{*}$ & 0.992$^{**}$ & 0.960$^{**}$ & 0.958$^{**}$ \\ 
+  & (0.449) & (0.456) & (0.470) & (0.446) & (0.446) \\ 
+  & & & & & \\ 
+ Ultimatum2 & $-$0.772 &  &  &  &  \\ 
+  & (0.557) &  &  &  &  \\ 
+  & & & & & \\ 
+ Trust1 &  &  & $-$0.590 &  &  \\ 
+  &  &  & (0.427) &  &  \\ 
+  & & & & & \\ 
+ Trust2 & $-$1.473$^{***}$ & $-$1.416$^{***}$ & $-$1.102$^{**}$ & $-$1.387$^{***}$ & $-$1.337$^{***}$ \\ 
+  & (0.513) & (0.510) & (0.557) & (0.511) & (0.511) \\ 
+  & & & & & \\ 
+ Cooperation &  & 0.487 & 0.664$^{*}$ &  &  \\ 
+  &  & (0.371) & (0.392) &  &  \\ 
+  & & & & & \\ 
+ SRA1 &  &  &  &  & $-$0.214 \\ 
+  &  &  &  &  & (0.162) \\ 
+  & & & & & \\ 
+ SRA3 & $-$0.235$^{*}$ & $-$0.228$^{*}$ & $-$0.237$^{*}$ & $-$0.220$^{*}$ & $-$0.192 \\ 
+  & (0.122) & (0.122) & (0.121) & (0.122) & (0.123) \\ 
+  & & & & & \\ 
+ SRA4 & 0.758$^{***}$ & 0.732$^{***}$ & 0.734$^{***}$ & 0.744$^{***}$ & 0.755$^{***}$ \\ 
+  & (0.142) & (0.142) & (0.142) & (0.142) & (0.142) \\ 
+  & & & & & \\ 
+ SRA5 & $-$0.433$^{***}$ & $-$0.404$^{***}$ & $-$0.408$^{***}$ & $-$0.414$^{***}$ & $-$0.383$^{***}$ \\ 
+  & (0.131) & (0.131) & (0.130) & (0.131) & (0.133) \\ 
+  & & & & & \\ 
+ SRA6 & 0.260$^{*}$ & 0.258$^{*}$ & 0.281$^{*}$ & 0.254$^{*}$ & 0.300$^{**}$ \\ 
+  & (0.147) & (0.147) & (0.148) & (0.147) & (0.151) \\ 
+  & & & & & \\ 
+ Constant & 1.805$^{**}$ & 1.325 & 1.233 & 1.592$^{*}$ & 1.860$^{**}$ \\ 
+  & (0.850) & (0.861) & (0.861) & (0.838) & (0.861) \\ 
+  & & & & & \\ 
 \hline \\[-1.8ex] 
-Observations & 220 \\ 
-R$^{2}$ & 0.157 \\ 
-Adjusted R$^{2}$ & 0.133 \\ 
-Residual Std. Error & 1.549 (df = 213) \\ 
-F Statistic & 6.604$^{***}$ (df = 6; 213) \\ 
+Observations & 220 & 220 & 220 & 220 & 220 \\ 
+R$^{2}$ & 0.164 & 0.164 & 0.171 & 0.157 & 0.164 \\ 
+Adjusted R$^{2}$ & 0.137 & 0.136 & 0.140 & 0.133 & 0.136 \\ 
+Residual Std. Error & 1.546 & 1.547  & 1.543  & 1.549 & 1.547  \\ 
+& (df = 212) &(df = 212) &(df = 211) &(df = 213) &(df = 212) \\
+F Statistic & 5.959$^{***}$ & 5.925$^{***}$ & 5.445$^{***}$  & 6.604$^{***}$  & 5.927$^{***}$  \\ 
+& (df = 7; 212) & (df = 7; 212) & (df = 8; 211) & (df = 6; 213) & (df = 7; 212) \\
 \hline 
 \hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\textit{Note:}  & \multicolumn{5}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
 \end{tabular} 
+\end{adjustbox}
 \end{table} 
 
 

@@ -1,0 +1,23 @@
+\select@language {english}
+\contentsline {section}{\numberline {1}Introduction}{2}
+\contentsline {section}{\numberline {2}Literature Review}{5}
+\contentsline {section}{\numberline {3}Methods}{9}
+\contentsline {subsection}{\numberline {3.1}Incentivized social preference games}{10}
+\contentsline {subsubsection}{\numberline {3.1.1}Strategy Method}{16}
+\contentsline {subsubsection}{\numberline {3.1.2}Payment}{16}
+\contentsline {subsection}{\numberline {3.2}Self-reported measures of past social behaviors}{17}
+\contentsline {subsection}{\numberline {3.3}Field Measure}{17}
+\contentsline {subsubsection}{\numberline {3.3.1}Theoretical Correspondences Between Games and Donations}{18}
+\contentsline {subsection}{\numberline {3.4}Participants and Sessions}{20}
+\contentsline {section}{\numberline {4}Results}{21}
+\contentsline {subsection}{\numberline {4.1}Social Preference Games}{21}
+\contentsline {subsection}{\numberline {4.2}Self-Reported Measures of Past Social Behaviors}{26}
+\contentsline {subsection}{\numberline {4.3}Donations Behavior}{27}
+\contentsline {subsection}{\numberline {4.4}External Validity of Social Preference Games}{27}
+\contentsline {subsubsection}{\numberline {4.4.1}Do the Games Explain Donations Behavior?}{27}
+\contentsline {subsubsection}{\numberline {4.4.2}Do the Games Predict Donations Behavior?}{31}
+\contentsline {section}{\numberline {5}Discussion and Conclusion}{33}
+\contentsline {section}{\numberline {A}Computerized Social Preference Games}{40}
+\contentsline {section}{\numberline {B}Self-Report Altruism (SRA) Questions List}{44}
+\contentsline {section}{\numberline {C}Variables Definition Table}{45}
+\contentsline {section}{\numberline {D}Figures and Tables}{45}
