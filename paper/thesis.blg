@@ -1,48 +1,48 @@
 This is BibTeX, Version 0.99d (TeX Live 2016)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: thesis.aux
-The style file: plainnat.bst
+The style file: unsrtnat.bst
 Database file #1: mybibliography.bib
 Warning--empty journal in fisman_jakiela_kariv_2014
 You've used 37 entries,
-            2773 wiz_defined-function locations,
-            810 strings with 10294 characters,
-and the built_in function-call counts, 17164 in all, are:
-= -- 1514
-> -- 956
+            2481 wiz_defined-function locations,
+            769 strings with 9886 characters,
+and the built_in function-call counts, 14179 in all, are:
+= -- 1192
+> -- 671
 < -- 20
-+ -- 322
-- -- 285
-* -- 1449
-:= -- 2634
++ -- 264
+- -- 190
+* -- 1128
+:= -- 2239
 add.period$ -- 111
 call.type$ -- 37
-change.case$ -- 206
+change.case$ -- 74
 chr.to.int$ -- 37
-cite$ -- 75
-duplicate$ -- 770
-empty$ -- 1444
-format.name$ -- 348
-if$ -- 3627
+cite$ -- 38
+duplicate$ -- 714
+empty$ -- 1351
+format.name$ -- 253
+if$ -- 3059
 int.to.chr$ -- 1
-int.to.str$ -- 1
+int.to.str$ -- 38
 missing$ -- 37
 newline$ -- 193
-num.names$ -- 148
-pop$ -- 361
+num.names$ -- 111
+pop$ -- 277
 preamble$ -- 1
-purify$ -- 169
+purify$ -- 37
 quote$ -- 0
-skip$ -- 590
+skip$ -- 426
 stack$ -- 0
 substring$ -- 739
-swap$ -- 55
+swap$ -- 92
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 407
+type$ -- 259
 warning$ -- 1
-while$ -- 143
+while$ -- 106
 width$ -- 0
 write$ -- 481
 (There was 1 warning)

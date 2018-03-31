@@ -550,6 +550,85 @@ pdf("~/Desktop/thesis/paper/images/Figure4.pdf",width=11,height=8.5)
 grid.arrange(donated, donations, nrow=2)
 dev.off()
 
+data2018<-data[data$CLASS_YR==2018,]
+data2018$donations1[data2018$donations1>=500]<-NA
+data2017<-data[data$CLASS_YR==2017,]
+data2017$donations1[data2017$donations1>=500]<-NA
+data2016<-data[data$CLASS_YR==2016,]
+data2016$donations1[data2016$donations1>=400]<-NA
+data2015<-data[data$CLASS_YR==2015,]
+data2015$donations1[data2015$donations1>=300]<-NA
+data2014<-data[data$CLASS_YR==2014,]
+data2014$donations1[data2014$donations1>=400]<-NA
+data2013<-data[data$CLASS_YR==2013,]
+data2013$donations1[data2013$donations1>=2000]<-NA
+# install.packages("ggplot2")
+# library(ggplot2)
+# donations2018<-ggplot(data2018, aes(data2018$d)) +geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+#   labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,35,5))+
+#   ylim(c(0,100))+
+#   ggtitle("2018 Donation Amounts")
+# 
+# donations2017<-ggplot(data2017, aes(data2017$d)) +geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+#   labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,40,5))+
+#   ylim(c(0,80))+
+#   ggtitle("2017 Donation Amounts")
+# donations2016<-ggplot(data2016, aes(data2016$d)) +geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+#   labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,40,5))+
+#   ylim(c(0,35))+
+#   ggtitle("2016 Donation Amounts")
+# 
+# donations2015<-ggplot(data2015, aes(data2015$d)) +geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+#   labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,90,5))+
+#   ylim(c(0,35))+
+#   ggtitle("2015 Donation Amounts")
+# 
+# donations2014<-ggplot(data2014, aes(data2014$d)) +geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+#   labs(x="Donation Amount", y="Percent")+scale_x_continuous(breaks=seq(0,70,5))+
+#   ylim(c(0,35))+
+#   ggtitle("2014 Donation Amounts")
+
+# data$donations2<-data$donations1
+# data$donatoins2[data$donations1>1000]<-NA
+# summary(data$donations[data$CLASS_YR==2018])
+# summary(data$donations[data$CLASS_YR==2017])
+# summary(data$donations[data$CLASS_YR==2016])
+# summary(data$donations[data$CLASS_YR==2015])
+# summary(data$donations[data$CLASS_YR==2014])
+# summary(data$donations[data$CLASS_YR==2013])
+
+summary(data2018$donations1)
+summary(data2017$donations1)
+summary(data2016$donations1)
+summary(data2015$donations1)
+summary(data2014$donations1)
+summary(data2013$donations1)
+
+summary(data2018$donated)
+summary(data2017$donated)
+summary(data2016$donated)
+summary(data2015$donated)
+summary(data2014$donated)
+summary(data2013$donated)
+
+df<-data.frame(classyr=c("2018", "2017", "2016", "2015", "2014", "2013"),
+               avgdonations=c(2.779, 7.276, 11.99, 26.09, 44.02, 68.87),
+               donated=c(0.2857, 0.6316, 0.7231, 0.6875, 0.7143, 0.9074))
+
+avgdonation<-ggplot(df, aes(classyr, avgdonations)) + geom_bar(stat="identity") +
+  #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+  labs(x="Class Year", y="Average Donation Amount")+
+  ggtitle("Panel M: Average Donation Amount by Class Year")
+
+avgdonated<-ggplot(df, aes(classyr, donated)) + geom_bar(stat="identity") +
+  #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
+  labs(x="Class Year", y="Percent Donated")+
+  ggtitle("Panel N: Percent Donated by Class Year")
+
+pdf("~/Desktop/thesis/paper/images/Figure6.pdf",width=11,height=8.5)
+grid.arrange(avgdonation, avgdonated, nrow=2)
+dev.off()
+library(gridExtra)
 # e<-data[data$donation>625,]
 # prop.table(table(e$donation))
 # summary(data$donation)
