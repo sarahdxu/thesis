@@ -18,7 +18,8 @@
 \contentsline {subsubsection}{\numberline {4.4.2}Do the Games Predict Donations Behavior?}{31}
 \contentsline {section}{\numberline {5}Discussion and Conclusion}{33}
 \contentsline {section}{References}{36}
-\contentsline {section}{Appendix \numberline {A}Computerized Social Preference Games}{40}
-\contentsline {section}{Appendix \numberline {B}Self-Report Altruism (SRA) Questions List}{44}
-\contentsline {section}{Appendix \numberline {C}Variables Definition Table}{45}
-\contentsline {section}{Appendix \numberline {D}Figures and Tables}{45}
+\let \numberline \appendixnumberline 
+\contentsline {section}{\numberline {A}Figures and Tables}{40}
+\contentsline {section}{\numberline {B}Variables Definition Table}{57}
+\contentsline {section}{\numberline {C}Computerized Social Preference Games}{58}
+\contentsline {section}{\numberline {D}Self-Report Altruism (SRA) Items}{63}
