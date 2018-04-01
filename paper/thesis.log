@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  31 MAR 2018 22:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  31 MAR 2018 22:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -422,6 +422,12 @@ Package color Info: Driver file: pdftex.def on input line 144.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count92
+\c@@ppsavesec=\count93
+\c@@ppsaveapp=\count94
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
 
@@ -430,15 +436,15 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count92
-\calc@Bcount=\count93
+\calc@Acount=\count95
+\calc@Bcount=\count96
 \calc@Adimen=\dimen114
 \calc@Bdimen=\dimen115
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count94
+\calc@Ccount=\count97
 \calc@Cskip=\skip45
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -456,7 +462,7 @@ File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
 \AM@pagebox=\box26
 \AM@global@opts=\toks18
 \AM@toc@title=\toks19
-\c@AM@survey=\count95
+\c@AM@survey=\count98
 \AM@templatesizebox=\box27
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/booktabs/booktabs.sty
@@ -471,12 +477,12 @@ Package: booktabs 2016/04/27 v1.618033 publication quality tables
 \cmidrulesep=\dimen125
 \cmidrulekern=\dimen126
 \defaultaddspace=\dimen127
-\@cmidla=\count96
-\@cmidlb=\count97
+\@cmidla=\count99
+\@cmidlb=\count100
 \@aboverulesep=\dimen128
 \@belowrulesep=\dimen129
-\@thisruleclass=\count98
-\@lastruleclass=\count99
+\@thisruleclass=\count101
+\@lastruleclass=\count102
 \@thisrulewidth=\dimen130
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tocbibind/tocbibind.sty
@@ -502,9 +508,9 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip48
 \bibsep=\skip49
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count100
+\c@NAT@ctr=\count103
 )
-\c@mysubtable=\count101
+\c@mysubtable=\count104
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/10 v2.15b AMS math features
@@ -526,13 +532,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count102
+\inf@bad=\count105
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count103
-\leftroot@=\count104
+\uproot@=\count106
+\leftroot@=\count107
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count105
-\DOTSCASE@=\count106
+\classnum@=\count108
+\DOTSCASE@=\count109
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
@@ -541,15 +547,15 @@ LaTeX Info: Redefining \cdots on input line 518.
 \big@size=\dimen135
 LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count107
-\c@MaxMatrixCols=\count108
+\macc@depth=\count110
+\c@MaxMatrixCols=\count111
 \dotsspace@=\muskip10
-\c@parentequation=\count109
-\dspbrk@lvl=\count110
+\c@parentequation=\count112
+\dspbrk@lvl=\count113
 \tag@help=\toks22
-\row@=\count111
-\column@=\count112
-\maxfields@=\count113
+\row@=\count114
+\column@=\count115
+\maxfields@=\count116
 \andhelp@=\toks23
 \eqnshift@=\dimen136
 \alignsep@=\dimen137
@@ -578,7 +584,7 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen147
 \caption@hangindent=\dimen148
 )
-\c@ContinuedFloat=\count114
+\c@ContinuedFloat=\count117
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
@@ -587,7 +593,7 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@old@col=\dimen151
 \TX@target=\dimen152
 \TX@delta=\dimen153
-\TX@cols=\count115
+\TX@cols=\count118
 \TX@ftn=\toks26
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/adjustbox/adjustbox.sty
@@ -601,7 +607,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks27
 \XKV@tempa@toks=\toks28
 )
-\XKV@depth=\count116
+\XKV@depth=\count119
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -631,21 +637,15 @@ File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count117
+\c@checkoddpage=\count120
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box31
-\sift@deathcycles=\count118
+\sift@deathcycles=\count121
 \@vwid@loff=\dimen162
 \@vwid@roff=\dimen163
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
-Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count119
-\c@@ppsavesec=\count120
-\c@@ppsaveapp=\count121
-)
 (./thesis.aux
 
 LaTeX Warning: Label `' multiply defined.
@@ -683,18 +683,18 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count122
@@ -805,46 +805,51 @@ Package caption Info: End \AtBeginDocument code.
 \openout3 = `thesis.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 76.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 74.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 74.
 
-Overfull \hbox (2.00568pt too wide) in paragraph at lines 76--77
+Overfull \hbox (2.00568pt too wide) in paragraph at lines 74--75
 []\OT1/cmr/m/n/12 Dictator Game: The player (the dic-ta-tor) re-ceives an en-do
 w-ment and chooses
  []
 
 [3] [4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (39.40318pt too wide) in paragraph at lines 122--137
+Overfull \hbox (39.40318pt too wide) in paragraph at lines 120--135
  [] 
  []
 
 [11] [12]
-Overfull \hbox (12.73997pt too wide) in paragraph at lines 147--148
+Overfull \hbox (12.73997pt too wide) in paragraph at lines 145--146
 []| $[]$ \OT1/cmr/m/n/12 Sup-pose the par-tic-i-pant chooses to re-ject all of-
 fered amounts
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
 [14] [15] [16] [17] [18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--242
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 249--250
 
  []
 
@@ -854,236 +859,227 @@ Underfull \hbox (badness 10000) in paragraph at lines 251--252
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 255--257
+Underfull \hbox (badness 10000) in paragraph at lines 253--255
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 258--259
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
 
-Overfull \hbox (9.12599pt too wide) in paragraph at lines 260--262
+Overfull \hbox (9.12599pt too wide) in paragraph at lines 258--260
 \OT1/cmr/m/n/12 where \OT1/cmr/m/it/12 i \OT1/cmr/m/n/12 rep-re-sents each par-
 tic-i-pant, \OT1/cmr/m/it/12 t \OT1/cmr/m/n/12 rep-re-sents each in-de-pen-dent
  decision-problems
  []
 
 [23] [24] [25] [26] [27] [28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 329--329
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 329--329
+Underfull \hbox (badness 10000) in paragraph at lines 327--327
 
  []
 
 [31] [32] [33] [34] [35] (./thesis.bbl [36] [37] [38]) [39]
-Overfull \hbox (38.03528pt too wide) in paragraph at lines 566--566
-[]\OT1/cmr/bx/n/17.28 Computerized So-cial Pref-er-ence Games 
- []
-
 <images/gendict1.png, id=145, 1445.4pt x 537.00626pt>
 File: images/gendict1.png Graphic file (type png)
 
 <use images/gendict1.png>
-Package pdftex.def Info: images/gendict1.png used on input line 569.
+Package pdftex.def Info: images/gendict1.png used on input line 567.
 (pdftex.def)             Requested size: 505.89758pt x 187.955pt.
  <images/gendict2.png, id=147, 1445.4pt x 650.43pt>
 File: images/gendict2.png Graphic file (type png)
 
 <use images/gendict2.png>
-Package pdftex.def Info: images/gendict2.png used on input line 570.
+Package pdftex.def Info: images/gendict2.png used on input line 568.
 (pdftex.def)             Requested size: 505.89758pt x 227.6539pt.
  <images/gendict3.png, id=148, 1445.4pt x 648.4225pt>
 File: images/gendict3.png Graphic file (type png)
 
 <use images/gendict3.png>
-Package pdftex.def Info: images/gendict3.png used on input line 571.
+Package pdftex.def Info: images/gendict3.png used on input line 569.
 (pdftex.def)             Requested size: 505.89758pt x 226.95126pt.
 
 <images/gendict4.png, id=149, 1445.4pt x 545.03625pt>
 File: images/gendict4.png Graphic file (type png)
 
 <use images/gendict4.png>
-Package pdftex.def Info: images/gendict4.png used on input line 572.
+Package pdftex.def Info: images/gendict4.png used on input line 570.
 (pdftex.def)             Requested size: 505.89758pt x 190.76555pt.
 
 <images/ultimatum1.png, id=150, 1445.4pt x 431.6125pt>
 File: images/ultimatum1.png Graphic file (type png)
 
 <use images/ultimatum1.png>
-Package pdftex.def Info: images/ultimatum1.png used on input line 574.
+Package pdftex.def Info: images/ultimatum1.png used on input line 572.
 (pdftex.def)             Requested size: 505.89758pt x 151.06664pt.
 
 <images/ultimatum2.png, id=151, 1445.4pt x 300.12125pt>
 File: images/ultimatum2.png Graphic file (type png)
 
 <use images/ultimatum2.png>
-Package pdftex.def Info: images/ultimatum2.png used on input line 576.
+Package pdftex.def Info: images/ultimatum2.png used on input line 574.
 (pdftex.def)             Requested size: 505.89758pt x 105.044pt.
 
 <images/ultimatum3.png, id=152, 1445.4pt x 592.2125pt>
 File: images/ultimatum3.png Graphic file (type png)
 
 <use images/ultimatum3.png>
-Package pdftex.def Info: images/ultimatum3.png used on input line 577.
+Package pdftex.def Info: images/ultimatum3.png used on input line 575.
 (pdftex.def)             Requested size: 505.89758pt x 207.27747pt.
 
 <images/trust1.png, id=153, 1445.4pt x 444.66125pt>
 File: images/trust1.png Graphic file (type png)
  <use images/trust1.png>
-Package pdftex.def Info: images/trust1.png used on input line 579.
+Package pdftex.def Info: images/trust1.png used on input line 577.
 (pdftex.def)             Requested size: 505.89758pt x 155.63376pt.
 
 <images/trust2.png, id=154, 1445.4pt x 256.96pt>
 File: images/trust2.png Graphic file (type png)
  <use images/trust2.png>
-Package pdftex.def Info: images/trust2.png used on input line 581.
+Package pdftex.def Info: images/trust2.png used on input line 579.
 (pdftex.def)             Requested size: 505.89758pt x 89.93733pt.
 
 <images/trust3.png, id=155, 1445.4pt x 564.1075pt>
 File: images/trust3.png Graphic file (type png)
  <use images/trust3.png>
-Package pdftex.def Info: images/trust3.png used on input line 582.
+Package pdftex.def Info: images/trust3.png used on input line 580.
 (pdftex.def)             Requested size: 505.89758pt x 197.44057pt.
 
 <images/public.png, id=156, 1445.4pt x 432.61626pt>
 File: images/public.png Graphic file (type png)
  <use images/public.png>
-Package pdftex.def Info: images/public.png used on input line 584.
+Package pdftex.def Info: images/public.png used on input line 582.
 (pdftex.def)             Requested size: 505.89758pt x 151.41795pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 
-Overfull \hbox (90.34508pt too wide) in paragraph at lines 568--585
+Overfull \hbox (90.34508pt too wide) in paragraph at lines 566--583
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 568--585
+Underfull \hbox (badness 10000) in paragraph at lines 566--583
 
  []
 
 [40 <./images/gendict1.png> <./images/gendict2.png>] [41 <./images/gendict3.png
 > <./images/gendict4.png> <./images/ultimatum1.png>] [42 <./images/ultimatum2.p
 ng> <./images/ultimatum3.png> <./images/trust1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 591--617
+Underfull \hbox (badness 10000) in paragraph at lines 589--615
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 591--617
+Underfull \hbox (badness 10000) in paragraph at lines 589--615
 
  []
 
@@ -1091,30 +1087,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 591--617
 <images/Figure2a.pdf, id=184, 794.97pt x 614.295pt>
 File: images/Figure2a.pdf Graphic file (type pdf)
  <use images/Figure2a.pdf>
-Package pdftex.def Info: images/Figure2a.pdf used on input line 650.
+Package pdftex.def Info: images/Figure2a.pdf used on input line 648.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--651
+Underfull \hbox (badness 10000) in paragraph at lines 647--649
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 649--651
+Underfull \hbox (badness 10000) in paragraph at lines 647--649
 
  []
 
 <images/Figure2b.pdf, id=185, 794.97pt x 614.295pt>
 File: images/Figure2b.pdf Graphic file (type pdf)
  <use images/Figure2b.pdf>
-Package pdftex.def Info: images/Figure2b.pdf used on input line 655.
+Package pdftex.def Info: images/Figure2b.pdf used on input line 653.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--656
+Underfull \hbox (badness 10000) in paragraph at lines 652--654
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 654--656
+Underfull \hbox (badness 10000) in paragraph at lines 652--654
 
  []
 
@@ -1122,30 +1118,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 654--656
 <images/Figure2c.pdf, id=194, 794.97pt x 614.295pt>
 File: images/Figure2c.pdf Graphic file (type pdf)
  <use images/Figure2c.pdf>
-Package pdftex.def Info: images/Figure2c.pdf used on input line 658.
+Package pdftex.def Info: images/Figure2c.pdf used on input line 656.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--659
+Underfull \hbox (badness 10000) in paragraph at lines 655--657
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 657--659
+Underfull \hbox (badness 10000) in paragraph at lines 655--657
 
  []
 
 <images/Figure3.pdf, id=195, 794.97pt x 614.295pt>
 File: images/Figure3.pdf Graphic file (type pdf)
  <use images/Figure3.pdf>
-Package pdftex.def Info: images/Figure3.pdf used on input line 663.
+Package pdftex.def Info: images/Figure3.pdf used on input line 661.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--664
+Underfull \hbox (badness 10000) in paragraph at lines 660--662
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 662--664
+Underfull \hbox (badness 10000) in paragraph at lines 660--662
 
  []
 
@@ -1153,35 +1149,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 662--664
 <images/Figure4.pdf, id=210, 794.97pt x 614.295pt>
 File: images/Figure4.pdf Graphic file (type pdf)
  <use images/Figure4.pdf>
-Package pdftex.def Info: images/Figure4.pdf used on input line 666.
+Package pdftex.def Info: images/Figure4.pdf used on input line 664.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 665--667
+Underfull \hbox (badness 10000) in paragraph at lines 663--665
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 665--667
+Underfull \hbox (badness 10000) in paragraph at lines 663--665
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 665--667
+Underfull \hbox (badness 10000) in paragraph at lines 663--665
 
  []
 
 <images/Figure6.pdf, id=211, 794.97pt x 614.295pt>
 File: images/Figure6.pdf Graphic file (type pdf)
  <use images/Figure6.pdf>
-Package pdftex.def Info: images/Figure6.pdf used on input line 669.
+Package pdftex.def Info: images/Figure6.pdf used on input line 667.
 (pdftex.def)             Requested size: 317.98236pt x 245.71364pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 668--670
+Underfull \hbox (badness 10000) in paragraph at lines 666--668
 
  []
 
 [47 <./images/Figure3.pdf> <./images/Figure4.pdf>]
-Overfull \hbox (7.68794pt too wide) in paragraph at lines 906--947
+Overfull \hbox (7.68794pt too wide) in paragraph at lines 904--945
  [][] 
  []
 
@@ -1192,13 +1188,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6885 strings out of 493014
- 102811 string characters out of 6133351
- 333302 words of memory out of 5000000
- 10250 multiletter control sequences out of 15000+600000
+ 6877 strings out of 493014
+ 102712 string characters out of 6133351
+ 334220 words of memory out of 5000000
+ 10242 multiletter control sequences out of 15000+600000
  12656 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,77p,2326b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,77p,2326b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1218,7 +1214,7 @@ exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (56 pages, 807507 bytes).
+Output written on thesis.pdf (56 pages, 807409 bytes).
 PDF statistics:
  322 PDF objects out of 1000 (max. 8388607)
  208 compressed objects within 3 object streams

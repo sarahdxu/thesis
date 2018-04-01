@@ -6,6 +6,7 @@
 \usepackage[letterpaper, portrait, lmargin=1.5in, rmargin=1.25in, tmargin=1in, bmargin=1in]{geometry}
 \usepackage{color}
 \usepackage{setspace}
+\usepackage[titletoc]{appendix}
 \usepackage{pdfpages}
 \usepackage{booktabs}
 \usepackage[nottoc]{tocbibind}
@@ -20,28 +21,25 @@
   \renewcommand{\thetable}{\thesection.\arabic{table}\alph{mysubtable}}%
 }
 
-\makeatletter
-%% The "\@seccntformat" command is an auxiliary command
-%% (see pp. 26f. of 'The LaTeX Companion,' 2nd. ed.)
-\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
-   {\csname the#1\endcsname\quad}  % default
-   {\csname #1@cntformat\endcsname}% enable individual control
-}
-\let\oldappendix\appendix %% save current definition of \appendix
-\renewcommand\appendix{%
-    \oldappendix
-    \newcommand{\section@cntformat}{\appendixname~\thesection\quad}
-}
-\makeatother
+%\makeatletter
+%%% The "\@seccntformat" command is an auxiliary command
+%%% (see pp. 26f. of 'The LaTeX Companion,' 2nd. ed.)
+%\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+%   {\csname the#1\endcsname\quad}  % default
+%   {\csname #1@cntformat\endcsname}% enable individual control
+%}
+%\let\oldappendix\appendix %% save current definition of \appendix
+%\renewcommand\appendix{%
+%    \oldappendix
+%    \newcommand{\section@cntformat}{\appendixname~\thesection\quad}
+%}
+%\makeatother
 
     \usepackage{tabularx}
 \usepackage{adjustbox}
-%\usepackage{subcaption}
-%\DeclareCaptionSubType*[Alph]{table}
-%\DeclareCaptionLabelFormat{mystyle}{Table~\bothIfFirst{#1}{ }#2}
-%\captionsetup[subtable]{labelformat=mystyle}
-\usepackage[toc,page]{appendix}
-%\usepackage[flushleft]{threeparttable}
+
+%\usepackage[toc,page]{appendix}
+
 
 
 \doublespacing
@@ -561,31 +559,31 @@ Finally, this research may potentially spark interest into future studies into t
 %
 \newpage
 
-\appendix
+\begin{appendices}
 
-\section{Computerized Social Preference Games} \label{app:a} 
+\section{Computerized Social Preference Games}
 \vspace{8mm} 
-\noindent Generalized Dictator Game (GDD) \\ \\
+\noindent Generalized Dictator Game:\\ \\
 \includegraphics[scale=0.35]{gendict1}\\
 \includegraphics[scale=0.35]{gendict2}\\
 \includegraphics[scale=0.35]{gendict3}\\
 \includegraphics[scale=0.35]{gendict4}\\ \\
-\noindent Ultimatum Game Player 1 (UG1) \\ \\ 
+\noindent Ultimatum Game Player 1: \\ \\ 
 \includegraphics[scale=0.35]{ultimatum1} \\ \\
-\noindent Ultimatum Game Player 2 (UG2) \\ \\
+\noindent Ultimatum Game Player 2: \\ \\
 \includegraphics[scale=0.35]{ultimatum2} \\
 \includegraphics[scale=0.35]{ultimatum3} \\ \\
-\noindent Trust Game Player 1 (TG1) \\ \\
+\noindent Trust Game Player 1: \\ \\
 \includegraphics[scale=0.35]{trust1} \\ \\
-\noindent Trust Game Player 2 (TG2) \\ \\
+\noindent Trust Game Player 2: \\ \\
 \includegraphics[scale=0.35]{trust2} \\
 \includegraphics[scale=0.35]{trust3} \\ \\
-\noindent Public Goods Game (PGG) \\ \\
+\noindent Public Goods Game: \\ \\
 \includegraphics[scale=0.35]{public} \\
 
 
 
-\section{Self-Report Altruism (SRA) Questions List} \label{app:b}
+\section{Self-Report Altruism (SRA) Questions List}
 
 
 \begin{tabular}{ | p{12cm} | }
@@ -615,7 +613,7 @@ Finally, this research may potentially spark interest into future studies into t
 \end{tabular} \\
 \small Note: * indicates SRA item is related to money. \\ \\
 
-\section{Variables Definition Table} \label{app:c}
+\section{Variables Definition Table}
 
 \begin{center}
 \begin{tabular}{ |c|c| } 
@@ -644,7 +642,7 @@ Finally, this research may potentially spark interest into future studies into t
 
 
 
-\section{Figures and Tables} \label{app:d}
+\section{Figures and Tables}
 
 \noindent Figure 1: Distribution of CES parameters from GDG \\ \\
 \includegraphics[scale=0.4]{Figure2a.pdf} \\
@@ -1597,6 +1595,7 @@ MSPE & 5.25229 \\
 %\end{tabular} 
 %\end{table} 
 
+\end{appendices}
 
 
 
