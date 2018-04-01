@@ -3,6 +3,21 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{float}
+
+\makeatletter
+\renewenvironment{abstract}{%
+    \if@twocolumn
+      \section*{\abstractname}%
+    \else %% <- here I've removed \small
+      %
+        {\bfseries \Large\abstractname\vspace{\z@}}%  %% <- here I've added \Large
+      %
+      \quotation
+    \fi}
+    {\if@twocolumn\else\endquotation\fi}
+\makeatother
+
+
 \graphicspath{ {images/} }
 \usepackage[letterpaper, portrait, lmargin=1.5in, rmargin=1.25in, tmargin=1in, bmargin=1in]{geometry}
 \usepackage{color}
@@ -67,16 +82,33 @@
 \begin{document}
 
 \maketitle
+\newpage
+\onehalfspacing
+\tableofcontents
 
+
+\newpage
+
+
+\section*{Acknowledgements}
+\addcontentsline{toc}{section}{Acknowledgements}
+Acknowledgements to people: family, naecker, friends, ...
+
+
+\newpage
 
 \begin{abstract}
+\addcontentsline{toc}{section}{Abstract}
 \begin{singlespace}
+\onehalfspacing
 The external validity of experimental games is a growing topic of interest. This topic is important because researchers commonly use such games to study individuals\rq \ social preferences. Many papers have conducted within-subjects experiments, comparing subjects\rq \ in-lab decisions to their real-world decisions. However, the current accumulated evidence yield mixed conclusions: some papers found statistically significant lab-field correlations, while other papers did not. This research provides a systematic approach to exploring this matter: I compared behavior in various social preference games and self-reported measures regarding past social behavior to a natural, far-removed field measure. My results show social preference games do a poor job explaining the field behavior. Furthermore, self-reported measures perform just as well, if not better, than the games in both explaining and predicting the field measure.
 \end{singlespace}
 \end{abstract}
 
 
-\tableofcontents
+\newpage
+
+
 
 \section{Introduction}
 
@@ -95,6 +127,7 @@ A big question is the external validity of these social preference games since t
 
 My results show that social preference games explain little to none of the donations behavior. In fact, the self-reported measures seem to be a better tool than the games. In addition, self-reported measures play a more important role when predicting the field measure. However, further systematic research should be done in order to draw a definite conclusion regarding the external validity of social preference games. 
 
+\newpage
 
 \section{Literature Review}
 
