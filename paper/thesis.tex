@@ -109,7 +109,7 @@ The external validity of experimental games is a growing topic of interest. This
 \newpage
 
 
-
+\doublespacing
 \section{Introduction}
 
 The standard economic model assumes individuals\rq \ actions are motivated purely by self-interest. However, from simple observation it is clear that people actually care about the well-being of others: people volunteer, people donate to causes, and social programs exist. If someone is not solely motivated by material self-interest but also cares about the well-being of others, we say that the person has social preferences. The last few decades have seen a strong increase of interest in this topic, with numerous research studies providing evidence of social preferences. %Charness and Rabin 2000; Fehr and Schmidt 1999; Andreoni and Miller 2002; Rabin 1993; Fisman, Jakiela, and Kariv 2014). 
@@ -370,7 +370,9 @@ Overall, self-reported measures seem to perform just as well as social preferenc
 
 The poor results from the previous section lead to another interesting topic: perhaps the social preference games and self-reported measures can still be a useful tool to predict donations behavior. That is, if Wesleyan University wanted to predict donations from incoming alumni, they can possibly use social preference games and/or self-reported measures from older alumni to help anticipate donations behavior.
 
-In predictive modeling, a common approach is to split the data into a training set and testing set. The training set is used to build and train the model. Once the model is ready, the model is tested on the testing set to determine its accuracy and performance. I used the data from the older alumni participants (those who graduated in 2013, 2014, 2015, and 2016) to create the training set, and used the data from the most recent alumni (those who graduated in 2017) to create the testing set\footnote{I decided not to use current seniors as the testing setWhy not use current seniors.}. Similar as before, I estimated models for both the binary and continuous representations of donations behavior. The models I estimated include: the logistic/linear regression model, the best-subset logistic/linear regression model, and the least absolute shrinkage and selection operator (lasso) model\footnote{The least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
+In predictive modeling, a common approach is to split the data into a training set and testing set. The training set is used to build and train the model, and once the model is ready, the model is tested on the testing set to determine its accuracy and performance. I used the data from the older alumni participants (those who graduated in 2013, 2014, 2015, and 2016) to create the training set, and used the data from the most recent alumni (those who graduated in 2017) to create the testing set\footnote{I did not use seniors as the testing set because they have very different donations behavior. Table 6 shows that seniors\rq \ average total donation is only \$2, and only a quarter of the senior participants had ever donated. In contrast, at least 60\% in each alumni class year had donated before. Using the most recent alumni class as the testing set is satisfactory since seniors will become incoming alumni. Moreover, it is more interesting to predict their donations behavior since Wesleyan University focuses more on alumni donations than senior donations and, as seen in Table 6, there is a significant jump in donations activity.}. 
+
+Similar to the previous section, I estimated models for both the binary and continuous representations of donations behavior (whether participants had ever donated and the total amount they have donated, respectively). The models I estimated include: logistic/linear regression models, best subset logistic/linear regression models, and the least absolute shrinkage and selection operator (lasso) models\footnote{The least absolute shrinkage and selection operator (lasso) is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
 \( \beta^{lasso}=\mathop\mathrm{argmin}\limits_{\beta} \{ \frac{1}{2} \sum_{i=1}^{N} (y_{i} - \beta_{0} - \sum_{j=1}^{p}x_{ij}\beta _{j})^{2}+\lambda\sum_{j=1}^{p}|\beta _{j}|\} \) \\ \\
 where \(\lambda\) is a free parameter set to minimize the out of sample error. Certain coefficients are truncated to be set to zero to effectively choose a simpler model that does not include those coefficients. In other words, lasso regression works like a feature selector that picks out the most important coefficients, i.e. those that are most predictive (and have the lowest p-values). See \cite{tibshirani_1996} for a full introduction on the lasso method.}. To compare how well the models performed, I tested each of the models on the testing set and looked at the mean-squared prediction error (MSPE)\footnote{\(MSPE = E[(g(x_{i}) - \hat{g}(x_{i}))^{2}]\), i.e. the expected value of the squared difference between the fitted values implied by the predictive model \(\hat{g}\) and the values of the (unobservable) model g}, where the smallest MSPE value indicates the best predictive model.
 
@@ -379,8 +381,6 @@ First I estimated logistic regression models on the training set. Table 7 report
 I repeated the same steps for the linear models using the log of donation amounts. Table 10 reports the linear regression models, where again the lowest MSPE corresponds to the model that includes only the monetary SRA score. I ran best subset selection, and Table 11 reports the top five models where the lowest MSPE belongs to the model that contains \(\rho\), trust2, ultimatum1, and four of the SRA items (items 1, 4, 5, and 6) . Finally, the lasso method truncated most of the variables to zero, leaving out \(\rho\), average return, cooperation, and  three SRA items (items 4, 5, and 6). Table 12 shows the lasso penalized linear model with its MSPE value.
 
 Below are tables that report each predictive model\rq s MSPE values:
-
-
 \begin{center}
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{ c | c | c }
@@ -394,8 +394,6 @@ Logistic model & Best subset logistic model & Lasso penalized logistic model \\
 \end{tabular}
 \end{adjustbox}
 \end{center}
- 
- 
  
 \begin{center}
 \begin{adjustbox}{width=\textwidth}
@@ -412,7 +410,7 @@ log(donations) = SRAmoney & log(donations) = \(\rho\) + trust2 + ultimatum1 + PG
 \end{adjustbox}
 \end{center}
 
-The first table shows that the model containing only the monetary SRA score is the most accurate model for predicting whether people will donate or not. The second table shows that the lasso penalized model containing three of the game outcomes and three SRA items is the best-performing model for predicting donation amounts. Something to note, however, is that the difference between the MSPE values in all of the estimated models is very small: whether all of the social preference games are used, only a couple games are used, or only the self-reported measures are used, the prediction performances are all similar.
+\vspace{5mm} The first table shows that the model containing only the monetary SRA score is the most accurate model for predicting whether people will donate or not. The second table shows that the lasso penalized model containing three of the game outcomes and three SRA items is the best-performing model for predicting donation amounts. Something to note, however, is that the difference between the MSPE values in all of the estimated models is very small: whether all of the social preference games are used, only a couple games are used, or only the self-reported measures are used, the prediction performances are all similar.
 
 \section{Discussion and Conclusion}
 
