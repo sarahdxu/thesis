@@ -618,15 +618,15 @@ df<-data.frame(classyr=c("2018", "2017", "2016", "2015", "2014", "2013"),
 avgdonation<-ggplot(df, aes(classyr, avgdonations)) + geom_bar(stat="identity") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Average Donation Amount")+
-  ggtitle("Panel M: Average Donation Amount by Class Year")
+  ggtitle("Panel N: Average Donation Amount by Class Year")
 
 avgdonated<-ggplot(df, aes(classyr, donated)) + geom_bar(stat="identity") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Percent Donated")+
-  ggtitle("Panel N: Percent Donated by Class Year")
+  ggtitle("Panel M: Percent Donated by Class Year")
 
 pdf("~/Desktop/thesis/paper/images/Figure6.pdf",width=11,height=8.5)
-grid.arrange(avgdonation, avgdonated, nrow=2)
+grid.arrange(avgdonated, avgdonation, nrow=2)
 dev.off()
 library(gridExtra)
 # e<-data[data$donation>625,]
@@ -731,7 +731,7 @@ corstars <-function(x, method=c("pearson", "spearman"), #removeTriangle=c("upper
 
 corstars(dat, method="pearson", result="latex")
 
-dat1<-data[,c("alpha", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAtotal", "SRAmoney")]
+dat1<-data[,c("alpha","rho", "UG1", "UG2", "TG1", "TG2", "PGG", "SRAtotal", "SRAmoney")]
 corstars(dat1, method="pearson", result="latex")
 
 
@@ -743,6 +743,18 @@ data$donations[data$donations==-Inf]<-NA
 summary(data$donations)
 hist(data$donations)
 hist(data$donations1)
+data$yr2018<-0
+data$yr2017<-0
+data$yr2016<-0
+data$yr2015<-0
+data$yr2014<-0
+data$yr2013<-0
+data$yr2018[data$CLASS_YR==2018]<-1
+data$yr2017[data$CLASS_YR==2017]<-1
+data$yr2016[data$CLASS_YR==2016]<-1
+data$yr2015[data$CLASS_YR==2015]<-1
+data$yr2014[data$CLASS_YR==2014]<-1
+data$yr2013[data$CLASS_YR==2013]<-1
 model1<-lm(donations~alpha, data=data)
 model2<-lm(donations~rho, data=data)
 model3<-lm(donations~UG1, data=data)
@@ -756,11 +768,29 @@ model10<-lm(donations~SRAmoney, data=data)
 model11 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
 model12 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
 
+model1<-lm(donations~alpha+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model2<-lm(donations~rho+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model3<-lm(donations~UG1+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model4<-lm(donations~UG2+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model5<-lm(donations~TG1+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model6<-lm(donations~TG2+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model7<-lm(donations~PGG+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model8<-lm(donations~alpha+rho+UG1+UG2+TG1+TG2+PGG+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model9<- lm(donations~SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model10<-lm(donations~SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model11 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+model12 <- lm(donations ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+
+
+stargazer(model1,type="latex",
+          dep.var.labels=c("Donations"))
+          
 
 stargazer(model1, model2, model3, model4, model5, model6,model7,model8,model9, model10, model11,model12,type="latex",
           dep.var.labels=c("Donations"),
-          covariate.labels=c("Alpha", "Rho","UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
+          covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
+                             "Trust2", "Cooperation", "SRAtotal", "SRAmoney",
+                             "2017", "2016", "2015", "2014", "2013"))
 
 
 m<-vglm(donations~alpha, data=data, tobit(lower=0, upper=50))
@@ -790,41 +820,38 @@ stargazer(model8, model9, model10, model11, type="latex",
           covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
                              "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
 
-model12<-glm(donated~alpha, data=data)
+model12<-glm(donated~alpha+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model12)
-model13<-glm(donated~rho,data=data)
+model13<-glm(donated~rho+yr2017+yr2016+yr2015+yr2014+yr2013,data=data)
 pR2(model13)
-model14<-glm(donated~UG1, data=data)
+model14<-glm(donated~UG1+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model14)
-model15<-glm(donated~UG2, data=data)
+model15<-glm(donated~UG2+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model15)
-model16<-glm(donated~TG1, data=data)
+model16<-glm(donated~TG1+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model16)
-model17<-glm(donated~TG2, data=data)
+model17<-glm(donated~TG2+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model17)
-model18<-glm(donated~PGG, data=data)
+model18<-glm(donated~PGG+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model18)
-model19<-glm(donated~alpha+rho+UG1+UG2+TG1+TG2+PGG, data=data)
+model19<-glm(donated~alpha+rho+UG1+UG2+TG1+TG2+PGG+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model19)
-model20<- glm(donated~SRAtotal, data=data)
+model20<- glm(donated~SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model20)
-model21<-glm(donated~SRAmoney, data=data)
+model21<-glm(donated~SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model21)
-model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal, data=data)
+model22 <- glm(donated ~ alpha +rho+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model22)
-model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=data)
+model23 <- glm(donated ~ alpha+rho + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
 pR2(model23)
 
 summary(model19)
 
 stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
           dep.var.labels=c("Donated"),
-          covariate.labels=c("Alpha", "Rho","UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG","SRAtotal", "SRAmoney"))
-stargazer(model19, model20, model21, model22,type="latex",
-          dep.var.labels=c("Donated"),
-          covariate.labels=c("Alpha", "UG1", "UG2", "TG1", 
-                             "Reciprocity", "PGG", "SRAtotal", "SRAmoney"))
+          covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
+                             "Trust2", "Cooperation","SRAtotal", "SRAmoney",
+                             "2017", "2016", "2015", "2014", "2013"))
 
 
 
