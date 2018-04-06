@@ -641,7 +641,7 @@ alpha<-ggplot(data=data, aes(data$alpha)) + geom_histogram(aes(y=100*(..count..)
   labs(x="Alpha", y="Percent") +
   ggtitle("Panel A: Alpha")
 ggsave("~/Desktop/thesis/paper/images/alpha.pdf", width=11, height=8.5)
-
+summary(data$UG1)
 
 #data$rho1[data$rho1>1]<-NA
 data1<-data
@@ -949,15 +949,23 @@ res.bestglm<-
           method="exhaustive")
 res.bestglm$BestModels
 
-best.model.log1<-glm(donated~SRA3+SRA4+SRA8+SRA10,data=data)
+best.model.log1<-glm(donated~SRA3+SRA4+SRA8+SRA10,family = binomial(link = "probit"),data=data)
 best.model.log2<-glm(donated~SRA3+SRA4+SRA7+SRA8+SRA10,data=data)
 best.model.log3<-glm(donated~alpha+SRA3+SRA4+SRA8+SRA10,data=data)
 best.model.log4<-glm(donated~alpha+SRA3+SRA4+SRA7+SRA8+SRA10,data=data)
 best.model.log5<-glm(donated~UG2+SRA3+SRA4+SRA8+SRA10,data=data)
 
-summary(best.model.log)
+
+best.model.log1<-glm(donated~SRA3+SRA4+SRA8+SRA10+yr2017+yr2016+yr2015+yr2014+yr2013,data=data)
+best.model.log2<-glm(donated~SRA3+SRA4+SRA7+SRA8+SRA10+yr2017+yr2016+yr2015+yr2014+yr2013,data=data)
+best.model.log3<-glm(donated~alpha+SRA3+SRA4+SRA8+SRA10+yr2017+yr2016+yr2015+yr2014+yr2013,data=data)
+best.model.log4<-glm(donated~alpha+SRA3+SRA4+SRA7+SRA8+SRA10+yr2017+yr2016+yr2015+yr2014+yr2013,data=data)
+best.model.log5<-glm(donated~UG2+SRA3+SRA4+SRA8+SRA10+yr2017+yr2016+yr2015+yr2014+yr2013,data=data)
+
+
+summary(best.model.log1)
 library(pscl)
-pR2(best.model.log5)
+pR2(best.model.log1)
 
 best.subset<-regsubsets(y~.,lbw.for.logistic)
 best.subset.summary<-summary(best.subset)
@@ -968,8 +976,9 @@ best.subset.by.cp
 
 stargazer(best.model.log3, best.model.log4, best.model.log5, best.model.log1,
           best.model.log2, type="latex",
-          dep.var.labels=c("Donated"),
-          covariate.labels=c("alpha", "UG2", "SRA3", "SRA4", "SRA8", "SRA10"))
+          dep.var.labels=c("Donated")),
+          covariate.labels=c("Alpha", "Ultimatum2", "SRA3", "SRA4","SRA7", "SRA8", "SRA10",
+                             "2017", "2016", "2015", "2014", "2013"))
 pR2(best.model.log2)
 
 
@@ -1011,10 +1020,21 @@ best.model.lm3<-lm(donations~UG1+TG2+SRA1+SRA3+SRA4+SRA5+SRA6, data=data)
 best.model.lm4<-lm(donations~UG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6, data=data)
 best.model.lm5<-lm(donations~UG1+TG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6, data=data)
 
+
+
+best.model.lm1<-lm(donations~UG1+TG2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+best.model.lm2<-lm(donations~UG1+UG2+TG2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+best.model.lm3<-lm(donations~UG1+TG2+SRA1+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+best.model.lm4<-lm(donations~UG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+best.model.lm5<-lm(donations~UG1+TG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013, data=data)
+
+
+
 stargazer(best.model.lm2, best.model.lm4, best.model.lm5, best.model.lm1,
           best.model.lm3,type="latex",
           dep.var.labels=c("Log(Donations)"),
-          covariate.labels=c("UG1","UG2", "TG1", "TG2","PGG", "SRA1", "SRA3", "SRA4", "SRA5", "SRA6"))
+          covariate.labels=c("Ultimatum1","Ultimatum2", "Trust1", "Trust2","Cooperation", "SRA1", "SRA3", "SRA4", "SRA5", "SRA6",
+                             "2017", "2016", "2015", "2014", "2013"))
 
 
 

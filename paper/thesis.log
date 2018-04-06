@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  5 APR 2018 13:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 APR 2018 09:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -815,70 +815,64 @@ is.toc)
 
 
 [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12]
-Overfull \hbox (10.02849pt too wide) in paragraph at lines 171--186
+Overfull \hbox (10.02849pt too wide) in paragraph at lines 177--192
  [] 
  []
 
 [13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 211--213
+Underfull \hbox (badness 10000) in paragraph at lines 217--219
 
  []
 
-[16] [17]
-Overfull \hbox (3.90518pt too wide) in paragraph at lines 262--263
-\OT1/cmr/m/n/12 Participants then re-ported on past pro-social be-hav-ior. The 
-ques-tions were adapted
- []
-
-[18] [19] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 294--295
+[16] [17] [18] [19] [20] [21]
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 297--298
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 310--311
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 307--308
+Underfull \hbox (badness 10000) in paragraph at lines 313--314
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--310
+Underfull \hbox (badness 10000) in paragraph at lines 315--316
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 311--313
+Underfull \hbox (badness 10000) in paragraph at lines 317--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 314--315
+Underfull \hbox (badness 10000) in paragraph at lines 320--321
 
  []
 
 
-Overfull \hbox (9.12599pt too wide) in paragraph at lines 316--318
+Overfull \hbox (9.12599pt too wide) in paragraph at lines 322--324
 \OT1/cmr/m/n/12 where \OT1/cmr/m/it/12 i \OT1/cmr/m/n/12 rep-re-sents each par-
 tic-i-pant, \OT1/cmr/m/it/12 t \OT1/cmr/m/n/12 rep-re-sents each in-de-pen-dent
  decision-problems
  []
 
 [24] [25] [26] [27] [28] [29] [30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
+Underfull \hbox (badness 10000) in paragraph at lines 393--393
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 385--385
+Underfull \hbox (badness 10000) in paragraph at lines 393--393
 
  []
 
@@ -1094,12 +1088,12 @@ File: images/public.png Graphic file (type png)
 Package pdftex.def Info: images/public.png used on input line 22.
 (pdftex.def)             Requested size: 413.0421pt x 162.10522pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 21--632
+Underfull \hbox (badness 10000) in paragraph at lines 21--640
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--632
+Underfull \hbox (badness 10000) in paragraph at lines 21--640
 
  []
 
@@ -1125,7 +1119,7 @@ Here is how much of TeX's memory you used:
  10274 multiletter control sequences out of 15000+600000
  11508 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,10n,77p,1862b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,10n,77p,1710b,416s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.p
@@ -1145,7 +1139,7 @@ ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive
 6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (65 pages, 772913 bytes).
+Output written on thesis.pdf (65 pages, 772695 bytes).
 PDF statistics:
  350 PDF objects out of 1000 (max. 8388607)
  227 compressed objects within 3 object streams
