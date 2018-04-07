@@ -20,7 +20,7 @@
 \contentsline {subsection}{\numberline {3.3}Donations Behavior}{30}
 \contentsline {subsection}{\numberline {3.4}External Validity of Social Preference Games}{30}
 \contentsline {subsubsection}{\numberline {3.4.1}Do the Games Explain Donations Behavior?}{30}
-\contentsline {subsubsection}{\numberline {3.4.2}Do the Games Predict Donations Behavior?}{34}
+\contentsline {subsubsection}{\numberline {3.4.2}Do the Games Predict Donations Behavior?}{33}
 \contentsline {section}{\numberline {4}Discussion and Conclusion}{36}
 \contentsline {section}{References}{39}
 \let \numberline \appendixnumberline 
