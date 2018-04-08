@@ -1635,8 +1635,8 @@ data$split[data$CLASS_YR=='2017']<-1
 data$split[data$CLASS_YR=='2018']<-5
 train<-data[data$split==0,]
 test<-data[data$split==1,]
-
-
+train<-na.omit(train)
+test<-na.omit(test)
 model12<-lm(donations~alpha, data=train)
 pR2(model12)
 model13<-lm(donations~rho1,data=train)
@@ -1662,10 +1662,16 @@ pR2(model22)
 model23 <- lm(donations ~ alpha+rho1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
 pR2(model23)
 mean((test$donations - predict.lm(model12, test)) ^ 2)
+sqrt(mean((test$donations - predict.lm(model18, test)) ^ 2))
 
 
+model <- lm(donations ~ 1, data=train)
+summary(model)
+stargazer(model, type="latex")
+summary(train$donations)
 actual<-test$donations
-predicted<-predict.lm(model23, test)
+test<-na.omit(test)
+predicted<-predict.lm(model, test)
 rmse(actual, predicted)
 
 
