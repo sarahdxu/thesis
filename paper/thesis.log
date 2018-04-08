@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 APR 2018 13:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  8 APR 2018 19:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -692,18 +692,18 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 77.
-LaTeX Font Info:    ... okay on input line 77.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
+LaTeX Font Info:    ... okay on input line 78.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count123
@@ -810,36 +810,36 @@ Package caption Info: End \AtBeginDocument code.
 <titlepage.pdf, id=1, 614.295pt x 794.97pt>
 File: titlepage.pdf Graphic file (type pdf)
  <use titlepage.pdf>
-Package pdftex.def Info: titlepage.pdf used on input line 79.
+Package pdftex.def Info: titlepage.pdf used on input line 80.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf>
-Package pdftex.def Info: titlepage.pdf used on input line 79.
+Package pdftex.def Info: titlepage.pdf used on input line 80.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
  <titlepage.pdf, id=4, page=1, 614.295pt x 794.97pt>
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 79.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: titlepage.pdf Graphic file (type pdf)
  <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 79.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 79.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: titlepage.pdf Graphic file (type pdf)
  <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 79.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 79.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [1
 
@@ -850,91 +850,86 @@ Package pdftex.def Info: titlepage.pdf, page1 used on input line 79.
  [2{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [1
 
 ] [2] [3]
-[4] [5] [6] [7] [8] [9]
-Overfull \hbox (10.02849pt too wide) in paragraph at lines 164--179
+[4] [5] [6] [7] [8] [9] [10]
+Overfull \hbox (10.02849pt too wide) in paragraph at lines 172--187
  [] 
  []
 
-[10] [11]
-Overfull \hbox (0.51958pt too wide) in paragraph at lines 206--207
-[]$[]$ \OT1/cmr/m/n/12 Re-spon-ders may care about both
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
+[11] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 215--216
 
  []
 
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 208--212
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--221
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 223--224
+Underfull \hbox (badness 10000) in paragraph at lines 232--234
 
  []
 
 [14] [15] [16]
-Overfull \hbox (3.90518pt too wide) in paragraph at lines 309--310
+Overfull \hbox (3.90518pt too wide) in paragraph at lines 317--318
 \OT1/cmr/m/n/12 Participants then re-ported on past pro-social be-hav-ior. The 
 ques-tions were adapted
  []
 
 [17] [18] [19] [20]
-Underfull \hbox (badness 10000) in paragraph at lines 341--342
+Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
  []
 
 [21]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 352--353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
 
  []
 
 [22]
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
+Underfull \hbox (badness 10000) in paragraph at lines 362--363
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--355
+Underfull \hbox (badness 10000) in paragraph at lines 364--365
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 356--357
+Underfull \hbox (badness 10000) in paragraph at lines 366--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--360
+Underfull \hbox (badness 10000) in paragraph at lines 369--370
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 361--362
-
- []
-
-
-Overfull \hbox (9.12599pt too wide) in paragraph at lines 363--365
+Overfull \hbox (9.12599pt too wide) in paragraph at lines 371--373
 \OT1/cmr/m/n/12 where \OT1/cmr/m/it/12 i \OT1/cmr/m/n/12 rep-re-sents each par-
 tic-i-pant, \OT1/cmr/m/it/12 t \OT1/cmr/m/n/12 rep-re-sents each in-de-pen-dent
  decision-problems
  []
 
 [23] [24] [25] [26] [27] [28] [29] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 437--437
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 437--437
+Underfull \hbox (badness 10000) in paragraph at lines 447--447
 
  []
 
-[32] [33] [34] [35] [36] [37] [38] (./thesis.bbl [39] [40] [41]) [42]
-(./appendixa.tex <images/Figure2a.pdf, id=194, 794.97pt x 614.295pt>
+[32] [33] [34] [35] [36] [37] (./thesis.bbl [38] [39] [40]) [41]
+(./appendixa.tex <images/Figure2a.pdf, id=191, 794.97pt x 614.295pt>
 File: images/Figure2a.pdf Graphic file (type pdf)
 
 <use images/Figure2a.pdf>
@@ -945,7 +940,7 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 6--7
  [][] 
  []
 
-<images/Figure2b.pdf, id=195, 794.97pt x 614.295pt>
+<images/Figure2b.pdf, id=192, 794.97pt x 614.295pt>
 File: images/Figure2b.pdf Graphic file (type pdf)
  <use images/Figure2b.pdf>
 Package pdftex.def Info: images/Figure2b.pdf used on input line 12.
@@ -955,10 +950,10 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 12--13
  [][] 
  []
 
-[43
+[42
 
  <./images/Figure2a.pdf>]
-<images/Figure2c.pdf, id=204, 794.97pt x 614.295pt>
+<images/Figure2c.pdf, id=201, 794.97pt x 614.295pt>
 File: images/Figure2c.pdf Graphic file (type pdf)
  <use images/Figure2c.pdf>
 Package pdftex.def Info: images/Figure2c.pdf used on input line 19.
@@ -968,8 +963,8 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 19--20
  [][] 
  []
 
-[44 <./images/Figure2b.pdf>]
-<images/Figure3.pdf, id=213, 794.97pt x 614.295pt>
+[43 <./images/Figure2b.pdf>]
+<images/Figure3.pdf, id=210, 794.97pt x 614.295pt>
 File: images/Figure3.pdf Graphic file (type pdf)
  <use images/Figure3.pdf>
 Package pdftex.def Info: images/Figure3.pdf used on input line 25.
@@ -979,8 +974,8 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 25--26
  [][] 
  []
 
-[45 <./images/Figure2c.pdf>]
-<images/Figure4.pdf, id=222, 794.97pt x 614.295pt>
+[44 <./images/Figure2c.pdf>]
+<images/Figure4.pdf, id=219, 794.97pt x 614.295pt>
 File: images/Figure4.pdf Graphic file (type pdf)
  <use images/Figure4.pdf>
 Package pdftex.def Info: images/Figure4.pdf used on input line 31.
@@ -990,7 +985,7 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 31--32
  [][] 
  []
 
-[46 <./images/Figure3.pdf>] <images/Figure6.pdf, id=231, 794.97pt x 614.295pt>
+[45 <./images/Figure3.pdf>] <images/Figure6.pdf, id=228, 794.97pt x 614.295pt>
 File: images/Figure6.pdf Graphic file (type pdf)
 
 <use images/Figure6.pdf>
@@ -1001,33 +996,33 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 37--38
  [][] 
  []
 
-[47 <./images/Figure4.pdf>] [48 <./images/Figure6.pdf>] [49] [50] [51] [52]
-[53] [54] [55] [56] [57]) [58] [59] (./appendixb.tex) [60] (./appendixc.tex
+[46 <./images/Figure4.pdf>] [47 <./images/Figure6.pdf>] [48] [49] [50] [51]
+[52] [53] [54] [55] [56]) [57] [58] (./appendixb.tex) [59] (./appendixc.tex
 Overfull \hbox (37.39526pt too wide) in paragraph at lines 1--1
 []\OT1/cmr/bx/n/17.28 Computerized So-cial Pref-er-ence Games 
  []
 
-<images/gendict1.png, id=287, 1324.95pt x 531.9875pt>
+<images/gendict1.png, id=284, 1324.95pt x 531.9875pt>
 File: images/gendict1.png Graphic file (type png)
 
 <use images/gendict1.png>
 Package pdftex.def Info: images/gendict1.png used on input line 4.
 (pdftex.def)             Requested size: 463.73946pt x 186.19841pt.
- <images/gendict2.png, id=289, 1324.95pt x 618.31pt>
+ <images/gendict2.png, id=286, 1324.95pt x 618.31pt>
 File: images/gendict2.png Graphic file (type png)
 
 <use images/gendict2.png>
 Package pdftex.def Info: images/gendict2.png used on input line 5.
 (pdftex.def)             Requested size: 463.73946pt x 216.41174pt.
 
-<images/gendict3.png, id=290, 1324.95pt x 648.4225pt>
+<images/gendict3.png, id=287, 1324.95pt x 648.4225pt>
 File: images/gendict3.png Graphic file (type png)
 
 <use images/gendict3.png>
 Package pdftex.def Info: images/gendict3.png used on input line 6.
 (pdftex.def)             Requested size: 463.73946pt x 226.95126pt.
 
-<images/gendict4.png, id=291, 1324.95pt x 455.7025pt>
+<images/gendict4.png, id=288, 1324.95pt x 455.7025pt>
 File: images/gendict4.png Graphic file (type png)
 
 <use images/gendict4.png>
@@ -1068,23 +1063,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--8
 
  []
 
-[61 <./images/gendict1.png> <./images/gendict2.png>] [62 <./images/gendict3.png
+[60 <./images/gendict1.png> <./images/gendict2.png>] [61 <./images/gendict3.png
 > <./images/gendict4.png>]
-<images/ultimatum1.png, id=302, 772.8875pt x 309.155pt>
+<images/ultimatum1.png, id=299, 772.8875pt x 309.155pt>
 File: images/ultimatum1.png Graphic file (type png)
 
 <use images/ultimatum1.png>
 Package pdftex.def Info: images/ultimatum1.png used on input line 10.
 (pdftex.def)             Requested size: 386.4428pt x 154.57712pt.
 
-<images/ultimatum2.png, id=303, 742.775pt x 296.10625pt>
+<images/ultimatum2.png, id=300, 742.775pt x 296.10625pt>
 File: images/ultimatum2.png Graphic file (type png)
 
 <use images/ultimatum2.png>
 Package pdftex.def Info: images/ultimatum2.png used on input line 12.
 (pdftex.def)             Requested size: 371.38658pt x 148.05275pt.
 
-<images/ultimatum3.png, id=304, 742.775pt x 470.75874pt>
+<images/ultimatum3.png, id=301, 742.775pt x 470.75874pt>
 File: images/ultimatum3.png Graphic file (type png)
 
 <use images/ultimatum3.png>
@@ -1105,20 +1100,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--14
 
  []
 
-[63 <./images/ultimatum1.png> <./images/ultimatum2.png> <./images/ultimatum3.pn
-g>] <images/trust1.png, id=311, 762.85pt x 312.16624pt>
+[62 <./images/ultimatum1.png> <./images/ultimatum2.png> <./images/ultimatum3.pn
+g>] <images/trust1.png, id=308, 762.85pt x 312.16624pt>
 File: images/trust1.png Graphic file (type png)
 
 <use images/trust1.png>
 Package pdftex.def Info: images/trust1.png used on input line 16.
 (pdftex.def)             Requested size: 381.42407pt x 156.08273pt.
- <images/trust2.png, id=312, 762.85pt x 246.9225pt>
+ <images/trust2.png, id=309, 762.85pt x 246.9225pt>
 File: images/trust2.png Graphic file (type png)
 
 <use images/trust2.png>
 Package pdftex.def Info: images/trust2.png used on input line 18.
 (pdftex.def)             Requested size: 381.42407pt x 123.46094pt.
- <images/trust3.png, id=313, 762.85pt x 449.68pt>
+ <images/trust3.png, id=310, 762.85pt x 449.68pt>
 File: images/trust3.png Graphic file (type png)
 
 <use images/trust3.png>
@@ -1139,23 +1134,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--20
 
  []
 
-[64 <./images/trust1.png> <./images/trust2.png> <./images/trust3.png>]
-<images/public.png, id=320, 826.08624pt x 324.21124pt>
+[63 <./images/trust1.png> <./images/trust2.png> <./images/trust3.png>]
+<images/public.png, id=317, 826.08624pt x 324.21124pt>
 File: images/public.png Graphic file (type png)
  <use images/public.png>
 Package pdftex.def Info: images/public.png used on input line 22.
 (pdftex.def)             Requested size: 413.0421pt x 162.10522pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 21--690
+Underfull \hbox (badness 10000) in paragraph at lines 21--704
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--690
+Underfull \hbox (badness 10000) in paragraph at lines 21--704
 
  []
 
-[65 <./images/public.png>] (./appendixd.tex
+[64 <./images/public.png>] (./appendixd.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--29
 
  []
@@ -1165,7 +1160,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--29
 
  []
 
-) [66] (./thesis.aux)
+) [65] (./thesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1177,7 +1172,7 @@ Here is how much of TeX's memory you used:
  10277 multiletter control sequences out of 15000+600000
  10370 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,18n,77p,1641b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,18n,77p,1600b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -1197,10 +1192,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (68 pages, 893014 bytes).
+Output written on thesis.pdf (67 pages, 804411 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
+ 389 PDF objects out of 1000 (max. 8388607)
+ 255 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

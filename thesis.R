@@ -544,7 +544,9 @@ donations<-ggplot(data=data, aes(data$d))+geom_histogram(aes(y=100*(..count..)/s
   ylim(c(0,60))+
   ggtitle("Panel K: Total Donations")
 ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
-
+data$donations1<-data$donations
+data$donations<-log(data$donations)
+data$donations[data$donations==-Inf]<-NA
 logdonations<-ggplot(data=data, aes(data$donations))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.5)+
   labs(x="Log(Donations)", y="Percent")+scale_x_continuous(breaks=seq(-6,10,2))+
   ggtitle("Panel L: Log of Total Donations")
@@ -761,9 +763,7 @@ corstars(dat1, method="pearson", result="latex", removeTriangle="upper")
 
 # regression
 
-data$donations1<-data$donations
-data$donations<-log(data$donations)
-data$donations[data$donations==-Inf]<-NA
+
 summary(data$donations)
 hist(data$donations)
 hist(data$donations1)
@@ -1896,7 +1896,8 @@ stargazer(lm(donations~SRA4+SRA6, data=data), type="latex",
           covariate.labels=c("SRA4", "SRA6"))
 
 
-
+library(lars)
+library(covTest)
 m<-lars(x,y,type="lasso")
 covTest(m,x,y)
 
