@@ -74,22 +74,20 @@
 
 \doublespacing
 
-
-\title{The External Validity of Experimental Social Preference Games}
-\author{Sarah Xu}
-\date{April 2018}
-
 \begin{document}
 
-\maketitle
+\includepdf[pages=-]{titlepage.pdf}
+
 \newpage
 \singlespacing
 \tableofcontents
+\thispagestyle{empty}
 
 
 \newpage
 
-
+\clearpage
+\pagenumbering{arabic} 
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
 Acknowledgements to people
@@ -436,13 +434,13 @@ In predictive modeling, a common approach is to split the data into a training s
 
 Similar to the previous section, I estimated models for both the binary and continuous representations of donations behavior. The models I estimated included: the logistic/linear regression models, the best subset logistic/linear regression models, and the least absolute shrinkage and selection operator (lasso) models\footnote{The lasso is a useful regression analysis method that performs both variable selection and regularization in order to enhance prediction accuracy. The lasso estimate is defined by\\ \\
 \( \beta^{lasso}=\mathop\mathrm{argmin}\limits_{\beta} \{ \frac{1}{2} \sum_{i=1}^{N} (y_{i} - \beta_{0} - \sum_{j=1}^{p}x_{ij}\beta _{j})^{2}+\lambda\sum_{j=1}^{p}|\beta _{j}|\} \) \\ \\
-where \(\lambda\) is a free parameter set to minimize the out of sample error. Certain coefficients are truncated to be set to zero to effectively choose a simpler model that does not include those coefficients. In other words, lasso regression works like a feature selector that picks out the most important coefficients, i.e. those that are most predictive (and have the lowest p-values). See \cite{tibshirani_1996} for a full introduction on the lasso method.}. To compare how well the models performed, I tested each of the models on the testing set and looked at the prediction errors. More specifically, for the logistic models I calculated the mean-squared prediction error (MSPE)\footnote{\(MSPE = E[(g(x_{i}) - \hat{g}(x_{i}))^{2}]\), i.e. the expected value of the squared difference between the fitted values implied by the predictive model \(\hat{g}\) and the values of the (unobservable) model g}, and for the linear models I calculated the root mean square error (RMSE)\footnote{\(RMSE = \sqrt{\frac{1}{n}\Sigma_{i=1}^{n}{\Big(\frac{d_i -f_i}{\sigma_i}\Big)^2}}\)}. Smaller prediction errors indicate better performing predictive models.
+where \(\lambda\) is a free parameter set to minimize the out of sample error. Certain coefficients are truncated to be set to zero to effectively choose a simpler model that does not include those coefficients. In other words, lasso regression works like a feature selector that picks out the most important coefficients, i.e. those that are most predictive (and have the lowest p-values). See \cite{tibshirani_1996} for a full introduction on the lasso method.}. To compare how well the models performed, I tested each of the models on the testing set and looked at the prediction errors. More specifically, for the logistic models I calculated the mean-squared prediction error (MSPE)\footnote{\(MSPE = E[(g(x_{i}) - \hat{g}(x_{i}))^{2}]\), i.e. the expected value of the squared difference between the fitted values implied by the predictive model \(\hat{g}\) and the values of the (unobservable) model g.}, and for the linear models I calculated the root mean square error (RMSE)\footnote{\(RMSE = \sqrt{\frac{\Sigma_{i=1}^{n}{(\hat{y}_{i} - y_{i})^2}}{n}}\), i.e. the square root of the average sum of squared residuals.}. Smaller prediction errors indicate better performing predictive models.
 
 First I estimated logistic regression models on the training set. Table 7 reports the models. Each of the estimated models were then tested on the testing set, and the bottom row reports the corresponding MSPE values. The lowest MSPE belongs to the model that includes only the monetary SRA score. Next I performed best subset selection. Table 8 reports the best five models that were chosen, and again, the MSPE values are displayed at the bottom. The model that includes \(\alpha\), ultimatum2, and a few of the SRA items (items 3, 4, and 10) has the lowest MSPE. Lastly I used the lasso method, and all of the variables except for \(\alpha\), ultimatum2, and two of the SRA items (items 3 and 4) were shrunk to zero. Table 9 shows the lasso penalized logistic model\footnote{Statistical significance tests were based off of the proposed test by \cite{lockhart_2014}. See \cite{kyung_2010} and Tibshirani for a full discussion on standard errors for lasso predictions.} and its corresponding MSPE value.
 
-I repeated the same steps for the linear models. Table 10 reports the linear regression models, where again the lowest MSPE corresponds to the model that includes only the monetary SRA score. I ran best subset selection, and Table 11 reports the top five models. The lowest MSPE belongs to the model that contains \(\rho\), trust2, ultimatum1, and four of the SRA items (items 1, 4, 5, and 6) . Finally, the lasso method truncated most of the variables to zero, leaving \(\rho\), average return, cooperation, and three SRA items (items 4, 5, and 6). Table 12 shows the lasso penalized linear model and its MSPE value.
+I repeated the same steps for the linear models. Table 10 reports the linear regression models, where the lowest RMSE corresponds to the model that includes only trust2. I ran best subset selection, and Table 11 reports the top five models. The lowest RMSE belongs to the model that contains \(\rho\), trust2, ultimatum1, cooperation, and four of the SRA items (items 1, 4, 5, and 6) . Finally, the lasso method truncated most of the variables to zero, leaving \(\rho\), average return, cooperation, and three SRA items (items 4, 5, and 6). Table 12 shows the lasso penalized linear model and its RMSE value.
 
-Below are tables that report each predictive model\rq s MSPE values:
+Below reports each logistic predictive model\rq s MSPE values:
 
 \begin{center}
 \begin{adjustbox}{width=\textwidth}
@@ -458,25 +456,37 @@ Logistic model & Best subset logistic model & Lasso penalized logistic model \\
 \end{adjustbox}
 \end{center}
  
+The model containing only the monetary SRA score is the most accurate model for predicting whether people will donate or not. The MSPE value is roughly 0.25. This means the prediction model correctly predicts whether people donate or not 75\% of the time. As seen in Figure 6, about 60\% of the alumni participants that make up the training set donated: if we did not use predictive modeling, we could randomly guess that the participants in the testing set would donate and be correct about 60\% of the time. Thus the prediction model increases prediction accuracy by 15\%.
+ 
+Below displays each linear predictive model\rq s RMSE values:
+ 
 \begin{center}
 \begin{adjustbox}{width=\textwidth}
 \begin{tabular}{ c | c | c }
 \hline \hline
 Linear model & Best subset linear model & Lasso penalized linear model \\
 \hline
-log(donations) = SRAmoney & log(donations) = \(\rho\) + trust2 + ultimatum1 + PGG + & log(donations) = \(\rho\) + avgreturn + cooperation + \\
+log(donations) = trust2 & log(donations) = \(\rho\) + trust2 + ultimatum1 + cooperation + & log(donations) = \(\rho\) + avgreturn + cooperation + \\
 \small & SRA1 + SRA4 + SRA5 + SRA6 & SRA4 + SRA5 + SRA6 \\
 \hline
-6.98972 & 6.77793 & 5.25229 \\
+2.31619 & 2.28303 & 2.29332 \\
 \hline \hline
 \end{tabular}
 \end{adjustbox}
 \end{center}
 
+The best subset model containing four of the game outcomes and four SRA items is the best-performing model for predicting donation amounts. Since I took the natural log of donation amounts, taking the inverse function of the RMSE allows us to interpret the prediction error: 
 
-\vspace{5mm} The first table shows that the model containing only the monetary SRA score is the most accurate model for predicting whether people will donate or not. The second table shows that the lasso penalized model containing three of the game outcomes and three SRA items is the best-performing model for predicting donation amounts. 
 
-\section{Discussion and Conclusion}
+compare it to testing it with constant (avg donations) so we know how much better our model is compared to the baseline guess
+2.32389
+
+
+However, the games and self-reported measures do a good job in predicting donations behavior. For the logistic model, the MSPE values are around 0.25. This means that the prediction models are randomly guessing donation behavior only a quarter of the time. For the linear model, the MSPE values are around 6, which is a very small error. 
+
+
+
+\section{Conclusion and Discussion}
 
 Currently, the accumulated literature exploring the external validity of social preference games has mixed results. My thesis provides a systematic approach to this topic, where I elicited decisions in four experimental social preference games along with self-reported social behaviors performed in the past. Most importantly, I compared the lab behavior to a natural field measure that is far-removed from my study.
 
@@ -497,7 +507,7 @@ Finally, this research may potentially spark interest into future studies into t
 
 
 \newpage
-
+\onehalfspacing
 \bibliography{mybibliography}
 
 
@@ -677,6 +687,7 @@ Finally, this research may potentially spark interest into future studies into t
 
 \clearpage
 \appendix
+\doublespacing
 
 \input{appendixa}
 \newpage
