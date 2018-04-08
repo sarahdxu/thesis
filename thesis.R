@@ -1662,7 +1662,7 @@ pR2(model22)
 model23 <- lm(donations ~ alpha+rho1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney, data=train)
 pR2(model23)
 mean((test$donations - predict.lm(model12, test)) ^ 2)
-sqrt(mean((test$donations - predict.lm(model18, test)) ^ 2))
+sqrt(mean((test$donations - predict.lm(model23, test)) ^ 2))
 
 
 model <- lm(donations ~ 1, data=train)
