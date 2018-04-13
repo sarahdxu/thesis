@@ -434,14 +434,14 @@ data<-data[,c("ID", "ResponseId", "GENDER", "CLASS_YR", "MAJOR", "alpha", "rho",
 
 #SRA
 SRA<-ggplot(data=data, aes(data$SRAtotal))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +
   #  labs(title="Total SRA Scores") +
   labs(x="Total Scores", y="Percent") +
   scale_x_continuous(breaks=seq(20,50,2)) + ggtitle("Panel I: Total SRA Scores")
 ggsave("~/Desktop/thesis/paper/images/SRAimg.jpg", width=11, height=8.5)
 summary(data$SRAmoney)
 SRAmoney<-ggplot(data=data, aes(data$SRAmoney))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +
   #  labs(title="Total SRA Scores") +
   labs(x="SRA Money Scores", y="Percent") +ggtitle("Panel J: Monetary SRA Scores")+
   
@@ -454,7 +454,7 @@ dev.off()
 
 #UG1
 UG1<-ggplot(data=data, aes(data$UG1))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +
   #  labs(title="Total SRA Scores") +
   ggtitle("Panel C: Ultimatum Game Proposers") +
   labs(x="Pass Rate", y="Percent") + ylim(c(0,45))+
@@ -464,7 +464,7 @@ ggsave("~/Desktop/thesis/output/UG1.pdf", width=11, height=8.5)
 
 #UG2
 UG2<-ggplot(data=data, aes(data$UG2))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +
   #  labs(title="Total SRA Scores") 
   ggtitle("Panel D: Ultimatum Game Responders")+
   labs(x="Minimum Contribution Accepted", y="Percent")+ylim(c(0,45))+
@@ -476,7 +476,7 @@ ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
 #TG1
 
 TG1<-ggplot(data=data, aes(data$TG1))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +ylim(c(0,45))+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +ylim(c(0,45), fill="slategray4")+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
@@ -486,7 +486,7 @@ ggsave("~/Desktop/thesis/output/TG1.pdf", width=11, height=8.5)
 
 #PGG
 PGG<-ggplot(data=data, aes(data$PGG))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+ylim(c(0,45))+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
@@ -501,7 +501,7 @@ dev.off()
 #TG2 - reciprocity
 
 TG2<-ggplot(data=data, aes(data$TG2)) + 
-  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=.05) +
+  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=.05, fill="slategray4") +
   labs(x="Reciprocity", y="Percent") +
   ggtitle("Panel G: Reciprocity Levels") + 
   scale_x_continuous(breaks=seq(-0.5, 1, by=0.1)) + ylim(c(0,28))
@@ -509,7 +509,7 @@ ggsave("~/Desktop/thesis/paper/images/TG2.pdf", width=11, height=8.5)
 
 
 TG<-ggplot(data=data, aes(data$avgreturn)) + 
-  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+  geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05, fill="slategray4")+
   ylim(c(0,28))+labs(x="Repayment Rate", y="Percent") + ggtitle("Panel H: Average Repayment Rate") +
   scale_x_continuous(breaks=seq(0, 1, by=0.1))
 ggsave("~/Desktop/thesis/paper/images/TG.pdf", width=11, height=8.5)
@@ -526,7 +526,7 @@ data$donated<-1
 data$donated[data$current_donor_status=="Never"]<-0
 prop.table(table(data$donated))
 donated<-ggplot(data=data, aes(data$donated))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +
   #  labs(title="Total SRA Scores") +
   labs(x="Donated", y="Percent") + scale_x_continuous(breaks=seq(0,1,1)) + ylim(c(0,80))+
   ggtitle("Panel K: Donations")
@@ -539,7 +539,7 @@ data$d[data$d>100]<-120
 d1<-data[data$donations>100,]
 
 summary(data$donation)
-donations<-ggplot(data=data, aes(data$d))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10)+
+donations<-ggplot(data=data, aes(data$d))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10, fill="slategray4")+
   labs(x="Donations", y="Percent")+scale_x_continuous(breaks=seq(0,100,10))+
   ylim(c(0,60))+
   ggtitle("Panel K: Total Donations")
@@ -547,7 +547,7 @@ ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
 data$donations1<-data$donations
 data$donations<-log(data$donations)
 data$donations[data$donations==-Inf]<-NA
-logdonations<-ggplot(data=data, aes(data$donations))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.5)+
+logdonations<-ggplot(data=data, aes(data$donations1))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.5, fill="slategray4")+
   labs(x="Log(Donations)", y="Percent")+scale_x_continuous(breaks=seq(-6,10,2))+
   ggtitle("Panel L: Log of Total Donations")
 
@@ -558,16 +558,16 @@ data$avgdonations[data$CLASS_YR=="2016"]<-data$donations1[data$CLASS_YR=="2016"]
 data$avgdonations[data$CLASS_YR=="2015"]<-data$donations1[data$CLASS_YR=="2015"]/4
 data$avgdonations[data$CLASS_YR=="2014"]<-data$donations1[data$CLASS_YR=="2014"]/5
 data$avgdonations[data$CLASS_YR=="2013"]<-data$donations1[data$CLASS_YR=="2013"]/6
-
-avgdonations<-ggplot(data=data, aes(data$avgdonations))+geom_histogram(aes(y=100*(..count..)/sum(..count..)))+
-  labs(x="Average Donations)", y="Percent")+
-  ggtitle("Panel L: Log of Total Donations")
+data$don<-log(data$avgdonations)
+avgdonations<-ggplot(data=data, aes(data$don))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.5, fill="slategray4")+
+  labs(x="Log(Average Donations)", y="Percent")+
+  ggtitle("Panel N: Log of Average Donations")
 
 
 
 
 pdf("~/Desktop/thesis/paper/images/Figure4.pdf",width=11,height=8.5)
-grid.arrange(donations, logdonations, nrow=2)
+grid.arrange(donations, logdonations,avgdonations, nrow=3)
 dev.off()
 
 data2018<-data[data$CLASS_YR==2018,]
@@ -636,20 +636,20 @@ df<-data.frame(classyr=c("2018", "2017", "2016", "2015", "2014", "2013"),
                avgdonations=c(2.779, 3.638, 3.997, 6.52, 8.804, 11.478),
                donated=c(0.2857, 0.6316, 0.7231, 0.6875, 0.7143, 0.9074))
 
-avgtotaldonation<-ggplot(df, aes(classyr, avgtotaldonations)) + geom_bar(stat="identity") +
+avgtotaldonation<-ggplot(df, aes(classyr, avgtotaldonations)) + geom_bar(stat="identity", , fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Average Total Donation Amounts")+
-  ggtitle("Panel N: Average Total Donation Amount by Class Year")
+  ggtitle("Panel O: Average Total Donation Amount by Class Year")
 
-avgdonation<-ggplot(df, aes(classyr, avgdonations)) + geom_bar(stat="identity") +
+avgdonation<-ggplot(df, aes(classyr, avgdonations)) + geom_bar(stat="identity", fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Average Donation Amounts")+
-  ggtitle("Panel O: Average Donation Amount by Class Year")
+  ggtitle("Panel P: Average Donation Amount by Class Year")
 
-avgdonated<-ggplot(df, aes(classyr, donated)) + geom_bar(stat="identity") +
+avgdonated<-ggplot(df, aes(classyr, donated)) + geom_bar(stat="identity", fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Percent Donated")+
-  ggtitle("Panel M: Percent Donated by Class Year")
+  ggtitle("Panel N: Percent Donated by Class Year")
 
 pdf("~/Desktop/thesis/paper/images/Figure6.pdf",width=11,height=8.5)
 grid.arrange(avgdonated, avgtotaldonation,avgdonation, nrow=3)
@@ -661,7 +661,7 @@ library(gridExtra)
 
 #GDG
 
-alpha<-ggplot(data=data, aes(data$alpha)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+alpha<-ggplot(data=data, aes(data$alpha)) + geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.05, fill="slategray4")+
   scale_x_continuous(breaks=seq(0, 1, by=0.1)) +
   #ylim(c(0,28))+
   labs(x="Alpha", y="Percent") +
@@ -676,9 +676,9 @@ data1$rho1[data1$rho1<(-1)]<-(-1.25)
 #data2<-data[data$rho>1,]
 
 rho<-ggplot(data=data1, aes(x=rho1)) + 
-  geom_histogram(aes(x=rho1, y=100*(..count..)/sum(..count..)), binwidth=0.05)+
+  geom_histogram(aes(x=rho1, y=100*(..count..)/sum(..count..)), binwidth=0.05, fill="slategray4")+
   #geom_histogram(aes(x=data1$rho1[data1$rho1==-1.25], y=100*(..count..)/sum(..count..)),binwidth=0.05)+
-  scale_x_continuous(breaks=seq(-1, 1, by=0.1)) +
+  scale_x_continuous(breaks=seq(-1, 1, by=0.2)) +
   labs(x="Rho", y="Percent") +
   ggtitle("Panel B: Rho")
 ggsave("~/Desktop/thesis/paper/images/rho.pdf", width=11, height=8.5)
@@ -1630,6 +1630,15 @@ covTest(m,x,y)
 
 library(covTest)
 #train/test - linear
+data1<-data
+data1$donations1[data1$CLASS_YR=='2017']<-data1$donations1[data1$CLASS_YR=='2017']/2
+data1$donations1[data1$CLASS_YR=='2016']<-data1$donations1[data1$CLASS_YR=='2016']/3
+data1$donations1[data1$CLASS_YR=='2015']<-data1$donations1[data1$CLASS_YR=='2015']/4
+data1$donations1[data1$CLASS_YR=='2014']<-data1$donations1[data1$CLASS_YR=='2014']/5
+data1$donations1[data1$CLASS_YR=='2013']<-data1$donations1[data1$CLASS_YR=='2013']/6
+data1$donations<-log(data1$donations1)
+
+
 data$split<-0
 data$split[data$CLASS_YR=='2017']<-1
 data$split[data$CLASS_YR=='2018']<-5
@@ -1637,6 +1646,19 @@ train<-data[data$split==0,]
 test<-data[data$split==1,]
 train<-na.omit(train)
 test<-na.omit(test)
+
+
+
+data1$split<-0
+data1$split[data1$CLASS_YR=='2017']<-1
+data1$split[data1$CLASS_YR=='2018']<-5
+train<-data1[data1$split==0,]
+test<-data1[data1$split==1,]
+train<-na.omit(train)
+test<-na.omit(test)
+
+
+
 model12<-lm(donations~alpha, data=train)
 pR2(model12)
 model13<-lm(donations~rho1,data=train)
@@ -1674,7 +1696,7 @@ test<-na.omit(test)
 predicted<-predict.lm(model, test)
 rmse(actual, predicted)
 
-
+library(Metrics)
 
 
 
@@ -1768,7 +1790,8 @@ stargazer(model12, model13, model14, model15, model16, model17,model18,model19,m
 
 
 
-mean((test$donations - predict.lm(model13, test)) ^ 2)
+sqrt(mean((test$donations - predict.lm(model12, test)) ^ 2))
+
 lbw.for.lm<-na.omit(lbw.for.lm)
 test<-na.omit(test)
 actual<-test$donations
@@ -1798,23 +1821,29 @@ res.bestglm<-
 res.bestglm$BestModels
 
 best.model.lm1<-lm(donations~rho1+TG2+PGG+SRA4+SRA5+SRA6,data=train)
-best.model.lm2<-lm(donations~rho1+TG2+UG1+PGG+SRA4+SRA5+SRA6,data=train)
-best.model.lm3<-lm(donations~rho1+TG2+PGG+SRA1+SRA4+SRA5+SRA6,data=train)
-best.model.lm4<-lm(donations~rho1+TG2+PGG+SRA2+SRA4+SRA5+SRA6,data=train)
-best.model.lm5<-lm(donations~rho1+TG2+UG1+PGG+SRA1+SRA4+SRA5+SRA6,data=train)
+best.model.lm2<-lm(donations~rho1+TG2+PGG+SRA1+SRA4+SRA5+SRA6,data=train)
+best.model.lm3<-lm(donations~rho1+TG2+UG1+PGG+SRA4+SRA5+SRA6,data=train)
+best.model.lm4<-lm(donations~rho1+TG2+UG1+PGG+SRA1+SRA4+SRA5+SRA6,data=train)
+best.model.lm5<-lm(donations~TG2+UG1+PGG+SRA4+SRA5+SRA6,data=train)
+
+best.model.lm1<-lm(donations~alpha+avgreturn+SRA1+SRA4+SRA6,data=train)
+best.model.lm2<-lm(donations~alpha+avgreturn+SRA4+SRA5+SRA6,data=train)
+best.model.lm3<-lm(donations~alpha+avgreturn+SRA1+SRA4+SRA5+SRA6,data=train)
+best.model.lm4<-lm(donations~avgreturn+SRA1+SRA4+SRA6,data=train)
+best.model.lm5<-lm(donations~rho1+TG2+SRA4+SRA5+SRA6,data=train)
 
 
-stargazer(best.model.lm5, best.model.lm2,best.model.lm3,best.model.lm4,best.model.lm1, type="latex",
-          dep.var.labels=c("Log(Donations)"),
-          covariate.labels=c("Rho","Trust2", "Ultimatum1", "PGG",
-                             "SRA1", "SRA2", "SRA4", "SRA5", "SRA6"))
+stargazer(best.model.lm4, best.model.lm3,best.model.lm2,best.model.lm1,best.model.lm5, type="latex",
+          dep.var.labels=c("Log(Average Donations)"),
+          covariate.labels=c("Rho","Trust2", "Ultimatum1", "Cooperation",
+                             "SRA1", "SRA4", "SRA5", "SRA6"))
 
 
 mean((test$donations - predict.lm(best.model.lm5, test)) ^ 2)
 lbw.for.lm<-na.omit(lbw.for.lm)
 test<-na.omit(test)
 actual<-test$donations
-predicted<-predict.lm(best.model.lm1, test)
+predicted<-predict.lm(best.model.lm5, test)
 rmse(actual, predicted)
 
 

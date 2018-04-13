@@ -92,7 +92,11 @@
 \doublespacing
 \section*{Acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
-Acknowledgements to people
+First and foremost, I would like to express my thanks to my mentor, Professor Naecker. It has been a privilege to be your research assistant, student, and thesis advisee. I have learned so much from you these past two years: from economics research and econometric techniques to computer programming. Thank you for your guidance, support, and time -- words cannot express my gratitude.\\
+
+Thank you to Linda Mascaro, Rhoanne Esteban, and the Wesleyan Economics department for all of the help you have provided me in writing this thesis. I am extremely grateful that Wesleyan has supportive people like you. \\
+
+Lastly, I would like to thank my family for your unending support. Jay, thank you for you words of encouragement - I wouldn\rq t have written this thesis if it weren\rq t for you. Thank you, Jenny, for being my foundation. Thank you Mom and Dad for giving me the opportunity to have the incredible educational experience of studying at Wesleyan. Mom, your limitless love and positive outlook on life, and Dad, your work ethic and strength, have shaped me to be the person I am. I am incredibly lucky to be surrounded by such amazing people. You are my greatest role models.
 
 
 \newpage
@@ -361,9 +365,9 @@ Table 2 contains pairwise correlations between the game responses and the SRA sc
 
 \subsection{Donations Behavior}
 
-Figure 5 shows the distribution of Wesleyan donations. Panel K shows the distribution of participants\rq \ total donation amounts\footnote{All total donations are cumulative.} (donations above \$100 are aggregated into the rightmost bar). Most of the total donation amounts are below \$20 (about 36\%). There are 30 participants who each donated a total amount greater than \$100. All of these larger donations amounts are between \$100 and \$625, with the exception of two extremely large donations. Panel L displays the natural log of total donation amounts (which I used as one of my response variables in the next section), and the distribution is more symmetric.
+Figure 5 shows the distribution of Wesleyan donations. Panel K shows the distribution of participants\rq \ total donation amounts\footnote{All total donations are cumulative.} (donations above \$100 are aggregated into the rightmost bar). Most of the total donation amounts are below \$20 (about 36\%). There are 30 participants who each donated a total amount greater than \$100. All of these larger donations amounts are between \$100 and \$625, with the exception of two extremely large donations. Panel L displays the natural log of total donation amounts, and Panel M shows the natural log of average donation amounts. The distributions are more symmetric.
 
-Figure 6 shows that each class year has different donations behavior. Panel M shows that only about a quarter of the senior class participants donated. In contrast, at least 60\% in each alumni class year donated. Panel N shows each class year\rq s average total donations. Each class year consecutively has higher donations, from seniors\rq \ average total donation of \$2 to the class of 2013\rq s average total donation of \$69\footnote{I excluded outliers when calculating each class year\rq s average donations.}. However, older class years have had more years to donate. For example, the senior class of 2018 has only been solicited for one year, while the alumni class of 2013 has been solicited for six years. I divided the total donations by the number of years each class year has been solicited, and Panel O shows the average donation amounts by class year. Still, average donation amounts increase in class year.
+Figure 6 shows that each class year has different donations behavior. Panel N shows that only about a quarter of the senior class participants donated. In contrast, at least 60\% in each alumni class year donated. Panel O shows each class year\rq s average total donations. Each class year consecutively has higher donations, from seniors\rq \ average total donation of \$2 to the class of 2013\rq s average total donation of \$69\footnote{I excluded outliers when calculating each class year\rq s average donations.}. However, older class years have had more years to donate. For example, the senior class of 2018 has only been solicited for one year, while the alumni class of 2013 has been solicited for six years. I divided the total donations by the number of years each class year has been solicited, and Panel P shows the average donation amounts by class year. Still, average donation amounts increase in class year.
 
 
 \subsection{External Validity of Social Preference Games}
@@ -408,7 +412,9 @@ where \(\lambda\) is a free parameter that minimizes the out of sample error. Ce
 
 First I estimated logistic regression models on the training set. Table 7 reports the models. Each of the estimated models were tested on the testing set, and the bottom row reports the corresponding MSPE values. The lowest MSPE belongs to the model that includes only the monetary SRA score. Next I performed best subset selection. Table 8 reports the best five models that were chosen, and again, the MSPE values are displayed at the bottom. The model that includes \(\alpha\), ultimatum2, and SRA items 3, 4, and 10 has the lowest MSPE. Lastly I used the lasso method, and all of the variables except for \(\alpha\), ultimatum2, and SRA items 3 and 4 were truncated to zero. Table 9 shows the lasso penalized logistic model\footnote{Statistical significance tests were based off of the proposed test by \cite{lockhart_2014}. See \cite{kyung_2010} and Tibshirani for a full discussion on standard errors for lasso predictions.} and its corresponding MSPE value.
 
-I repeated the same steps for the linear models. Table 10 reports the linear regression models, where the lowest RMSE corresponds to the model that includes only trust2. I ran best subset selection, and Table 11 reports the top five models. The lowest RMSE belongs to the model that contains \(\rho\), trust2, ultimatum1, cooperation, and SRA items 1, 4, 5, and 6. Finally, the lasso method truncated most of the variables to zero, leaving \(\rho\), average return, cooperation, and SRA items 4, 5, and 6. Table 12 shows the lasso model and its RMSE value.
+I repeated the same steps for the linear models, using the natural log of average donations as the response variable\footnote{Since older alumni class years have had more years to donate, I first divided donations by the number of years they have been solicited. For example, the class of 2013 has been solicited for 6 years so I divided their donations by 6, and then took the natural log.}. Table 10 reports the linear regression models, where the lowest RMSE corresponds to the model that includes only trust2. I then ran best subset selection, and Table 11 reports the top five models. The lowest RMSE belongs to the model that contains trust2, ultimatum1, cooperation, and SRA items 4, 5, and 6. Finally, the lasso method truncated most of the variables to zero, leaving \(\rho\), average return, cooperation, and SRA items 4, 5, and 6. Table 12 shows the lasso model and its RMSE value.
+
+%Table 10 reports the linear regression models, where the lowest RMSE corresponds to the model that includes only trust2. I ran best subset selection, and Table 11 reports the top five models. The lowest RMSE belongs to the model that contains \(\rho\), trust2, ultimatum1, cooperation, and SRA items 1, 4, 5, and 6. Finally, the lasso method truncated most of the variables to zero, leaving \(\rho\), average return, cooperation, and SRA items 4, 5, and 6. Table 12 shows the lasso model and its RMSE value.
 
 The table below reports the best performing logistic model, best subset logic model, and lasso penalized logistic model with respective MSPE values:
 
@@ -419,7 +425,7 @@ Logistic model & Best subset logistic model & Lasso penalized logistic model \\
 \hline
 \small donated = SRAmoney & donated = \(\alpha\) + ultimatum2+ SRA3 + SRA4 + SRA10 & donated = \(\alpha\) + ultimatum2 + SRA3 + SRA4 \\
  \hline
- 0.24649 & 0.26193 & 0.25177 \\  
+ 0.2465 & 0.2619 & 0.2518 \\  
  \hline \hline
 \end{tabular}
 \end{adjustbox}
@@ -433,16 +439,18 @@ The table below displays the best performing linear model, best subset linear mo
 \hline \hline
 Linear model & Best subset linear model & Lasso penalized linear model \\
 \hline
-log(donations) = trust2 & log(donations) = \(\rho\) + trust2 + ultimatum1 + cooperation + & log(donations) = \(\rho\) + avgreturn + cooperation + \\
-\small & SRA1 + SRA4 + SRA5 + SRA6 & SRA4 + SRA5 + SRA6 \\
+log(average donations) = trust2 & log(average donations) = trust2 + ultimatum1 + cooperation + & log(average donations) = \(\rho\) + avgreturn + cooperation + \\
+\small &  SRA4 + SRA5 + SRA6 & SRA4 + SRA5 + SRA6 \\
 \hline
-2.31619 & 2.28303 & 2.29332 \\
+1.8962 & 1.8967 & 1.8811 \\
 \hline \hline
 \end{tabular}
 \end{adjustbox}
 
 
-\vspace{6mm} The best subset model containing four of the game outcomes and four SRA items is the best-performing model for predicting donation amounts. Since I took the natural log of donation amounts, taking the inverse function allows us to better interpret the prediction error: \(e^{2.28303} = 9.8063\), so the model predicted donations with an error of \$9.81. In order to draw conclusions about the performance of the model, a baseline model is needed. A reasonable guess is to use the older alumni\rq s average donation. Testing the baseline model that includes only the average donation amount gave an RMSE of 2.32389: \(e^{2.32389} = 10.21533\), so using the average donation of older alumni predicted the donations of the newest alumni class with an error of \$10.22. 
+\vspace{6mm} The lasso penalized model is the best-performing model for predicting donation amounts. Since I took the natural log of donation amounts, taking the inverse function allows us to better interpret the prediction error: \(e^{1.8811} = 6.5607\), so the model predicted donations with an error of \$6.56. In order to draw conclusions about the performance of the model, a baseline model is needed. A reasonable guess is to use the older alumni\rq s average donation. Testing the baseline model that includes only the average donation amount gave an RMSE of 1.9052: \(e^{1.9052} = 6.7208\), so using the average donation of older alumni predicted the donations of the newest alumni class with an error of \$6.72. 
+
+%Testing the baseline model that includes only the average donation amount gave an RMSE of 2.32389: \(e^{2.32389} = 10.21533\), so using the average donation of older alumni predicted the donations of the newest alumni class with an error of \$10.22. 
 
 Overall, using social preference games and self-reported measures increases prediction accuracy of whether individuals will donate or not by 15\%. However, when predicting the amount donated, the games and self-reported measures perform similarly as guessing the training set\rq s average donation.
 
