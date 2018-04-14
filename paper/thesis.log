@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 APR 2018 22:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  14 APR 2018 12:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -413,6 +413,49 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks18
 \@floatcapt=\box27
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/subfloat/subfloat.sty
+Package: subfloat 2003/08/21 version 2.14
+
+Package `subfloat', Version 2.14 of 2003/08/21.
+
+Package subfloat Warning: Numbers of floats not counted:
+(subfloat)                If you use one of the counters subfloatfiguremax or
+(subfloat)                subfloattablemax you will get strange error messages
+(subfloat)                containing \c@subfloatfiguremax or
+(subfloat)                \c@subfloattablemax:
+(subfloat)                Please switch on countmax or remove the code using
+(subfloat)                the counter then..
+
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2015/06/22 v2.0b fixes to LaTeX (obsolete)
+
+
+Package fixltx2e Warning: fixltx2e is not required with releases after 2015
+(fixltx2e)                All fixes are now in the LaTeX kernel.
+(fixltx2e)                See the latexrelease package for details.
+
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen119
+\captionmargin@=\dimen120
+\captionwidth=\dimen121
+\caption@tempdima=\dimen122
+\caption@indent=\dimen123
+\caption@parindent=\dimen124
+\caption@hangindent=\dimen125
+)
+\c@ContinuedFloat=\count94
+Package caption Info: float package is loaded.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count95
+\c@subtable=\count96
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -426,17 +469,17 @@ Package ifvtex Info: VTeX not detected.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count94
-\Gm@cntv=\count95
-\c@Gm@tempcnt=\count96
-\Gm@bindingoffset=\dimen119
-\Gm@wd@mp=\dimen120
-\Gm@odd@mp=\dimen121
-\Gm@even@mp=\dimen122
-\Gm@layoutwidth=\dimen123
-\Gm@layoutheight=\dimen124
-\Gm@layouthoffset=\dimen125
-\Gm@layoutvoffset=\dimen126
+\Gm@cnth=\count97
+\Gm@cntv=\count98
+\c@Gm@tempcnt=\count99
+\Gm@bindingoffset=\dimen126
+\Gm@wd@mp=\dimen127
+\Gm@odd@mp=\dimen128
+\Gm@even@mp=\dimen129
+\Gm@layoutwidth=\dimen130
+\Gm@layoutheight=\dimen131
+\Gm@layouthoffset=\dimen132
+\Gm@layoutvoffset=\dimen133
 \Gm@dimlist=\toks19
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
@@ -452,9 +495,9 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count97
-\c@@ppsavesec=\count98
-\c@@ppsaveapp=\count99
+\c@@pps=\count100
+\c@@ppsavesec=\count101
+\c@@ppsaveapp=\count102
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2016/04/19 v0.5f Insert pages of external PDF documents (AM)
@@ -464,15 +507,15 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count100
-\calc@Bcount=\count101
-\calc@Adimen=\dimen127
-\calc@Bdimen=\dimen128
+\calc@Acount=\count103
+\calc@Bcount=\count104
+\calc@Adimen=\dimen134
+\calc@Bdimen=\dimen135
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count102
+\calc@Ccount=\count105
 \calc@Cskip=\skip45
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/eso-pic/eso-pic.sty
@@ -481,8 +524,8 @@ Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
 (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2016/05/16 v1.17 At begin shipout hook (HO)
 ))
-\AM@pagewidth=\dimen129
-\AM@pageheight=\dimen130
+\AM@pagewidth=\dimen136
+\AM@pageheight=\dimen137
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/pdfpages/pppdftex.def
 File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
@@ -490,7 +533,7 @@ File: pppdftex.def 2016/04/19 v0.5f Pdfpages driver for pdfTeX (AM)
 \AM@pagebox=\box28
 \AM@global@opts=\toks20
 \AM@toc@title=\toks21
-\c@AM@survey=\count103
+\c@AM@survey=\count106
 \AM@templatesizebox=\box29
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tocbibind/tocbibind.sty
@@ -500,24 +543,7 @@ Package tocbibind Info: The document has section divisions on input line 50.
 
 Package tocbibind Note: Using section or other style headings.
 
-) (/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen131
-\captionmargin@=\dimen132
-\captionwidth=\dimen133
-\caption@tempdima=\dimen134
-\caption@indent=\dimen135
-\caption@parindent=\dimen136
-\caption@hangindent=\dimen137
-)
-\c@ContinuedFloat=\count104
-Package caption Info: float package is loaded.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/dcolumn.sty
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/array.sty
@@ -533,9 +559,9 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip48
 \bibsep=\skip49
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count105
+\c@NAT@ctr=\count107
 )
-\c@mysubtable=\count106
+\c@mysubtable=\count108
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/10 v2.15b AMS math features
@@ -557,13 +583,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count107
+\inf@bad=\count109
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count108
-\leftroot@=\count109
+\uproot@=\count110
+\leftroot@=\count111
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count110
-\DOTSCASE@=\count111
+\classnum@=\count112
+\DOTSCASE@=\count113
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
@@ -572,15 +598,15 @@ LaTeX Info: Redefining \cdots on input line 518.
 \big@size=\dimen142
 LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
-\macc@depth=\count112
-\c@MaxMatrixCols=\count113
+\macc@depth=\count114
+\c@MaxMatrixCols=\count115
 \dotsspace@=\muskip10
-\c@parentequation=\count114
-\dspbrk@lvl=\count115
+\c@parentequation=\count116
+\dspbrk@lvl=\count117
 \tag@help=\toks24
-\row@=\count116
-\column@=\count117
-\maxfields@=\count118
+\row@=\count118
+\column@=\count119
+\maxfields@=\count120
 \andhelp@=\toks25
 \eqnshift@=\dimen143
 \alignsep@=\dimen144
@@ -602,7 +628,7 @@ Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
 \TX@old@col=\dimen151
 \TX@target=\dimen152
 \TX@delta=\dimen153
-\TX@cols=\count119
+\TX@cols=\count121
 \TX@ftn=\toks28
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/adjustbox/adjustbox.sty
@@ -616,7 +642,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks29
 \XKV@tempa@toks=\toks30
 )
-\XKV@depth=\count120
+\XKV@depth=\count122
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/adjustbox/adjcalc.sty
@@ -646,12 +672,12 @@ File: tc-pdftex.def 2012/05/13 v1.0 Clipping driver for pdftex
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count121
+\c@checkoddpage=\count123
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box33
-\sift@deathcycles=\count122
+\sift@deathcycles=\count124
 \@vwid@loff=\dimen162
 \@vwid@roff=\dimen163
 ))
@@ -689,33 +715,39 @@ LaTeX Warning: Label `' multiply defined.
 
 LaTeX Warning: Label `' multiply defined.
 
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 82.
+LaTeX Font Info:    ... okay on input line 82.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count123
+\scratchcounter=\count125
 \scratchdimen=\dimen164
 \scratchbox=\box34
-\nofMPsegments=\count124
-\nofMParguments=\count125
+\nofMPsegments=\count126
+\nofMParguments=\count127
 \everyMPshowfont=\toks31
-\MPscratchCnt=\count126
+\MPscratchCnt=\count128
 \MPscratchDim=\dimen165
-\MPnumerator=\count127
-\makeMPintoPDFobject=\count128
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
 \everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
@@ -761,6 +793,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -804,42 +839,39 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
-
 <titlepage.pdf, id=1, 614.295pt x 794.97pt>
 File: titlepage.pdf Graphic file (type pdf)
  <use titlepage.pdf>
-Package pdftex.def Info: titlepage.pdf used on input line 80.
+Package pdftex.def Info: titlepage.pdf used on input line 84.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf>
-Package pdftex.def Info: titlepage.pdf used on input line 80.
+Package pdftex.def Info: titlepage.pdf used on input line 84.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
  <titlepage.pdf, id=4, page=1, 614.295pt x 794.97pt>
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 84.
 (pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: titlepage.pdf Graphic file (type pdf)
  <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 84.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 84.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: titlepage.pdf Graphic file (type pdf)
  <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 84.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
 File: titlepage.pdf Graphic file (type pdf)
 
 <use titlepage.pdf, page 1>
-Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
+Package pdftex.def Info: titlepage.pdf, page1 used on input line 84.
 (pdftex.def)             Requested size: 614.58406pt x 795.3441pt.
  [1
 
@@ -848,57 +880,57 @@ Package pdftex.def Info: titlepage.pdf, page1 used on input line 80.
 \openout3 = `thesis.toc'.
 
  [2{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 97--98
+Underfull \hbox (badness 10000) in paragraph at lines 101--102
 
  []
 
 [1
 
 ] [2] [3] [4] [5] [6] [7] [8] [9]
-Overfull \hbox (7.09102pt too wide) in paragraph at lines 174--189
+Overfull \hbox (7.09102pt too wide) in paragraph at lines 178--193
  [] 
  []
 
 [10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 216--217
+Underfull \hbox (badness 10000) in paragraph at lines 220--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--222
+Underfull \hbox (badness 10000) in paragraph at lines 222--226
 
  []
 
 [13]
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
+Underfull \hbox (badness 10000) in paragraph at lines 237--239
 
  []
 
 [14] [15] [16]
-Overfull \hbox (3.90518pt too wide) in paragraph at lines 288--289
+Overfull \hbox (3.90518pt too wide) in paragraph at lines 290--291
 \OT1/cmr/m/n/12 Participants then re-ported on past pro-social be-hav-ior. The 
 ques-tions were adapted
  []
 
 [17] [18] [19] [20] [21]
-Overfull \hbox (9.12599pt too wide) in paragraph at lines 336--337
+Overfull \hbox (9.12599pt too wide) in paragraph at lines 338--339
 \OT1/cmr/m/n/12 where \OT1/cmr/m/it/12 i \OT1/cmr/m/n/12 rep-re-sents each par-
 tic-i-pant, \OT1/cmr/m/it/12 t \OT1/cmr/m/n/12 rep-re-sents each in-de-pen-dent
  decision-problems
  []
 
 [22] [23] [24] [25] [26] [27] [28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 411--411
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 411--411
+Underfull \hbox (badness 10000) in paragraph at lines 412--412
 
  []
 
@@ -971,32 +1003,33 @@ Overfull \hbox (21.68234pt too wide) in paragraph at lines 37--38
  []
 
 [45 <./images/Figure4.pdf>] [46 <./images/Figure6.pdf>] [47] [48] [49] [50]
-[51] [52] [53] [54] [55]) [56] [57] (./appendixb.tex) [58] (./appendixc.tex
+[51] [52] [53] [54] [55] [56] [57]) [58] [59] (./appendixb.tex) [60]
+(./appendixc.tex
 Overfull \hbox (37.39526pt too wide) in paragraph at lines 1--1
 []\OT1/cmr/bx/n/17.28 Computerized So-cial Pref-er-ence Games 
  []
 
-<images/gendict1.png, id=280, 1324.95pt x 531.9875pt>
+<images/gendict1.png, id=287, 1324.95pt x 531.9875pt>
 File: images/gendict1.png Graphic file (type png)
 
 <use images/gendict1.png>
 Package pdftex.def Info: images/gendict1.png used on input line 4.
 (pdftex.def)             Requested size: 463.73946pt x 186.19841pt.
- <images/gendict2.png, id=282, 1324.95pt x 618.31pt>
+ <images/gendict2.png, id=289, 1324.95pt x 618.31pt>
 File: images/gendict2.png Graphic file (type png)
 
 <use images/gendict2.png>
 Package pdftex.def Info: images/gendict2.png used on input line 5.
 (pdftex.def)             Requested size: 463.73946pt x 216.41174pt.
 
-<images/gendict3.png, id=283, 1324.95pt x 648.4225pt>
+<images/gendict3.png, id=290, 1324.95pt x 648.4225pt>
 File: images/gendict3.png Graphic file (type png)
 
 <use images/gendict3.png>
 Package pdftex.def Info: images/gendict3.png used on input line 6.
 (pdftex.def)             Requested size: 463.73946pt x 226.95126pt.
 
-<images/gendict4.png, id=284, 1324.95pt x 455.7025pt>
+<images/gendict4.png, id=291, 1324.95pt x 455.7025pt>
 File: images/gendict4.png Graphic file (type png)
 
 <use images/gendict4.png>
@@ -1037,23 +1070,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 3--8
 
  []
 
-[59 <./images/gendict1.png> <./images/gendict2.png>] [60 <./images/gendict3.png
+[61 <./images/gendict1.png> <./images/gendict2.png>] [62 <./images/gendict3.png
 > <./images/gendict4.png>]
-<images/ultimatum1.png, id=296, 772.8875pt x 309.155pt>
+<images/ultimatum1.png, id=302, 772.8875pt x 309.155pt>
 File: images/ultimatum1.png Graphic file (type png)
 
 <use images/ultimatum1.png>
 Package pdftex.def Info: images/ultimatum1.png used on input line 10.
 (pdftex.def)             Requested size: 386.4428pt x 154.57712pt.
 
-<images/ultimatum2.png, id=297, 742.775pt x 296.10625pt>
+<images/ultimatum2.png, id=303, 742.775pt x 296.10625pt>
 File: images/ultimatum2.png Graphic file (type png)
 
 <use images/ultimatum2.png>
 Package pdftex.def Info: images/ultimatum2.png used on input line 12.
 (pdftex.def)             Requested size: 371.38658pt x 148.05275pt.
 
-<images/ultimatum3.png, id=298, 742.775pt x 470.75874pt>
+<images/ultimatum3.png, id=304, 742.775pt x 470.75874pt>
 File: images/ultimatum3.png Graphic file (type png)
 
 <use images/ultimatum3.png>
@@ -1074,20 +1107,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--14
 
  []
 
-[61 <./images/ultimatum1.png> <./images/ultimatum2.png> <./images/ultimatum3.pn
-g>] <images/trust1.png, id=305, 762.85pt x 312.16624pt>
+[63 <./images/ultimatum1.png> <./images/ultimatum2.png> <./images/ultimatum3.pn
+g>] <images/trust1.png, id=311, 762.85pt x 312.16624pt>
 File: images/trust1.png Graphic file (type png)
 
 <use images/trust1.png>
 Package pdftex.def Info: images/trust1.png used on input line 16.
 (pdftex.def)             Requested size: 381.42407pt x 156.08273pt.
- <images/trust2.png, id=306, 762.85pt x 246.9225pt>
+ <images/trust2.png, id=312, 762.85pt x 246.9225pt>
 File: images/trust2.png Graphic file (type png)
 
 <use images/trust2.png>
 Package pdftex.def Info: images/trust2.png used on input line 18.
 (pdftex.def)             Requested size: 381.42407pt x 123.46094pt.
- <images/trust3.png, id=307, 762.85pt x 449.68pt>
+ <images/trust3.png, id=313, 762.85pt x 449.68pt>
 File: images/trust3.png Graphic file (type png)
 
 <use images/trust3.png>
@@ -1108,23 +1141,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--20
 
  []
 
-[62 <./images/trust1.png> <./images/trust2.png> <./images/trust3.png>]
-<images/public.png, id=314, 826.08624pt x 324.21124pt>
+[64 <./images/trust1.png> <./images/trust2.png> <./images/trust3.png>]
+<images/public.png, id=320, 826.08624pt x 324.21124pt>
 File: images/public.png Graphic file (type png)
  <use images/public.png>
 Package pdftex.def Info: images/public.png used on input line 22.
 (pdftex.def)             Requested size: 413.0421pt x 162.10522pt.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 21--668
+Underfull \hbox (badness 10000) in paragraph at lines 21--681
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--668
+Underfull \hbox (badness 10000) in paragraph at lines 21--681
 
  []
 
-[63 <./images/public.png>] (./appendixd.tex
+[65 <./images/public.png>] (./appendixd.tex
 Underfull \hbox (badness 10000) in paragraph at lines 4--29
 
  []
@@ -1134,19 +1167,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--29
 
  []
 
-) [64] (./thesis.aux)
+)
+
+Package caption Warning: Unused \captionsetup[subtable] on input line 23.
+See the caption package documentation for explanation.
+
+[66] (./thesis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6925 strings out of 493014
- 103319 string characters out of 6133351
- 268560 words of memory out of 5000000
- 10277 multiletter control sequences out of 15000+600000
+ 7023 strings out of 493014
+ 105124 string characters out of 6133351
+ 275532 words of memory out of 5000000
+ 10367 multiletter control sequences out of 15000+600000
  10370 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,18n,77p,1600b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,18n,77p,1806b,525s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -1166,10 +1204,10 @@ xmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on thesis.pdf (66 pages, 804980 bytes).
+Output written on thesis.pdf (68 pages, 809217 bytes).
 PDF statistics:
- 385 PDF objects out of 1000 (max. 8388607)
- 252 compressed objects within 3 object streams
+ 392 PDF objects out of 1000 (max. 8388607)
+ 257 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

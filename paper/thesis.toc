@@ -25,6 +25,6 @@
 \contentsline {section}{References}{37}
 \let \numberline \appendixnumberline 
 \contentsline {section}{\numberline {A}Figures and Tables}{41}
-\contentsline {section}{\numberline {B}Variables Definition Table}{58}
-\contentsline {section}{\numberline {C}Computerized Social Preference Games}{59}
-\contentsline {section}{\numberline {D}Self-Report Altruism (SRA) Items}{64}
+\contentsline {section}{\numberline {B}Variables Definition Table}{60}
+\contentsline {section}{\numberline {C}Computerized Social Preference Games}{61}
+\contentsline {section}{\numberline {D}Self-Report Altruism (SRA) Items}{66}

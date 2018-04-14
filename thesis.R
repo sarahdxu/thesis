@@ -476,7 +476,7 @@ ggsave("~/Desktop/thesis/output/UG2.pdf", width=11, height=8.5)
 #TG1
 
 TG1<-ggplot(data=data, aes(data$TG1))+
-  geom_bar(aes(y= 100*(..count..)/sum(..count..))) +ylim(c(0,45), fill="slategray4")+
+  geom_bar(aes(y= 100*(..count..)/sum(..count..)), fill="slategray4") +ylim(c(0,45))+
   #  labs(title="Total SRA Scores") +
   labs(x="Pass Rate", y="Percent")+
   scale_x_continuous(breaks=seq(0,1,0.1)) +
@@ -559,15 +559,16 @@ data$avgdonations[data$CLASS_YR=="2015"]<-data$donations1[data$CLASS_YR=="2015"]
 data$avgdonations[data$CLASS_YR=="2014"]<-data$donations1[data$CLASS_YR=="2014"]/5
 data$avgdonations[data$CLASS_YR=="2013"]<-data$donations1[data$CLASS_YR=="2013"]/6
 data$don<-log(data$avgdonations)
+data$don[data$don==-Inf]<-NA
 avgdonations<-ggplot(data=data, aes(data$don))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.5, fill="slategray4")+
   labs(x="Log(Average Donations)", y="Percent")+
-  ggtitle("Panel N: Log of Average Donations")
+  ggtitle("Panel L: Log of Average Donations")
 
 
 
 
 pdf("~/Desktop/thesis/paper/images/Figure4.pdf",width=11,height=8.5)
-grid.arrange(donations, logdonations,avgdonations, nrow=3)
+grid.arrange(donations,avgdonations, nrow=3)
 dev.off()
 
 data2018<-data[data$CLASS_YR==2018,]
@@ -858,16 +859,46 @@ model10<-lm(donations~SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanit
 model11 <- lm(donations ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
 model12 <- lm(donations ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
 
+data$don[data$don==-Inf]<-NA
+
+model1<-lm(don~alpha+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model2<-lm(don~rho1+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model3<-lm(don~UG1+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model4<-lm(don~UG2+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model5<-lm(don~TG1+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model6<-lm(don~TG2+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model7<-lm(don~PGG+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model8<-lm(don~alpha+rho1+UG1+UG2+TG1+TG2+PGG+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model9<- lm(don~SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model10<-lm(don~SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model11 <- lm(don ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+model12 <- lm(don ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+
+model1<-lm(don~alpha+GENDER+humanities+stem, data=data)
+model2<-lm(don~rho1+GENDER+humanities+stem, data=data)
+model3<-lm(don~UG1+GENDER+humanities+stem, data=data)
+model4<-lm(don~UG2+GENDER+humanities+stem, data=data)
+model5<-lm(don~TG1+GENDER+humanities+stem, data=data)
+model6<-lm(don~TG2+GENDER+humanities+stem, data=data)
+model7<-lm(don~PGG+GENDER+humanities+stem, data=data)
+model8<-lm(don~alpha+rho1+UG1+UG2+TG1+TG2+PGG+GENDER+humanities+stem, data=data)
+model9<- lm(don~SRAtotal+GENDER+humanities+stem, data=data)
+model10<-lm(don~SRAmoney+GENDER+humanities+stem, data=data)
+model11 <- lm(don ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal+GENDER+humanities+stem, data=data)
+model12 <- lm(don ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+GENDER+humanities+stem, data=data)
+
+
+
 
 stargazer(model1,type="latex",
           dep.var.labels=c("Donations"))
           
 library(stargazer)
 stargazer(model1, model2, model3, model4, model5, model6,model7,model8,model9, model10, model11,model12,type="latex",
-          dep.var.labels=c("Log(Donations)"),
+          dep.var.labels=c("Log(Average Donations)"),
           covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
                              "Trust2", "Cooperation", "SRAtotal", "SRAmoney",
-                             "2017", "2016", "2015", "2014", "2013", "Female", "Humanities", "STEM"))
+                            "Female", "Humanities", "STEM"))
 
 
 m<-vglm(donations~alpha, data=data, tobit(lower=0, upper=50))
@@ -922,13 +953,40 @@ pR2(model22)
 model23 <- glm(donated ~ alpha+rho1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
 pR2(model23)
 
+
+
+model12<-glm(donated~alpha+GENDER+humanities+stem, data=data)
+pR2(model12)
+model13<-glm(donated~rho1+GENDER+humanities+stem,data=data)
+pR2(model13)
+model14<-glm(donated~UG1+GENDER+humanities+stem, data=data)
+pR2(model14)
+model15<-glm(donated~UG2+GENDER+humanities+stem, data=data)
+pR2(model15)
+model16<-glm(donated~TG1+GENDER+humanities+stem, data=data)
+pR2(model16)
+model17<-glm(donated~TG2+GENDER+humanities+stem, data=data)
+pR2(model17)
+model18<-glm(donated~PGG+GENDER+humanities+stem, data=data)
+pR2(model18)
+model19<-glm(donated~alpha+rho1+UG1+UG2+TG1+TG2+PGG+GENDER+humanities+stem, data=data)
+pR2(model19)
+model20<- glm(donated~SRAtotal+GENDER+humanities+stem, data=data)
+pR2(model20)
+model21<-glm(donated~SRAmoney+GENDER+humanities+stem, data=data)
+pR2(model21)
+model22 <- glm(donated ~ alpha +rho1+ UG1 + UG2 + TG1 + TG2 + PGG + SRAtotal+GENDER+humanities+stem, data=data)
+pR2(model22)
+model23 <- glm(donated ~ alpha+rho1 + UG1 + UG2 + TG1 + TG2 + PGG + SRAmoney+GENDER+humanities+stem, data=data)
+pR2(model23)
+
 summary(model19)
 
 stargazer(model12, model13, model14, model15, model16, model17,model18,model19,model20,model21,model22,model23, type="latex",
           dep.var.labels=c("Donated"),
           covariate.labels=c("Alpha", "Rho","Ultimatum1", "Ultimatum2", "Trust1", 
                              "Trust2", "Cooperation","SRAtotal", "SRAmoney",
-                             "2017", "2016", "2015", "2014", "2013", "Female", "Humanities", "STEM"))
+                             "Female", "Humanities", "STEM"))
 
 
 
@@ -958,13 +1016,13 @@ mse21<-mean(model21$residuals^2)
 mse22<-mean(model22$residuals^2)
 
 #Best subset model selection with R
-data1<-data[,c("donations", "alpha","rho1", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+data1<-data[,c("don", "alpha","rho1", "sigma", "UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
                "SRAtotal", "SRAmoney")]
-data2<-data[,c("donations", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+data2<-data[,c("don", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRA1", "SRA2","SRA3", "SRA4", "SRA5", "SRA6", "SRA7", "SRA8", "SRA9", "SRA10",
                "SRAtotal", "SRAmoney")]
-data3<-data[,c("donations", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
+data3<-data[,c("don", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRAtotal", "SRAmoney")]
 data4<-data[,c("donated", "alpha","UG1", "UG2", "TG1", "TG2","avgreturn","PGG",
                "SRAtotal", "SRAmoney")]
@@ -1061,9 +1119,9 @@ pR2(best.model.log2)
 
 
 lbw.for.glm<-within(data1, {
-  y<-donations
+  y<-don
   sigma<-NULL
-  donations<-NULL
+  don<-NULL
   SRAtotal<-NULL
   SRAmoney<-NULL
   #   SRA1<-NULL
@@ -1091,26 +1149,26 @@ best.model.lm1<-vglm(donations~rho,data=data, tobit(Lower=0,Upper=50))
 
 summary(censReg(donations~rho, data=data, left=0, right=50))
 
-best.model.lm1<-lm(donations~UG1+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
-best.model.lm2<-lm(donations~UG1+UG2+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
+best.model.lm1<-lm(don~UG1+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
+best.model.lm2<-lm(don~UG1+UG2+TG2+SRA3+SRA4+SRA5+SRA6, data=data)
 best.model.lm3<-lm(donations~UG1+TG2+SRA1+SRA3+SRA4+SRA5+SRA6, data=data)
 best.model.lm4<-lm(donations~UG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6, data=data)
 best.model.lm5<-lm(donations~UG1+TG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6, data=data)
 
 
 
-best.model.lm1<-lm(donations~UG1+TG2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
-best.model.lm2<-lm(donations~UG1+UG2+TG2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
-best.model.lm3<-lm(donations~UG1+TG2+SRA1+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
-best.model.lm4<-lm(donations~UG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
-best.model.lm5<-lm(donations~UG1+TG1+TG2+PGG+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+best.model.lm1<-lm(don~UG1+UG2+TG2+SRA2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+best.model.lm2<-lm(don~UG1+UG2+TG2+SRA1+SRA2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+best.model.lm3<-lm(don~UG1+UG2+TG1+TG2+PGG+SRA2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+best.model.lm4<-lm(don~UG1+UG2+TG2+SRA1+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
+best.model.lm5<-lm(don~UG1+UG2+TG1+TG2+SRA2+SRA3+SRA4+SRA5+SRA6+yr2017+yr2016+yr2015+yr2014+yr2013+GENDER+humanities+stem, data=data)
 
 
 
-stargazer(best.model.lm2, best.model.lm4, best.model.lm5, best.model.lm1,
-          best.model.lm3,type="latex",
-          dep.var.labels=c("Log(Donations)"),
-          covariate.labels=c("Ultimatum1","Ultimatum2", "Trust1", "Trust2","Cooperation", "SRA1", "SRA3", "SRA4", "SRA5", "SRA6",
+stargazer(best.model.lm3, best.model.lm5, best.model.lm2, best.model.lm4,
+          best.model.lm1,type="latex",
+          dep.var.labels=c("Log(Average Donations)"),
+          covariate.labels=c("Ultimatum1","Ultimatum2", "Trust1", "Trust2","Cooperation", "SRA1","SRA2", "SRA3", "SRA4", "SRA5", "SRA6",
                              "2017", "2016", "2015", "2014", "2013", "Female",
                              "Humanities", "STEM"))
 
