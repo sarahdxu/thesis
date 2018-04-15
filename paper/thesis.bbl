@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{35}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -117,13 +117,6 @@ M.~Galizzi and D.~Navarro-Martinez.
   lab-field study.
 \newblock \emph{Management Science}, 2017.
 
-\bibitem[Gneezy et~al.(2004)Gneezy, Haruvy, and Yafe]{gneezy_2004}
-U.~Gneezy, E.~Haruvy, and H.~Yafe.
-\newblock The inefficiency of splitting the bill: A lesson in institutional
-  design.
-\newblock \emph{The Economic Journal}, 114\penalty0 (495):\penalty0 265--280,
-  2004.
-
 \bibitem[Goeschl et~al.(2015)Goeschl, Kettner, Lohse, and
   Schwieren]{goeschl_2015}
 T.~Goeschl, S.~Kettner, J.~Lohse, and C.~Schwieren.
@@ -138,12 +131,6 @@ M.~Gurven and J.~Winking.
 \newblock \emph{American Anthropologist}, 110\penalty0 (2):\penalty0 179--190,
   2008.
 
-\bibitem[Hermann et~al.(2008)Hermann, Thoni, and
-  Gachter]{hermann_thoni_gachter_2008}
-B.~Hermann, C.~Thoni, and S.~Gachter.
-\newblock Anti-social punishment across societies.
-\newblock \emph{Science}, 319:\penalty0 1362--1367, 2008.
-
 \bibitem[Hill and Gurven(2004)]{hill_gurven_2004}
 K.~Hill and M.~Gurven.
 \newblock Economic experiments to examine fairness and cooperation among the
@@ -155,6 +142,12 @@ E.~Hoffman, K.~Mccabe, K.~Shachat, and V.~Smith.
 \newblock Preferences, property rights, and anonymity in bargaining games.
 \newblock \emph{Games and Economic Behavior}, 7\penalty0 (3):\penalty0
   346--380, 1994.
+
+\bibitem[Kahneman et~al.(1986)Kahneman, Knetsch, and Thaler]{kahneman_1986}
+D.~Kahneman, J.~Knetsch, and R.~Thaler.
+\newblock Fairness as a constraint on profit seeking: Entitlements in the
+  market.
+\newblock \emph{American Economic Review}, 76:\penalty0 728--741, 1986.
 
 \bibitem[Karlan(2005)]{karlan_2005}
 D.~Karlan.
@@ -175,13 +168,6 @@ S.~Levitt and J.~List.
 \newblock \emph{Journal of Economic Perspectives}, 21\penalty0 (2):\penalty0
   153--174, 2007.
 
-\bibitem[List(2006)]{list_2006}
-J.~List.
-\newblock The behavioralist meets the market: Measuring social preferences and
-  reputation effects in actual transactions.
-\newblock \emph{Journal of Political Economy}, 114\penalty0 (51):\penalty0
-  1--37, 2006.
-
 \bibitem[Lockhart et~al.(2014)Lockhart, Taylor, Tibshirani, and
   Tibshirani]{lockhart_2014}
 J.~Lockhart, J.~Taylor, R.J. Tibshirani, and R.~Tibshirani.
@@ -194,12 +180,12 @@ C.~Mallows.
 \newblock Some comments on cp.
 \newblock \emph{Technometrics}, 15\penalty0 (4):\penalty0 661--675, 1973.
 
-\bibitem[Parco et~al.(2002)Parco, Rapoport, and
-  Stein]{parco_rapoport_stein_2002}
-J.~Parco, A.~Rapoport, and W.~Stein.
-\newblock Effects of financial incentives on the breakdown of mutual trust.
-\newblock \emph{Psychological Science}, 13\penalty0 (3):\penalty0 292--297,
-  2002.
+\bibitem[Marwell and Ames(1981)]{marwell_1981}
+G.~Marwell and R.~Ames.
+\newblock Economists free ride, does anyone else?: Experiments on the provision
+  of public goods, iv.
+\newblock \emph{Journal of Public Economics}, 15\penalty0 (3):\penalty0
+  295--310, 1981.
 
 \bibitem[Rabin(1993)]{rabin_1993}
 M.~Rabin.
