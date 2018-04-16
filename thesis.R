@@ -568,7 +568,7 @@ avgdonations<-ggplot(data=data, aes(data$don))+geom_histogram(aes(y=100*(..count
 
 
 pdf("~/Desktop/thesis/paper/images/Figure4.pdf",width=11,height=8.5)
-grid.arrange(donations,avgdonations, nrow=3)
+grid.arrange(donations,avgdonations, nrow=2)
 dev.off()
 
 data2018<-data[data$CLASS_YR==2018,]
@@ -645,15 +645,15 @@ avgtotaldonation<-ggplot(df, aes(classyr, avgtotaldonations)) + geom_bar(stat="i
 avgdonation<-ggplot(df, aes(classyr, avgdonations)) + geom_bar(stat="identity", fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Average Donation Amounts")+
-  ggtitle("Panel P: Average Donation Amount by Class Year")
+  ggtitle("Panel N: Average Donation Amount by Class Year")
 
 avgdonated<-ggplot(df, aes(classyr, donated)) + geom_bar(stat="identity", fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
   labs(x="Class Year", y="Percent Donated")+
-  ggtitle("Panel N: Percent Donated by Class Year")
+  ggtitle("Panel M: Percent Donated by Class Year")
 
 pdf("~/Desktop/thesis/paper/images/Figure6.pdf",width=11,height=8.5)
-grid.arrange(avgdonated, avgtotaldonation,avgdonation, nrow=3)
+grid.arrange(avgdonated,avgdonation, nrow=2)
 dev.off()
 library(gridExtra)
 # e<-data[data$donation>625,]

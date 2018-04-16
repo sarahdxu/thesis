@@ -2,29 +2,29 @@
 \contentsline {section}{Acknowledgements}{1}
 \contentsline {section}{Abstract}{2}
 \contentsline {section}{\numberline {1}Introduction and Literature Review}{3}
-\contentsline {section}{\numberline {2}Methods}{9}
+\contentsline {section}{\numberline {2}Methods}{10}
 \contentsline {subsection}{\numberline {2.1}Incentivized social preference games}{10}
 \contentsline {subsubsection}{\numberline {2.1.1}Generalized dictator game}{11}
 \contentsline {subsubsection}{\numberline {2.1.2}Ultimatum game}{13}
-\contentsline {subsubsection}{\numberline {2.1.3}Trust game}{14}
-\contentsline {subsubsection}{\numberline {2.1.4}Public goods game}{16}
+\contentsline {subsubsection}{\numberline {2.1.3}Trust game}{15}
+\contentsline {subsubsection}{\numberline {2.1.4}Public goods game}{17}
 \contentsline {subsubsection}{\numberline {2.1.5}Strategy Method}{17}
-\contentsline {subsubsection}{\numberline {2.1.6}Payment}{17}
-\contentsline {subsection}{\numberline {2.2}Self-reported measures of past social behaviors}{18}
-\contentsline {subsection}{\numberline {2.3}Field Measure}{18}
-\contentsline {subsubsection}{\numberline {2.3.1}Theoretical Correspondences Between Games and Donations}{19}
+\contentsline {subsubsection}{\numberline {2.1.6}Payment}{18}
+\contentsline {subsection}{\numberline {2.2}Self-reported measures of past pro-social behaviors}{18}
+\contentsline {subsection}{\numberline {2.3}Field Measure}{19}
+\contentsline {subsubsection}{\numberline {2.3.1}Theoretical Correspondences Between Games and Donations}{20}
 \contentsline {subsection}{\numberline {2.4}Participants and Sessions}{21}
-\contentsline {section}{\numberline {3}Results}{21}
+\contentsline {section}{\numberline {3}Results}{22}
 \contentsline {subsection}{\numberline {3.1}Social Preference Games}{22}
-\contentsline {subsection}{\numberline {3.2}Self-Reported Measures of Past Social Behaviors}{27}
-\contentsline {subsection}{\numberline {3.3}Donations Behavior}{27}
-\contentsline {subsection}{\numberline {3.4}External Validity of Social Preference Games}{28}
-\contentsline {subsubsection}{\numberline {3.4.1}Do the Games Explain Donations Behavior?}{28}
-\contentsline {subsubsection}{\numberline {3.4.2}Do the Games Predict Donations Behavior?}{31}
-\contentsline {section}{\numberline {4}Conclusion and Discussion}{34}
-\contentsline {section}{References}{38}
+\contentsline {subsection}{\numberline {3.2}Self-Reported Measures of Past Pro-Social Behaviors}{27}
+\contentsline {subsection}{\numberline {3.3}Donations Behavior}{28}
+\contentsline {subsection}{\numberline {3.4}External Validity of Social Preference Games}{29}
+\contentsline {subsubsection}{\numberline {3.4.1}Do the Games Explain Donations Behavior?}{29}
+\contentsline {subsubsection}{\numberline {3.4.2}Do the Games Predict Donations Behavior?}{32}
+\contentsline {section}{\numberline {4}Conclusion and Discussion}{35}
+\contentsline {section}{References}{39}
 \let \numberline \appendixnumberline 
-\contentsline {section}{\numberline {A}Figures and Tables}{42}
-\contentsline {section}{\numberline {B}Variables Definition Table}{61}
-\contentsline {section}{\numberline {C}Computerized Social Preference Games}{62}
-\contentsline {section}{\numberline {D}Self-Report Altruism (SRA) Items}{67}
+\contentsline {section}{\numberline {A}Figures and Tables}{43}
+\contentsline {section}{\numberline {B}Variables Definition Table}{62}
+\contentsline {section}{\numberline {C}Computerized Social Preference Games}{63}
+\contentsline {section}{\numberline {D}Self-Report Altruism (SRA) Items}{68}
