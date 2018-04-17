@@ -8,15 +8,15 @@
 \contentsline {subsubsection}{\numberline {2.1.2}Ultimatum game}{13}
 \contentsline {subsubsection}{\numberline {2.1.3}Trust game}{15}
 \contentsline {subsubsection}{\numberline {2.1.4}Public goods game}{17}
-\contentsline {subsubsection}{\numberline {2.1.5}Strategy Method}{17}
+\contentsline {subsubsection}{\numberline {2.1.5}Strategy Method}{18}
 \contentsline {subsubsection}{\numberline {2.1.6}Payment}{18}
 \contentsline {subsection}{\numberline {2.2}Self-reported measures of past pro-social behaviors}{19}
 \contentsline {subsection}{\numberline {2.3}Field Measure}{19}
 \contentsline {subsubsection}{\numberline {2.3.1}Theoretical Correspondences Between Games and Donations}{20}
-\contentsline {subsection}{\numberline {2.4}Participants and Sessions}{21}
+\contentsline {subsection}{\numberline {2.4}Participants and Sessions}{22}
 \contentsline {section}{\numberline {3}Results}{22}
-\contentsline {subsection}{\numberline {3.1}Social Preference Games}{22}
-\contentsline {subsection}{\numberline {3.2}Self-Reported Measures of Past Pro-Social Behaviors}{27}
+\contentsline {subsection}{\numberline {3.1}Social Preference Games}{23}
+\contentsline {subsection}{\numberline {3.2}Self-Reported Measures of Past Pro-Social Behaviors}{28}
 \contentsline {subsection}{\numberline {3.3}Donations Behavior}{28}
 \contentsline {subsection}{\numberline {3.4}External Validity of Social Preference Games}{29}
 \contentsline {subsubsection}{\numberline {3.4.1}Do the Games Explain Donations Behavior?}{29}

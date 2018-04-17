@@ -572,17 +572,18 @@ grid.arrange(donations,avgdonations, nrow=2)
 dev.off()
 
 data2018<-data[data$CLASS_YR==2018,]
-data2018$donations1[data2018$donations1>=500]<-NA
+summary(data2018$donations)
+data2018$donations[data2018$donations>=500]<-NA
 data2017<-data[data$CLASS_YR==2017,]
-data2017$donations1[data2017$donations1>=500]<-NA
+data2017$donations[data2017$donations>=500]<-NA
 data2016<-data[data$CLASS_YR==2016,]
-data2016$donations1[data2016$donations1>=400]<-NA
+data2016$donations[data2016$donations>=400]<-NA
 data2015<-data[data$CLASS_YR==2015,]
-data2015$donations1[data2015$donations1>=300]<-NA
+data2015$donations[data2015$donations>=350]<-NA
 data2014<-data[data$CLASS_YR==2014,]
-data2014$donations1[data2014$donations1>=400]<-NA
+data2014$donations[data2014$donations>=400]<-NA
 data2013<-data[data$CLASS_YR==2013,]
-data2013$donations1[data2013$donations1>=2000]<-NA
+data2013$donations[data2013$donations>=2000]<-NA
 # install.packages("ggplot2")
 # library(ggplot2)
 # donations2018<-ggplot(data2018, aes(data2018$d)) +geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
@@ -618,12 +619,12 @@ data2013$donations1[data2013$donations1>=2000]<-NA
 # summary(data$donations[data$CLASS_YR==2014])
 # summary(data$donations[data$CLASS_YR==2013])
 
-summary(data2018$donations1)
-summary(data2017$donations1)
-summary(data2016$donations1)
-summary(data2015$donations1)
-summary(data2014$donations1)
-summary(data2013$donations1)
+summary(data2018$donations)
+summary(data2017$donations)
+summary(data2016$donations)
+summary(data2015$donations)
+summary(data2014$donations)
+summary(data2013$donations)
 
 summary(data2018$donated)
 summary(data2017$donated)
@@ -633,7 +634,7 @@ summary(data2014$donated)
 summary(data2013$donated)
 
 df<-data.frame(classyr=c("2018", "2017", "2016", "2015", "2014", "2013"),
-               avgtotaldonations=c(2.779, 7.276, 11.99, 26.09, 44.02, 68.87),
+               avgtotaldonations=c(2.779, 7.276, 11.99, 31.92, 44.02, 68.87),
                avgdonations=c(2.779, 3.638, 3.997, 6.52, 8.804, 11.478),
                donated=c(0.2857, 0.6316, 0.7231, 0.6875, 0.7143, 0.9074))
 
