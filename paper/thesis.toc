@@ -18,7 +18,7 @@
 \contentsline {subsection}{\numberline {3.1}Social Preference Games}{23}
 \contentsline {subsection}{\numberline {3.2}Self-Reported Measures of Past Pro-Social Behaviors}{28}
 \contentsline {subsection}{\numberline {3.3}Donations Behavior}{28}
-\contentsline {subsection}{\numberline {3.4}External Validity of Social Preference Games}{29}
+\contentsline {subsection}{\numberline {3.4}The External Validity of Social Preference Games}{29}
 \contentsline {subsubsection}{\numberline {3.4.1}Do the Games Explain Donations Behavior?}{29}
 \contentsline {subsubsection}{\numberline {3.4.2}Do the Games Predict Donations Behavior?}{32}
 \contentsline {section}{\numberline {4}Conclusion and Discussion}{35}

@@ -540,7 +540,7 @@ d1<-data[data$donations>100,]
 
 summary(data$donation)
 donations<-ggplot(data=data, aes(data$d))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=10, fill="slategray4")+
-  labs(x="Donations", y="Percent")+scale_x_continuous(breaks=seq(0,100,10))+
+  labs(x="Total Donations", y="Percent")+scale_x_continuous(breaks=seq(0,100,10))+
   ylim(c(0,60))+
   ggtitle("Panel K: Total Donations")
 ggsave("~/Desktop/thesis/paper/images/donations.pdf", width=11, height=8.5)
@@ -561,8 +561,8 @@ data$avgdonations[data$CLASS_YR=="2013"]<-data$donations1[data$CLASS_YR=="2013"]
 data$don<-log(data$avgdonations)
 data$don[data$don==-Inf]<-NA
 avgdonations<-ggplot(data=data, aes(data$don))+geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=0.5, fill="slategray4")+
-  labs(x="Log(Average Donations)", y="Percent")+
-  ggtitle("Panel L: Log of Average Donations")
+  labs(x="Log(Average Yearly Donations)", y="Percent")+
+  ggtitle("Panel L: Log of Average Yearly Donations")
 
 
 
@@ -645,8 +645,8 @@ avgtotaldonation<-ggplot(df, aes(classyr, avgtotaldonations)) + geom_bar(stat="i
 
 avgdonation<-ggplot(df, aes(classyr, avgdonations)) + geom_bar(stat="identity", fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
-  labs(x="Class Year", y="Average Donation Amounts")+
-  ggtitle("Panel N: Average Donation Amount by Class Year")
+  labs(x="Class Year", y="Average Yearly Donation Amounts")+
+  ggtitle("Panel N: Average Yearly Donation Amount by Class Year")
 
 avgdonated<-ggplot(df, aes(classyr, donated)) + geom_bar(stat="identity", fill="slategray4") +
   #geom_histogram(aes(y=100*(..count..)/sum(..count..)), binwidth=5)+
